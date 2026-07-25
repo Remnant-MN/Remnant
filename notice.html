@@ -2,14 +2,139 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>공지사항 | POST HUMAN</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0f;
+      color: #f5f5f5;
+    }
+
+    .container {
+      width: min(900px, 90%);
+      margin: 0 auto;
+      padding: 60px 0;
+    }
+
+    .top {
+      margin-bottom: 40px;
+    }
+
+    .back {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back:hover {
+      color: white;
+    }
+
+    h1 {
+      margin-top: 25px;
+      font-size: 42px;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      color: #999;
+      margin-bottom: 40px;
+    }
+
+    .notice-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .notice {
+      display: block;
+      padding: 25px;
+      border: 1px solid #333;
+      border-radius: 15px;
+      background: #15151c;
+      color: white;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .notice:hover {
+      transform: translateY(-3px);
+      border-color: #777;
+      background: #1d1d26;
+    }
+
+    .notice-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .notice-date {
+      color: #888;
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      color: #777;
+      font-size: 13px;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>📌 공지사항</h1>
 
-  <h2>POST HUMAN 공식 사이트 오픈</h2>
-  <p>포스트 휴먼 멤놀 공식 사이트입니다.</p>
+  <main class="container">
 
-  <a href="index.html">← 홈으로 돌아가기</a>
+    <div class="top">
+      <a href="index.html" class="back">← 메인 홈페이지로 돌아가기</a>
+
+      <h1>공지사항</h1>
+
+      <p class="subtitle">
+        POST HUMAN 공식 공지사항입니다.
+      </p>
+    </div>
+
+    <section class="notice-list">
+
+      <a href="#" class="notice">
+        <div class="notice-title">
+          POST HUMAN 공식 사이트 오픈 안내
+        </div>
+
+        <div class="notice-date">
+          2026. 07. 25
+        </div>
+      </a>
+
+      <a href="#" class="notice">
+        <div class="notice-title">
+          멤놀 이용 안내
+        </div>
+
+        <div class="notice-date">
+          2026. 07. 25
+        </div>
+      </a>
+
+    </section>
+
+    <footer>
+      POST HUMAN OFFICIAL SITE
+    </footer>
+
+  </main>
+
 </body>
 </html>
