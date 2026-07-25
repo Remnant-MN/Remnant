@@ -9,242 +9,209 @@
 
   <title>공지사항 | POST HUMAN</title>
 
-
   <style>
 
     :root {
-
       --bg: #08080d;
-
       --panel: #11111a;
-
       --text: #f4f1ff;
-
       --muted: #a7a2b8;
-
       --accent: #a78bfa;
-
       --accent2: #6d28d9;
-
       --line: rgba(167,139,250,.22);
-
     }
 
 
     * {
-
       box-sizing: border-box;
-
       margin: 0;
-
       padding: 0;
-
     }
 
 
     body {
-
       font-family: Arial, "Noto Sans KR", sans-serif;
-
       background:
-
         radial-gradient(
-
           circle at top right,
-
           #21133c 0,
-
           var(--bg) 35%
-
         );
-
       color: var(--text);
-
       line-height: 1.6;
-
       min-height: 100vh;
-
     }
 
 
     header {
-
       background: rgba(8,8,13,.9);
-
       border-bottom: 1px solid var(--line);
-
     }
 
 
     nav {
-
       max-width: 1180px;
-
       margin: auto;
-
       padding: 18px 24px;
 
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
-      gap: 20px;
-
     }
 
 
     .logo {
-
       font-weight: 900;
-
       letter-spacing: .14em;
-
     }
 
 
     .logo span {
-
       color: var(--accent);
-
     }
 
 
     nav a {
-
       color: var(--muted);
-
       text-decoration: none;
-
     }
 
 
     nav a:hover {
-
       color: var(--text);
-
     }
 
 
     main {
-
-      max-width: 900px;
-
+      max-width: 1000px;
       margin: auto;
-
       padding: 80px 24px;
-
     }
 
 
     .page-title {
-
       font-size: 3rem;
-
       margin-bottom: 10px;
-
     }
 
 
     .subtitle {
-
       color: var(--muted);
-
       margin-bottom: 40px;
-
     }
 
 
-    .notice {
+    /* 게시판 */
 
+    .board {
+      width: 100%;
+      border-top: 2px solid var(--accent);
+      border-bottom: 1px solid var(--line);
+    }
+
+
+    .board-header,
+    .board-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 150px;
+      align-items: center;
+    }
+
+
+    .board-header {
+      padding: 16px 20px;
       background: var(--panel);
-
-      border: 1px solid var(--line);
-
-      border-radius: 16px;
-
-      padding: 24px;
-
-      margin-bottom: 18px;
-
-    }
-
-
-    .notice h2 {
-
-      margin-bottom: 8px;
-
-    }
-
-
-    .notice-date {
-
-      color: var(--accent);
-
-      font-size: .9rem;
-
-      margin-bottom: 16px;
-
-    }
-
-
-    .notice p {
-
       color: var(--muted);
+      font-weight: bold;
+      border-bottom: 1px solid var(--line);
+    }
 
-      white-space: pre-line;
 
+    .board-row {
+      padding: 20px;
+      border-bottom: 1px solid var(--line);
+      transition: .2s;
+    }
+
+
+    .board-row:hover {
+      background: rgba(167,139,250,.08);
+    }
+
+
+    .number {
+      color: var(--muted);
+      text-align: center;
+    }
+
+
+    .title a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+
+    .title a:hover {
+      color: var(--accent);
+    }
+
+
+    .date {
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
     }
 
 
     .back-button {
-
       display: inline-block;
-
       margin-top: 30px;
-
       padding: 12px 20px;
 
       border: 1px solid var(--line);
-
       border-radius: 999px;
 
       color: var(--text);
-
       text-decoration: none;
-
       background: var(--panel);
-
     }
 
 
     .back-button:hover {
-
       background: var(--accent2);
-
     }
 
 
     footer {
-
       border-top: 1px solid var(--line);
-
       text-align: center;
-
       padding: 30px;
-
       color: var(--muted);
-
     }
 
 
     @media (max-width: 760px) {
 
       .page-title {
-
         font-size: 2.2rem;
+      }
 
+
+      .board-header,
+      .board-row {
+        grid-template-columns: 50px 1fr 100px;
+      }
+
+
+      .board-header,
+      .board-row {
+        padding: 15px 10px;
+      }
+
+
+      .date {
+        font-size: .75rem;
       }
 
     }
@@ -261,7 +228,6 @@
 
     <nav>
 
-
       <div class="logo">
 
         POST <span>HUMAN</span>
@@ -274,7 +240,6 @@
         홈으로 돌아가기
 
       </a>
-
 
     </nav>
 
@@ -298,127 +263,135 @@
     </p>
 
 
-    <!-- 공지사항 1 -->
-
-    <div class="notice">
-
-      <h2>
-
-        POST HUMAN 공식 사이트 오픈
-
-      </h2>
+    <div class="board">
 
 
-      <div class="notice-date">
+      <!-- 게시판 제목 -->
 
-        2145. 01. 01
+      <div class="board-header">
 
-      </div>
+        <div class="number">
 
+          번호
 
-      <p>
-
-        POST HUMAN 공식 사이트가 오픈되었습니다.
-
-        앞으로 세계관과 캐릭터 관련 소식을 확인할 수 있습니다.
-
-      </p>
-
-    </div>
+        </div>
 
 
-    <!-- 공지사항 2 -->
+        <div class="title">
 
-    <div class="notice">
+          제목
 
-      <h2>
-
-        멤놀 활동 안내
-
-      </h2>
+        </div>
 
 
-      <div class="notice-date">
+        <div class="date">
 
-        2145. 01. 02
+          날짜
+
+        </div>
 
       </div>
 
 
-      <p>
+      <!-- 게시글 3 -->
 
-        새로운 공지사항이 등록될 예정입니다.
+      <div class="board-row">
 
-        POST HUMAN의 세계관과 캐릭터를 확인해주세요.
+        <div class="number">
 
-      </p>
+          3
 
-    </div>
-
-
-    <!-- 공지사항 3 -->
-
-    <div class="notice">
-
-      <h2>
-
-        세계관 업데이트 안내
-
-      </h2>
+        </div>
 
 
-      <div class="notice-date">
+        <div class="title">
 
-        2145. 01. 03
+          <a href="notice-3.html">
 
-      </div>
+            세계관 업데이트 안내
 
+          </a>
 
-      <p>
-
-        POST HUMAN의 세계관이 업데이트되었습니다.
-
-        새로운 설정과 이야기를 확인해주세요.
-
-      </p>
-
-    </div>
+        </div>
 
 
-    <!-- 새 공지를 추가하려면 이 부분을 복사하세요 -->
+        <div class="date">
 
+          2145.01.03
 
-    <div class="notice">
-
-      <h2>
-
-        새로운 공지사항 제목
-
-      </h2>
-
-
-      <div class="notice-date">
-
-        2145. 01. 04
+        </div>
 
       </div>
 
 
-      <p>
+      <!-- 게시글 2 -->
 
-        여기에 새로운 공지사항 내용을 작성하세요.
+      <div class="board-row">
 
-      </p>
+        <div class="number">
+
+          2
+
+        </div>
+
+
+        <div class="title">
+
+          <a href="notice-2.html">
+
+            멤놀 활동 안내
+
+          </a>
+
+        </div>
+
+
+        <div class="date">
+
+          2145.01.02
+
+        </div>
+
+      </div>
+
+
+      <!-- 게시글 1 -->
+
+      <div class="board-row">
+
+        <div class="number">
+
+          1
+
+        </div>
+
+
+        <div class="title">
+
+          <a href="notice-1.html">
+
+            POST HUMAN 공식 사이트 오픈
+
+          </a>
+
+        </div>
+
+
+        <div class="date">
+
+          2145.01.01
+
+        </div>
+
+      </div>
+
 
     </div>
 
 
     <a
-
       href="index.html"
-
       class="back-button"
-
     >
 
       ← 메인으로 돌아가기
@@ -432,7 +405,6 @@
   <footer>
 
     © 2026 POST HUMAN.
-
     All rights reserved.
 
   </footer>
