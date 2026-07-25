@@ -133,13 +133,36 @@
       </div>
     </section>
 
-    <section id="board">
-      <h2 class="section-title">게시판</h2>
-      <p class="section-subtitle">공지사항과 활동 기록을 확인하세요.</p>
-      <div class="notice"><strong>📌 [공지] POST HUMAN 공식 사이트 오픈</strong><small>2026.07.25</small></div>
-      <div class="notice"><strong>📢 [안내] 멤놀 활동 규칙을 확인해주세요</strong><small>공지 예정</small></div>
-      <div class="notice"><strong>✦ [활동] 새로운 기록이 등록되었습니다</strong><small>업데이트 예정</small></div>
-    </section>
+    .board-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.board-button {
+  display: block;
+  padding: 24px;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: 0.2s;
+}
+
+.board-button:hover {
+  transform: translateY(-4px);
+  background: var(--panel2);
+  border-color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .board-buttons {
+    grid-template-columns: 1fr;
+  }
+}
   </main>
 
   <footer>
