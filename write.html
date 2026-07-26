@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>글쓰기 | Remnant</title>
+
+  <style>
+
+    :root {
+      --bg: #08080d;
+      --panel: #11111a;
+      --text: #f4f1ff;
+      --muted: #a7a2b8;
+      --accent: #a78bfa;
+      --accent2: #6d28d9;
+      --line: rgba(167,139,250,.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans KR", sans-serif;
+
+      background:
+        radial-gradient(
+          circle at top right,
+          #21133c 0,
+          var(--bg) 35%
+        );
+
+      color: var(--text);
+
+      line-height: 1.6;
+
+      min-height: 100vh;
+    }
+
+    /* 상단 메뉴 */
+
+    header {
+      background: rgba(8,8,13,.9);
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      max-width: 1180px;
+
+      margin: auto;
+
+      padding: 18px 24px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 900;
+
+      letter-spacing: .14em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav a {
+      color: var(--muted);
+
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    /* 본문 */
+
+    main {
+      max-width: 900px;
+
+      margin: auto;
+
+      padding: 40px 24px 80px;
+    }
+
+    /* 제목 */
+
+    .page-title {
+      margin-bottom: 25px;
+    }
+
+    .page-title h1 {
+      font-size: 2.2rem;
+    }
+
+    .page-title p {
+      color: var(--muted);
+
+      margin-top: 5px;
+    }
+
+    /* 글쓰기 박스 */
+
+    .write-box {
+      background: var(--panel);
+
+      border: 1px solid var(--line);
+
+      border-radius: 20px;
+
+      padding: 30px;
+    }
+
+    /* 입력창 */
+
+    label {
+      display: block;
+
+      margin-bottom: 8px;
+
+      color: var(--text);
+
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+
+      padding: 14px 16px;
+
+      margin-bottom: 22px;
+
+      background: #08080d;
+
+      border: 1px solid var(--line);
+
+      border-radius: 10px;
+
+      color: var(--text);
+
+      font-family: inherit;
+
+      font-size: 1rem;
+
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 350px;
+
+      resize: vertical;
+
+      line-height: 1.8;
+    }
+
+    /* 버튼 */
+
+    .buttons {
+      display: flex;
+
+      gap: 12px;
+
+      flex-wrap: wrap;
+    }
+
+    button,
+    .back-button {
+      padding: 12px 20px;
+
+      border-radius: 999px;
+
+      border: 1px solid var(--line);
+
+      color: var(--text);
+
+      background: var(--panel);
+
+      font-family: inherit;
+
+      font-size: 1rem;
+
+      text-decoration: none;
+
+      cursor: pointer;
+
+      transition: .2s;
+    }
+
+    button:hover,
+    .back-button:hover {
+      transform: translateY(-2px);
+
+      border-color: var(--accent);
+    }
+
+    .save-button {
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--accent2),
+          #4c1d95
+        );
+
+      border-color: transparent;
+    }
+
+    /* 미리보기 */
+
+    .preview {
+      margin-top: 30px;
+
+      padding-top: 30px;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .preview h2 {
+      margin-bottom: 20px;
+    }
+
+    .preview-title {
+      font-size: 1.8rem;
+
+      margin-bottom: 15px;
+
+      color: var(--text);
+    }
+
+    .preview-content {
+      color: var(--muted);
+
+      white-space: pre-line;
+
+      line-height: 1.8;
+    }
+
+    /* 하단 */
+
+    footer {
+      border-top: 1px solid var(--line);
+
+      text-align: center;
+
+      padding: 30px;
+
+      color: var(--muted);
+    }
+
+    /* 모바일 */
+
+    @media (max-width: 760px) {
+
+      main {
+        padding: 30px 18px 60px;
+      }
+
+      .write-box {
+        padding: 20px;
+      }
+
+      .page-title h1 {
+        font-size: 1.8rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <!-- 상단 메뉴 -->
+
+  <header>
+
+    <nav>
+
+      <div class="logo">
+
+        <span>Remnant</span>
+
+      </div>
+
+
+      <a href="notice.html">
+
+        공지사항
+
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- 본문 -->
+
+  <main>
+
+    <div class="page-title">
+
+      <h1>글쓰기</h1>
+
+      <p>Remnant 공지사항에 새로운 게시물을 작성합니다.</p>
+
+    </div>
+
+
+    <div class="write-box">
+
+      <form id="writeForm">
+
+        <!-- 제목 -->
+
+        <label for="title">
+
+          제목
+
+        </label>
+
+        <input
+
+          type="text"
+
+          id="title"
+
+          placeholder="게시물 제목을 입력하세요"
+
+          required
+
+        >
+
+
+        <!-- 내용 -->
+
+        <label for="content">
+
+          내용
+
+        </label>
+
+        <textarea
+
+          id="content"
+
+          placeholder="게시물 내용을 입력하세요"
+
+          required
+
+        ></textarea>
+
+
+        <!-- 버튼 -->
+
+        <div class="buttons">
+
+          <button
+
+            type="button"
+
+            class="save-button"
+
+            onclick="previewPost()"
+
+          >
+
+            미리보기
+
+          </button>
+
+
+          <a
+
+            href="notice.html"
+
+            class="back-button"
+
+          >
+
+            취소
+
+          </a>
+
+        </div>
+
+      </form>
+
+
+      <!-- 미리보기 -->
+
+      <div
+
+        class="preview"
+
+        id="preview"
+
+        style="display: none;"
+
+      >
+
+        <h2>미리보기</h2>
+
+
+        <h3
+
+          class="preview-title"
+
+          id="previewTitle"
+
+        ></h3>
+
+
+        <div
+
+          class="preview-content"
+
+          id="previewContent"
+
+        ></div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- 하단 -->
+
+  <footer>
+
+    © 2026 Remnant.
+
+    All rights reserved.
+
+  </footer>
+
+
+  <script>
+
+    function previewPost() {
+
+      const title =
+        document.getElementById("title").value;
+
+      const content =
+        document.getElementById("content").value;
+
+
+      if (title.trim() === "") {
+
+        alert("제목을 입력해주세요.");
+
+        return;
+
+      }
+
+
+      if (content.trim() === "") {
+
+        alert("내용을 입력해주세요.");
+
+        return;
+
+      }
+
+
+      document.getElementById("previewTitle").textContent = title;
+
+      document.getElementById("previewContent").textContent = content;
+
+
+      document.getElementById("preview").style.display = "block";
+
+    }
+
+  </script>
+
+
+</body>
+
+</html>
