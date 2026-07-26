@@ -5,9 +5,13 @@
 
   <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <title>Remnant</title>
+  <title>Remnant 공지</title>
+
 
   <style>
 
@@ -30,26 +34,36 @@
 
 
     body {
-      font-family: Arial, "Noto Sans KR", sans-serif;
+
+      font-family:
+        Arial,
+        "Noto Sans KR",
+        sans-serif;
 
       background:
+
         radial-gradient(
+
           circle at top right,
+
           #21133c 0,
+
           var(--bg) 35%
+
         );
 
       color: var(--text);
 
-      line-height: 1.8;
-
       min-height: 100vh;
+
+      line-height: 1.8;
     }
 
 
     /* 상단 메뉴 */
 
     header {
+
       background: rgba(8,8,13,.9);
 
       border-bottom: 1px solid var(--line);
@@ -57,11 +71,12 @@
 
 
     nav {
-      max-width: 1180px;
+
+      max-width: 1000px;
 
       margin: auto;
 
-      padding: 18px 24px;
+      padding: 20px 24px;
 
       display: flex;
 
@@ -72,6 +87,7 @@
 
 
     .logo {
+
       font-weight: 900;
 
       letter-spacing: .14em;
@@ -79,11 +95,13 @@
 
 
     .logo span {
+
       color: var(--accent);
     }
 
 
     nav a {
+
       color: var(--muted);
 
       text-decoration: none;
@@ -91,24 +109,27 @@
 
 
     nav a:hover {
+
       color: var(--text);
     }
 
 
-    /* 게시물 전체 */
+    /* 본문 */
 
     main {
+
       max-width: 900px;
 
       margin: auto;
 
-      padding: 40px 24px 20px;
+      padding: 50px 24px 30px;
     }
 
 
-    /* 게시물 박스 */
+    /* 공지사항 박스 */
 
     .post {
+
       background: var(--panel);
 
       border: 1px solid var(--line);
@@ -119,23 +140,26 @@
     }
 
 
-    /* 게시물 제목 */
+    /* 제목 영역 */
 
     .post-header {
-      padding: 35px 35px 10px;
+
+      padding: 35px;
 
       border-bottom: 1px solid var(--line);
     }
 
 
     .post-title {
+
       font-size: 2.2rem;
 
-      margin: 0;
+      margin-bottom: 10px;
     }
 
 
     .post-date {
+
       color: var(--accent);
 
       font-size: .9rem;
@@ -145,50 +169,19 @@
     /* 본문 */
 
     .post-content {
-      padding: 0 35px 35px;
+
+      padding: 35px;
 
       color: var(--muted);
+
+      white-space: pre-line;
     }
 
 
-    .post-content p {
-      margin: 0;
-    }
-
-
-    /* 필요한 부분만 띄우기 */
-
-    .notice-start {
-      margin-top: 20px !important;
-    }
-
-
-    .section-title {
-      margin-top: 30px !important;
-
-      color: var(--text);
-
-      font-weight: bold;
-    }
-
-
-    .sub-section {
-      margin-top: 20px !important;
-    }
-
-
-    /* 구분선 */
-
-    .divider {
-      margin: 30px 0;
-
-      color: var(--accent);
-    }
-
-
-    /* 돌아가기 버튼 */
+    /* 목록으로 돌아가기 */
 
     .back-button {
+
       display: inline-block;
 
       margin-top: 30px;
@@ -204,17 +197,23 @@
       text-decoration: none;
 
       background: var(--panel);
+
+      transition: .2s;
     }
 
 
     .back-button:hover {
+
       background: var(--accent2);
+
+      transform: translateY(-2px);
     }
 
 
     /* 하단 */
 
     footer {
+
       border-top: 1px solid var(--line);
 
       text-align: center;
@@ -222,6 +221,8 @@
       padding: 30px;
 
       color: var(--muted);
+
+      margin-top: 30px;
     }
 
 
@@ -229,18 +230,22 @@
 
     @media (max-width: 760px) {
 
+
       .post-title {
+
         font-size: 1.7rem;
       }
 
 
       .post-header {
-        padding: 35px 20px 10px;
+
+        padding: 25px 20px;
       }
 
 
       .post-content {
-        padding: 0 20px 20px;
+
+        padding: 25px 20px;
       }
 
     }
@@ -259,6 +264,7 @@
 
     <nav>
 
+
       <div class="logo">
 
         <span>Remnant</span>
@@ -268,18 +274,20 @@
 
       <a href="notice.html">
 
-        Remnant 공지
+        공지사항
 
       </a>
+
 
     </nav>
 
   </header>
 
 
-  <!-- 게시물 -->
+  <!-- 본문 -->
 
   <main>
+
 
     <article class="post">
 
@@ -288,310 +296,161 @@
 
       <div class="post-header">
 
+
         <h1 class="post-title">
 
           Remnant 공지
 
         </h1>
 
+
+        <div class="post-date">
+
+          2026년
+
+        </div>
+
+
       </div>
 
 
-      <!-- 본문 -->
+      <!-- 공지 내용 -->
 
       <div class="post-content">
 
+입장 후 공지 숙지 및 30분 이내 프로필 착용부탁드립니다.
+미착용 시 제명 후 30분 뒤 해제됩니다.
 
-        <!-- 공지사항 시작 -->
 
-        <p class="notice-start">
 
-          공지 사항
+1. 프로필 안내
 
-        </p>
+닉네임 양식
+[조직 직급 나이 이름 코드네임]
 
+ex) P 영속체 BAAL 38
 
-        <p class="sub-section">
+→ 직급 다음 코드네임은 기입 후 임관 이름은 상태 메시지에 기입 부탁드립니다.
 
-          입장 후 공지 숙지 및 30분 이내 프로필 착용 부탁드립니다.<br>
 
-          미착용 시 제명 후 30분 뒤 해제됩니다.
+→ 홈페이지 또는 포스타입링크
 
-        </p>
 
+2. 임관 안내
 
-        <!-- 1번 -->
+→ 임관은 국내 활동 배우, 아이돌로 한정됩니다.
+→ 사회적 논란으로 인하여 활동 중단된 임관 및 미성년자, 연습생 임관 착용 불가합니다.
+→ 임관 나이는 2026 한국 기준 20세에서 45세까지 허용됩니다.
+→ 임관 및 직책 변경은 입장 후 한 번으로 제한, 변경 시 운영진 ***에게 일대일 문의 후 답변 확인이 되면 변경 가능합니다.
+→ 임관 및 직책 변경권 추가 획득 방법은 필수 입장 부속 방 공지 참고 부탁드립니다.
 
-        <p class="section-title">
 
-          1. 프로필 안내
+3. 필수 절차 안내
 
-        </p>
+→ 여성 인증(실제 성별) 절차 후 활동 가능합니다.
+→ 인증 방식은 운영진의 일대일에 10분 이내 음성 메시지로 현재 시간 전송해야 하며, 미인증 시 제명됩니다.
+(출처: Acanthus vs Daisy 조직 방)
+(음성 메시지로 판단이 안 될 경우, 운영진의 질문이 있을 수 있음)
+(일대일 음성 메시지 확인 후, 삭제(모두에게서 삭제) 바람)
 
 
-        <p class="sub-section">
+4. 대화 안내
 
-          닉네임 양식<br>
+→ 심한 비속어 및 조롱, 무례한 언행 자제 바랍니다.
+→ 문체와 호칭은 임관 나이 기준 사용, 편한 문체 및 호칭은 당사자와 합의 후 사용 가능합니다.
+(임관 나이에 맞지 않은 문체 혹은 호칭 사용 시, 운영진의 제재가 있을 수 있습니다.)
+→ 갈등 및 불화는 당사자끼리 개인적으로 해결하오나, 도움 필요할 시 운영진 호출 부탁드립니다.
+→ 과도한 애교 및 맞춤법 파괴, 언붕과 노띄는 지양하며, 과도할 시 운영진의 경고가 있을 수 있습니다.
+→ 소수 인원만 아는 대화를 단체까지 끌고 오는 행위는 금지하며, 과도할 시 운영진 제재 있을 수 있습니다. 대화 참여가 어려운 인원은 운영진의 일대일 방문 부탁드립니다.
+→ 개인 정보 유출, 과도한 우울 전시 및 현생 전시 등 분위기를 해치는 언행은 삼가주시길 바랍니다. 과도할 시 운영진 제재 및 경고가 있을 수 있습니다.
 
-          [조직 직급 나이 이름 코드네임]<br>
 
-          ex) P 영속체 BAAL 38<br><br>
+5. 기타 안내
 
-          → 직급 다음 코드네임은 기입 후 임관 이름은 상태 메시지에 기입 부탁드립니다.<br><br>
+→ 경고는 총 3번으로, 이를 넘길 시 제명됩니다.
+→ 도금을 포함한 일시적인 퇴장 시, 운영진 ***의 일대일 문의 해주시고 확인 후 퇴장 부탁드립니다.
+(퇴장 사유와 복귀 날짜를 명확히 설명)
+→ 필수 부속 방은 필히 입장 바랍니다.
+(과몰입 푸슝 및 큐리어스, 포스타입 안내는 필수 부속 방 공지 참고)
 
-          → 홈페이지 또는 포스타입 링크
 
-        </p>
+__________
 
 
-        <!-- 2번 -->
+→ 직책설명포스타입링크
 
-        <p class="section-title">
 
-          2. 임관 안내
+H.I.A
 
-        </p>
+최고집정관 (0/1):
+대심판관 (0/1):
+총감독관 (0/2):
+집행총관 (0/2):
+순수성 감사관 (0/2):
+상급 집행관 (0/2):
+감시관 (0/2)
+심문관 (0/2):
+집행관 (0/2):
+순수병 (0/2):
+보조 감시원 (0/2):
 
 
-        <p class="sub-section">
+P.H.A.F
 
-          → 임관은 국내 활동 배우, 아이돌로 한정됩니다.<br>
+영속체 (1/1): 이학주
+중첩체 (1/1): 최 산
+설계체 (0/2):
+전략체 (0/2):
+해방체 (0/2):
+초개체 (0/2):
+전이체 (0/2):
+합성체 (0/2):
+각성체 (0/2):
+연결체 (0/2):
+잔존체 (0/2):
 
-          → 사회적 논란으로 인하여 활동 중단된 임관 및 미성년자, 연습생 임관 착용 불가합니다.<br>
 
-          → 임관 나이는 2026 한국 기준 20세에서 45세까지 허용됩니다.<br>
+__________
 
-          → 임관 및 직책 변경은 입장 후 한 번으로 제한됩니다.<br>
 
-          → 변경 시 운영진 ***에게 일대일 문의 후 답변 확인이 되면 변경 가능합니다.<br>
+【 필수 부속 방 안내 】
 
-          → 임관 및 직책 변경권 추가 획득 방법은 필수 입장 부속 방 공지 참고 부탁드립니다.
+세계관 캐해 및 서사 방 (필수 입장)
+→
 
-        </p>
 
+【 문의 및 대신 전해드립니다 】
 
-        <!-- 3번 -->
+문의 (본인의 신분을 밝힌 후 사용)
+→
 
-        <p class="section-title">
+대신 전해드립니다
+→
 
-          3. 필수 절차 안내
 
-        </p>
+__________
 
 
-        <p class="sub-section">
+도금 리스트
 
-          → 여성 인증(실제 성별) 절차 후 활동 가능합니다.<br>
-
-          → 인증 방식은 운영진의 일대일에 10분 이내 음성 메시지로 현재 시간 전송해야 하며, 미인증 시 제명됩니다.<br>
-
-          (출처: Acanthus vs Daisy 조직 방)<br>
-
-          (음성 메시지로 판단이 안 될 경우, 운영진의 질문이 있을 수 있음)<br>
-
-          (일대일 음성 메시지 확인 후, 삭제(모두에게서 삭제) 바람)
-
-        </p>
-
-
-        <!-- 4번 -->
-
-        <p class="section-title">
-
-          4. 대화 안내
-
-        </p>
-
-
-        <p class="sub-section">
-
-          → 심한 비속어 및 조롱, 무례한 언행 자제 바랍니다.<br>
-
-          → 문체와 호칭은 임관 나이 기준 사용합니다.<br>
-
-          → 편한 문체 및 호칭은 당사자와 합의 후 사용 가능합니다.<br>
-
-          → 갈등 및 불화는 당사자끼리 개인적으로 해결하오나, 도움 필요할 시 운영진 호출 부탁드립니다.<br>
-
-          → 과도한 애교 및 맞춤법 파괴, 언붕과 노띄는 지양합니다.<br>
-
-          → 소수 인원만 아는 대화를 단체까지 끌고 오는 행위는 금지합니다.<br>
-
-          → 개인 정보 유출, 과도한 우울 전시 및 현생 전시 등 분위기를 해치는 언행은 삼가주시길 바랍니다.
-
-        </p>
-
-
-        <!-- 5번 -->
-
-        <p class="section-title">
-
-          5. 기타 안내
-
-        </p>
-
-
-        <p class="sub-section">
-
-          → 경고는 총 3번으로, 이를 넘길 시 제명됩니다.<br>
-
-          → 도금을 포함한 일시적인 퇴장 시 운영진 ***의 일대일 문의 해주시고 확인 후 퇴장 부탁드립니다.<br>
-
-          → 퇴장 사유와 복귀 날짜를 명확히 설명해주시기 바랍니다.<br>
-
-          → 필수 부속 방은 필히 입장 바랍니다.<br>
-
-          (과몰입 푸슝 및 큐리어스, 포스타입 안내는 필수 부속 방 공지 참고)
-
-        </p>
-
-
-        <div class="divider">
-
-          ━━━━━━━━━━━━━━━━━━
-
-        </div>
-
-
-        <p class="section-title">
-
-          직책 설명 포스타입 링크
-
-        </p>
-
-
-        <p class="sub-section">
-
-          P.H.A.F<br><br>
-
-          영속체 (1/1): 이학주<br>
-
-          중첩체 (1/1): 최 산<br>
-
-          설계체 (0/2):<br>
-
-          전략체 (0/2):<br>
-
-          해방체 (0/2):<br>
-
-          초개체 (0/2):<br>
-
-          전이체 (0/2):<br>
-
-          합성체 (0/2):<br>
-
-          각성체 (0/2):<br>
-
-          연결체 (0/2):<br>
-
-          잔존체 (0/2):
-
-        </p>
-
-
-        <p class="sub-section">
-
-          H.I.A<br><br>
-
-          최고집정관 (0/1):<br>
-
-          대심판관 (0/1):<br>
-
-          총감독관 (0/2):<br>
-
-          집행총관 (0/2):<br>
-
-          순수성 감사관 (0/2):<br>
-
-          상급 집행관 (0/2):<br>
-
-          감시관 (0/2):<br>
-
-          심문관 (0/2):<br>
-
-          집행관 (0/2):<br>
-
-          순수병 (0/2):<br>
-
-          보조 감시원 (0/2):
-
-        </p>
-
-
-        <div class="divider">
-
-          ━━━━━━━━━━━━━━━━━━
-
-        </div>
-
-
-        <p class="section-title">
-
-          【 필수 부속 방 안내 】
-
-        </p>
-
-
-        <p class="sub-section">
-
-          세계관 캐해 및 서사 방 (필수 입장)<br>
-
-          →
-
-        </p>
-
-
-        <p class="section-title">
-
-          【 문의 및 대신 전해드립니다 】
-
-        </p>
-
-
-        <p class="sub-section">
-
-          문의<br>
-
-          (본인의 신분을 밝힌 후 사용)<br>
-
-          →<br><br>
-
-          대신 전해드립니다<br>
-
-          →
-
-        </p>
-
-
-        <div class="divider">
-
-          ━━━━━━━━━━━━━━━━━━
-
-        </div>
-
-
-        <p class="section-title">
-
-          도금 리스트
-
-        </p>
-
-
-        <p class="sub-section">
-
-          커플 리스트
-
-        </p>
+커플 리스트
 
 
       </div>
+
 
     </article>
 
 
     <!-- 목록으로 돌아가기 -->
 
-    <a href="notice.html" class="back-button">
+    <a
+
+      href="notice.html"
+
+      class="back-button"
+
+    >
 
       ← 공지사항 목록으로 돌아가기
 
@@ -605,9 +464,12 @@
 
   <footer>
 
+
     © 2026 Remnant.
 
+
     All rights reserved.
+
 
   </footer>
 
