@@ -31,6 +31,7 @@
 
 
     body {
+
       font-family: Arial, "Noto Sans KR", sans-serif;
 
       background:
@@ -42,15 +43,16 @@
 
       color: var(--text);
 
-      line-height: 1.6;
-
       min-height: 100vh;
+
+      line-height: 1.6;
     }
 
 
     /* 상단 메뉴 */
 
     header {
+
       background: rgba(8,8,13,.9);
 
       border-bottom: 1px solid var(--line);
@@ -58,6 +60,7 @@
 
 
     nav {
+
       max-width: 1000px;
 
       margin: auto;
@@ -73,6 +76,7 @@
 
 
     .logo {
+
       font-weight: 900;
 
       letter-spacing: .14em;
@@ -80,11 +84,13 @@
 
 
     .logo span {
+
       color: var(--accent);
     }
 
 
     nav a {
+
       color: var(--muted);
 
       text-decoration: none;
@@ -92,6 +98,7 @@
 
 
     nav a:hover {
+
       color: var(--text);
     }
 
@@ -99,68 +106,67 @@
     /* 본문 */
 
     main {
-      max-width: 1000px;
+
+      max-width: 900px;
 
       margin: auto;
 
-      padding: 40px 24px 60px;
+      padding: 40px 24px;
     }
 
 
-    .page-title {
-      font-size: 2.2rem;
+    .notice-header {
 
-      margin-bottom: 10px;
-    }
+      display: flex;
 
+      justify-content: space-between;
 
-    .page-subtitle {
-      color: var(--muted);
+      align-items: center;
 
       margin-bottom: 25px;
+
+      gap: 20px;
+    }
+
+
+    .notice-header h1 {
+
+      font-size: 2.2rem;
     }
 
 
     /* 글쓰기 버튼 */
 
-    .notice-top {
-      display: flex;
-
-      justify-content: flex-end;
-
-      margin-bottom: 20px;
-    }
-
-
     .write-button {
+
       display: inline-block;
 
       padding: 12px 20px;
 
-      border-radius: 999px;
-
       background: var(--accent2);
 
-      color: var(--text);
+      color: white;
 
       text-decoration: none;
 
-      border: 1px solid var(--line);
+      border-radius: 999px;
 
       transition: .2s;
     }
 
 
     .write-button:hover {
-      background: var(--accent);
 
       transform: translateY(-2px);
+
+      opacity: .85;
     }
 
 
-    /* 공지사항 목록 */
+    /* 공지 목록 */
 
     .notice-list {
+
       display: flex;
 
       flex-direction: column;
@@ -170,13 +176,8 @@
 
 
     .notice-item {
-      display: flex;
 
-      justify-content: space-between;
-
-      align-items: center;
-
-      gap: 20px;
+      display: block;
 
       padding: 22px 25px;
 
@@ -184,72 +185,56 @@
 
       border: 1px solid var(--line);
 
-      border-radius: 16px;
-
-      text-decoration: none;
+      border-radius: 15px;
 
       color: var(--text);
+
+      text-decoration: none;
 
       transition: .2s;
     }
 
 
     .notice-item:hover {
+
       transform: translateY(-3px);
 
       border-color: var(--accent);
-
-      background: #171722;
     }
 
 
     .notice-title {
-      font-size: 1.1rem;
+
+      font-size: 1.2rem;
 
       font-weight: bold;
+
+      margin-bottom: 6px;
     }
 
 
     .notice-date {
+
+      color: var(--accent);
+
+      font-size: .85rem;
+    }
+
+
+    .empty {
+
+      padding: 40px;
+
+      text-align: center;
+
       color: var(--muted);
-
-      font-size: .9rem;
-
-      white-space: nowrap;
-    }
-
-
-    /* 홈으로 돌아가기 */
-
-    .back-button {
-      display: inline-block;
-
-      margin-top: 30px;
-
-      padding: 12px 20px;
-
-      border: 1px solid var(--line);
-
-      border-radius: 999px;
-
-      color: var(--text);
-
-      text-decoration: none;
-
-      background: var(--panel);
-
-      transition: .2s;
-    }
-
-
-    .back-button:hover {
-      background: var(--accent2);
     }
 
 
     /* 하단 */
 
     footer {
+
       border-top: 1px solid var(--line);
 
       text-align: center;
@@ -257,6 +242,8 @@
       padding: 30px;
 
       color: var(--muted);
+
+      margin-top: 50px;
     }
 
 
@@ -264,32 +251,25 @@
 
     @media (max-width: 760px) {
 
-      nav {
-        padding: 18px 20px;
+      .notice-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
       }
 
 
-      main {
-        padding: 30px 20px 50px;
-      }
+      .notice-header h1 {
 
-
-      .page-title {
         font-size: 1.8rem;
       }
 
 
-      .notice-item {
-        flex-direction: column;
+      .write-button {
 
-        align-items: flex-start;
+        width: 100%;
 
-        gap: 5px;
-      }
-
-
-      .notice-date {
-        font-size: .8rem;
+        text-align: center;
       }
 
     }
@@ -317,7 +297,7 @@
 
       <a href="index.html">
 
-        홈으로
+        홈
 
       </a>
 
@@ -331,84 +311,43 @@
   <main>
 
 
-    <h1 class="page-title">
+    <div class="notice-header">
 
-      공지사항
+      <h1>
 
-    </h1>
+        공지사항
 
-
-    <p class="page-subtitle">
-
-      Remnant의 공지사항을 확인하세요.
-
-    </p>
+      </h1>
 
 
-    <!-- 글쓰기 버튼 -->
+      <!-- 글쓰기 버튼 -->
 
-    <div class="notice-top">
+      <a
 
-      <a href="write.html" class="write-button">
+        href="write.html"
 
-        ✏️ 공지 글쓰기
+        class="write-button"
+
+      >
+
+        ✏️ 글쓰기
 
       </a>
 
     </div>
 
 
-    <!-- 공지사항 목록 -->
+    <!-- 게시글 목록 -->
 
-    <div class="notice-list">
+    <div
 
+      id="noticeList"
 
-      <a href="notice-1.html" class="notice-item">
+      class="notice-list"
 
-        <span class="notice-title">
-
-          Remnant 공지
-
-        </span>
-
-
-        <span class="notice-date">
-
-          2026
-
-        </span>
-
-      </a>
-
-
-      <a href="world.html" class="notice-item">
-
-        <span class="notice-title">
-
-          Remnant 세계관 설정
-
-        </span>
-
-
-        <span class="notice-date">
-
-          2026
-
-        </span>
-
-      </a>
-
+    >
 
     </div>
-
-
-    <!-- 홈으로 돌아가기 -->
-
-    <a href="index.html" class="back-button">
-
-      ← 메인 홈페이지로 돌아가기
-
-    </a>
 
 
   </main>
@@ -423,6 +362,141 @@
     All rights reserved.
 
   </footer>
+
+
+  <script>
+
+
+    const noticeList =
+
+      document.getElementById("noticeList");
+
+
+    /*
+
+      기본 공지사항
+
+      처음 사이트에 들어왔을 때
+
+      표시되는 기본 글
+
+    */
+
+    const defaultPosts = [
+
+      {
+
+        id: "world",
+
+        title: "Remnant 세계관 설정",
+
+        date: "2026",
+
+        link: "world.html"
+
+      },
+
+      {
+
+        id: "notice",
+
+        title: "Remnant 공지",
+
+        date: "2026",
+
+        link: "notice-1.html"
+
+      }
+
+    ];
+
+
+    /*
+
+      localStorage에 저장된 글 가져오기
+
+    */
+
+    const savedPosts =
+
+      JSON.parse(
+
+        localStorage.getItem("posts")
+
+      ) || [];
+
+
+    /*
+
+      기본 글 + 새로 작성한 글
+
+    */
+
+    const allPosts = [
+
+      ...savedPosts,
+
+      ...defaultPosts
+
+    ];
+
+
+    if (allPosts.length === 0) {
+
+
+      noticeList.innerHTML = `
+
+        <div class="empty">
+
+          등록된 공지사항이 없습니다.
+
+        </div>
+
+      `;
+
+
+    } else {
+
+
+      allPosts.forEach(function(post) {
+
+
+        const item = document.createElement("a");
+
+
+        item.className = "notice-item";
+
+
+        item.href = post.link || "#";
+
+
+        item.innerHTML = `
+
+          <div class="notice-title">
+
+            ${post.title}
+
+          </div>
+
+
+          <div class="notice-date">
+
+            ${post.date}
+
+          </div>
+
+        `;
+
+
+        noticeList.appendChild(item);
+
+
+      });
+
+    }
+
+
+  </script>
 
 
 </body>
