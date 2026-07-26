@@ -21,7 +21,6 @@
       --text: #f4f1ff;
       --muted: #a7a2b8;
       --accent: #a78bfa;
-      --accent2: #6d28d9;
       --line: rgba(167,139,250,.22);
     }
 
@@ -52,8 +51,6 @@
     }
 
 
-    /* 본문 */
-
     main {
 
       max-width: 900px;
@@ -63,8 +60,6 @@
       padding: 50px 24px;
     }
 
-
-    /* 게시글 박스 */
 
     .post {
 
@@ -78,8 +73,6 @@
     }
 
 
-    /* 제목 영역 */
-
     .post-header {
 
       padding: 35px;
@@ -91,12 +84,8 @@
     .post-title {
 
       font-size: 2.2rem;
-
-      line-height: 1.3;
     }
 
-
-    /* 날짜 */
 
     .post-date {
 
@@ -108,8 +97,6 @@
     }
 
 
-    /* 게시글 내용 */
-
     .post-content {
 
       padding: 35px;
@@ -117,12 +104,8 @@
       color: var(--muted);
 
       white-space: pre-line;
-
-      word-break: break-word;
     }
 
-
-    /* 돌아가기 버튼 */
 
     .back-button {
 
@@ -141,45 +124,12 @@
       text-decoration: none;
 
       background: var(--panel);
-
-      transition: .2s;
     }
 
 
     .back-button:hover {
 
-      background: var(--accent2);
-
-      transform: translateY(-2px);
-    }
-
-
-    /* 모바일 */
-
-    @media (max-width: 760px) {
-
-      main {
-
-        padding: 30px 15px;
-      }
-
-
-      .post-header {
-
-        padding: 25px 20px;
-      }
-
-
-      .post-title {
-
-        font-size: 1.7rem;
-      }
-
-
-      .post-content {
-
-        padding: 25px 20px;
-      }
+      background: var(--accent);
 
     }
 
@@ -193,16 +143,10 @@
 
   <main>
 
-
-    <!-- 게시글 -->
-
     <article class="post">
 
 
-      <!-- 제목과 날짜 -->
-
       <div class="post-header">
-
 
         <h1
           id="postTitle"
@@ -217,15 +161,10 @@
         <div
           id="postDate"
           class="post-date"
-        >
-
-        </div>
-
+        ></div>
 
       </div>
 
-
-      <!-- 본문 -->
 
       <div
         id="postContent"
@@ -240,8 +179,6 @@
     </article>
 
 
-    <!-- 공지사항 목록으로 돌아가기 -->
-
     <a
       href="notice.html"
       class="back-button"
@@ -255,7 +192,7 @@
   </main>
 
 
-  <!-- Supabase 라이브러리 -->
+  <!-- Supabase -->
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -263,9 +200,11 @@
   <script>
 
 
-    /*
-      Supabase 연결 정보
-    */
+    /* =========================
+
+       Supabase 연결
+
+    ========================= */
 
 
     const SUPABASE_URL =
@@ -289,14 +228,11 @@
       );
 
 
-    /*
-      URL에서 게시글 ID 가져오기
+    /* =========================
 
-      예시:
+       URL에서 게시글 ID 가져오기
 
-      post.html?id=게시글ID
-
-    */
+    ========================= */
 
 
     const params =
@@ -313,16 +249,15 @@
       params.get("id");
 
 
-    /*
-      게시글 불러오기
+    /* =========================
 
-    */
+       게시글 불러오기
+
+    ========================= */
 
 
     async function loadPost() {
 
-
-      /* ID가 없을 경우 */
 
       if (!postId) {
 
@@ -342,17 +277,12 @@
 
         ).textContent =
 
-          "게시글 ID가 없습니다.";
+          "URL에 게시글 ID가 없습니다.";
 
 
         return;
 
       }
-
-
-      /*
-        Supabase에서 게시글 검색
-      */
 
 
       const {
@@ -363,28 +293,57 @@
 
       } = await supabaseClient
 
-
         .from("posts")
-
 
         .select("*")
 
-
         .eq("id", postId)
 
-
-        .single();
-
-
-      /*
-        오류 처리
-      */
+        .maybeSingle();
 
 
-      if (error || !data) {
+      /* 오류 발생 */
+
+      if (error) {
 
 
-        console.error(error);
+        console.error(
+
+          "Supabase 오류:",
+
+          error
+
+        );
+
+
+        document.getElementById(
+
+          "postTitle"
+
+        ).textContent =
+
+          "게시글을 불러오지 못했습니다.";
+
+
+        document.getElementById(
+
+          "postContent"
+
+        ).textContent =
+
+          "오류 내용: " +
+
+          error.message;
+
+
+        return;
+
+      }
+
+
+      /* 게시글 없음 */
+
+      if (!data) {
 
 
         document.getElementById(
@@ -402,7 +361,7 @@
 
         ).textContent =
 
-          "삭제되었거나 존재하지 않는 게시글입니다.";
+          "해당 게시글이 존재하지 않습니다.";
 
 
         return;
@@ -410,10 +369,7 @@
       }
 
 
-      /*
-        제목 표시
-      */
-
+      /* 게시글 표시 */
 
       document.getElementById(
 
@@ -422,11 +378,6 @@
       ).textContent =
 
         data.title;
-
-
-      /*
-        본문 표시
-      */
 
 
       document.getElementById(
@@ -438,11 +389,6 @@
         data.content;
 
 
-      /*
-        작성일 표시
-      */
-
-
       if (data.created_at) {
 
 
@@ -452,24 +398,13 @@
 
         ).textContent =
 
-
           new Date(
 
             data.created_at
 
           ).toLocaleDateString(
 
-            "ko-KR",
-
-            {
-
-              year: "numeric",
-
-              month: "long",
-
-              day: "numeric"
-
-            }
+            "ko-KR"
 
           );
 
@@ -477,11 +412,6 @@
 
 
     }
-
-
-    /*
-      페이지가 열리면 게시글 불러오기
-    */
 
 
     loadPost();
