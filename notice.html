@@ -58,6 +58,8 @@
     }
 
 
+    /* 상단 메뉴 */
+
     header {
 
       background: rgba(8,8,13,.9);
@@ -116,6 +118,8 @@
     }
 
 
+    /* 본문 */
+
     main {
 
       max-width: 900px;
@@ -126,6 +130,8 @@
 
     }
 
+
+    /* 제목 + 메인 버튼 */
 
     .notice-header {
 
@@ -148,6 +154,42 @@
 
     }
 
+
+    /* 메인으로 돌아가기 버튼 */
+
+    .home-button {
+
+      display: inline-block;
+
+      padding: 12px 20px;
+
+      background: var(--panel);
+
+      border: 1px solid var(--line);
+
+      border-radius: 999px;
+
+      color: var(--text);
+
+      text-decoration: none;
+
+      transition: .2s;
+
+      white-space: nowrap;
+
+    }
+
+
+    .home-button:hover {
+
+      background: var(--accent2);
+
+      transform: translateY(-2px);
+
+    }
+
+
+    /* 공지 목록 */
 
     .notice-list {
 
@@ -221,6 +263,8 @@
     }
 
 
+    /* 하단 */
+
     footer {
 
       border-top: 1px solid var(--line);
@@ -236,7 +280,10 @@
     }
 
 
+    /* 모바일 */
+
     @media (max-width: 760px) {
+
 
       .notice-header {
 
@@ -253,6 +300,15 @@
 
       }
 
+
+      .home-button {
+
+        width: 100%;
+
+        text-align: center;
+
+      }
+
     }
 
   </style>
@@ -262,6 +318,8 @@
 
 <body>
 
+
+  <!-- 상단 메뉴 -->
 
   <header>
 
@@ -285,10 +343,15 @@
   </header>
 
 
+  <!-- 본문 -->
+
   <main>
 
 
+    <!-- 제목과 메인으로 돌아가기 버튼 -->
+
     <div class="notice-header">
+
 
       <h1>
 
@@ -296,8 +359,24 @@
 
       </h1>
 
+
+      <a
+
+        href="index.html"
+
+        class="home-button"
+
+      >
+
+        🏠 메인으로 돌아가기
+
+      </a>
+
+
     </div>
 
+
+    <!-- 게시글 목록 -->
 
     <div
 
@@ -319,6 +398,8 @@
   </main>
 
 
+  <!-- 하단 -->
+
   <footer>
 
     © 2026 Remnant.
@@ -328,31 +409,7 @@
   </footer>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
   <script>
-
-
-    const SUPABASE_URL =
-
-      "https://isqkccngkadomhsackpf.supabase.co";
-
-
-    const SUPABASE_KEY =
-
-      "여기에_네가_사용하는_정상적인_Supabase_Key";
-
-
-    const supabaseClient =
-
-      window.supabase.createClient(
-
-        SUPABASE_URL,
-
-        SUPABASE_KEY
-
-      );
 
 
     const noticeList =
@@ -366,7 +423,7 @@
 
     /*
 
-      기존에 직접 만든 고정 공지사항
+      기존 고정 공지사항
 
     */
 
@@ -397,6 +454,12 @@
 
     ];
 
+
+    /*
+
+      공지사항 하나를 만드는 함수
+
+    */
 
     function createNoticeItem(
 
@@ -471,7 +534,13 @@
     }
 
 
-    async function loadPosts() {
+    /*
+
+      공지사항 표시
+
+    */
+
+    function loadPosts() {
 
 
       noticeList.innerHTML = "";
@@ -479,120 +548,35 @@
 
       /*
 
-        1. 기존 고정 공지 표시
+        Remnant 공지
 
       */
 
+      fixedPosts.forEach(
 
-      fixedPosts.forEach(function(post) {
-
-
-        const item =
-
-          createNoticeItem(
-
-            post.title,
-
-            post.date,
-
-            post.link
-
-          );
+        function(post) {
 
 
-        noticeList.appendChild(item);
+          const item =
 
-      });
+            createNoticeItem(
 
+              post.title,
 
-      /*
+              post.date,
 
-        2. Supabase 게시글 불러오기
+              post.link
 
-      */
-
-
-      const {
-
-        data,
-
-        error
-
-      } = await supabaseClient
-
-        .from("posts")
-
-        .select("*")
-
-        .order(
-
-          "created_at",
-
-          {
-
-            ascending: false
-
-          }
-
-        );
+            );
 
 
-      if (error) {
+          noticeList.appendChild(item);
 
 
-        console.error(
+        }
 
-          "Supabase 오류:",
+      );
 
-          error
-
-        );
-
-
-        return;
-
-      }
-
-
-      if (!data) {
-
-        return;
-
-      }
-
-
-      data.forEach(function(post) {
-
-
-        const date =
-
-          new Date(
-
-            post.created_at
-
-          ).toLocaleDateString(
-
-            "ko-KR"
-
-          );
-
-
-        const item =
-
-          createNoticeItem(
-
-            post.title,
-
-            date,
-
-            `post.html?id=${post.id}`
-
-          );
-
-
-        noticeList.appendChild(item);
-
-      });
 
     }
 
