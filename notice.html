@@ -16,20 +16,32 @@
   <style>
 
     :root {
+
       --bg: #08080d;
+
       --panel: #11111a;
+
       --text: #f4f1ff;
+
       --muted: #a7a2b8;
+
       --accent: #a78bfa;
+
       --accent2: #6d28d9;
+
       --line: rgba(167,139,250,.22);
+
     }
 
 
     * {
+
       box-sizing: border-box;
+
       margin: 0;
+
       padding: 0;
+
     }
 
 
@@ -58,7 +70,9 @@
     }
 
 
-    /* 상단 메뉴 */
+    /* =========================
+       상단 메뉴
+    ========================= */
 
     header {
 
@@ -102,68 +116,9 @@
     }
 
 
-    nav a {
-
-      color: var(--muted);
-
-      text-decoration: none;
-
-    }
-
-
-    nav a:hover {
-
-      color: var(--text);
-
-    }
-
-
-    /* 본문 */
-
-    main {
-
-      max-width: 900px;
-
-      margin: auto;
-
-      padding: 50px 24px;
-
-    }
-
-
-    /* 제목 + 메인 버튼 */
-
-    .notice-header {
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      margin-bottom: 25px;
-
-      gap: 20px;
-
-    }
-
-
-    .notice-header h1 {
-
-      font-size: 2.2rem;
-
-    }
-
-
-    /* 메인으로 돌아가기 버튼 */
-
     .home-button {
 
-      display: inline-block;
-
-      padding: 12px 20px;
-
-      background: var(--panel);
+      padding: 10px 18px;
 
       border: 1px solid var(--line);
 
@@ -173,9 +128,9 @@
 
       text-decoration: none;
 
-      transition: .2s;
+      background: var(--panel);
 
-      white-space: nowrap;
+      transition: .2s;
 
     }
 
@@ -184,77 +139,197 @@
 
       background: var(--accent2);
 
-      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       본문
+    ========================= */
+
+    main {
+
+      max-width: 1000px;
+
+      margin: auto;
+
+      padding: 50px 24px;
 
     }
 
 
-    /* 공지 목록 */
-
-    .notice-list {
+    .board-header {
 
       display: flex;
 
-      flex-direction: column;
+      justify-content: space-between;
 
-      gap: 15px;
+      align-items: center;
+
+      margin-bottom: 25px;
 
     }
 
 
-    .notice-item {
+    .board-header h1 {
 
-      display: block;
+      font-size: 2.2rem;
 
-      padding: 22px 25px;
+    }
 
-      background: var(--panel);
 
-      border: 1px solid var(--line);
+    /* 글쓰기 버튼 */
 
-      border-radius: 15px;
+    .write-button {
 
-      color: var(--text);
+      display: inline-block;
+
+      padding: 11px 18px;
+
+      background: var(--accent2);
+
+      color: white;
 
       text-decoration: none;
+
+      border-radius: 999px;
 
       transition: .2s;
 
     }
 
 
-    .notice-item:hover {
+    .write-button:hover {
 
-      transform: translateY(-3px);
+      opacity: .85;
 
-      border-color: var(--accent);
+      transform: translateY(-2px);
 
     }
 
 
-    .notice-title {
+    /* =========================
+       게시판
+    ========================= */
 
-      font-size: 1.2rem;
+    .board {
+
+      background: var(--panel);
+
+      border: 1px solid var(--line);
+
+      border-radius: 16px;
+
+      overflow: hidden;
+
+    }
+
+
+    .board-row {
+
+      display: grid;
+
+      grid-template-columns: 80px 1fr 140px;
+
+      align-items: center;
+
+      min-height: 62px;
+
+      border-bottom: 1px solid var(--line);
+
+    }
+
+
+    .board-row:last-child {
+
+      border-bottom: none;
+
+    }
+
+
+    .board-row > div {
+
+      padding: 15px 20px;
+
+    }
+
+
+    /* 게시판 제목 */
+
+    .board-head {
+
+      color: var(--muted);
+
+      font-size: .9rem;
 
       font-weight: bold;
 
-      margin-bottom: 6px;
+      background: rgba(167,139,250,.06);
 
     }
 
 
-    .notice-date {
+    /* 번호 */
+
+    .post-number {
+
+      text-align: center;
+
+      color: var(--muted);
+
+      font-size: .9rem;
+
+    }
+
+
+    /* 제목 */
+
+    .post-title {
+
+      color: var(--text);
+
+      text-decoration: none;
+
+      font-weight: bold;
+
+      word-break: break-word;
+
+    }
+
+
+    .post-title:hover {
 
       color: var(--accent);
 
-      font-size: .85rem;
+    }
+
+
+    /* 날짜 */
+
+    .post-date {
+
+      color: var(--muted);
+
+      font-size: .9rem;
+
+      text-align: center;
 
     }
 
 
+    /* 마우스 효과 */
+
+    .post-row:hover {
+
+      background: rgba(167,139,250,.06);
+
+    }
+
+
+    /* 비어있을 때 */
+
     .empty {
 
-      padding: 40px;
+      padding: 60px 20px;
 
       text-align: center;
 
@@ -263,7 +338,22 @@
     }
 
 
-    /* 하단 */
+    /* 오류 */
+
+    .error {
+
+      padding: 60px 20px;
+
+      text-align: center;
+
+      color: #ff8a8a;
+
+    }
+
+
+    /* =========================
+       하단
+    ========================= */
 
     footer {
 
@@ -280,32 +370,71 @@
     }
 
 
-    /* 모바일 */
+    /* =========================
+       모바일
+    ========================= */
 
     @media (max-width: 760px) {
 
 
-      .notice-header {
+      main {
+
+        padding: 35px 15px;
+
+      }
+
+
+      .board-header {
 
         flex-direction: column;
 
         align-items: flex-start;
 
+        gap: 18px;
+
       }
 
 
-      .notice-header h1 {
+      .board-header h1 {
 
         font-size: 1.8rem;
 
       }
 
 
-      .home-button {
+      .write-button {
 
         width: 100%;
 
         text-align: center;
+
+      }
+
+
+      .board-row {
+
+        grid-template-columns: 50px 1fr 95px;
+
+      }
+
+
+      .board-row > div {
+
+        padding: 13px 8px;
+
+      }
+
+
+      .post-date {
+
+        font-size: .75rem;
+
+      }
+
+
+      .post-number {
+
+        font-size: .8rem;
 
       }
 
@@ -319,11 +448,14 @@
 <body>
 
 
-  <!-- 상단 메뉴 -->
+  <!-- =========================
+       상단 메뉴
+  ========================= -->
 
   <header>
 
     <nav>
+
 
       <div class="logo">
 
@@ -332,25 +464,32 @@
       </div>
 
 
-      <a href="index.html">
+      <a
 
-        Remnant
+        href="index.html"
+
+        class="home-button"
+
+      >
+
+        메인 화면으로 돌아가기
 
       </a>
+
 
     </nav>
 
   </header>
 
 
-  <!-- 본문 -->
+  <!-- =========================
+       게시판
+  ========================= -->
 
   <main>
 
 
-    <!-- 제목과 메인으로 돌아가기 버튼 -->
-
-    <div class="notice-header">
+    <div class="board-header">
 
 
       <h1>
@@ -362,13 +501,12 @@
 
       <a
 
-        href="index.html"
+        href="write.html"
 
-        class="home-button"
+        class="write-button"
 
       >
 
-        🏠 메인으로 돌아가기
 
       </a>
 
@@ -376,15 +514,16 @@
     </div>
 
 
-    <!-- 게시글 목록 -->
-
     <div
 
-      id="noticeList"
+      id="board"
 
-      class="notice-list"
+      class="board"
 
     >
+
+
+      <!-- 게시글이 여기에 표시됨 -->
 
       <div class="empty">
 
@@ -392,13 +531,16 @@
 
       </div>
 
+
     </div>
 
 
   </main>
 
 
-  <!-- 하단 -->
+  <!-- =========================
+       하단
+  ========================= -->
 
   <footer>
 
@@ -409,168 +551,224 @@
   </footer>
 
 
+  <!-- =========================
+       Supabase
+  ========================= -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
   <script>
 
 
-    const noticeList =
+    /* Supabase 설정 */
 
-      document.getElementById(
+    const SUPABASE_URL =
 
-        "noticeList"
+      "https://isqkccngkadomhsackpf.supabase.co";
+
+
+    const SUPABASE_KEY =
+
+      "여기에_현재_사용중인_Supabase_Key";
+
+
+    const supabaseClient =
+
+      window.supabase.createClient(
+
+        SUPABASE_URL,
+
+        SUPABASE_KEY
 
       );
 
 
-    /*
+    const board =
 
-      기존 고정 공지사항
+      document.getElementById(
 
-    */
+        "board"
 
-    const fixedPosts = [
-
-
-      {
-
-        title: "Remnant 공지",
-
-        date: "2026년",
-
-        link: "notice-1.html"
-
-      },
+      );
 
 
-      {
+    /* 게시글 불러오기 */
 
-        title: "Remnant 세계관 설정",
+    async function loadPosts() {
 
-        date: "2026년",
 
-        link: "notice-2.html"
+      const {
+
+        data,
+
+        error
+
+      } = await supabaseClient
+
+
+        .from("posts")
+
+
+        .select("*")
+
+
+        .order(
+
+          "created_at",
+
+          {
+
+            ascending: false
+
+          }
+
+        );
+
+
+      /* 오류 */
+
+      if (error) {
+
+
+        console.error(
+
+          error
+
+        );
+
+
+        board.innerHTML = `
+
+          <div class="error">
+
+            게시글을 불러오지 못했습니다.
+
+          </div>
+
+        `;
+
+
+        return;
 
       }
 
 
-    ];
+      /* 게시글 없음 */
 
+      if (!data || data.length === 0) {
 
-    /*
 
-      공지사항 하나를 만드는 함수
+        board.innerHTML = `
 
-    */
+          <div class="empty">
 
-    function createNoticeItem(
+            등록된 공지사항이 없습니다.
 
-      title,
+          </div>
 
-      date,
+        `;
 
-      link
 
-    ) {
+        return;
 
+      }
 
-      const item =
 
-        document.createElement("a");
+      /* 게시판 제목 */
 
+      board.innerHTML = `
 
-      item.className =
+        <div class="board-row board-head">
 
-        "notice-item";
+          <div class="post-number">
 
+            번호
 
-      item.href = link;
+          </div>
 
+          <div>
 
-      const titleElement =
+            제목
 
-        document.createElement("div");
+          </div>
 
+          <div class="post-date">
 
-      titleElement.className =
+            작성일
 
-        "notice-title";
+          </div>
 
+        </div>
 
-      titleElement.textContent =
+      `;
 
-        title;
 
+      /* 게시글 표시 */
 
-      const dateElement =
+      data.forEach(
 
-        document.createElement("div");
+        function(post, index) {
 
 
-      dateElement.className =
+          const row =
 
-        "notice-date";
+            document.createElement(
 
-
-      dateElement.textContent =
-
-        date;
-
-
-      item.appendChild(
-
-        titleElement
-
-      );
-
-
-      item.appendChild(
-
-        dateElement
-
-      );
-
-
-      return item;
-
-    }
-
-
-    /*
-
-      공지사항 표시
-
-    */
-
-    function loadPosts() {
-
-
-      noticeList.innerHTML = "";
-
-
-      /*
-
-        Remnant 공지
-
-      */
-
-      fixedPosts.forEach(
-
-        function(post) {
-
-
-          const item =
-
-            createNoticeItem(
-
-              post.title,
-
-              post.date,
-
-              post.link
+              "div"
 
             );
 
 
-          noticeList.appendChild(item);
+          row.className =
+
+            "board-row post-row";
+
+
+          row.innerHTML = `
+
+            <div class="post-number">
+
+              ${data.length - index}
+
+            </div>
+
+
+            <div>
+
+              <a
+
+                href="post.html?id=${post.id}"
+
+                class="post-title"
+
+              >
+
+                ${post.title}
+
+              </a>
+
+            </div>
+
+
+            <div class="post-date">
+
+              ${new Date(
+
+                post.created_at
+
+              ).toLocaleDateString(
+
+                "ko-KR"
+
+              )}
+
+            </div>
+
+          `;
+
+
+          board.appendChild(row);
 
 
         }
@@ -580,6 +778,8 @@
 
     }
 
+
+    /* 실행 */
 
     loadPosts();
 
