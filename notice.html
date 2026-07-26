@@ -10,7 +10,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Remnant 공지사항</title>
+  <title>공지사항</title>
 
 
   <style>
@@ -21,18 +21,14 @@
       --text: #f4f1ff;
       --muted: #a7a2b8;
       --accent: #a78bfa;
-      --accent2: #6d28d9;
       --line: rgba(167,139,250,.22);
-      --danger: #dc2626;
     }
-
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
 
     body {
 
@@ -49,61 +45,8 @@
 
       min-height: 100vh;
 
-      line-height: 1.6;
+      line-height: 1.8;
     }
-
-
-    header {
-
-      background: rgba(8,8,13,.9);
-
-      border-bottom: 1px solid var(--line);
-    }
-
-
-    nav {
-
-      max-width: 1000px;
-
-      margin: auto;
-
-      padding: 20px 24px;
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-    }
-
-
-    .logo {
-
-      font-weight: 900;
-
-      letter-spacing: .14em;
-    }
-
-
-    .logo span {
-
-      color: var(--accent);
-    }
-
-
-    nav a {
-
-      color: var(--muted);
-
-      text-decoration: none;
-    }
-
-
-    nav a:hover {
-
-      color: var(--text);
-    }
-
 
     main {
 
@@ -111,213 +54,67 @@
 
       margin: auto;
 
-      padding: 40px 24px;
+      padding: 50px 24px;
     }
 
-
-    .notice-header {
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      margin-bottom: 25px;
-
-      gap: 20px;
-    }
-
-
-    .notice-header h1 {
-
-      font-size: 2.2rem;
-    }
-
-
-    .write-button {
-
-      display: inline-block;
-
-      padding: 12px 20px;
-
-      background: var(--accent2);
-
-      color: white;
-
-      text-decoration: none;
-
-      border-radius: 999px;
-
-      transition: .2s;
-    }
-
-
-    .write-button:hover {
-
-      transform: translateY(-2px);
-
-      opacity: .85;
-    }
-
-
-    .notice-list {
-
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 15px;
-    }
-
-
-    .notice-item {
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      gap: 20px;
-
-      padding: 22px 25px;
+    .post {
 
       background: var(--panel);
 
       border: 1px solid var(--line);
 
-      border-radius: 15px;
+      border-radius: 20px;
 
-      transition: .2s;
+      overflow: hidden;
     }
 
+    .post-header {
 
-    .notice-item:hover {
+      padding: 35px;
 
-      border-color: var(--accent);
+      border-bottom: 1px solid var(--line);
     }
 
+    .post-title {
 
-    .notice-link {
+      font-size: 2.2rem;
+    }
 
-      flex: 1;
+    .post-date {
+
+      margin-top: 10px;
+
+      color: var(--accent);
+
+      font-size: .9rem;
+    }
+
+    .post-content {
+
+      padding: 35px;
+
+      color: var(--muted);
+
+      white-space: pre-line;
+    }
+
+    .back-button {
+
+      display: inline-block;
+
+      margin-top: 30px;
+
+      padding: 12px 20px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 999px;
 
       color: var(--text);
 
       text-decoration: none;
-    }
 
-
-    .notice-title {
-
-      font-size: 1.2rem;
-
-      font-weight: bold;
-
-      margin-bottom: 6px;
-    }
-
-
-    .notice-date {
-
-      color: var(--accent);
-
-      font-size: .85rem;
-    }
-
-
-    /* 삭제 버튼 */
-
-    .delete-button {
-
-      padding: 8px 14px;
-
-      border: none;
-
-      border-radius: 8px;
-
-      background: var(--danger);
-
-      color: white;
-
-      cursor: pointer;
-
-      font-size: .85rem;
-
-      transition: .2s;
-    }
-
-
-    .delete-button:hover {
-
-      opacity: .8;
-
-      transform: translateY(-2px);
-    }
-
-
-    .empty {
-
-      padding: 40px;
-
-      text-align: center;
-
-      color: var(--muted);
-    }
-
-
-    footer {
-
-      border-top: 1px solid var(--line);
-
-      text-align: center;
-
-      padding: 30px;
-
-      color: var(--muted);
-
-      margin-top: 50px;
-    }
-
-
-    @media (max-width: 760px) {
-
-      .notice-header {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-      }
-
-
-      .notice-header h1 {
-
-        font-size: 1.8rem;
-      }
-
-
-      .write-button {
-
-        width: 100%;
-
-        text-align: center;
-      }
-
-
-      .notice-item {
-
-        align-items: flex-start;
-
-        flex-direction: column;
-      }
-
-
-      .delete-button {
-
-        width: 100%;
-      }
-
+      background: var(--panel);
     }
 
   </style>
@@ -328,419 +125,158 @@
 <body>
 
 
-  <header>
+  <main>
 
-    <nav>
+    <article class="post">
 
-      <div class="logo">
+      <div class="post-header">
 
-        <span>Remnant</span>
+        <h1
+          id="postTitle"
+          class="post-title"
+        >
+          불러오는 중...
+        </h1>
+
+
+        <div
+          id="postDate"
+          class="post-date"
+        ></div>
 
       </div>
 
 
-      <a href="index.html">
-
-        홈
-
-      </a>
-
-    </nav>
-
-  </header>
-
-
-  <main>
-
-
-    <div class="notice-header">
-
-      <h1>
-
-        공지사항
-
-      </h1>
-
-
-      <a
-        href="write.html"
-        class="write-button"
+      <div
+        id="postContent"
+        class="post-content"
       >
 
-        ✏️ 글쓰기
+        게시글을 불러오는 중입니다...
 
-      </a>
+      </div>
 
-    </div>
+    </article>
 
 
-    <div
-      id="noticeList"
-      class="notice-list"
+    <a
+      href="notice.html"
+      class="back-button"
     >
 
-    </div>
+      ← 공지사항으로 돌아가기
 
+    </a>
 
   </main>
 
-
-  <footer>
-
-    © 2026 Remnant.
-
-    All rights reserved.
-
-  </footer>
-
-
-  <!-- Supabase 라이브러리 -->
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
   <script>
 
-
-    /* =========================
-
-       Supabase 연결
-
-    ========================= */
-
-
     const SUPABASE_URL =
-      "YOUR_SUPABASE_URL";
+      "https://isqkccngkadomhsackpf.supabase.co/rest/v1/";
 
-
-    const SUPABASE_ANON_KEY =
-      "YOUR_SUPABASE_ANON_KEY";
+    const SUPABASE_KEY =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlzcWtjY25na2Fkb21oc2Fja3BmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUwNDgxNDksImV4cCI6MjEwMDYyNDE0OX0.zaEy5uaZ3vd4IULk8byqC5ASjvNZ_0mH3jpynrmzzyM";
 
 
     const supabaseClient =
-      supabase.createClient(
+      window.supabase.createClient(
+
         SUPABASE_URL,
-        SUPABASE_ANON_KEY
+
+        SUPABASE_KEY
+
       );
 
 
-    const noticeList =
-      document.getElementById("noticeList");
+    const params =
+      new URLSearchParams(
+        location.search
+      );
 
 
-    /* =========================
-
-       기본 게시글
-
-       삭제 버튼 없음
-
-    ========================= */
+    const postId =
+      params.get("id");
 
 
-    const defaultPosts = [
-
-      {
-
-        id: "world",
-
-        title: "Remnant 세계관 설정",
-
-        date: "2026",
-
-        link: "world.html"
-
-      },
+    async function loadPost() {
 
 
-      {
+      if (!postId) {
 
-        id: "notice",
+        document.getElementById(
+          "postContent"
+        ).textContent =
+          "게시글을 찾을 수 없습니다.";
 
-        title: "Remnant 공지",
-
-        date: "2026",
-
-        link: "notice-1.html"
+        return;
 
       }
 
-    ];
-
-
-    /* =========================
-
-       게시글 불러오기
-
-    ========================= */
-
-
-    async function loadPosts() {
-
-
-      noticeList.innerHTML = "";
-
 
       const {
-
         data,
-
         error
-
       } = await supabaseClient
 
         .from("posts")
 
         .select("*")
 
-        .order(
+        .eq("id", postId)
 
-          "created_at",
+        .single();
 
-          {
 
-            ascending: false
+      if (error || !data) {
 
-          }
+        document.getElementById(
+          "postTitle"
+        ).textContent =
+          "게시글을 찾을 수 없습니다.";
 
+        document.getElementById(
+          "postContent"
+        ).textContent =
+          "삭제되었거나 존재하지 않는 게시글입니다.";
+
+        return;
+
+      }
+
+
+      document.getElementById(
+        "postTitle"
+      ).textContent =
+        data.title;
+
+
+      document.getElementById(
+        "postContent"
+      ).textContent =
+        data.content;
+
+
+      document.getElementById(
+        "postDate"
+      ).textContent =
+
+        new Date(
+          data.created_at
+        ).toLocaleDateString(
+          "ko-KR"
         );
-
-
-      if (error) {
-
-
-        console.error(error);
-
-
-        noticeList.innerHTML = `
-
-          <div class="empty">
-
-            게시글을 불러오지 못했습니다.
-
-          </div>
-
-        `;
-
-
-        return;
-
-      }
-
-
-      const savedPosts = data || [];
-
-
-      const allPosts = [
-
-        ...savedPosts,
-
-        ...defaultPosts
-
-      ];
-
-
-      if (allPosts.length === 0) {
-
-
-        noticeList.innerHTML = `
-
-          <div class="empty">
-
-            등록된 공지사항이 없습니다.
-
-          </div>
-
-        `;
-
-
-        return;
-
-      }
-
-
-      allPosts.forEach(function(post) {
-
-
-        const item =
-          document.createElement("div");
-
-
-        item.className =
-          "notice-item";
-
-
-        const link =
-          document.createElement("a");
-
-
-        link.className =
-          "notice-link";
-
-
-        link.href =
-          post.link || `post.html?id=${post.id}`;
-
-
-        link.innerHTML = `
-
-          <div class="notice-title">
-
-            ${post.title}
-
-          </div>
-
-
-          <div class="notice-date">
-
-            ${post.created_at
-              ? new Date(post.created_at)
-                .toLocaleDateString("ko-KR")
-              : post.date}
-
-          </div>
-
-        `;
-
-
-        item.appendChild(link);
-
-
-        /*
-
-          Supabase 글만 삭제 버튼 표시
-
-        */
-
-        if (post.id) {
-
-
-          const deleteButton =
-            document.createElement("button");
-
-
-          deleteButton.className =
-            "delete-button";
-
-
-          deleteButton.textContent =
-            "삭제";
-
-
-          deleteButton.addEventListener(
-
-            "click",
-
-            function(event) {
-
-
-              event.preventDefault();
-
-
-              event.stopPropagation();
-
-
-              deletePost(post.id);
-
-
-            }
-
-          );
-
-
-          item.appendChild(deleteButton);
-
-        }
-
-
-        noticeList.appendChild(item);
-
-
-      });
 
     }
 
 
-    /* =========================
-
-       게시글 삭제
-
-    ========================= */
-
-
-    async function deletePost(id) {
-
-
-      const confirmed =
-
-        confirm(
-
-          "정말 이 게시글을 삭제할까요?"
-
-        );
-
-
-      if (!confirmed) {
-
-        return;
-
-      }
-
-
-      const {
-
-        error
-
-      } = await supabaseClient
-
-        .from("posts")
-
-        .delete()
-
-        .eq("id", id);
-
-
-      if (error) {
-
-
-        console.error(error);
-
-
-        alert(
-
-          "게시글 삭제에 실패했습니다."
-
-        );
-
-
-        return;
-
-      }
-
-
-      alert(
-
-        "게시글이 삭제되었습니다."
-
-      );
-
-
-      loadPosts();
-
-    }
-
-
-    /* =========================
-
-       실행
-
-    ========================= */
-
-
-    loadPosts();
-
+    loadPost();
 
   </script>
-
 
 </body>
 
