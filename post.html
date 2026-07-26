@@ -32,12 +32,19 @@
       margin: 0;
 
       padding: 0;
+
     }
 
 
     body {
 
-      font-family: Arial, "Noto Sans KR", sans-serif;
+      font-family:
+
+        Arial,
+
+        "Noto Sans KR",
+
+        sans-serif;
 
       background:
 
@@ -56,6 +63,7 @@
       min-height: 100vh;
 
       line-height: 1.8;
+
     }
 
 
@@ -66,6 +74,7 @@
       margin: auto;
 
       padding: 50px 24px;
+
     }
 
 
@@ -78,6 +87,7 @@
       border-radius: 20px;
 
       overflow: hidden;
+
     }
 
 
@@ -86,12 +96,16 @@
       padding: 35px;
 
       border-bottom: 1px solid var(--line);
+
     }
 
 
     .post-title {
 
       font-size: 2.2rem;
+
+      word-break: break-word;
+
     }
 
 
@@ -102,6 +116,7 @@
       color: var(--accent);
 
       font-size: .9rem;
+
     }
 
 
@@ -112,6 +127,9 @@
       color: var(--muted);
 
       white-space: pre-line;
+
+      word-break: break-word;
+
     }
 
 
@@ -132,12 +150,51 @@
       text-decoration: none;
 
       background: var(--panel);
+
     }
 
 
     .back-button:hover {
 
       background: var(--accent);
+
+    }
+
+
+    .error {
+
+      padding: 40px;
+
+      text-align: center;
+
+      color: #ff8a8a;
+
+    }
+
+
+    @media (max-width: 760px) {
+
+
+      .post-title {
+
+        font-size: 1.7rem;
+
+      }
+
+
+      .post-header {
+
+        padding: 25px 20px;
+
+      }
+
+
+      .post-content {
+
+        padding: 25px 20px;
+
+      }
+
     }
 
   </style>
@@ -158,18 +215,24 @@
 
 
         <h1
+
           id="postTitle"
+
           class="post-title"
+
         >
 
-          불러오는 중...
+          게시글을 불러오는 중...
 
         </h1>
 
 
         <div
+
           id="postDate"
+
           class="post-date"
+
         ></div>
 
 
@@ -177,11 +240,15 @@
 
 
       <div
+
         id="postContent"
+
         class="post-content"
+
       >
 
         게시글을 불러오는 중입니다...
+
 
       </div>
 
@@ -190,8 +257,11 @@
 
 
     <a
+
       href="notice.html"
+
       class="back-button"
+
     >
 
       ← 공지사항으로 돌아가기
@@ -202,159 +272,162 @@
   </main>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
   <script>
 
 
-    const SUPABASE_URL =
-      "https://isqkccngkadomhsackpf.supabase.co";
+    /*
 
+      주소에서 게시글 ID 가져오기
 
-    const SUPABASE_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlzcWtjY25na2Fkb21oc2Fja3BmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUwNDgxNDksImV4cCI6MjEwMDYyNDE0OX0.zaEy5ua3Zvd4IULk8byqC5ASjvNZ_0mH3jpynrmzzyM";
+      예시:
 
+      post.html?id=123456
 
-    const supabaseClient =
-      window.supabase.createClient(
-
-        SUPABASE_URL,
-
-        SUPABASE_KEY
-
-      );
+    */
 
 
     const params =
+
       new URLSearchParams(
 
-        location.search
+        window.location.search
 
       );
 
 
     const postId =
+
       params.get("id");
 
 
-    async function loadPost() {
-
-
-      if (!postId) {
-
-
-        document.getElementById(
-
-          "postTitle"
-
-        ).textContent =
-
-          "게시글을 찾을 수 없습니다.";
-
-
-        document.getElementById(
-
-          "postContent"
-
-        ).textContent =
-
-          "주소에 게시글 ID가 없습니다.";
-
-
-        return;
-
-      }
-
-
-      const {
-
-        data,
-
-        error
-
-      } = await supabaseClient
-
-        .from("posts")
-
-        .select("*")
-
-        .eq("id", postId)
-
-        .single();
-
-
-      if (error || !data) {
-
-
-        console.error(error);
-
-
-        document.getElementById(
-
-          "postTitle"
-
-        ).textContent =
-
-          "게시글을 찾을 수 없습니다.";
-
-
-        document.getElementById(
-
-          "postContent"
-
-        ).textContent =
-
-          "삭제되었거나 존재하지 않는 게시글입니다.";
-
-
-        return;
-
-      }
-
+    const postTitle =
 
       document.getElementById(
 
         "postTitle"
 
-      ).textContent =
-
-        data.title;
+      );
 
 
-      document.getElementById(
-
-        "postContent"
-
-      ).textContent =
-
-        data.content;
-
+    const postDate =
 
       document.getElementById(
 
         "postDate"
 
-      ).textContent =
+      );
 
 
-        new Date(
+    const postContent =
 
-          data.created_at
+      document.getElementById(
 
-        ).toLocaleDateString(
+        "postContent"
 
-          "ko-KR"
+      );
 
-        );
+
+    /*
+
+      localStorage에서 게시글 가져오기
+
+    */
+
+
+    const savedPosts =
+
+      JSON.parse(
+
+        localStorage.getItem("posts")
+
+      ) || [];
+
+
+    /*
+
+      ID가 같은 게시글 찾기
+
+    */
+
+
+    const post =
+
+      savedPosts.find(
+
+        function(item) {
+
+
+          return String(item.id)
+
+            === String(postId);
+
+
+        }
+
+      );
+
+
+    /*
+
+      게시글이 없을 경우
+
+    */
+
+
+    if (!post) {
+
+
+      postTitle.textContent =
+
+        "게시글을 찾을 수 없습니다.";
+
+
+      postDate.textContent = "";
+
+
+      postContent.innerHTML = `
+
+        <div class="error">
+
+          삭제되었거나 존재하지 않는 게시글입니다.
+
+        </div>
+
+      `;
+
 
     }
 
 
-    loadPost();
+    /*
+
+      게시글이 있을 경우
+
+    */
+
+
+    else {
+
+
+      postTitle.textContent =
+
+        post.title;
+
+
+      postContent.textContent =
+
+        post.content;
+
+
+      postDate.textContent =
+
+        post.date || "";
+
+    }
 
 
   </script>
+
 
 </body>
 
