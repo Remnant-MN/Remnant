@@ -10,7 +10,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Remnant 공지사항</title>
+  <title>공지사항</title>
 
 
   <style>
@@ -29,7 +29,7 @@
 
       --accent2: #6d28d9;
 
-      --line: rgba(167, 139, 250, .22);
+      --line: rgba(167,139,250,.22);
 
     }
 
@@ -70,13 +70,11 @@
     }
 
 
-    /* =========================
-       상단 메뉴
-    ========================= */
+    /* 상단 메뉴 */
 
     header {
 
-      background: rgba(8, 8, 13, .9);
+      background: rgba(8,8,13,.9);
 
       border-bottom: 1px solid var(--line);
 
@@ -97,6 +95,8 @@
 
       align-items: center;
 
+      gap: 20px;
+
     }
 
 
@@ -116,27 +116,41 @@
     }
 
 
-    nav a {
+    /* 홈 버튼 */
 
-      color: var(--muted);
+    .home-button {
 
-      text-decoration: none;
+      display: inline-block;
 
-      transition: .2s;
+      padding: 10px 18px;
 
-    }
+      border: 1px solid var(--line);
 
-
-    nav a:hover {
+      border-radius: 999px;
 
       color: var(--text);
 
+      text-decoration: none;
+
+      background: var(--panel);
+
+      transition: .2s;
+
+      white-space: nowrap;
+
     }
 
 
-    /* =========================
-       본문
-    ========================= */
+    .home-button:hover {
+
+      background: var(--accent2);
+
+      transform: translateY(-2px);
+
+    }
+
+
+    /* 본문 */
 
     main {
 
@@ -149,7 +163,7 @@
     }
 
 
-    /* 게시글 박스 */
+    /* 게시글 */
 
     .post {
 
@@ -164,8 +178,6 @@
     }
 
 
-    /* 제목 영역 */
-
     .post-header {
 
       padding: 35px;
@@ -179,14 +191,12 @@
 
       font-size: 2.2rem;
 
-      line-height: 1.4;
-
-      margin-bottom: 10px;
-
     }
 
 
     .post-date {
+
+      margin-top: 10px;
 
       color: var(--accent);
 
@@ -195,29 +205,18 @@
     }
 
 
-    /* 게시글 내용 */
-
     .post-content {
 
       padding: 35px;
 
       color: var(--muted);
 
-    }
-
-
-    .post-content p {
-
-      margin-bottom: 28px;
-
       white-space: pre-line;
 
     }
 
 
-    /* =========================
-       메인으로 돌아가기 버튼
-    ========================= */
+    /* 공지사항으로 돌아가기 */
 
     .back-button {
 
@@ -251,35 +250,30 @@
     }
 
 
-    /* =========================
-       하단
-    ========================= */
-
-    footer {
-
-      border-top: 1px solid var(--line);
-
-      text-align: center;
-
-      padding: 30px;
-
-      color: var(--muted);
-
-      margin-top: 50px;
-
-    }
-
-
-    /* =========================
-       모바일
-    ========================= */
+    /* 모바일 */
 
     @media (max-width: 760px) {
 
 
+      nav {
+
+        padding: 18px 20px;
+
+      }
+
+
+      .home-button {
+
+        padding: 9px 14px;
+
+        font-size: .9rem;
+
+      }
+
+
       main {
 
-        padding: 30px 16px;
+        padding: 35px 20px;
 
       }
 
@@ -304,7 +298,6 @@
 
       }
 
-
     }
 
   </style>
@@ -315,9 +308,7 @@
 <body>
 
 
-  <!-- =========================
-       상단 메뉴
-  ========================= -->
+  <!-- 상단 메뉴 -->
 
   <header>
 
@@ -331,9 +322,17 @@
       </div>
 
 
-      <a href="index.html">
+      <!-- 오른쪽 상단 메인 버튼 -->
 
-        Remnant 공지
+      <a
+
+        href="index.html"
+
+        class="home-button"
+
+      >
+
+     메인 화면으로 돌아가기
 
       </a>
 
@@ -343,9 +342,7 @@
   </header>
 
 
-  <!-- =========================
-       본문
-  ========================= -->
+  <!-- 본문 -->
 
   <main>
 
@@ -353,21 +350,29 @@
     <article class="post">
 
 
-      <!-- 제목 -->
-
       <div class="post-header">
 
 
-        <h1 class="post-title">
+        <h1
 
-          Remnant 공지사항
+          id="postTitle"
+
+          class="post-title"
+
+        >
+
+          불러오는 중...
 
         </h1>
 
 
-        <div class="post-date">
+        <div
 
-          2026
+          id="postDate"
+
+          class="post-date"
+
+        >
 
         </div>
 
@@ -375,38 +380,15 @@
       </div>
 
 
-      <!-- 게시글 내용 -->
+      <div
 
-      <div class="post-content">
+        id="postContent"
 
+        class="post-content"
 
-        <p>
+      >
 
-Remnant 프로젝트에 오신 것을 환영합니다.
-
-        </p>
-
-
-        <p>
-
-본 사이트는 가상의 세계관 Remnant를 기반으로 제작된 개인 프로젝트입니다.
-
-        </p>
-
-
-        <p>
-
-세계관과 설정은 앞으로 지속적으로 업데이트될 예정입니다.
-
-        </p>
-
-
-        <p>
-
-새로운 설정과 공지사항이 추가될 경우 이 페이지를 통해 안내됩니다.
-
-        </p>
-
+        게시글을 불러오는 중입니다...
 
       </div>
 
@@ -414,17 +396,17 @@ Remnant 프로젝트에 오신 것을 환영합니다.
     </article>
 
 
-    <!-- 메인 홈페이지로 돌아가기 -->
+    <!-- 공지사항 목록으로 돌아가기 -->
 
     <a
 
-      href="index.html"
+      href="notice.html"
 
       class="back-button"
 
     >
 
-      ← 메인으로 돌아가기
+      ← 공지사항으로 돌아가기
 
     </a>
 
@@ -432,17 +414,187 @@ Remnant 프로젝트에 오신 것을 환영합니다.
   </main>
 
 
-  <!-- =========================
-       하단
-  ========================= -->
+  <!-- Supabase -->
 
-  <footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    © 2026 Remnant.
 
-    All rights reserved.
+  <script>
 
-  </footer>
+
+    /* Supabase 설정 */
+
+    const SUPABASE_URL =
+
+      "https://isqkccngkadomhsackpf.supabase.co";
+
+
+    const SUPABASE_KEY =
+
+      "여기에_현재_사용중인_Supabase_Key";
+
+
+    const supabaseClient =
+
+      window.supabase.createClient(
+
+        SUPABASE_URL,
+
+        SUPABASE_KEY
+
+      );
+
+
+    /* URL에서 게시글 ID 가져오기 */
+
+    const params =
+
+      new URLSearchParams(
+
+        location.search
+
+      );
+
+
+    const postId =
+
+      params.get("id");
+
+
+    /* 게시글 불러오기 */
+
+    async function loadPost() {
+
+
+      if (!postId) {
+
+
+        document.getElementById(
+
+          "postTitle"
+
+        ).textContent =
+
+          "게시글을 찾을 수 없습니다.";
+
+
+        document.getElementById(
+
+          "postContent"
+
+        ).textContent =
+
+          "게시글 ID가 없습니다.";
+
+
+        return;
+
+      }
+
+
+      const {
+
+        data,
+
+        error
+
+      } = await supabaseClient
+
+
+        .from("posts")
+
+
+        .select("*")
+
+
+        .eq("id", postId)
+
+
+        .single();
+
+
+      if (error || !data) {
+
+
+        console.error(
+
+          "게시글 불러오기 오류:",
+
+          error
+
+        );
+
+
+        document.getElementById(
+
+          "postTitle"
+
+        ).textContent =
+
+          "게시글을 찾을 수 없습니다.";
+
+
+        document.getElementById(
+
+          "postContent"
+
+        ).textContent =
+
+          "삭제되었거나 존재하지 않는 게시글입니다.";
+
+
+        return;
+
+      }
+
+
+      /* 제목 */
+
+      document.getElementById(
+
+        "postTitle"
+
+      ).textContent =
+
+        data.title;
+
+
+      /* 내용 */
+
+      document.getElementById(
+
+        "postContent"
+
+      ).textContent =
+
+        data.content;
+
+
+      /* 날짜 */
+
+      document.getElementById(
+
+        "postDate"
+
+      ).textContent =
+
+        new Date(
+
+          data.created_at
+
+        ).toLocaleDateString(
+
+          "ko-KR"
+
+        );
+
+    }
+
+
+    loadPost();
+
+
+  </script>
 
 
 </body>
