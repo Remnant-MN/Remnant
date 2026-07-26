@@ -110,7 +110,7 @@
 
       margin: auto;
 
-      padding: 40px 24px;
+      padding: 50px 24px;
     }
 
 
@@ -228,11 +228,11 @@
 
     .error {
 
-      padding: 40px;
+      padding: 30px;
 
       text-align: center;
 
-      color: #ff8b8b;
+      color: #ff8a8a;
     }
 
 
@@ -283,8 +283,6 @@
 <body>
 
 
-  <!-- 상단 메뉴 -->
-
   <header>
 
     <nav>
@@ -306,8 +304,6 @@
 
   </header>
 
-
-  <!-- 본문 -->
 
   <main>
 
@@ -333,8 +329,6 @@
     </div>
 
 
-    <!-- 게시글 목록 -->
-
     <div
       id="noticeList"
       class="notice-list"
@@ -352,8 +346,6 @@
   </main>
 
 
-  <!-- 하단 -->
-
   <footer>
 
     © 2026 Remnant.
@@ -363,25 +355,24 @@
   </footer>
 
 
-  <!-- Supabase -->
-
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
   <script>
 
 
-    /* Supabase 설정 */
-
     const SUPABASE_URL =
+
       "https://isqkccngkadomhsackpf.supabase.co";
 
 
     const SUPABASE_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlzcWtjY25na2Fkb21oc2Fja3BmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUwNDgxNDksImV4cCI6MjEwMDYyNDE0OX0.zaEy5uaZ3vd4IULk8byqC5ASjvNZ_0mH3jpynrmzzyM";
+
+      "여기에_현재_사용중인_KEY";
 
 
     const supabaseClient =
+
       window.supabase.createClient(
 
         SUPABASE_URL,
@@ -392,38 +383,23 @@
 
 
     const noticeList =
-      document.getElementById("noticeList");
 
+      document.getElementById(
 
-    /* 기본으로 표시할 고정 게시글 */
+        "noticeList"
 
-    const defaultPosts = [
+      );
 
-      {
-        id: "world",
-        title: "Remnant 세계관 설정",
-        date: "2026",
-        link: "world.html"
-      },
-
-      {
-        id: "notice",
-        title: "Remnant 공지",
-        date: "2026",
-        link: "notice-1.html"
-      }
-
-    ];
-
-
-    /* Supabase에서 게시글 가져오기 */
 
     async function loadPosts() {
 
 
       const {
+
         data,
+
         error
+
       } = await supabaseClient
 
         .from("posts")
@@ -431,20 +407,27 @@
         .select("*")
 
         .order(
+
           "created_at",
+
           {
+
             ascending: false
+
           }
+
         );
 
 
-      /* 오류가 발생했을 경우 */
-
       if (error) {
 
+
         console.error(
+
           "게시글 불러오기 오류:",
+
           error
+
         );
 
 
@@ -452,43 +435,22 @@
 
           <div class="error">
 
-            게시글을 불러오지 못했습니다.
+            게시글을 불러오지 못했습니다.<br>
 
-            <br><br>
-
-            ${error.message}
+            Supabase 설정 또는 테이블 권한을 확인해주세요.
 
           </div>
 
         `;
+
 
         return;
 
       }
 
 
-      /* Supabase 게시글 */
+      if (!data || data.length === 0) {
 
-      const supabasePosts =
-        data || [];
-
-
-      /* 기본 게시글 + Supabase 게시글 */
-
-      const allPosts = [
-
-        ...supabasePosts,
-
-        ...defaultPosts
-
-      ];
-
-
-      /* 게시글이 없는 경우 */
-
-      if (
-        allPosts.length === 0
-      ) {
 
         noticeList.innerHTML = `
 
@@ -500,95 +462,83 @@
 
         `;
 
+
         return;
 
       }
 
 
-      /* 게시글 표시 */
-
       noticeList.innerHTML = "";
 
 
-      allPosts.forEach(
-
-        function(post) {
+      data.forEach(function(post) {
 
 
-          const item =
-            document.createElement("a");
+        const item =
+
+          document.createElement("a");
 
 
-          item.className =
-            "notice-item";
+        item.className =
+
+          "notice-item";
 
 
-          /* Supabase 글은 post.html로 이동 */
+        item.href =
 
-          if (
-            post.id &&
-            post.title &&
-            post.content
-          ) {
-
-            item.href =
-              "post.html?id=" +
-              encodeURIComponent(
-                post.id
-              );
-
-          }
+          `post.html?id=${post.id}`;
 
 
-          /* 기본 고정 게시글 */
+        const title =
 
-          else {
-
-            item.href =
-              post.link || "#";
-
-          }
+          document.createElement("div");
 
 
-          item.innerHTML = `
+        title.className =
 
-            <div class="notice-title">
-
-              ${post.title}
-
-            </div>
+          "notice-title";
 
 
-            <div class="notice-date">
+        title.textContent =
 
-              ${
-                post.created_at
-
-                ? new Date(
-                    post.created_at
-                  ).toLocaleDateString(
-                    "ko-KR"
-                  )
-
-                : post.date
-
-              }
-
-            </div>
-
-          `;
+          post.title;
 
 
-          noticeList.appendChild(item);
+        const date =
 
-        }
+          document.createElement("div");
 
-      );
+
+        date.className =
+
+          "notice-date";
+
+
+        date.textContent =
+
+          new Date(
+
+            post.created_at
+
+          ).toLocaleDateString(
+
+            "ko-KR"
+
+          );
+
+
+        item.appendChild(title);
+
+
+        item.appendChild(date);
+
+
+        noticeList.appendChild(item);
+
+      });
 
     }
 
-
-    /* 실행 */
 
     loadPosts();
 
