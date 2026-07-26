@@ -54,9 +54,7 @@
 
     header {
       position: sticky;
-
       top: 0;
-
       z-index: 10;
 
       backdrop-filter: blur(14px);
@@ -69,26 +67,19 @@
 
     nav {
       max-width: 1180px;
-
       margin: auto;
-
       padding: 18px 24px;
 
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       gap: 20px;
     }
 
 
     .logo {
       font-weight: 900;
-
       letter-spacing: .14em;
-
       font-size: 1.1rem;
     }
 
@@ -100,22 +91,16 @@
 
     nav ul {
       display: flex;
-
       gap: 22px;
-
       list-style: none;
-
       flex-wrap: wrap;
     }
 
 
     nav a {
       color: var(--muted);
-
       text-decoration: none;
-
       font-size: .95rem;
-
       transition: .2s;
     }
 
@@ -129,7 +114,6 @@
       min-height: 76vh;
 
       display: grid;
-
       place-items: center;
 
       text-align: center;
@@ -153,8 +137,6 @@
       margin-bottom: 18px;
     }
 
-
-    /* 메인 타이틀 사진 */
 
     .main-title-image {
       width: min(850px, 100%);
@@ -250,17 +232,18 @@
     }
 
 
+    /* 박스 3개 */
+
     .grid {
       display: grid;
 
       grid-template-columns: repeat(3, 1fr);
 
       gap: 18px;
-      
+
+      align-items: start;
     }
-.card {
-  padding: 15px;
-}
+
 
     .card {
       background:
@@ -274,7 +257,9 @@
 
       border-radius: 20px;
 
-      padding: 15px;
+      padding: 18px;
+
+      height: fit-content;
     }
 
 
@@ -292,10 +277,14 @@
     }
 
 
+    /* 멤버 카드 */
+
     .member {
       text-align: center;
 
       padding: 28px 18px;
+
+      height: auto;
     }
 
 
@@ -324,6 +313,8 @@
         );
     }
 
+
+    /* 게시판 버튼 */
 
     .board-buttons {
       display: flex;
@@ -415,46 +406,19 @@
       <ul>
 
         <li>
-
-          <a href="#home">
-
-            홈
-
-          </a>
-
+          <a href="#home">홈</a>
         </li>
 
-
         <li>
-
-          <a href="#about">
-
-            멤놀 안내
-
-          </a>
-
+          <a href="#about">멤놀 안내</a>
         </li>
 
-
         <li>
-
-          <a href="#members">
-
-            멤버
-
-          </a>
-
+          <a href="#members">멤버</a>
         </li>
 
-
         <li>
-
-          <a href="#board">
-
-            게시판
-
-          </a>
-
+          <a href="#board">게시판</a>
         </li>
 
       </ul>
@@ -469,76 +433,47 @@
 
     <!-- 메인 홈 -->
 
-    <section
-      id="home"
-      class="hero"
-    >
+    <section id="home" class="hero">
 
       <div class="hero-inner">
 
-
         <div class="eyebrow">
-
           OFFICIAL COMMUNITY
-
         </div>
 
 
-        <!-- 메인 타이틀 사진 -->
-
         <img
-
           class="main-title-image"
-
           src="포스트 휴먼.jpg"
-
           alt="Remnant"
-
         >
 
 
         <p>
-
           Remnant 공식 사이트에 오신 것을 환영합니다.
-
           <br>
-
-          세계관과 캐릭터, 활동 기록을 한 곳에서 확인하세요.
-
+         메인
         </p>
 
 
         <div class="buttons">
 
-
           <a
-
             class="btn primary"
-
             href="#about"
-
           >
-
             멤놀 안내 보기
-
           </a>
 
 
           <a
-
             class="btn"
-
             href="#members"
-
           >
-
             멤버 보기
-
           </a>
-
 
         </div>
-
 
       </div>
 
@@ -549,36 +484,29 @@
 
     <section id="about">
 
-
       <h2 class="section-title">
-
         멤놀 안내
-
       </h2>
 
 
       <p class="section-subtitle">
-
-        Remnant의 세계관과 활동을 소개합니다.
-
+        Remnant의 세계관을 소개합니다.
       </p>
 
 
       <div class="grid">
 
 
+        <!-- 세계관 -->
+
         <div class="card">
 
-
-          <h2>
-
+          <h3>
             세계관
-
-          </h2>
+          </h3>
 
 
           <p>
-
 2145년, 인류는 하나의 정부 아래 통제되고 있다.
 
 인간의 생물학적 순수성을 지키려는 H.I.A와,
@@ -586,46 +514,39 @@
 
 인간과 포스트휴먼의 갈등 속에서,
 인류의 미래는 두 갈래로 나뉘었다.
-
           </p>
 
         </div>
 
 
-        <div class="card">
-
-
-          <h2>
-
-            Remnant 공식 Emblem
-
-          </h2>
-
-
-          <p>
-
-            사진자리
-
-          </p>
-
-        </div>
-
+        <!-- 공식 엠블럼 -->
 
         <div class="card">
-
 
           <h3>
-
-            활동 방법
-
+            Remnant 공식 Emblem
           </h3>
 
 
           <p>
+            사진자리
+          </p>
 
+        </div>
+
+
+        <!-- 활동 방법 -->
+
+        <div class="card">
+
+          <h3>
+            활동 방법
+          </h3>
+
+
+          <p>
             멤놀 참여 방법과 기본적인
             커뮤니티 이용 안내입니다.
-
           </p>
 
         </div>
@@ -640,18 +561,13 @@
 
     <section id="members">
 
-
       <h2 class="section-title">
-
         멤버
-
       </h2>
 
 
       <p class="section-subtitle">
-
         현재 등록된 멤버를 소개합니다.
-
       </p>
 
 
@@ -660,89 +576,61 @@
 
         <div class="card member">
 
-
           <img
-
             class="avatar"
-
             src="이학주.jpg"
-
             alt="이학주 프로필"
-
           >
 
 
           <h3>
-
             이학주 (Lee Hak-ju)
-
           </h3>
 
 
           <p>
-
             H 영속체 BAAL 38
-
           </p>
-
 
         </div>
 
 
         <div class="card member">
-
 
           <img
-
             class="avatar"
-
             src="최산.JPG"
-
             alt="최산 프로필"
-
           >
 
 
           <h3>
-
             최산 (Choi San)
-
           </h3>
 
 
           <p>
-
             H 중첩체 HELIX 29
-
           </p>
-
 
         </div>
 
 
         <div class="card member">
-
 
           <div class="avatar">
-
             ?
-
           </div>
 
 
           <h3>
-
             MEMBER 03
-
           </h3>
 
 
           <p>
-
             캐릭터 소개가 들어갈 자리
-
           </p>
-
 
         </div>
 
@@ -756,18 +644,13 @@
 
     <section id="board">
 
-
       <h2 class="section-title">
-
         게시판
-
       </h2>
 
 
       <p class="section-subtitle">
-
         원하는 게시판을 선택하세요.
-
       </p>
 
 
@@ -775,20 +658,14 @@
 
 
         <a
-
           href="notice.html"
-
           class="board-button"
-
         >
-
           📌 공지사항
-
         </a>
 
 
       </div>
-
 
     </section>
 
@@ -799,7 +676,6 @@
   <footer>
 
     © 2026 Remnant.
-
     All rights reserved.
 
   </footer>
