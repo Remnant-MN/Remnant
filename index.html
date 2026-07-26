@@ -491,6 +491,32 @@
 
 </head>
 <body>
+  <div id="popup" class="popup">
+
+    <div class="popup-box">
+
+      <button
+        class="popup-close"
+        onclick="closePopup()"
+      >
+        ×
+      </button>
+
+      <h2>
+        📢 Remnant 세계관 설정
+      </h2>
+
+      <p>
+        이 페이지는 Remnant의 세계관 설정을 소개합니다.
+      </p>
+
+      <button
+        class="popup-button"
+        onclick="closePopup()"
+      >
+        확인
+      </button>
+  </div>
   <header>
     <nav>
       <div class="logo">
@@ -630,53 +656,14 @@
     © 2026 Remnant.
     All rights reserved.
   </footer>
-  
-  <!-- 여기부터 팝업 -->
-
-<div id="popup" class="popup">
-
-  <div class="popup-box">
-
-    <button
-      class="popup-close"
-      onclick="closePopup()"
-    >
-
-      ×
-
-    </button>
-
-    <h2>
-      📢 공지사항
-    </h2>
-
-    <p>
-      Remnant 공식 사이트에 오신 것을 환영합니다.
-      먼저 공지사항을 읽어주세요.
-    </p>
-
-    <button
-      class="popup-button"
-      onclick="closePopup()"
-    >
-
-      확인
-
-    </button>
-
-  </div>
-
-</div>
-
-
-<script>
+  <script>
 
   function closePopup() {
 
     document.getElementById("popup").style.display = "none";
 
   }
-  </script>
 
+</script>
 </body>
 </html>
