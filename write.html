@@ -5,7 +5,10 @@
 
   <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>공지사항 작성</title>
 
@@ -30,6 +33,7 @@
       margin: 0;
 
       padding: 0;
+
     }
 
 
@@ -52,16 +56,16 @@
       color: var(--text);
 
       min-height: 100vh;
+
     }
 
-
-    /* 상단 */
 
     header {
 
       background: rgba(8,8,13,.9);
 
       border-bottom: 1px solid var(--line);
+
     }
 
 
@@ -78,6 +82,7 @@
       justify-content: space-between;
 
       align-items: center;
+
     }
 
 
@@ -86,12 +91,14 @@
       font-weight: 900;
 
       letter-spacing: .14em;
+
     }
 
 
     .logo span {
 
       color: var(--accent);
+
     }
 
 
@@ -100,10 +107,16 @@
       color: var(--muted);
 
       text-decoration: none;
+
     }
 
 
-    /* 본문 */
+    nav a:hover {
+
+      color: var(--text);
+
+    }
+
 
     main {
 
@@ -112,6 +125,7 @@
       margin: auto;
 
       padding: 40px 24px;
+
     }
 
 
@@ -124,12 +138,14 @@
       border-radius: 20px;
 
       padding: 35px;
+
     }
 
 
     h1 {
 
       margin-bottom: 30px;
+
     }
 
 
@@ -140,6 +156,7 @@
       margin-bottom: 8px;
 
       font-weight: bold;
+
     }
 
 
@@ -162,6 +179,7 @@
       border-radius: 10px;
 
       font-size: 1rem;
+
     }
 
 
@@ -172,6 +190,7 @@
       resize: vertical;
 
       line-height: 1.7;
+
     }
 
 
@@ -182,10 +201,9 @@
       outline: none;
 
       border-color: var(--accent);
+
     }
 
-
-    /* 버튼 */
 
     .button-area {
 
@@ -194,6 +212,7 @@
       gap: 10px;
 
       flex-wrap: wrap;
+
     }
 
 
@@ -210,6 +229,7 @@
       cursor: pointer;
 
       text-decoration: none;
+
     }
 
 
@@ -220,12 +240,14 @@
       background: var(--accent2);
 
       color: white;
+
     }
 
 
     button:hover {
 
       opacity: .8;
+
     }
 
 
@@ -236,22 +258,23 @@
       color: var(--text);
 
       background: var(--panel);
+
     }
 
 
     .cancel-button:hover {
 
       background: var(--accent2);
+
     }
 
-
-    /* 모바일 */
 
     @media (max-width: 760px) {
 
       .write-box {
 
         padding: 25px 20px;
+
       }
 
     }
@@ -263,8 +286,6 @@
 
 <body>
 
-
-  <!-- 상단 메뉴 -->
 
   <header>
 
@@ -287,8 +308,6 @@
 
   </header>
 
-
-  <!-- 글쓰기 -->
 
   <main>
 
@@ -345,7 +364,13 @@
         <div class="button-area">
 
 
-          <button type="submit">
+          <button
+
+            type="submit"
+
+            id="submitButton"
+
+          >
 
             게시하기
 
@@ -375,7 +400,47 @@
   </main>
 
 
+  <!-- Supabase 라이브러리 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
   <script>
+
+
+    /* =========================
+
+       Supabase 연결
+
+    ========================= */
+
+
+    const SUPABASE_URL =
+
+      "https://isqkccngkadomhsackpf.supabase.co";
+
+
+    const SUPABASE_KEY =
+
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlzcWtjY25na2Fkb21oc2Fja3BmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUwNDgxNDksImV4cCI6MjEwMDYyNDE0OX0.zaEy5uaZ3vd4IULk8byqC5ASjvNZ_0mH3jpynrmzzyM";
+
+
+    const supabaseClient =
+
+      window.supabase.createClient(
+
+        SUPABASE_URL,
+
+        SUPABASE_KEY
+
+      );
+
+
+    /* =========================
+
+       폼 가져오기
+
+    ========================= */
 
 
     const form =
@@ -383,11 +448,23 @@
       document.getElementById("writeForm");
 
 
+    const submitButton =
+
+      document.getElementById("submitButton");
+
+
+    /* =========================
+
+       게시글 저장
+
+    ========================= */
+
+
     form.addEventListener(
 
       "submit",
 
-      function(event) {
+      async function(event) {
 
 
         event.preventDefault();
@@ -399,7 +476,9 @@
 
           .getElementById("title")
 
-          .value;
+          .value
+
+          .trim();
 
 
         const content =
@@ -408,49 +487,73 @@
 
           .getElementById("content")
 
-          .value;
+          .value
+
+          .trim();
 
 
-        const date =
+        if (!title || !content) {
 
-          new Date()
+          alert("제목과 내용을 모두 입력해주세요.");
 
-          .toLocaleDateString("ko-KR");
+          return;
 
-
-        const newPost = {
-
-
-          id: Date.now(),
-
-          title: title,
-
-          content: content,
-
-          date: date
-
-        };
+        }
 
 
-        const posts =
+        submitButton.disabled = true;
 
-          JSON.parse(
-
-            localStorage.getItem("posts")
-
-          ) || [];
+        submitButton.textContent = "저장 중...";
 
 
-        posts.unshift(newPost);
+        const {
+
+          data,
+
+          error
+
+        } = await supabaseClient
+
+          .from("posts")
+
+          .insert([
+
+            {
+
+              title: title,
+
+              content: content
+
+            }
+
+          ])
+
+          .select();
 
 
-        localStorage.setItem(
+        if (error) {
 
-          "posts",
 
-          JSON.stringify(posts)
+          console.error(error);
 
-        );
+
+          alert(
+
+            "게시글 저장에 실패했습니다.\n\n" +
+
+            error.message
+
+          );
+
+
+          submitButton.disabled = false;
+
+          submitButton.textContent = "게시하기";
+
+
+          return;
+
+        }
 
 
         alert("공지사항이 등록되었습니다.");
