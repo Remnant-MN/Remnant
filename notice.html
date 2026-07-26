@@ -7,7 +7,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Remnant 공지사항 |Remnant</title>
+  <title>Remnant 공지사항</title>
+
 
   <style>
 
@@ -31,37 +32,49 @@
 
     body {
       font-family: Arial, "Noto Sans KR", sans-serif;
+
       background:
         radial-gradient(
           circle at top right,
           #21133c 0,
           var(--bg) 35%
         );
+
       color: var(--text);
+
       line-height: 1.6;
+
       min-height: 100vh;
     }
 
 
+    /* 상단 메뉴 */
+
     header {
       background: rgba(8,8,13,.9);
+
       border-bottom: 1px solid var(--line);
     }
 
 
     nav {
-      max-width: 1180px;
+      max-width: 1000px;
+
       margin: auto;
-      padding: 18px 24px;
+
+      padding: 20px 24px;
 
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
     }
 
 
     .logo {
       font-weight: 900;
+
       letter-spacing: .14em;
     }
 
@@ -73,6 +86,7 @@
 
     nav a {
       color: var(--muted);
+
       text-decoration: none;
     }
 
@@ -82,99 +96,149 @@
     }
 
 
+    /* 본문 */
+
     main {
       max-width: 1000px;
+
       margin: auto;
-      padding: 80px 24px;
+
+      padding: 40px 24px 60px;
     }
 
 
     .page-title {
-      font-size: 3rem;
+      font-size: 2.2rem;
+
       margin-bottom: 10px;
     }
 
 
-    .subtitle {
+    .page-subtitle {
       color: var(--muted);
-      margin-bottom: 40px;
+
+      margin-bottom: 25px;
     }
 
 
-    /* 게시판 */
+    /* 글쓰기 버튼 */
 
-    .board {
-      width: 100%;
-      border-top: 2px solid var(--accent);
-      border-bottom: 1px solid var(--line);
+    .notice-top {
+      display: flex;
+
+      justify-content: flex-end;
+
+      margin-bottom: 20px;
     }
 
 
-    .board-header,
-    .board-row {
-      display: grid;
-      grid-template-columns: 80px 1fr 150px;
-      align-items: center;
-    }
+    .write-button {
+      display: inline-block;
 
+      padding: 12px 20px;
 
-    .board-header {
-      padding: 16px 20px;
-      background: var(--panel);
-      color: var(--muted);
-      font-weight: bold;
-      border-bottom: 1px solid var(--line);
-    }
+      border-radius: 999px;
 
+      background: var(--accent2);
 
-    .board-row {
-      padding: 20px;
-      border-bottom: 1px solid var(--line);
+      color: var(--text);
+
+      text-decoration: none;
+
+      border: 1px solid var(--line);
+
       transition: .2s;
     }
 
 
-    .board-row:hover {
-      background: rgba(167,139,250,.08);
+    .write-button:hover {
+      background: var(--accent);
+
+      transform: translateY(-2px);
     }
 
 
-    .number {
-      color: var(--muted);
-      text-align: center;
+    /* 공지사항 목록 */
+
+    .notice-list {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 15px;
     }
 
 
-    .title a {
-      color: var(--text);
+    .notice-item {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+
+      padding: 22px 25px;
+
+      background: var(--panel);
+
+      border: 1px solid var(--line);
+
+      border-radius: 16px;
+
       text-decoration: none;
+
+      color: var(--text);
+
+      transition: .2s;
+    }
+
+
+    .notice-item:hover {
+      transform: translateY(-3px);
+
+      border-color: var(--accent);
+
+      background: #171722;
+    }
+
+
+    .notice-title {
+      font-size: 1.1rem;
+
       font-weight: bold;
     }
 
 
-    .title a:hover {
-      color: var(--accent);
-    }
-
-
-    .date {
+    .notice-date {
       color: var(--muted);
-      text-align: center;
+
       font-size: .9rem;
+
+      white-space: nowrap;
     }
 
+
+    /* 홈으로 돌아가기 */
 
     .back-button {
       display: inline-block;
+
       margin-top: 30px;
+
       padding: 12px 20px;
 
       border: 1px solid var(--line);
+
       border-radius: 999px;
 
       color: var(--text);
+
       text-decoration: none;
+
       background: var(--panel);
+
+      transition: .2s;
     }
 
 
@@ -183,35 +247,49 @@
     }
 
 
+    /* 하단 */
+
     footer {
       border-top: 1px solid var(--line);
+
       text-align: center;
+
       padding: 30px;
+
       color: var(--muted);
     }
 
 
+    /* 모바일 */
+
     @media (max-width: 760px) {
 
+      nav {
+        padding: 18px 20px;
+      }
+
+
+      main {
+        padding: 30px 20px 50px;
+      }
+
+
       .page-title {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
       }
 
 
-      .board-header,
-      .board-row {
-        grid-template-columns: 50px 1fr 100px;
+      .notice-item {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 5px;
       }
 
 
-      .board-header,
-      .board-row {
-        padding: 15px 10px;
-      }
-
-
-      .date {
-        font-size: .75rem;
+      .notice-date {
+        font-size: .8rem;
       }
 
     }
@@ -224,20 +302,22 @@
 <body>
 
 
+  <!-- 상단 메뉴 -->
+
   <header>
 
     <nav>
 
       <div class="logo">
 
-      <span>Remnant</span>
+        <span>Remnant</span>
 
       </div>
 
 
       <a href="index.html">
 
-        홈으로 돌아가기
+        홈으로
 
       </a>
 
@@ -245,6 +325,8 @@
 
   </header>
 
+
+  <!-- 본문 -->
 
   <main>
 
@@ -256,145 +338,75 @@
     </h1>
 
 
-    <p class="subtitle">
+    <p class="page-subtitle">
 
-   Remnant 공지사항 홈페이지입니다.
+      Remnant의 공지사항을 확인하세요.
 
     </p>
 
 
-    <div class="board">
+    <!-- 글쓰기 버튼 -->
 
+    <div class="notice-top">
 
-      <!-- 게시판 제목 -->
+      <a href="write.html" class="write-button">
 
-      <div class="board-header">
+        ✏️ 공지 글쓰기
 
-        <div class="number">
+      </a>
 
-          번호
+    </div>
 
-        </div>
 
+    <!-- 공지사항 목록 -->
 
-        <div class="title">
+    <div class="notice-list">
 
-          제목
 
-        </div>
+      <a href="notice-1.html" class="notice-item">
 
+        <span class="notice-title">
 
-        <div class="date">
+          Remnant 공지
 
-          날짜
+        </span>
 
-        </div>
 
-      </div>
+        <span class="notice-date">
 
+          2026
 
-      <!-- 게시글 3 -->
+        </span>
 
-      <div class="board-row">
+      </a>
 
-        <div class="number">
 
-          미작성
+      <a href="world.html" class="notice-item">
 
-        </div>
+        <span class="notice-title">
 
+          Remnant 세계관 설정
 
-        <div class="title">
+        </span>
 
-          <a href="notice-3.html">
 
-            미작성
+        <span class="notice-date">
 
-          </a>
+          2026
 
-        </div>
+        </span>
 
-
-        <div class="date">
-
-          2026.07.25
-
-        </div>
-
-      </div>
-
-
-      <!-- 게시글 2 -->
-
-      <div class="board-row">
-
-        <div class="number">
-
-          2
-
-        </div>
-
-
-        <div class="title">
-
-          <a href="notice-2.html">
-
-         Remnant 세계관 설정
-
-          </a>
-
-        </div>
-
-
-        <div class="date">
-
-          2026.07.25
-
-        </div>
-
-      </div>
-
-
-      <!-- 게시글 1 -->
-
-      <div class="board-row">
-
-        <div class="number">
-
-          1
-
-        </div>
-
-
-        <div class="title">
-
-          <a href="notice-1.html">
-
-            필독! Remnant 공지
-
-          </a>
-
-        </div>
-
-
-        <div class="date">
-
-         2026.07.25
-
-        </div>
-
-      </div>
+      </a>
 
 
     </div>
 
 
-    <a
-      href="index.html"
-      class="back-button"
-    >
+    <!-- 홈으로 돌아가기 -->
 
-      ← 메인으로 돌아가기
+    <a href="index.html" class="back-button">
+
+      ← 메인 홈페이지로 돌아가기
 
     </a>
 
@@ -402,12 +414,16 @@
   </main>
 
 
+  <!-- 하단 -->
+
   <footer>
 
     © 2026 Remnant.
+
     All rights reserved.
 
   </footer>
+
 
 </body>
 
