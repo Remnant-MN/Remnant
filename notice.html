@@ -16,26 +16,45 @@
   <style>
 
     :root {
+
       --bg: #08080d;
+
       --panel: #11111a;
+
       --text: #f4f1ff;
+
       --muted: #a7a2b8;
+
       --accent: #a78bfa;
+
       --accent2: #6d28d9;
+
       --line: rgba(167,139,250,.22);
+
     }
 
 
     * {
+
       box-sizing: border-box;
+
       margin: 0;
+
       padding: 0;
+
     }
 
 
     body {
 
-      font-family: Arial, "Noto Sans KR", sans-serif;
+      font-family:
+
+        Arial,
+
+        "Noto Sans KR",
+
+        sans-serif;
+
 
       background:
 
@@ -49,19 +68,27 @@
 
         );
 
+
       color: var(--text);
 
       min-height: 100vh;
 
       line-height: 1.6;
+
     }
 
 
     header {
 
-      background: rgba(8,8,13,.9);
+      background:
 
-      border-bottom: 1px solid var(--line);
+        rgba(8,8,13,.9);
+
+
+      border-bottom:
+
+        1px solid var(--line);
+
     }
 
 
@@ -73,11 +100,13 @@
 
       padding: 20px 24px;
 
+
       display: flex;
 
       justify-content: space-between;
 
       align-items: center;
+
     }
 
 
@@ -86,12 +115,14 @@
       font-weight: 900;
 
       letter-spacing: .14em;
+
     }
 
 
     .logo span {
 
       color: var(--accent);
+
     }
 
 
@@ -100,12 +131,14 @@
       color: var(--muted);
 
       text-decoration: none;
+
     }
 
 
     nav a:hover {
 
       color: var(--text);
+
     }
 
 
@@ -116,6 +149,7 @@
       margin: auto;
 
       padding: 50px 24px;
+
     }
 
 
@@ -129,39 +163,13 @@
 
       margin-bottom: 25px;
 
-      gap: 20px;
     }
 
 
     .notice-header h1 {
 
       font-size: 2.2rem;
-    }
 
-
-    .write-button {
-
-      display: inline-block;
-
-      padding: 12px 20px;
-
-      background: var(--accent2);
-
-      color: white;
-
-      text-decoration: none;
-
-      border-radius: 999px;
-
-      transition: .2s;
-    }
-
-
-    .write-button:hover {
-
-      transform: translateY(-2px);
-
-      opacity: .85;
     }
 
 
@@ -172,6 +180,7 @@
       flex-direction: column;
 
       gap: 15px;
+
     }
 
 
@@ -192,6 +201,7 @@
       text-decoration: none;
 
       transition: .2s;
+
     }
 
 
@@ -200,6 +210,7 @@
       transform: translateY(-3px);
 
       border-color: var(--accent);
+
     }
 
 
@@ -210,6 +221,7 @@
       font-weight: bold;
 
       margin-bottom: 6px;
+
     }
 
 
@@ -218,6 +230,7 @@
       color: var(--accent);
 
       font-size: .85rem;
+
     }
 
 
@@ -228,6 +241,7 @@
       text-align: center;
 
       color: var(--muted);
+
     }
 
 
@@ -238,6 +252,7 @@
       text-align: center;
 
       color: #ff8a8a;
+
     }
 
 
@@ -252,30 +267,16 @@
       color: var(--muted);
 
       margin-top: 50px;
+
     }
 
 
     @media (max-width: 760px) {
 
-      .notice-header {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-      }
-
-
       .notice-header h1 {
 
         font-size: 1.8rem;
-      }
 
-
-      .write-button {
-
-        width: 100%;
-
-        text-align: center;
       }
 
     }
@@ -288,9 +289,12 @@
 <body>
 
 
+  <!-- 상단 메뉴 -->
+
   <header>
 
     <nav>
+
 
       <div class="logo">
 
@@ -305,10 +309,13 @@
 
       </a>
 
+
     </nav>
 
   </header>
 
+
+  <!-- 본문 -->
 
   <main>
 
@@ -321,22 +328,15 @@
 
       </h1>
 
-
-      <a
-        href="write.html"
-        class="write-button"
-      >
-
-        ✏️ 글쓰기
-
-      </a>
-
     </div>
 
 
     <div
+
       id="noticeList"
+
       class="notice-list"
+
     >
 
       <div class="empty">
@@ -351,6 +351,8 @@
   </main>
 
 
+  <!-- 하단 -->
+
   <footer>
 
     © 2026 Remnant.
@@ -360,21 +362,30 @@
   </footer>
 
 
+  <!-- Supabase -->
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
   <script>
 
 
+    /*
+      Supabase 설정
+    */
+
     const SUPABASE_URL =
+
       "https://isqkccngkadomhsackpf.supabase.co";
 
 
     const SUPABASE_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlzcWtjY25na2Fkb21oc2Fja3BmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUwNDgxNDksImV4cCI6MjEwMDYyNDE0OX0.zaEy5ua3Zvd4IULk8byqC5ASjvNZ_0mH3jpynrmzzyM";
+
+      "여기에 네가 복사한 anon public 키";
 
 
     const supabaseClient =
+
       window.supabase.createClient(
 
         SUPABASE_URL,
@@ -385,13 +396,69 @@
 
 
     const noticeList =
+
       document.getElementById(
+
         "noticeList"
+
       );
 
 
     async function loadPosts() {
 
+
+      /*
+        1. 기존 고정 공지사항
+
+        notice-2.html로 연결
+      */
+
+      const fixedPost =
+
+        document.createElement("a");
+
+
+      fixedPost.className =
+
+        "notice-item";
+
+
+      fixedPost.href =
+
+        "notice-2.html";
+
+
+      fixedPost.innerHTML = `
+
+        <div class="notice-title">
+
+          Remnant 세계관 설정
+
+        </div>
+
+
+        <div class="notice-date">
+
+          2026
+
+        </div>
+
+      `;
+
+
+      noticeList.innerHTML = "";
+
+
+      noticeList.appendChild(
+
+        fixedPost
+
+      );
+
+
+      /*
+        2. Supabase에 저장된 게시글 가져오기
+      */
 
       const {
 
@@ -418,84 +485,90 @@
         );
 
 
+      /*
+        Supabase 오류가 발생한 경우
+
+        기존 notice-2.html은 그대로 표시
+      */
+
       if (error) {
 
-        console.error(error);
 
+        console.error(
 
-        noticeList.innerHTML = `
+          "Supabase 오류:",
 
-          <div class="error">
+          error
 
-            게시글을 불러오지 못했습니다.
+        );
 
-            <br><br>
-
-            오류:
-
-            ${error.message}
-
-          </div>
-
-        `;
 
         return;
 
       }
 
 
-      if (!data || data.length === 0) {
+      /*
+        저장된 게시글이 없는 경우
+      */
 
-        noticeList.innerHTML = `
+      if (
 
-          <div class="empty">
+        !data ||
 
-            등록된 공지사항이 없습니다.
+        data.length === 0
 
-          </div>
-
-        `;
+      ) {
 
         return;
 
       }
 
 
-      noticeList.innerHTML = "";
-
+      /*
+        Supabase 게시글 표시
+      */
 
       data.forEach(function(post) {
 
 
         const item =
+
           document.createElement("a");
 
 
         item.className =
+
           "notice-item";
 
 
         item.href =
+
           `post.html?id=${post.id}`;
 
 
         const title =
+
           document.createElement("div");
 
 
         title.className =
+
           "notice-title";
 
 
         title.textContent =
+
           post.title;
 
 
         const date =
+
           document.createElement("div");
 
 
         date.className =
+
           "notice-date";
 
 
@@ -512,13 +585,26 @@
           );
 
 
-        item.appendChild(title);
+        item.appendChild(
+
+          title
+
+        );
 
 
-        item.appendChild(date);
+        item.appendChild(
+
+          date
+
+        );
 
 
-        noticeList.appendChild(item);
+        noticeList.appendChild(
+
+          item
+
+        );
+
 
       });
 
