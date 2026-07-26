@@ -16,20 +16,32 @@
   <style>
 
     :root {
+
       --bg: #08080d;
+
       --panel: #11111a;
+
       --text: #f4f1ff;
+
       --muted: #a7a2b8;
+
       --accent: #a78bfa;
+
       --accent2: #6d28d9;
+
       --line: rgba(167,139,250,.22);
+
     }
 
 
     * {
+
       box-sizing: border-box;
+
       margin: 0;
+
       padding: 0;
+
     }
 
 
@@ -38,10 +50,15 @@
       font-family: Arial, "Noto Sans KR", sans-serif;
 
       background:
+
         radial-gradient(
+
           circle at top right,
+
           #21133c 0,
+
           var(--bg) 35%
+
         );
 
       color: var(--text);
@@ -49,6 +66,7 @@
       min-height: 100vh;
 
       line-height: 1.6;
+
     }
 
 
@@ -57,6 +75,7 @@
       background: rgba(8,8,13,.9);
 
       border-bottom: 1px solid var(--line);
+
     }
 
 
@@ -73,6 +92,7 @@
       justify-content: space-between;
 
       align-items: center;
+
     }
 
 
@@ -81,12 +101,14 @@
       font-weight: 900;
 
       letter-spacing: .14em;
+
     }
 
 
     .logo span {
 
       color: var(--accent);
+
     }
 
 
@@ -95,12 +117,14 @@
       color: var(--muted);
 
       text-decoration: none;
+
     }
 
 
     nav a:hover {
 
       color: var(--text);
+
     }
 
 
@@ -111,6 +135,7 @@
       margin: auto;
 
       padding: 50px 24px;
+
     }
 
 
@@ -125,12 +150,14 @@
       margin-bottom: 25px;
 
       gap: 20px;
+
     }
 
 
     .notice-header h1 {
 
       font-size: 2.2rem;
+
     }
 
 
@@ -149,6 +176,7 @@
       border-radius: 999px;
 
       transition: .2s;
+
     }
 
 
@@ -157,6 +185,7 @@
       transform: translateY(-2px);
 
       opacity: .85;
+
     }
 
 
@@ -167,6 +196,7 @@
       flex-direction: column;
 
       gap: 15px;
+
     }
 
 
@@ -187,6 +217,7 @@
       text-decoration: none;
 
       transition: .2s;
+
     }
 
 
@@ -195,6 +226,7 @@
       transform: translateY(-3px);
 
       border-color: var(--accent);
+
     }
 
 
@@ -205,6 +237,7 @@
       font-weight: bold;
 
       margin-bottom: 6px;
+
     }
 
 
@@ -213,6 +246,7 @@
       color: var(--accent);
 
       font-size: .85rem;
+
     }
 
 
@@ -223,6 +257,7 @@
       text-align: center;
 
       color: var(--muted);
+
     }
 
 
@@ -233,6 +268,13 @@
       text-align: center;
 
       color: #ff8a8a;
+
+      background: rgba(255, 80, 80, .08);
+
+      border: 1px solid rgba(255, 80, 80, .2);
+
+      border-radius: 15px;
+
     }
 
 
@@ -247,6 +289,7 @@
       color: var(--muted);
 
       margin-top: 50px;
+
     }
 
 
@@ -257,12 +300,14 @@
         flex-direction: column;
 
         align-items: flex-start;
+
       }
 
 
       .notice-header h1 {
 
         font-size: 1.8rem;
+
       }
 
 
@@ -271,6 +316,7 @@
         width: 100%;
 
         text-align: center;
+
       }
 
     }
@@ -282,6 +328,8 @@
 
 <body>
 
+
+  <!-- 상단 메뉴 -->
 
   <header>
 
@@ -305,6 +353,8 @@
   </header>
 
 
+  <!-- 공지사항 -->
+
   <main>
 
 
@@ -318,8 +368,11 @@
 
 
       <a
+
         href="write.html"
+
         class="write-button"
+
       >
 
         ✏️ 글쓰기
@@ -329,9 +382,14 @@
     </div>
 
 
+    <!-- 게시글 목록 -->
+
     <div
+
       id="noticeList"
+
       class="notice-list"
+
     >
 
       <div class="empty">
@@ -346,6 +404,8 @@
   </main>
 
 
+  <!-- 하단 -->
+
   <footer>
 
     © 2026 Remnant.
@@ -355,10 +415,19 @@
   </footer>
 
 
+  <!-- Supabase -->
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
   <script>
+
+
+    /* =========================
+
+       Supabase 연결
+
+    ========================= */
 
 
     const SUPABASE_URL =
@@ -368,7 +437,7 @@
 
     const SUPABASE_KEY =
 
-      "여기에_현재_사용중인_KEY";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlzcWtjY25na2Fkb21oc2Fja3BmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUwNDgxNDksImV4cCI6MjEwMDYyNDE0OX0.zaEy5uaZ3vd4IULk8byqC5ASjvNZ_0mH3jpynrmzzyM";
 
 
     const supabaseClient =
@@ -389,6 +458,13 @@
         "noticeList"
 
       );
+
+
+    /* =========================
+
+       게시글 불러오기
+
+    ========================= */
 
 
     async function loadPosts() {
@@ -419,12 +495,14 @@
         );
 
 
+      /* 오류 발생 */
+
       if (error) {
 
 
         console.error(
 
-          "게시글 불러오기 오류:",
+          "Supabase 오류:",
 
           error
 
@@ -435,9 +513,15 @@
 
           <div class="error">
 
-            게시글을 불러오지 못했습니다.<br>
+            게시글을 불러오지 못했습니다.
 
-            Supabase 설정 또는 테이블 권한을 확인해주세요.
+            <br><br>
+
+            오류 내용:
+
+            <br>
+
+            ${error.message}
 
           </div>
 
@@ -449,7 +533,15 @@
       }
 
 
-      if (!data || data.length === 0) {
+      /* 게시글이 없는 경우 */
+
+      if (
+
+        !data ||
+
+        data.length === 0
+
+      ) {
 
 
         noticeList.innerHTML = `
@@ -468,76 +560,119 @@
       }
 
 
+      /* 기존 내용 삭제 */
+
       noticeList.innerHTML = "";
 
 
-      data.forEach(function(post) {
+      /* 게시글 출력 */
+
+      data.forEach(
+
+        function(post) {
 
 
-        const item =
+          const item =
 
-          document.createElement("a");
+            document.createElement(
 
+              "a"
 
-        item.className =
-
-          "notice-item";
-
-
-        item.href =
-
-          `post.html?id=${post.id}`;
+            );
 
 
-        const title =
+          item.className =
 
-          document.createElement("div");
-
-
-        title.className =
-
-          "notice-title";
+            "notice-item";
 
 
-        title.textContent =
+          /* 게시글 페이지로 이동 */
 
-          post.title;
+          item.href =
 
+            "post.html?id=" +
 
-        const date =
-
-          document.createElement("div");
-
-
-        date.className =
-
-          "notice-date";
+            post.id;
 
 
-        date.textContent =
+          const title =
 
-          new Date(
+            document.createElement(
 
-            post.created_at
+              "div"
 
-          ).toLocaleDateString(
+            );
 
-            "ko-KR"
+
+          title.className =
+
+            "notice-title";
+
+
+          title.textContent =
+
+            post.title;
+
+
+          const date =
+
+            document.createElement(
+
+              "div"
+
+            );
+
+
+          date.className =
+
+            "notice-date";
+
+
+          date.textContent =
+
+            new Date(
+
+              post.created_at
+
+            ).toLocaleDateString(
+
+              "ko-KR"
+
+            );
+
+
+          item.appendChild(
+
+            title
 
           );
 
 
-        item.appendChild(title);
+          item.appendChild(
+
+            date
+
+          );
 
 
-        item.appendChild(date);
+          noticeList.appendChild(
 
+            item
 
-        noticeList.appendChild(item);
+          );
 
-      });
+        }
+
+      );
 
     }
+
+
+    /* =========================
+
+       실행
+
+    ========================= */
 
 
     loadPosts();
