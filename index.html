@@ -2,102 +2,171 @@
 <html lang="ko">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Remnant 공식 사이트</title>
+
 
   <style>
 
     :root {
+
       --bg: #08080d;
+
       --panel: #11111a;
+
       --panel2: #171722;
+
       --text: #f4f1ff;
+
       --muted: #a7a2b8;
+
       --accent: #a78bfa;
+
       --accent2: #6d28d9;
+
       --line: rgba(167,139,250,.22);
+
     }
 
 
     * {
+
       box-sizing: border-box;
+
       margin: 0;
+
       padding: 0;
+
     }
 
 
     html {
+
       scroll-behavior: smooth;
+
     }
 
 
     body {
-      font-family: Arial, "Noto Sans KR", sans-serif;
+
+      font-family:
+
+        Arial,
+
+        "Noto Sans KR",
+
+        sans-serif;
+
 
       background:
+
         radial-gradient(
+
           circle at top right,
+
           #21133c 0,
+
           var(--bg) 35%
+
         );
+
 
       color: var(--text);
 
       line-height: 1.6;
+
     }
 
 
+    /* 상단 메뉴 */
+
     header {
+
       position: sticky;
+
       top: 0;
+
       z-index: 10;
+
 
       backdrop-filter: blur(14px);
 
-      background: rgba(8,8,13,.82);
 
-      border-bottom: 1px solid var(--line);
+      background:
+
+        rgba(8,8,13,.82);
+
+
+      border-bottom:
+
+        1px solid var(--line);
+
     }
 
 
     nav {
+
       max-width: 1180px;
+
       margin: auto;
+
 
       padding: 18px 24px;
 
+
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
 
+
       gap: 20px;
+
     }
 
 
     .logo {
+
       font-weight: 900;
+
       letter-spacing: .14em;
+
       font-size: 1.1rem;
+
     }
 
 
     .logo span {
+
       color: var(--accent);
+
     }
 
 
     nav ul {
+
       display: flex;
+
       gap: 22px;
 
+
       list-style: none;
+
       flex-wrap: wrap;
+
     }
 
 
     nav a {
+
       color: var(--muted);
 
       text-decoration: none;
@@ -105,280 +174,496 @@
       font-size: .95rem;
 
       transition: .2s;
+
     }
 
 
     nav a:hover {
+
       color: var(--text);
+
     }
 
 
+    /* 메인 */
+
     .hero {
+
       min-height: 76vh;
 
+
       display: grid;
+
       place-items: center;
+
 
       text-align: center;
 
-      padding: 100px 24px 80px;
+
+      padding:
+
+        100px
+
+        24px
+
+        80px;
+
     }
 
 
     .hero-inner {
+
       max-width: 900px;
+
     }
 
 
     .eyebrow {
+
       color: var(--accent);
+
 
       letter-spacing: .25em;
 
+
       font-size: .8rem;
 
+
       margin-bottom: 18px;
+
     }
 
 
     .main-title-image {
-      width: min(850px, 100%);
+
+      width:
+
+        min(
+
+          850px,
+
+          100%
+
+        );
+
 
       max-height: 420px;
 
+
       object-fit: cover;
+
 
       display: block;
 
+
       margin: 0 auto;
 
+
       border-radius: 20px;
+
     }
 
 
     .hero p {
+
       color: var(--muted);
+
 
       max-width: 620px;
 
+
       margin: 28px auto;
 
+
       font-size: 1.05rem;
+
     }
 
 
+    /* 버튼 */
+
     .buttons {
+
       display: flex;
+
 
       justify-content: center;
 
+
       gap: 12px;
 
+
       flex-wrap: wrap;
+
     }
 
 
     .btn {
-      border: 1px solid var(--line);
 
-      padding: 12px 20px;
+      border:
+
+        1px solid var(--line);
+
+
+      padding:
+
+        12px 20px;
+
 
       border-radius: 999px;
 
+
       color: var(--text);
+
 
       text-decoration: none;
 
+
       background: var(--panel);
 
+
       transition: .2s;
+
     }
 
 
     .btn.primary {
+
       background:
+
         linear-gradient(
+
           135deg,
+
           var(--accent2),
+
           #4c1d95
+
         );
 
+
       border-color: transparent;
+
     }
 
 
     .btn:hover {
+
       transform: translateY(-2px);
+
     }
 
 
+    /* 섹션 */
+
     section {
+
       max-width: 1180px;
+
 
       margin: auto;
 
+
       padding: 80px 24px;
+
     }
 
 
     .section-title {
+
       font-size: 2rem;
 
+
       margin-bottom: 10px;
+
     }
 
 
     .section-subtitle {
+
       color: var(--muted);
 
+
       margin-bottom: 28px;
+
     }
 
 
-    /* 3개의 박스 */
+    /* 카드 */
 
     .grid {
+
       display: grid;
 
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+
+        repeat(
+
+          3,
+
+          1fr
+
+        );
+
 
       gap: 18px;
 
+
       align-items: stretch;
+
     }
 
 
     .card {
+
       background:
+
         linear-gradient(
+
           180deg,
+
           rgba(255,255,255,.04),
+
           rgba(255,255,255,.02)
+
         );
 
-      border: 1px solid var(--line);
+
+      border:
+
+        1px solid var(--line);
+
 
       border-radius: 20px;
 
+
       padding: 18px;
 
+
       min-height: 280px;
+
     }
 
 
     .card h3 {
+
       margin-bottom: 8px;
+
     }
 
 
     .card p {
+
       color: var(--muted);
+
 
       font-size: .95rem;
 
+
       white-space: pre-line;
+
+    }
+
+
+    /* 공식 엠블럼 이미지 */
+
+    .emblem-image {
+
+      width: 100%;
+
+
+      height: 220px;
+
+
+      display: block;
+
+
+      object-fit: cover;
+
+
+      border-radius: 14px;
+
+
+      margin-top: 15px;
+
+
+      border:
+
+        1px solid var(--line);
+
     }
 
 
     /* 멤버 카드 */
 
     .member {
+
       text-align: center;
 
-      padding: 28px 18px;
+
+      padding:
+
+        28px 18px;
+
     }
 
 
     .avatar {
+
       width: 100px;
+
 
       height: 100px;
 
-      margin: 0 auto 16px;
+
+      margin:
+
+        0 auto 16px;
+
 
       border-radius: 10%;
 
+
       display: block;
+
 
       object-fit: cover;
 
+
       font-size: 1.8rem;
+
 
       font-weight: bold;
 
+
       background:
+
         linear-gradient(
+
           135deg,
+
           #4c1d95,
+
           #a78bfa
+
         );
+
     }
 
 
     /* 게시판 */
 
     .board-buttons {
+
       display: flex;
+
 
       gap: 15px;
 
+
       flex-wrap: wrap;
+
     }
 
 
     .board-button {
+
       display: block;
 
-      padding: 20px 30px;
+
+      padding:
+
+        20px 30px;
+
 
       background: var(--panel);
 
-      border: 1px solid var(--line);
+
+      border:
+
+        1px solid var(--line);
+
 
       border-radius: 16px;
 
+
       color: var(--text);
+
 
       text-decoration: none;
 
+
       transition: .2s;
+
     }
 
 
     .board-button:hover {
+
       transform: translateY(-4px);
 
+
       border-color: var(--accent);
+
     }
 
 
+    /* 하단 */
+
     footer {
-      border-top: 1px solid var(--line);
+
+      border-top:
+
+        1px solid var(--line);
+
 
       text-align: center;
 
-      padding: 32px 24px;
+
+      padding:
+
+        32px 24px;
+
 
       color: var(--muted);
+
     }
 
 
+    /* 모바일 */
+
     @media (max-width: 760px) {
 
+
       nav {
+
         align-items: flex-start;
 
+
         flex-direction: column;
+
       }
 
 
       .grid {
+
         grid-template-columns: 1fr;
+
       }
 
 
       .main-title-image {
+
         max-height: 300px;
+
+      }
+
+
+      .emblem-image {
+
+        height: 240px;
+
       }
 
     }
@@ -397,28 +682,60 @@
 
     <nav>
 
+
       <div class="logo">
+
         <span>Remnant</span>
+
       </div>
 
 
       <ul>
 
-        <li>
-          <a href="#home">홈</a>
-        </li>
 
         <li>
-          <a href="#about">멤놀 안내</a>
+
+          <a href="#home">
+
+            홈
+
+          </a>
+
         </li>
 
-        <li>
-          <a href="#members">멤버</a>
-        </li>
 
         <li>
-          <a href="#board">게시판</a>
+
+          <a href="#about">
+
+            멤놀 안내
+
+          </a>
+
         </li>
+
+
+        <li>
+
+          <a href="#members">
+
+            멤버
+
+          </a>
+
+        </li>
+
+
+        <li>
+
+          <a href="#board">
+
+            게시판
+
+          </a>
+
+        </li>
+
 
       </ul>
 
@@ -432,64 +749,105 @@
 
     <!-- 메인 홈 -->
 
-    <section id="home" class="hero">
+    <section
+
+      id="home"
+
+      class="hero"
+
+    >
+
 
       <div class="hero-inner">
 
+
         <div class="eyebrow">
+
           OFFICIAL COMMUNITY
+
         </div>
 
 
         <img
+
           class="main-title-image"
+
           src="포스트 휴먼.jpg"
+
           alt="Remnant"
+
         >
 
 
         <p>
+
           Remnant 공식 사이트에 오신 것을 환영합니다.
+
           <br>
+
           세계관과 캐릭터, 활동 기록을 한 곳에서 확인하세요.
+
         </p>
 
 
         <div class="buttons">
 
+
           <a
+
             class="btn primary"
+
             href="#about"
+
           >
+
             멤놀 안내 보기
+
           </a>
 
 
           <a
+
             class="btn"
+
             href="#members"
+
           >
+
             멤버 보기
+
           </a>
+
 
         </div>
 
+
       </div>
+
 
     </section>
 
 
     <!-- 멤놀 안내 -->
 
-    <section id="about">
+    <section
+
+      id="about"
+
+    >
+
 
       <h2 class="section-title">
+
         멤놀 안내
+
       </h2>
 
 
       <p class="section-subtitle">
+
         Remnant의 세계관과 활동을 소개합니다.
+
       </p>
 
 
@@ -500,18 +858,28 @@
 
         <div class="card">
 
+
           <h3>
+
             세계관
+
           </h3>
 
 
           <p>
+
 2145년, 인류는 하나의 정부 아래 통제되고 있다.
+
 인간의 생물학적 순수성을 지키려는 H.I.A와,
+
 기계와의 융합을 새로운 진화로 받아들이는 P.H.A.F.
+
 인간과 포스트휴먼의 갈등 속에서,
+
 인류의 미래는 두 갈래로 나뉘었다.
+
           </p>
+
 
         </div>
 
@@ -520,14 +888,26 @@
 
         <div class="card">
 
+
           <h3>
+
             Remnant 공식 Emblem
+
           </h3>
 
 
-          <p>
-            사진자리
-          </p>
+          <!-- 여기에 이미지가 표시됨 -->
+
+          <img
+
+            class="emblem-image"
+
+            src="4.jpg"
+
+            alt="Remnant 공식 엠블럼"
+
+          >
+
 
         </div>
 
@@ -536,130 +916,220 @@
 
         <div class="card">
 
+
           <h3>
+
             활동 방법
+
           </h3>
 
 
           <p>
+
             멤놀 참여 방법과 기본적인
+
             커뮤니티 이용 안내입니다.
+
           </p>
+
 
         </div>
 
 
       </div>
+
 
     </section>
 
 
     <!-- 멤버 -->
 
-    <section id="members">
+    <section
+
+      id="members"
+
+    >
+
 
       <h2 class="section-title">
+
         NODE
+
       </h2>
 
 
       <p class="section-subtitle">
+
         관리자 Node를 소개합니다.
+
       </p>
 
 
       <div class="grid">
 
 
+        <!-- 멤버 1 -->
+
         <div class="card member">
 
+
           <img
+
             class="avatar"
+
             src="이학주.jpg"
+
             alt="이학주 프로필"
+
           >
 
 
           <h3>
-            이 학주 (Lee Hak-ju)
+
+            이 학주
+
+            <br>
+
+            (Lee Hak-ju)
+
           </h3>
+
+
           <p>
+
             H 영속체 BAAL 38
-             방의 총괄 관리
+
+            <br>
+
+            방의 총괄 관리
+
           </p>
+
 
         </div>
 
 
+        <!-- 멤버 2 -->
+
         <div class="card member">
+
 
           <img
+
             class="avatar"
+
             src="최산.jpg"
+
             alt="최산 프로필"
+
           >
 
 
           <h3>
-            최 산 (Choi San)
+
+            최 산
+
+            <br>
+
+            (Choi San)
+
           </h3>
+
+
           <p>
+
             H 중첩체 HELIX 29
-             공식 사이트 관리
+
+            <br>
+
+            공식 사이트 관리
+
+            <br>
+
             AI 기반 이미지 제작
+
           </p>
+
 
         </div>
 
 
+        <!-- 멤버 3 -->
+
         <div class="card member">
+
 
           <div class="avatar">
+
             ?
+
           </div>
 
 
           <h3>
+
             MEMBER 03
+
           </h3>
 
 
           <p>
+
             캐릭터 소개가 들어갈 자리
+
           </p>
+
 
         </div>
 
 
       </div>
+
 
     </section>
 
 
     <!-- 게시판 -->
 
-    <section id="board">
+    <section
+
+      id="board"
+
+    >
+
 
       <h2 class="section-title">
+
         게시판
+
       </h2>
 
 
       <p class="section-subtitle">
+
         원하는 게시판을 선택하세요.
+
       </p>
 
 
       <div class="board-buttons">
 
+
         <a
+
           href="notice.html"
+
           class="board-button"
+
         >
+
           📌 공지사항
+
         </a>
 
+
       </div>
+
 
     </section>
 
@@ -667,10 +1137,15 @@
   </main>
 
 
+  <!-- 하단 -->
+
   <footer>
 
+
     © 2026 Remnant.
+
     All rights reserved.
+
 
   </footer>
 
