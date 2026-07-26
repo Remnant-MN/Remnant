@@ -48,7 +48,7 @@
 
       min-height: 100vh;
 
-      line-height: 1.8;
+      line-height: 1.6;
     }
 
 
@@ -110,7 +110,7 @@
 
       margin: auto;
 
-      padding: 50px 24px;
+      padding: 40px 24px;
     }
 
 
@@ -226,6 +226,16 @@
     }
 
 
+    .error {
+
+      padding: 40px;
+
+      text-align: center;
+
+      color: #ff8b8b;
+    }
+
+
     footer {
 
       border-top: 1px solid var(--line);
@@ -273,6 +283,8 @@
 <body>
 
 
+  <!-- 상단 메뉴 -->
+
   <header>
 
     <nav>
@@ -294,6 +306,8 @@
 
   </header>
 
+
+  <!-- 본문 -->
 
   <main>
 
@@ -319,18 +333,26 @@
     </div>
 
 
+    <!-- 게시글 목록 -->
+
     <div
       id="noticeList"
       class="notice-list"
     >
 
-      게시글을 불러오는 중입니다...
+      <div class="empty">
+
+        게시글을 불러오는 중입니다...
+
+      </div>
 
     </div>
 
 
   </main>
 
+
+  <!-- 하단 -->
 
   <footer>
 
@@ -341,11 +363,15 @@
   </footer>
 
 
+  <!-- Supabase -->
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
   <script>
 
+
+    /* Supabase 설정 */
 
     const SUPABASE_URL =
       "https://isqkccngkadomhsackpf.supabase.co";
@@ -366,20 +392,38 @@
 
 
     const noticeList =
-      document.getElementById(
-        "noticeList"
-      );
+      document.getElementById("noticeList");
 
+
+    /* 기본으로 표시할 고정 게시글 */
+
+    const defaultPosts = [
+
+      {
+        id: "world",
+        title: "Remnant 세계관 설정",
+        date: "2026",
+        link: "world.html"
+      },
+
+      {
+        id: "notice",
+        title: "Remnant 공지",
+        date: "2026",
+        link: "notice-1.html"
+      }
+
+    ];
+
+
+    /* Supabase에서 게시글 가져오기 */
 
     async function loadPosts() {
 
 
       const {
-
         data,
-
         error
-
       } = await supabaseClient
 
         .from("posts")
@@ -387,38 +431,64 @@
         .select("*")
 
         .order(
-
           "created_at",
-
           {
-
             ascending: false
-
           }
-
         );
 
 
+      /* 오류가 발생했을 경우 */
+
       if (error) {
+
+        console.error(
+          "게시글 불러오기 오류:",
+          error
+        );
+
 
         noticeList.innerHTML = `
 
-          <div class="empty">
+          <div class="error">
 
             게시글을 불러오지 못했습니다.
+
+            <br><br>
+
+            ${error.message}
 
           </div>
 
         `;
-
-        console.error(error);
 
         return;
 
       }
 
 
-      if (!data || data.length === 0) {
+      /* Supabase 게시글 */
+
+      const supabasePosts =
+        data || [];
+
+
+      /* 기본 게시글 + Supabase 게시글 */
+
+      const allPosts = [
+
+        ...supabasePosts,
+
+        ...defaultPosts
+
+      ];
+
+
+      /* 게시글이 없는 경우 */
+
+      if (
+        allPosts.length === 0
+      ) {
 
         noticeList.innerHTML = `
 
@@ -435,70 +505,90 @@
       }
 
 
+      /* 게시글 표시 */
+
       noticeList.innerHTML = "";
 
 
-      data.forEach(function(post) {
+      allPosts.forEach(
+
+        function(post) {
 
 
-        const item =
-          document.createElement("a");
+          const item =
+            document.createElement("a");
 
 
-        item.className =
-          "notice-item";
+          item.className =
+            "notice-item";
 
 
-        item.href =
-          "post.html?id=" + post.id;
+          /* Supabase 글은 post.html로 이동 */
+
+          if (
+            post.id &&
+            post.title &&
+            post.content
+          ) {
+
+            item.href =
+              "post.html?id=" +
+              encodeURIComponent(
+                post.id
+              );
+
+          }
 
 
-        const title =
-          document.createElement("div");
+          /* 기본 고정 게시글 */
+
+          else {
+
+            item.href =
+              post.link || "#";
+
+          }
 
 
-        title.className =
-          "notice-title";
+          item.innerHTML = `
+
+            <div class="notice-title">
+
+              ${post.title}
+
+            </div>
 
 
-        title.textContent =
-          post.title;
+            <div class="notice-date">
+
+              ${
+                post.created_at
+
+                ? new Date(
+                    post.created_at
+                  ).toLocaleDateString(
+                    "ko-KR"
+                  )
+
+                : post.date
+
+              }
+
+            </div>
+
+          `;
 
 
-        const date =
-          document.createElement("div");
+          noticeList.appendChild(item);
 
+        }
 
-        date.className =
-          "notice-date";
-
-
-        date.textContent =
-
-          new Date(
-
-            post.created_at
-
-          ).toLocaleDateString(
-
-            "ko-KR"
-
-          );
-
-
-        item.appendChild(title);
-
-
-        item.appendChild(date);
-
-
-        noticeList.appendChild(item);
-
-
-      });
+      );
 
     }
 
+
+    /* 실행 */
 
     loadPosts();
 
