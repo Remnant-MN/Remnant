@@ -26,8 +26,11 @@
 
 
     * {
+
       box-sizing: border-box;
+
       margin: 0;
+
       padding: 0;
     }
 
@@ -37,10 +40,15 @@
       font-family: Arial, "Noto Sans KR", sans-serif;
 
       background:
+
         radial-gradient(
+
           circle at top right,
+
           #21133c 0,
+
           var(--bg) 35%
+
         );
 
       color: var(--text);
@@ -130,7 +138,6 @@
     .back-button:hover {
 
       background: var(--accent);
-
     }
 
   </style>
@@ -143,10 +150,12 @@
 
   <main>
 
+
     <article class="post">
 
 
       <div class="post-header">
+
 
         <h1
           id="postTitle"
@@ -162,6 +171,7 @@
           id="postDate"
           class="post-date"
         ></div>
+
 
       </div>
 
@@ -192,33 +202,21 @@
   </main>
 
 
-  <!-- Supabase -->
-
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
   <script>
 
 
-    /* =========================
-
-       Supabase 연결
-
-    ========================= */
-
-
     const SUPABASE_URL =
-
       "https://isqkccngkadomhsackpf.supabase.co";
 
 
     const SUPABASE_KEY =
-
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlzcWtjY25na2Fkb21oc2Fja3BmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUwNDgxNDksImV4cCI6MjEwMDYyNDE0OX0.zaEy5uaZ3vd4IULk8byqC5ASjvNZ_0mH3jpynrmzzyM";
+      "여기에_네_실제_KEY_입력";
 
 
     const supabaseClient =
-
       window.supabase.createClient(
 
         SUPABASE_URL,
@@ -228,32 +226,16 @@
       );
 
 
-    /* =========================
-
-       URL에서 게시글 ID 가져오기
-
-    ========================= */
-
-
     const params =
-
       new URLSearchParams(
 
-        window.location.search
+        location.search
 
       );
 
 
     const postId =
-
       params.get("id");
-
-
-    /* =========================
-
-       게시글 불러오기
-
-    ========================= */
 
 
     async function loadPost() {
@@ -277,7 +259,7 @@
 
         ).textContent =
 
-          "URL에 게시글 ID가 없습니다.";
+          "주소에 게시글 ID가 없습니다.";
 
 
         return;
@@ -299,51 +281,13 @@
 
         .eq("id", postId)
 
-        .maybeSingle();
+        .single();
 
 
-      /* 오류 발생 */
-
-      if (error) {
+      if (error || !data) {
 
 
-        console.error(
-
-          "Supabase 오류:",
-
-          error
-
-        );
-
-
-        document.getElementById(
-
-          "postTitle"
-
-        ).textContent =
-
-          "게시글을 불러오지 못했습니다.";
-
-
-        document.getElementById(
-
-          "postContent"
-
-        ).textContent =
-
-          "오류 내용: " +
-
-          error.message;
-
-
-        return;
-
-      }
-
-
-      /* 게시글 없음 */
-
-      if (!data) {
+        console.error(error);
 
 
         document.getElementById(
@@ -361,15 +305,13 @@
 
         ).textContent =
 
-          "해당 게시글이 존재하지 않습니다.";
+          "삭제되었거나 존재하지 않는 게시글입니다.";
 
 
         return;
 
       }
 
-
-      /* 게시글 표시 */
 
       document.getElementById(
 
@@ -389,27 +331,22 @@
         data.content;
 
 
-      if (data.created_at) {
+      document.getElementById(
+
+        "postDate"
+
+      ).textContent =
 
 
-        document.getElementById(
+        new Date(
 
-          "postDate"
+          data.created_at
 
-        ).textContent =
+        ).toLocaleDateString(
 
-          new Date(
+          "ko-KR"
 
-            data.created_at
-
-          ).toLocaleDateString(
-
-            "ko-KR"
-
-          );
-
-      }
-
+        );
 
     }
 
@@ -418,7 +355,6 @@
 
 
   </script>
-
 
 </body>
 
