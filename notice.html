@@ -17,19 +17,21 @@
 
     :root {
 
-      --bg: #08080d;
+      --bg: #7A858B;
 
-      --panel: #11111a;
+      --bg-dark: #59636A;
 
-      --text: #f4f1ff;
+      --panel: #8D989E;
 
-      --muted: #a7a2b8;
+      --text: #F4F6F7;
 
-      --accent: #a78bfa;
+      --muted: #D5DADD;
 
-      --accent2: #6d28d9;
+      --accent: #D9E0E3;
 
-      --line: rgba(167,139,250,.22);
+      --accent-dark: #4F5A61;
+
+      --line: rgba(255,255,255,.28);
 
     }
 
@@ -47,19 +49,29 @@
 
     body {
 
-      font-family: Arial, "Noto Sans KR", sans-serif;
+      font-family:
+
+        Arial,
+
+        "Noto Sans KR",
+
+        sans-serif;
+
 
       background:
 
-        radial-gradient(
+        linear-gradient(
 
-          circle at top right,
+          135deg,
 
-          #21133c 0,
+          var(--bg-dark),
 
-          var(--bg) 35%
+          var(--bg) 45%,
+
+          #9DA7AC
 
         );
+
 
       color: var(--text);
 
@@ -70,13 +82,18 @@
     }
 
 
-    /* 상단 메뉴 */
+    /* 상단 */
 
     header {
 
-      background: rgba(8,8,13,.9);
+      background:
 
-      border-bottom: 1px solid var(--line);
+        rgba(60,70,76,.85);
+
+
+      border-bottom:
+
+        1px solid var(--line);
 
     }
 
@@ -87,13 +104,17 @@
 
       margin: auto;
 
+
       padding: 20px 24px;
+
 
       display: flex;
 
       justify-content: space-between;
 
       align-items: center;
+
+      gap: 20px;
 
     }
 
@@ -114,23 +135,31 @@
     }
 
 
-    /* 메인 버튼 */
-
     .home-button {
 
       display: inline-block;
 
+
       padding: 10px 18px;
 
-      border: 1px solid var(--line);
+
+      border:
+
+        1px solid var(--line);
+
 
       border-radius: 999px;
+
 
       color: var(--text);
 
       text-decoration: none;
 
-      background: var(--panel);
+
+      background:
+
+        rgba(60,70,76,.55);
+
 
       transition: .2s;
 
@@ -139,7 +168,7 @@
 
     .home-button:hover {
 
-      background: var(--accent2);
+      background: var(--accent-dark);
 
       transform: translateY(-2px);
 
@@ -154,6 +183,7 @@
 
       margin: auto;
 
+
       padding: 50px 24px;
 
     }
@@ -161,7 +191,21 @@
 
     .notice-header {
 
-      margin-bottom: 30px;
+      display: flex;
+
+
+      justify-content:
+
+        space-between;
+
+
+      align-items: center;
+
+
+      margin-bottom: 25px;
+
+
+      gap: 20px;
 
     }
 
@@ -172,8 +216,6 @@
 
     }
 
-
-    /* 공지사항 목록 */
 
     .notice-list {
 
@@ -190,17 +232,27 @@
 
       display: block;
 
-      padding: 24px 25px;
 
-      background: var(--panel);
+      padding: 22px 25px;
 
-      border: 1px solid var(--line);
+
+      background:
+
+        rgba(255,255,255,.13);
+
+
+      border:
+
+        1px solid var(--line);
+
 
       border-radius: 15px;
+
 
       color: var(--text);
 
       text-decoration: none;
+
 
       transition: .2s;
 
@@ -211,9 +263,12 @@
 
       transform: translateY(-3px);
 
-      border-color: var(--accent);
+      border-color: white;
 
-      background: #171522;
+
+      background:
+
+        rgba(255,255,255,.2);
 
     }
 
@@ -238,38 +293,87 @@
     }
 
 
+    /* 공지사항 */
+
+    .notice-quick-link {
+
+      margin-top: 30px;
+
+    }
+
+
+    .quick-button {
+
+      display: inline-block;
+
+
+      padding: 12px 20px;
+
+
+      border:
+
+        1px solid var(--line);
+
+
+      border-radius: 999px;
+
+
+      color: var(--text);
+
+
+      text-decoration: none;
+
+
+      background:
+
+        rgba(60,70,76,.55);
+
+
+      transition: .2s;
+
+    }
+
+
+    .quick-button:hover {
+
+      background: var(--accent-dark);
+
+      transform: translateY(-2px);
+
+    }
+
+
     /* 하단 */
 
     footer {
 
-      border-top: 1px solid var(--line);
+      border-top:
+
+        1px solid var(--line);
+
 
       text-align: center;
 
+
       padding: 30px;
 
+
       color: var(--muted);
+
 
       margin-top: 50px;
 
     }
 
 
-    /* 모바일 */
-
     @media (max-width: 760px) {
 
 
-      nav {
+      .notice-header {
 
-        padding: 18px 20px;
+        flex-direction: column;
 
-      }
-
-
-      main {
-
-        padding: 35px 20px;
+        align-items: flex-start;
 
       }
 
@@ -283,9 +387,16 @@
 
       .home-button {
 
-        padding: 9px 14px;
+        width: 100%;
 
-        font-size: .9rem;
+        text-align: center;
+
+      }
+
+
+      main {
+
+        padding: 35px 20px;
 
       }
 
@@ -303,17 +414,22 @@
 
   <header>
 
+
     <nav>
 
 
       <div class="logo">
 
-        <span>Remnant</span>
+
+        <span>
+
+          Remnant
+
+        </span>
+
 
       </div>
 
-
-      <!-- 메인 화면 버튼 -->
 
       <a
 
@@ -323,12 +439,13 @@
 
       >
 
-        메인 화면
+        ← 메인 화면으로 돌아가기
 
       </a>
 
 
     </nav>
+
 
   </header>
 
@@ -340,53 +457,25 @@
 
     <div class="notice-header">
 
+
       <h1>
 
         공지사항
 
       </h1>
 
+
     </div>
 
-
-    <!-- 공지사항 목록 -->
 
     <div class="notice-list">
 
 
-      <!-- 첫 번째 공지 -->
+      <!-- 공지사항 1 -->
 
       <a
 
         href="notice-1.html"
-
-        class="notice-item"
-
-      >
-
-
-        <div class="notice-title">
-
-          Remnant 공지
-
-        </div>
-
-
-        <div class="notice-date">
-
-          2026
-
-        </div>
-
-
-      </a>
-
-
-      <!-- 두 번째 공지 -->
-
-      <a
-
-        href="notice-2.html"
 
         class="notice-item"
 
@@ -402,7 +491,35 @@
 
         <div class="notice-date">
 
-          2026
+          2026.07.28
+
+        </div>
+
+
+      </a>
+
+
+      <!-- 공지사항 2 -->
+
+      <a
+
+        href="notice-2.html"
+
+        class="notice-item"
+
+      >
+
+
+        <div class="notice-title">
+
+          Remnant 활동 안내
+
+        </div>
+
+
+        <div class="notice-date">
+
+          2026.07.28
 
         </div>
 
@@ -420,9 +537,11 @@
 
   <footer>
 
+
     © 2026 Remnant.
 
     All rights reserved.
+
 
   </footer>
 
