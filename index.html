@@ -56,14 +56,7 @@
 
     body {
 
-      font-family:
-
-        Arial,
-
-        "Noto Sans KR",
-
-        sans-serif;
-
+      font-family: Arial, "Noto Sans KR", sans-serif;
 
       background:
 
@@ -76,7 +69,6 @@
           var(--bg) 35%
 
         );
-
 
       color: var(--text);
 
@@ -95,18 +87,11 @@
 
       z-index: 10;
 
-
       backdrop-filter: blur(14px);
 
+      background: rgba(8,8,13,.82);
 
-      background:
-
-        rgba(8,8,13,.82);
-
-
-      border-bottom:
-
-        1px solid var(--line);
+      border-bottom: 1px solid var(--line);
 
     }
 
@@ -117,16 +102,13 @@
 
       margin: auto;
 
-
       padding: 18px 24px;
-
 
       display: flex;
 
       justify-content: space-between;
 
       align-items: center;
-
 
       gap: 20px;
 
@@ -157,7 +139,6 @@
 
       gap: 22px;
 
-
       list-style: none;
 
       flex-wrap: wrap;
@@ -185,28 +166,19 @@
     }
 
 
-    /* 메인 */
+    /* 메인 화면 */
 
     .hero {
 
       min-height: 76vh;
 
-
       display: grid;
 
       place-items: center;
 
-
       text-align: center;
 
-
-      padding:
-
-        100px
-
-        24px
-
-        80px;
+      padding: 100px 24px 80px;
 
     }
 
@@ -222,12 +194,9 @@
 
       color: var(--accent);
 
-
       letter-spacing: .25em;
 
-
       font-size: .8rem;
-
 
       margin-bottom: 18px;
 
@@ -236,28 +205,15 @@
 
     .main-title-image {
 
-      width:
-
-        min(
-
-          850px,
-
-          100%
-
-        );
-
+      width: min(850px, 100%);
 
       max-height: 420px;
 
-
       object-fit: cover;
-
 
       display: block;
 
-
       margin: 0 auto;
-
 
       border-radius: 20px;
 
@@ -268,12 +224,9 @@
 
       color: var(--muted);
 
-
       max-width: 620px;
 
-
       margin: 28px auto;
-
 
       font-size: 1.05rem;
 
@@ -286,12 +239,9 @@
 
       display: flex;
 
-
       justify-content: center;
 
-
       gap: 12px;
-
 
       flex-wrap: wrap;
 
@@ -300,27 +250,17 @@
 
     .btn {
 
-      border:
+      border: 1px solid var(--line);
 
-        1px solid var(--line);
-
-
-      padding:
-
-        12px 20px;
-
+      padding: 12px 20px;
 
       border-radius: 999px;
 
-
       color: var(--text);
-
 
       text-decoration: none;
 
-
       background: var(--panel);
-
 
       transition: .2s;
 
@@ -341,7 +281,6 @@
 
         );
 
-
       border-color: transparent;
 
     }
@@ -360,9 +299,7 @@
 
       max-width: 1180px;
 
-
       margin: auto;
-
 
       padding: 80px 24px;
 
@@ -373,7 +310,6 @@
 
       font-size: 2rem;
 
-
       margin-bottom: 10px;
 
     }
@@ -383,32 +319,20 @@
 
       color: var(--muted);
 
-
       margin-bottom: 28px;
 
     }
 
 
-    /* 카드 */
+    /* 카드 3개 */
 
     .grid {
 
       display: grid;
 
-
-      grid-template-columns:
-
-        repeat(
-
-          3,
-
-          1fr
-
-        );
-
+      grid-template-columns: repeat(3, 1fr);
 
       gap: 18px;
-
 
       align-items: stretch;
 
@@ -429,17 +353,11 @@
 
         );
 
-
-      border:
-
-        1px solid var(--line);
-
+      border: 1px solid var(--line);
 
       border-radius: 20px;
 
-
       padding: 18px;
-
 
       min-height: 280px;
 
@@ -457,9 +375,7 @@
 
       color: var(--muted);
 
-
       font-size: .95rem;
-
 
       white-space: pre-line;
 
@@ -472,25 +388,15 @@
 
       width: 100%;
 
-
       height: 220px;
 
+      object-fit: contain;
 
       display: block;
 
-
-      object-fit: cover;
-
+      margin-top: 20px;
 
       border-radius: 14px;
-
-
-      margin-top: 15px;
-
-
-      border:
-
-        1px solid var(--line);
 
     }
 
@@ -501,10 +407,7 @@
 
       text-align: center;
 
-
-      padding:
-
-        28px 18px;
+      padding: 28px 18px;
 
     }
 
@@ -513,29 +416,19 @@
 
       width: 100px;
 
-
       height: 100px;
 
-
-      margin:
-
-        0 auto 16px;
-
+      margin: 0 auto 16px;
 
       border-radius: 10%;
 
-
       display: block;
-
 
       object-fit: cover;
 
-
       font-size: 1.8rem;
 
-
       font-weight: bold;
-
 
       background:
 
@@ -558,9 +451,7 @@
 
       display: flex;
 
-
       gap: 15px;
-
 
       flex-wrap: wrap;
 
@@ -571,28 +462,17 @@
 
       display: block;
 
-
-      padding:
-
-        20px 30px;
-
+      padding: 20px 30px;
 
       background: var(--panel);
 
-
-      border:
-
-        1px solid var(--line);
-
+      border: 1px solid var(--line);
 
       border-radius: 16px;
 
-
       color: var(--text);
 
-
       text-decoration: none;
-
 
       transition: .2s;
 
@@ -603,7 +483,6 @@
 
       transform: translateY(-4px);
 
-
       border-color: var(--accent);
 
     }
@@ -613,18 +492,11 @@
 
     footer {
 
-      border-top:
-
-        1px solid var(--line);
-
+      border-top: 1px solid var(--line);
 
       text-align: center;
 
-
-      padding:
-
-        32px 24px;
-
+      padding: 32px 24px;
 
       color: var(--muted);
 
@@ -639,7 +511,6 @@
       nav {
 
         align-items: flex-start;
-
 
         flex-direction: column;
 
@@ -662,7 +533,7 @@
 
       .emblem-image {
 
-        height: 240px;
+        height: 200px;
 
       }
 
@@ -692,7 +563,6 @@
 
       <ul>
 
-
         <li>
 
           <a href="#home">
@@ -719,7 +589,7 @@
 
           <a href="#members">
 
-            관리자 안내
+            멤버
 
           </a>
 
@@ -735,7 +605,6 @@
           </a>
 
         </li>
-
 
       </ul>
 
@@ -814,27 +683,21 @@
 
           >
 
-            관리자 안내
+            멤버 보기
 
           </a>
 
 
         </div>
 
-
       </div>
-
 
     </section>
 
 
     <!-- 멤놀 안내 -->
 
-    <section
-
-      id="about"
-
-    >
+    <section id="about">
 
 
       <h2 class="section-title">
@@ -880,7 +743,6 @@
 
           </p>
 
-
         </div>
 
 
@@ -896,18 +758,17 @@
           </h3>
 
 
-          <!-- 여기에 이미지가 표시됨 -->
+          <!-- 이 부분의 파일명만 실제 이미지 이름으로 변경 -->
 
           <img
 
             class="emblem-image"
 
-            src="4.jpg"
+            src="Remnant 공식 엠블럼.jpg"
 
             alt="Remnant 공식 엠블럼"
 
           >
-
 
         </div>
 
@@ -926,29 +787,23 @@
 
           <p>
 
-            멤놀 참여 방법과 기본적인
+멤놀 참여 방법과 기본적인
 
-            커뮤니티 이용 안내입니다.
+커뮤니티 이용 안내입니다.
 
           </p>
-
 
         </div>
 
 
       </div>
 
-
     </section>
 
 
     <!-- 멤버 -->
 
-    <section
-
-      id="members"
-
-    >
+    <section id="members">
 
 
       <h2 class="section-title">
@@ -968,7 +823,7 @@
       <div class="grid">
 
 
-        <!-- 멤버 1 -->
+        <!-- 이학주 -->
 
         <div class="card member">
 
@@ -986,31 +841,25 @@
 
           <h3>
 
-            이 학주 (Lee Hak-ju)
-             H 영속체 BAAL 38
-             방의 총괄 관리
+            이 학주(Lee Hak-ju)
+
             <br>
-
+            H 영속체 BAAL 38
+             방의 총괄 관리
             
-
           </h3>
 
 
           <p>
 
-            
 
-            <br>
-
-            
 
           </p>
-
 
         </div>
 
 
-        <!-- 멤버 2 -->
+        <!-- 남주혁 -->
 
         <div class="card member">
 
@@ -1029,29 +878,17 @@
           <h3>
 
            남주혁 (Nam Joo hyuk)
-            H 중첩체 HELIX 32
-           AI 기반 이미지 제작
-            공식 사이트 관리
+
             <br>
-
-     
-
+           H 중첩체 HELIX 32
+          AI 기반 이미지 제작
+          공식 사이트 관리
           </h3>
-
-
           <p>
 
-            
-            <br>
 
-            
-
-            <br>
-
-            
 
           </p>
-
 
         </div>
 
@@ -1077,27 +914,21 @@
 
           <p>
 
-            캐릭터 소개가 들어갈 자리
+캐릭터 소개가 들어갈 자리
 
           </p>
-
 
         </div>
 
 
       </div>
 
-
     </section>
 
 
     <!-- 게시판 -->
 
-    <section
-
-      id="board"
-
-    >
+    <section id="board">
 
 
       <h2 class="section-title">
@@ -1132,7 +963,6 @@
 
       </div>
 
-
     </section>
 
 
@@ -1143,11 +973,9 @@
 
   <footer>
 
-
     © 2026 Remnant.
 
     All rights reserved.
-
 
   </footer>
 
