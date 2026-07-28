@@ -1,674 +1,249 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Remnant Official</title>
-
-<style>
-
-:root{
-
---bg:bg:#7A858B;
---panel:#11111a;
---panel2:#171722;
-
---text:#f4f1ff;
---muted:#b8c0c5;
-
---accent:#7A858B;
---accent2:#5F6A70;
-    
---line:rgba(122,133,139,.25);
-
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-
-font-family:
-Arial,
-"Noto Sans KR",
-sans-serif;
-
-background:
-radial-gradient(
-circle at top right,
-#2E3438 0,
-var(--bg) 35%
-);
-
-color:var(--text);
-
-line-height:1.7;
-
-}
-
-header{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-z-index:999;
-
-background:rgba(15,18,22,.92);
-
-backdrop-filter:blur(12px);
-
-border-bottom:1px solid var(--line);
-
-}
-
-nav{
-
-max-width:1200px;
-
-margin:auto;
-
-padding:18px 30px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-}
-
-.logo{
-
-font-size:1.2rem;
-
-font-weight:bold;
-
-letter-spacing:4px;
-
-}
-
-.logo span{
-
-color:var(--main);
-
-}
-
-nav ul{
-
-display:flex;
-
-gap:28px;
-
-list-style:none;
-
-}
-
-nav a{
-
-text-decoration:none;
-
-color:var(--muted);
-
-transition:.25s;
-
-}
-
-nav a:hover{
-
-color:white;
-
-}
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-padding:120px 20px 80px;
-
-}
-
-.hero-inner{
-
-max-width:900px;
-
-}
-
-.hero-small{
-
-letter-spacing:6px;
-
-font-size:.8rem;
-
-color:var(--main);
-
-margin-bottom:20px;
-
-}
-
-.main-image{
-
-width:100%;
-
-max-width:850px;
-
-border-radius:18px;
-
-box-shadow:
-
-0 20px 60px rgba(0,0,0,.4);
-
-}
-
-.hero h1{
-
-margin-top:35px;
-
-font-size:3rem;
-
-font-weight:700;
-
-}
-
-.hero p{
-
-margin-top:20px;
-
-color:var(--muted);
-
-font-size:1.05rem;
-
-}
-
-.button-group{
-
-margin-top:35px;
-
-display:flex;
-
-justify-content:center;
-
-gap:15px;
-
-flex-wrap:wrap;
-
-}
-
-.btn{
-
-padding:14px 28px;
-
-border-radius:999px;
-
-text-decoration:none;
-
-border:1px solid var(--line);
-
-background:var(--panel);
-
-color:white;
-
-transition:.25s;
-
-}
-
-.btn:hover{
-
-transform:translateY(-3px);
-
-}
-
-.btn-main{
-
-background:var(--main2);
-
-border:none;
-
-}
-
-section{
-
-max-width:1200px;
-
-margin:auto;
-
-padding:90px 30px;
-
-}
-
-.section-title{
-
-font-size:2rem;
-
-margin-bottom:10px;
-
-}
-
-.section-sub{
-
-color:var(--muted);
-
-margin-bottom:40px;
-
-}
-
-.grid{
-
-display:grid;
-
-grid-template-columns:
-
-repeat(3,1fr);
-
-gap:20px;
-
-}
-
-.card{
-
-background:var(--panel);
-
-border:1px solid var(--line);
-
-border-radius:18px;
-
-padding:22px;
-
-transition:.25s;
-
-}
-
-.card:hover{
-
-transform:translateY(-6px);
-
-border-color:var(--main);
-
-}
-
-.card h3{
-
-margin-bottom:15px;
-
-}
-
-.card p{
-
-color:var(--muted);
-
-white-space:pre-line;
-
-}
-
-.emblem{
-
-width:100%;
-
-height:220px;
-
-object-fit:contain;
-
-margin-top:20px;
-
-}
-
-.member{
-
-text-align:center;
-
-}
-
-.avatar{
-
-width:100px;
-
-height:100px;
-
-border-radius:12px;
-
-object-fit:cover;
-
-margin:auto;
-
-margin-bottom:18px;
-
-display:block;
-
-}
-
-.member h3{
-
-margin-bottom:10px;
-
-line-height:1.5;
-
-}
-
-footer{
-
-margin-top:80px;
-
-border-top:1px solid var(--line);
-
-padding:35px;
-
-text-align:center;
-
-color:var(--muted);
-
-}
-
-@media(max-width:900px){
-
-.grid{
-
-grid-template-columns:1fr;
-
-}
-
-nav{
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-.hero h1{
-
-font-size:2.2rem;
-
-}
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS-0 : Post Human Archive</title>
+    <style>
+        :root {
+            --bg-color: #7A858B;
+            --bg-darker: #5E676D;
+            --bg-card: rgba(255, 255, 255, 0.07);
+            --accent-color: #00FFCC;
+            --text-main: #EAEAEA;
+            --text-sub: #BAC3C7;
+            --border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 배경 글리치/노이즈 효과 레이어 */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 999;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(94, 103, 109, 0.8);
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 5rem 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            color: #FFFFFF;
+        }
+
+        .hero p {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 5rem;
+        }
+
+        .terminal-log {
+            margin-top: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--accent-color);
+            padding: 1rem;
+            font-size: 0.85rem;
+            text-align: left;
+            color: var(--text-sub);
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-
-<nav>
-
-<div class="logo">
-<span>Remnant</span>
-</div>
-
-<ul>
-
-<li><a href="#home">HOME</a></li>
-
-<li><a href="#about">WORLD</a></li>
-
-<li><a href="#members">NODE</a></li>
-
-</ul>
-
-</nav>
-
-</header>
-
-<section
-id="home"
-class="hero">
-
-<div class="hero-inner">
-
-<div class="hero-small">
-OFFICIAL COMMUNITY
-</div>
-
-<img
-src="포스트 휴먼.jpg"
-class="main-image"
-alt="Remnant">
-
-<h1>
-
-Remnant
-
-</h1>
-
-<p>
-
-Remnant 공식 사이트입니다.
-
-세계관과 Node 정보를 확인할 수 있습니다.
-
-</p>
-
-<div class="button-group">
-
-<a
-href="#about"
-class="btn btn-main">
-
-세계관 보기
-
-</a>
-
-<a
-href="#members"
-class="btn">
-
-NODE
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- WORLD -->
-<!-- ========================= -->
-
-<section id="about">
-
-    <h2 class="section-title">
-        Remnant World
-    </h2>
-
-    <p class="section-sub">
-        Remnant의 세계관과 활동을 소개합니다.
-    </p>
-
-    <div class="grid">
-
-        <!-- 세계관 -->
-
-        <div class="card">
-
-            <h3>
-                세계관
-            </h3>
-
-            <p>
-
-2145년.
-
-인류는 하나의 정부 아래 통제되고 있다.
-
-인간의 생물학적 순수성을 지키려는
-H.I.A.
-
-기계와의 융합을 새로운 진화라 믿는
-P.H.A.F.
-
-두 세력의 대립 속에서
-
-인류의 미래는 두 갈래로 나뉘었다.
-
-            </p>
-
-        </div>
-
-
-        <!-- P.H.A.F  -->
-
-        <div class="card">
-
-            <h3>
-              포스트휴먼 세력 P H A F
-            </h3>
-              
-             <P>
-   1. P.H.A.F는 인간의 한계를 넘어선 진화를 추구하는 포스트휴먼 연합으로, 의식 이전·기계 융합·집단 지성을 통해 자유와 초월을 목표로 한다.<br><br>
-   2.조직은 초월 핵심층 → 진화 설계층 → 전선 실행층 → 진화 참여층의 4단계 계급 체계로 구성되며, 전략 수립부터 전투, 기술 개발, 정보 공유까지 역할이 분담된다.<br><br>
-   3.최상위 존재인 영속체와 중첩체가 조직의 방향을 결정하고, 각성체·연결체·잔존체를 포함한 구성원들이 H.I.A의 통제에 맞서 포스트휴먼의 생존과 해방을 위해 활동한다.
-    </p>
-
-        </div>
-<!-- H.I.A -->
-
-      <div class="card">
-    <h3>반대세력 H I A</h3>
-
-    <p>
- 1.H.I.A는 인간 순수성을 절대 기준으로 삼는 세계 정부의 강압적 통치 조직으로, 포스트휴먼을 식별·통제·박멸하는 것이 최우선 임무다.<br><br>
- 2.조직은 최고 통치층 → 중앙 통제층 → 작전·감시층 → 현장 집행층의 4단계 계급 체계로 구성되며, 각 계층이 정책, 감시, 심문, 군사 작전을 분담한다.<br><br>
- 3.최고집정관을 정점으로 모든 권한이 집중되어 있으며, AI 감시망과 생체 검사, 신경 스캔, 특수부대를 통해 사회 전체를 감시하고 포스트휴먼을 제거한다.<br><br>
-    </p>
-
-      
-        </div>
-
-    </div>
-
-</section>
-<!-- ========================= -->
-<!-- NODE -->
-<!-- ========================= -->
-
-<section id="members">
-
-    <h2 class="section-title">
-        NODE
-    </h2>
-
-    <p class="section-sub">
-        Remnant를 관리하는 Node입니다.
-    </p>
-
-    <div class="grid">
-
-        <!-- 이학주 -->
-
-        <div class="card member">
-
-            <img
-                src="이학주.jpg"
-                class="avatar"
-                alt="이학주">
-
-            <h3>
-                이학주
-           (Lee Hak-ju)<br>
-            H 영속체 BAAL 38
-            </h3>
-            <p>
-      방의 총괄 관리자
-            </p>
-
-        </div>
-
-
-        <!-- 남주혁 -->
-
-        <div class="card member">
-
-            <img
-                src="남주혁.jpg"
-                class="avatar"
-                alt="남주혁">
-
-            <h3>
-                남주혁
-             (Nam Joo-hyuk)
-                <br>
-               H 중첩체 HELIX 32<br>
-            </h3>
-
-            <p>
-      AI 기반 이미지 제작<br>
-     공식 사이트 관리
-
-            </p>
-
-        </div>
-
-
-        <!-- 다음 관리자 -->
-
-        <div class="card member">
-
-            <div class="avatar"
-                 style="
-                    display:flex;
-                    justify-content:center;
-                    align-items:center;
-                    background:#2b3238;
-                    color:white;
-                    font-size:40px;
-                 ">
-                ?
+    <header>
+        <div class="logo">SYS // NEXUS-0</div>
+        <nav>
+            <ul>
+                <li><a href="#world">WORLD</a></li>
+                <li><a href="#characters">ARCHIVE</a></li>
+                <li><a href="#rules">SYSTEM RULES</a></li>
+                <li><a href="#connect">ACCESS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>POST-HUMAN ARCHIVE</h1>
+            <p>육체의 한계를 넘어선 자들의 기록, 새로운 진화의 공간에 접속하셨습니다.</p>
+            <a href="#connect" class="btn">INITIALIZE ACCESS</a>
+            
+            <div class="terminal-log" id="log-box">
+                > SYSTEM: Initializing connection protocol...<br>
+                > STATUS: Core frequency stabilised at #7A858B.<br>
+                > WAITING FOR USER INPUT...
             </div>
+        </section>
 
-            <h3>
-                Who's Next?
-            </h3>
-
-            <p>
-
-        Coming Soon...
-
-            </p>
-
-        </div>
-
+        <section class="grid">
+            <div class="card" id="world">
+                <h3>01. WORLD VIEW</h3>
+                <p>인간과 기계의 경계가 무너진 22세기 말. 의식을 데이터화하고 신체를 개조한 포스트 휴먼들이 살아가는 차가운 도시, 네메시스를 배경으로 합니다.</p>
+            </div>
+            <div class="card" id="characters">
+                <h3>02. ENTITY ARCHIVE</h3>
+                <p>기계적 심장을 품은 인간, 인공지능에서 자아를 얻은 안드로이드 등 다양한 포스트 휴먼 개체들의 프로필과 관계망을 등록하고 열람할 수 있습니다.</p>
+            </div>
+            <div class="card" id="rules">
+                <h3>03. PROTOCOLS</h3>
+                <p>원활한 세계관 유지와 몰입도 높은 멤버놀이(역극) 진행을 위한 가이드라인 및 서식 규정입니다. 접속 전 반드시 확인하시기 바랍니다.</p>
+            </div>
+        </section>
     </div>
 
-</section>
+    <footer>
+        <p>&copy; 2026 POST-HUMAN MENTION PLAY. All rights reserved.</p>
+    </footer>
 
+    <script>
+        // 간단한 터미널 로그 타이핑 효과 시뮬레이션
+        const logs = [
+            "> SECURITY CHECK: Neural link verified.",
+            "> WARNING: Minor spatial anomaly detected in Sector 4.",
+            "> DATABASE: 42 active entities connected.",
+            "> SYSTEM: Ready for user interaction."
+        ];
+        
+        let index = 0;
+        const logBox = document.getElementById('log-box');
 
-<!-- ========================= -->
-<!-- Footer -->
-<!-- ========================= -->
-
-<footer>
-
-    © 2026 Remnant.
-
-    All rights reserved.
-
-</footer>
+        setInterval(() => {
+            logBox.innerHTML += `<br>${logs[index]}`;
+            index = (index + 1) % logs.length;
+            logBox.scrollTop = logBox.scrollHeight;
+        }, 4000);
+    </script>
 
 </body>
-
 </html>
