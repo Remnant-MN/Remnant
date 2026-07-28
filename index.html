@@ -3,837 +3,549 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<title>Remnant Official</title>
 
-  <title>Remnant 공식 사이트</title>
+<style>
 
+:root{
 
-  <style>
+--bg:#0d1115;
+--panel:#161b22;
+--panel2:#20262d;
 
-    :root {
+--text:#f5f5f5;
+--muted:#c2c7cc;
 
-      --bg: #7A858B;
+--main:#7A858B;
+--main2:#5f6a70;
 
-      --panel: #69757B;
+--line:rgba(122,133,139,.25);
 
-      --panel2: #5F6B71;
+}
 
-      --text: #F4F7F8;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-      --muted: #D5DBDE;
+html{
+scroll-behavior:smooth;
+}
 
-      --accent: #C7D0D4;
+body{
 
-      --accent2: #4F5B61;
+font-family:
+Arial,
+"Noto Sans KR",
+sans-serif;
 
-      --line: rgba(255, 255, 255, .25);
+background:
+linear-gradient(
+180deg,
+#101419,
+#0b0d10
+);
 
-    }
+color:var(--text);
 
+line-height:1.7;
 
-    * {
+}
 
-      box-sizing: border-box;
+header{
 
-      margin: 0;
+position:fixed;
 
-      padding: 0;
+top:0;
 
-    }
+left:0;
 
+width:100%;
 
-    html {
+z-index:999;
 
-      scroll-behavior: smooth;
+background:rgba(15,18,22,.92);
 
-    }
+backdrop-filter:blur(12px);
 
+border-bottom:1px solid var(--line);
 
-    body {
+}
 
-      font-family:
+nav{
 
-        Arial,
+max-width:1200px;
 
-        "Noto Sans KR",
+margin:auto;
 
-        sans-serif;
+padding:18px 30px;
 
-      background:
+display:flex;
 
-        radial-gradient(
+justify-content:space-between;
 
-          circle at top right,
+align-items:center;
 
-          #AAB3B7 0%,
+}
 
-          var(--bg) 35%,
+.logo{
 
-          #626D73 100%
+font-size:1.2rem;
 
-        );
+font-weight:bold;
 
-      color: var(--text);
+letter-spacing:4px;
 
-      line-height: 1.6;
+}
 
-      min-height: 100vh;
+.logo span{
 
-    }
+color:var(--main);
 
+}
 
-    /* =========================
+nav ul{
 
-       상단 메뉴
+display:flex;
 
-    ========================= */
+gap:28px;
 
-    header {
+list-style:none;
 
-      position: sticky;
+}
 
-      top: 0;
+nav a{
 
-      z-index: 10;
+text-decoration:none;
 
-      backdrop-filter: blur(14px);
+color:var(--muted);
 
-      background: rgba(55, 65, 70, .88);
+transition:.25s;
 
-      border-bottom: 1px solid var(--line);
+}
 
-    }
+nav a:hover{
 
+color:white;
 
-    nav {
+}
 
-      max-width: 1180px;
+.hero{
 
-      margin: auto;
+min-height:100vh;
 
-      padding: 18px 24px;
+display:flex;
 
-      display: flex;
+justify-content:center;
 
-      justify-content: space-between;
+align-items:center;
 
-      align-items: center;
+text-align:center;
 
-      gap: 20px;
+padding:120px 20px 80px;
 
-    }
+}
 
+.hero-inner{
 
-    .logo {
+max-width:900px;
 
-      font-weight: 900;
+}
 
-      letter-spacing: .14em;
+.hero-small{
 
-      font-size: 1.1rem;
+letter-spacing:6px;
 
-    }
+font-size:.8rem;
 
+color:var(--main);
 
-    .logo span {
+margin-bottom:20px;
 
-      color: var(--accent);
+}
 
-    }
+.main-image{
 
+width:100%;
 
-    nav ul {
+max-width:850px;
 
-      display: flex;
+border-radius:18px;
 
-      gap: 22px;
+box-shadow:
 
-      list-style: none;
+0 20px 60px rgba(0,0,0,.4);
 
-      flex-wrap: wrap;
+}
 
-    }
+.hero h1{
 
+margin-top:35px;
 
-    nav a {
+font-size:3rem;
 
-      color: var(--muted);
+font-weight:700;
 
-      text-decoration: none;
+}
 
-      font-size: .95rem;
+.hero p{
 
-      transition: .2s;
+margin-top:20px;
 
-    }
+color:var(--muted);
 
+font-size:1.05rem;
 
-    nav a:hover {
+}
 
-      color: var(--text);
+.button-group{
 
-    }
+margin-top:35px;
 
+display:flex;
 
-    /* =========================
+justify-content:center;
 
-       메인 화면
+gap:15px;
 
-    ========================= */
+flex-wrap:wrap;
 
-    .hero {
+}
 
-      min-height: 76vh;
+.btn{
 
-      display: grid;
+padding:14px 28px;
 
-      place-items: center;
+border-radius:999px;
 
-      text-align: center;
+text-decoration:none;
 
-      padding: 100px 24px 80px;
+border:1px solid var(--line);
 
-    }
+background:var(--panel);
 
+color:white;
 
-    .hero-inner {
+transition:.25s;
 
-      max-width: 900px;
+}
 
-    }
+.btn:hover{
 
+transform:translateY(-3px);
 
-    .eyebrow {
+}
 
-      color: var(--accent);
+.btn-main{
 
-      letter-spacing: .25em;
+background:var(--main2);
 
-      font-size: .8rem;
+border:none;
 
-      margin-bottom: 18px;
+}
 
-    }
+section{
 
+max-width:1200px;
 
-    .main-title-image {
+margin:auto;
 
-      width: min(850px, 100%);
+padding:90px 30px;
 
-      max-height: 420px;
+}
 
-      object-fit: cover;
+.section-title{
 
-      display: block;
+font-size:2rem;
 
-      margin: 0 auto;
+margin-bottom:10px;
 
-      border-radius: 20px;
+}
 
-      border: 1px solid var(--line);
+.section-sub{
 
-    }
+color:var(--muted);
 
+margin-bottom:40px;
 
-    .hero p {
+}
 
-      color: var(--muted);
+.grid{
 
-      max-width: 620px;
+display:grid;
 
-      margin: 28px auto;
+grid-template-columns:
 
-      font-size: 1.05rem;
+repeat(3,1fr);
 
-    }
+gap:20px;
 
+}
 
-    /* =========================
+.card{
 
-       버튼
+background:var(--panel);
 
-    ========================= */
+border:1px solid var(--line);
 
-    .buttons {
+border-radius:18px;
 
-      display: flex;
+padding:22px;
 
-      justify-content: center;
+transition:.25s;
 
-      gap: 12px;
+}
 
-      flex-wrap: wrap;
+.card:hover{
 
-    }
+transform:translateY(-6px);
 
+border-color:var(--main);
 
-    .btn {
+}
 
-      border: 1px solid var(--line);
+.card h3{
 
-      padding: 12px 20px;
+margin-bottom:15px;
 
-      border-radius: 999px;
-
-      color: var(--text);
-
-      text-decoration: none;
-
-      background: var(--panel);
-
-      transition: .2s;
-
-    }
-
-
-    .btn.primary {
-
-      background:
-
-        linear-gradient(
-
-          135deg,
-
-          var(--accent2),
-
-          #39454A
-
-        );
-
-      border-color: transparent;
-
-    }
-
-
-    .btn:hover {
-
-      transform: translateY(-2px);
-
-      background: var(--accent2);
-
-    }
-
-
-    /* =========================
-
-       섹션
-
-    ========================= */
-
-    section {
-
-      max-width: 1180px;
-
-      margin: auto;
-
-      padding: 80px 24px;
-
-    }
-
-
-    .section-title {
-
-      font-size: 2rem;
-
-      margin-bottom: 10px;
-
-    }
-
-
-    .section-subtitle {
-
-      color: var(--muted);
-
-      margin-bottom: 28px;
-
-    }
-
-
-    /* =========================
-
-       카드
-
-    ========================= */
-
-    .grid {
-
-      display: grid;
-
-      grid-template-columns:
-
-        repeat(3, 1fr);
-
-      gap: 18px;
-
-      align-items: stretch;
-
-    }
-
-
-    .card {
-
-      background:
-
-        linear-gradient(
-
-          180deg,
-
-          rgba(255,255,255,.10),
-
-          rgba(255,255,255,.04)
-
-        );
-
-      border: 1px solid var(--line);
-
-      border-radius: 20px;
-
-      padding: 18px;
-
-      min-height: 280px;
-
-      box-shadow:
-
-        0 10px 30px
-
-        rgba(40, 50, 55, .18);
-
-    }
-
-
-    card h3{
-    font-size: 30px;
-    font-weight: 700;
-    color:#fff;
-    margin-bottom:20px;
 }
 
 .card p{
-    font-size:18px;
-    line-height:1.8;
-    color:#E5E5E5;
-    white-space:pre-line;
-  
-    /* =========================
 
-       관리자 카드
+color:var(--muted);
 
-    ========================= */
+white-space:pre-line;
 
-    .member {
+}
 
-      text-align: center;
+.emblem{
 
-      padding: 28px 18px;
+width:100%;
 
-    }
+height:220px;
 
+object-fit:contain;
 
-    .avatar {
+margin-top:20px;
 
-      width: 100px;
+}
 
-      height: 100px;
+.member{
 
-      margin: 0 auto 16px;
+text-align:center;
 
-      border-radius: 10%;
+}
 
-      display: block;
+.avatar{
 
-      object-fit: cover;
+width:100px;
 
-      font-size: 1.8rem;
+height:100px;
 
-      font-weight: bold;
+border-radius:12px;
 
-      color: var(--text);
+object-fit:cover;
 
-      background:
+margin:auto;
 
-        linear-gradient(
+margin-bottom:18px;
 
-          135deg,
+display:block;
 
-          #4F5B61,
+}
 
-          #AAB3B7
+.member h3{
 
-        );
+margin-bottom:10px;
 
-    }
+line-height:1.5;
 
+}
 
-    .member h3 {
+footer{
 
-      line-height: 1.5;
+margin-top:80px;
 
-    }
+border-top:1px solid var(--line);
 
+padding:35px;
 
-    .member p {
+text-align:center;
 
-      margin-top: 12px;
+color:var(--muted);
 
-      line-height: 1.8;
+}
 
-    }
+@media(max-width:900px){
 
+.grid{
 
-    /* =========================
+grid-template-columns:1fr;
 
-       게시판
+}
 
-    ========================= */
+nav{
 
-    .board-buttons {
+flex-direction:column;
 
-      display: flex;
+gap:15px;
 
-      gap: 15px;
+}
 
-      flex-wrap: wrap;
+.hero h1{
 
-    }
+font-size:2.2rem;
 
+}
 
-    .board-button {
+}
 
-      display: block;
-
-      padding: 20px 30px;
-
-      background: var(--panel);
-
-      border: 1px solid var(--line);
-
-      border-radius: 16px;
-
-      color: var(--text);
-
-      text-decoration: none;
-
-      transition: .2s;
-
-    }
-
-
-    .board-button:hover {
-
-      transform: translateY(-4px);
-
-      border-color: var(--accent);
-
-      background: var(--accent2);
-
-    }
-
-
-    /* =========================
-
-       하단
-
-    ========================= */
-
-    footer {
-
-      border-top: 1px solid var(--line);
-
-      text-align: center;
-
-      padding: 32px 24px;
-
-      color: var(--muted);
-
-    }
-
-
-    /* =========================
-
-       모바일
-
-    ========================= */
-
-    @media (max-width: 760px) {
-
-
-      nav {
-
-        align-items: flex-start;
-
-        flex-direction: column;
-
-      }
-
-
-      nav ul {
-
-        gap: 14px;
-
-      }
-
-
-      .grid {
-
-        grid-template-columns: 1fr;
-
-      }
-
-
-      .main-title-image {
-
-        max-height: 300px;
-
-      }
-
-
-      .emblem-image {
-
-        height: 200px;
-
-      }
-
-
-      .hero {
-
-        padding-top: 70px;
-
-      }
-
-
-      .section-title {
-
-        font-size: 1.7rem;
-
-      }
-
-    }
-
-  </style>
+</style>
 
 </head>
 
-
 <body>
 
+<header>
 
-  <!-- =========================
+<nav>
 
-       상단 메뉴
+<div class="logo">
+<span>Remnant</span>
+</div>
 
-  ========================= -->
+<ul>
 
-  <header>
+<li><a href="#home">HOME</a></li>
 
-    <nav>
+<li><a href="#about">WORLD</a></li>
 
+<li><a href="#members">NODE</a></li>
 
-      <div class="logo">
+</ul>
 
-        <span>Remnant</span>
+</nav>
 
-      </div>
+</header>
 
+<section
+id="home"
+class="hero">
 
-      <ul>
+<div class="hero-inner">
 
+<div class="hero-small">
+OFFICIAL COMMUNITY
+</div>
 
-        <li>
+<img
+src="포스트 휴먼.jpg"
+class="main-image"
+alt="Remnant">
 
-          <a href="#home">
+<h1>
 
-            홈
+Remnant
 
-          </a>
+</h1>
 
-        </li>
+<p>
 
+Remnant 공식 사이트입니다.
 
-        <li>
+세계관과 Node 정보를 확인할 수 있습니다.
 
-          <a href="#about">
+</p>
 
-            멤놀 안내
+<div class="button-group">
 
-          </a>
+<a
+href="#about"
+class="btn btn-main">
 
-        </li>
+세계관 보기
 
+</a>
 
-        <li>
+<a
+href="#members"
+class="btn">
 
-          <a href="#members">
+NODE
 
-            NODE
+</a>
 
-          </a>
+</div>
 
-        </li>
+</div>
 
-      </ul>
+</section>
 
-    </nav>
+<!-- ========================= -->
+<!-- WORLD -->
+<!-- ========================= -->
 
-  </header>
+<section id="about">
 
+    <h2 class="section-title">
+        Remnant World
+    </h2>
 
-  <main>
-
-
-    <!-- =========================
-
-         메인 홈
-
-    ========================= -->
-
-    <section
-
-      id="home"
-
-      class="hero"
-
-    >
-
-
-      <div class="hero-inner">
-
-
-        <div class="eyebrow">
-
-          OFFICIAL COMMUNITY
-
-        </div>
-
-
-        <img
-
-          class="main-title-image"
-
-          src="포스트 휴먼.jpg"
-
-          alt="Remnant"
-
-        >
-
-
-        <p>
-
-          Remnant 공식 사이트에 오신 것을 환영합니다.
-
-          <br>
-
-          세계관과 캐릭터, 활동 기록을 한 곳에서 확인하세요.
-
-        </p>
-
-
-        <div class="buttons">
-
-
-          <a
-
-            class="btn primary"
-
-            href="#about"
-
-          >
-
-            멤놀 안내 보기
-
-          </a>
-
-
-          <a
-
-            class="btn"
-
-            href="#members"
-
-          >
-
-            관리자
-
-          </a>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-
-         멤놀 안내
-
-    ========================= -->
-
-    <section id="about">
-
-
-      <h2 class="section-title">
-
-        멤놀 안내
-
-      </h2>
-
-
-      <p class="section-subtitle">
-
+    <p class="section-sub">
         Remnant의 세계관과 활동을 소개합니다.
+    </p>
 
-      </p>
-
-
-      <div class="grid">
-
+    <div class="grid">
 
         <!-- 세계관 -->
 
         <div class="card">
 
+            <h3>
+                세계관
+            </h3>
 
-          <h3>
+            <p>
 
-            세계관
+2145년.
 
-          </h3>
+인류는 하나의 정부 아래 통제되고 있다.
 
+인간의 생물학적 순수성을 지키려는
+H.I.A.
 
-          <p>
+기계와의 융합을 새로운 진화라 믿는
+P.H.A.F.
 
-2145년, 인류는 하나의 정부 아래 통제되고 있다.
-
-인간의 생물학적 순수성을 지키려는 H.I.A와,
-
-기계와의 융합을 새로운 진화로 받아들이는 P.H.A.F.
-
-인간과 포스트휴먼의 갈등 속에서,
+두 세력의 대립 속에서
 
 인류의 미래는 두 갈래로 나뉘었다.
 
-          </p>
+            </p>
 
         </div>
-     <!-- P.H.A.F -->
-      <div class="card">
-        
-    <h3>포스트휴먼 세력 P H A F</h3>
 
-    <p>
-   1. P.H.A.F는 인간의 한계를 넘어선 진화를 추구하는 포스트휴먼 연합으로, 의식 이전·기계 융합·집단 지성을 통해 자유와 초월을 목표로 한다.<br><br>
+
+        <!-- P.H.A.F  -->
+
+        <div class="card">
+
+            <h3>
+              포스트휴먼 세력 P H A F
+            </h3>
+              
+             <P>
+  1. P.H.A.F는 인간의 한계를 넘어선 진화를 추구하는 포스트휴먼 연합으로, 의식 이전·기계 융합·집단 지성을 통해 자유와 초월을 목표로 한다.<br><br>
    2.조직은 초월 핵심층 → 진화 설계층 → 전선 실행층 → 진화 참여층의 4단계 계급 체계로 구성되며, 전략 수립부터 전투, 기술 개발, 정보 공유까지 역할이 분담된다.<br><br>
    3.최상위 존재인 영속체와 중첩체가 조직의 방향을 결정하고, 각성체·연결체·잔존체를 포함한 구성원들이 H.I.A의 통제에 맞서 포스트휴먼의 생존과 해방을 위해 활동한다.
     </p>
 
-      </div>
-        <!-- H.I.A -->
+        </div>
+<!-- H.I.A -->
 
       <div class="card">
     <h3>반대세력 H I A</h3>
@@ -843,72 +555,47 @@
  2.조직은 최고 통치층 → 중앙 통제층 → 작전·감시층 → 현장 집행층의 4단계 계급 체계로 구성되며, 각 계층이 정책, 감시, 심문, 군사 작전을 분담한다.<br><br>
  3.최고집정관을 정점으로 모든 권한이 집중되어 있으며, AI 감시망과 생체 검사, 신경 스캔, 특수부대를 통해 사회 전체를 감시하고 포스트휴먼을 제거한다.<br><br>
     </p>
-      </di>
 
-      </div>
+      
+        </div>
 
-    </section>
+    </div>
 
+</section>
+<!-- ========================= -->
+<!-- NODE -->
+<!-- ========================= -->
 
-    <!-- =========================
+<section id="members">
 
-         NODE 관리자
-
-    ========================= -->
-
-    <section id="members">
-
-
-      <h2 class="section-title">
-
+    <h2 class="section-title">
         NODE
+    </h2>
 
-      </h2>
+    <p class="section-sub">
+        Remnant를 관리하는 Node입니다.
+    </p>
 
-
-      <p class="section-subtitle">
-
-        관리자 Node를 소개합니다.
-
-      </p>
-
-
-      <div class="grid">
-
+    <div class="grid">
 
         <!-- 이학주 -->
 
         <div class="card member">
 
+            <img
+                src="이학주.jpg"
+                class="avatar"
+                alt="이학주">
 
-          <img
-
-            class="avatar"
-
-            src="이학주.jpg"
-
-            alt="이학주 프로필"
-
-          >
-
-
-          <h3>
-
-            이 학주 (Lee Hak-ju)
-
-            <br>
-
-            H 영속체 BAAL 38<br>
-             방의 총괄 관리
-
-          </h3>
-           
-
-          <p>
-
-            
-
-          </p>
+            <h3>
+                이학주
+           (Lee Hak-ju)
+                <br><br>
+            H 영속체 BAAL 38
+            </h3>
+            <p>
+      방의 총괄 관리자
+            </p>
 
         </div>
 
@@ -917,73 +604,71 @@
 
         <div class="card member">
 
+            <img
+                src="남주혁.jpg"
+                class="avatar"
+                alt="남주혁">
 
-          <img
+            <h3>
+                남주혁
+          (Nam Joo-hyuk)
+                <br><br>
+               H 중첩체 HELIX 32<br>
+            </h3>
 
-            class="avatar"
+            <p>
+      AI 기반 이미지 제작<br>
+     공식 사이트 관리
 
-            src="남주혁.jpg"
-
-            alt="남주혁 프로필"
-
-          >
-
-
-          <h3>
-            남주혁 (Nam Joo-hyuk)
-            <br>
-            H 중첩체 HELIX 32<br>
-          AI 기반 이미지 제작<br>
-             공식 사이트 관리
-          </h3>
-          <p>
-          </p>
+            </p>
 
         </div>
 
 
-        <!-- 세 번째 멤버 -->
+        <!-- 다음 관리자 -->
 
         <div class="card member">
 
+            <div class="avatar"
+                 style="
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    background:#2b3238;
+                    color:white;
+                    font-size:40px;
+                 ">
+                ?
+            </div>
 
-          <div class="avatar">
+            <h3>
+                Who's Next?
+            </h3>
 
-            ?
+            <p>
 
-          </div>
+        Coming Soon...
 
-
-          <h3>
-
-            Who's next?
-
-          </h3>
-
-
-          <p>
-
-            Who's next?
-
-          </p>
+            </p>
 
         </div>
 
+    </div>
 
-      </div>
+</section>
 
-    </section>
 
-  </main>
+<!-- ========================= -->
+<!-- Footer -->
+<!-- ========================= -->
 
-  <footer>
+<footer>
 
     © 2026 Remnant.
 
     All rights reserved.
 
-  </footer>
-
+</footer>
 
 </body>
 
