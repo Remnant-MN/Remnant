@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remnant Official</title>
+    <title>REM NANT // Post Human Archive</title>
     <style>
         :root {
-            --bg-color: #5E8E8A;
+            --bg-color: #7A858B;
             --bg-dark: #1a1a1a;
             --text-main: #EAEAEA;
             --text-sub: #BAC3C7;
@@ -23,21 +23,22 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: 'Noto Sans KR', sans-serif; 
+            font-family: 'Noto Sans KR', sans-serif;
             line-height: 1.6;
         }
-        body::before {
-    content: " ";
-    display: block;
-    position: fixed;
-    top: 0; left: 0; bottom: 0; right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.5) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.08), rgba(0, 255, 0, 0.04), rgba(0, 0, 255, 0.08));
-    z-index: 999;
-    background-size: 100% 4px, 6px 100%;
-    pointer-events: none;
-}
 
-        /* 헤더 */
+        /* 배경 글리치/노이즈 효과 레이어 */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.5) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.08), rgba(0, 255, 0, 0.04), rgba(0, 0, 255, 0.08));
+            z-index: 999;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
         header {
             background: var(--bg-dark);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -59,7 +60,7 @@
         }
 
         .logo::after {
-            content: ' ';
+            content: ' //';
             color: var(--accent-color);
         }
 
@@ -82,11 +83,10 @@
             color: var(--accent-color);
         }
 
-        /* 메인 배너 이미지 */
         .main-banner {
             width: 100%;
             height: 500px;
-            background-image: url('포스트 휴먼.jpg'); /* 실제 이미지 경로로 변경 필요 */
+            background-image: url('image_1.png');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -100,7 +100,7 @@
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* 이미지 어둡게 처리 */
+            background: rgba(0, 0, 0, 0.4);
         }
 
         .banner-text {
@@ -121,7 +121,6 @@
             color: #f0f0f0;
         }
 
-        /* 그리드 컨테이너 (3단 카드) */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -163,46 +162,27 @@
             margin-bottom: 1.2rem;
         }
 
-        /* 프로필 카드 스타일 (image_2.png 반영) */
-        .profile-card {
-             background: var(--card-bg);
-             padding: 2rem;
-             border: 1px solid rgba(255, 255, 255, 0.15);
-             border-radius: 8px;
-             text-align: center;
-             display: flex;
-             flex-direction: column;
-             align-items: center;
+        /* 카드 박스를 제거하고 이미지만 나열하는 스타일 */
+        .image-only-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
-        .profile-img {
-            width: 180px;
-            height: 200px;
-            border-radius: 20px;
+        .pure-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 30px;
             object-fit: cover;
             border: 3px solid var(--accent-color);
-            margin-bottom: 1.5rem;
             box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+            transition: transform 0.3s;
         }
 
-        .profile-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-        }
-        
-        .profile-title {
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            font-weight: bold;
-            margin-bottom: 0.3rem;
-        }
-
-        .profile-desc {
-            font-size: 0.85rem;
-            color: var(--text-sub);
-            margin-top: 1rem;
+        .pure-img:hover {
+            transform: scale(1.05);
         }
 
         footer {
@@ -215,7 +195,6 @@
             margin-top: 6rem;
         }
 
-        /* 반응형 조정 */
         @media (max-width: 992px) {
             .info-grid {
                 grid-template-columns: 1fr;
@@ -226,7 +205,6 @@
             .banner-text h1 { font-size: 2rem; }
         }
     </style>
-    <!-- 한글 폰트 적용 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -236,13 +214,14 @@
         <nav>
             <ul>
                 <li><a href="#">세계관</a></li>
+                <li><a href="#">아카이브</a></li>
                 <li><a href="#">규정</a></li>
+                <li><a href="#">가입신청</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- 메인 이미지 배너 (image_1.png 컨셉) -->
-    <div class="main-banner" style="background-image: url('포스트 휴먼.jpg');">
+    <div class="main-banner" style="background-image: url('image_1.png');">
         <div class="banner-text">
             <h1>인간의 한계를 넘어서, 새로운 존재의 시대가 시작된다.</h1>
             <p>포스트 휴먼 아카이브 : REM NANT</p>
@@ -250,7 +229,6 @@
     </div>
 
     <div class="container">
-        <!-- 세계관 및 세력 정보 섹션 (image_0.png 컨셉) -->
         <section class="info-grid">
             <div class="info-card">
                 <h2>세계관</h2>
@@ -260,51 +238,32 @@
                 <p>두 세력의 대립 속에서 인류의 미래는 두 갈래로 나뉘었다.</p>
             </div>
             <div class="info-card">
-                <h2>포스트휴먼 세력 P H A F</h2>
-                 <P>
-   1. P.H.A.F는 인간의 한계를 넘어선 진화를 추구하는 포스트휴먼 연합으로, 의식 이전·기계 융합·집단 지성을 통해 자유와 초월을 목표로 한다.<br>
-   2.조직은 초월 핵심층 → 진화 설계층 → 전선 실행층 → 진화 참여층의 4단계 계급 체계로 구성되며, 전략 수립부터 전투, 기술 개발, 정보 공유까지 역할이 분담된다.<br>
-   3.최상위 존재인 영속체와 중첩체가 조직의 방향을 결정하고, 각성체·연결체·잔존체를 포함한 구성원들이 H.I.A의 통제에 맞서 포스트휴먼의 생존과 해방을 위해 활동한다.
-    </p>
+                <h2>포스트휴먼 세력 PHAF</h2>
+                <p>1. P.H.A.F는 인간의 한계를 넘어선 진화를 추구하는 포스트휴먼 연합으로, 의식 이전·기계 융합·집단 지성을 통해 자유와 초월을 목표로 한다.</p>
+                <p>2. 조직은 초월 핵심층 → 진화 설계층 → 전선 실행층 → 진화 참여층의 4단계 계급 체계로 구성되며, 전략 수립부터 전투, 기술 개발, 정보 공유까지 역할이 분담된다.</p>
             </div>
             <div class="info-card">
-                <h2>반대세력 H I A</h2>
-                <p>
- 1.H.I.A는 인간 순수성을 절대 기준으로 삼는 세계 정부의 강압적 통치 조직으로, 포스트휴먼을 식별·통제·박멸하는 것이 최우선 임무다.<br>
- 2.조직은 최고 통치층 → 중앙 통제층 → 작전·감시층 → 현장 집행층의 4단계 계급 체계로 구성되며, 각 계층이 정책, 감시, 심문, 군사 작전을 분담한다.<br>
- 3.최고집정관을 정점으로 모든 권한이 집중되어 있으며, AI 감시망과 생체 검사, 신경 스캔, 특수부대를 통해 사회 전체를 감시하고 포스트휴먼을 제거한다.
-    </p>
+                <h2>반대세력 HIA</h2>
+                <p>1. H.I.A는 인간 순수성을 절대 기준으로 삼는 세계 정부의 강압적 통치 조직으로, 포스트휴먼을 식별·통제·박멸하는 것이 최우선 임무다.</p>
+                <p>2. 조직은 최고 통치층 → 중앙 통치층 → 작전·감시층 → 현장 집행층의 4단계 계급 체계로 구성되며, 각 계층이 정책, 감시, 심문, 군사 작전을 분담한다.</p>
             </div>
         </section>
 
-        <!-- 관리자/운영진 소개 섹션 (image_2.png 컨셉) -->
-        <h2 style="margin-bottom: 2rem; color: var(--text-main); border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem;">NODE</h2>
-        <section class="info-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-            <!-- 관리자 카드 1 -->
-            <div class="profile-card">
-                <img src="이학주.jpg" alt="관리자1 이미지" class="profile-img"> <!-- 실제 이미지 주소로 변경 -->
-            </div>
-            <!-- 관리자 카드 2 -->
-            <div class="profile-card">
-                <img src="남주혁.jpg" alt="관리자2 이미지" class="profile-img"> <!-- 실제 이미지 주소로 변경 -->
-            </div>
-             <!-- 관리자 카드 3 (미정) -->
-            <div class="profile-card">
-                 <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px dashed var(--text-sub); margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center; font-size: 3rem; color: var(--text-sub);">?</div>
-                <div class="profile-name">Who's Next?</div>
-                 <div class="profile-title">운영진 모집 중</div>
-                <div class="profile-desc">Coming Soon...</div>
-            </div>
+        <h2 style="margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem;">ADMIN ARCHIVE</h2>
+        
+        <!-- 카드 박스를 없애고 이미지만 깔끔하게 나열하는 섹션 -->
+        <section class="image-only-grid">
+            <img src="이학주.jpg" alt="관리자1 이미지" class="pure-img">
+            <img src="남주혁.jpg" alt="관리자2 이미지" class="pure-img">
+            <div style="width: 220px; height: 220px; border-radius: 30px; border: 3px dashed var(--text-sub); display: flex; justify-content: center; align-items: center; font-size: 3rem; color: var(--text-sub); background: rgba(0,0,0,0.3);">?</div>
         </section>
 
     </div>
 
     <footer>
         <p>&copy; 2026 REMNANT OFFICIAL ARCHIVE. All rights reserved.</p>
-        <p>본 사이트는 멤버놀이 커뮤니티 Remnant의 공식 홈페이지입니다.</p>
+        <p>본 사이트는 멤버놀이 Remnant의 공식 홈페이지입니다.</p>
     </footer>
 
 </body>
 </html>
-
-```
