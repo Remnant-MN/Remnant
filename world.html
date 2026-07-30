@@ -13,6 +13,17 @@
             --accent-color: #00FFCC;
             --card-bg: rgba(0, 0, 0, 0.7);
         }
+              body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.5) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.08), rgba(0, 255, 0, 0.04), rgba(0, 0, 255, 0.08));
+            z-index: 999;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+
+        }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; }
         header { background: var(--bg-dark); border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: sticky; top: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
@@ -100,7 +111,7 @@ H.I.A는 혼란을 수습한다는 명목 아래 전 지구적 통합 통치를 
 2145년의 세계는 표면적으로 안정된 질서를 유지하고 있다. H.I.A는 인간 중심 사회가 회복되었다고 선전하며 단일 정부 체제를 공고히 하고 있다. 그러나 그 질서는 광범위한 감시와 기술 억압 위에 성립된 것이었다.
 P.H.A.F는 더 이상 인간 사회로의 복귀를 목표로 하지 않는다. 일부 포스트휴먼 세력은 생물학적 인간과의 공존을 포기하고, 완전히 새로운 존재로서의 미래를 준비하고 있다. 이 세계에서 인간이라는 개념은 생물학적 정의가 아니라, 정치적 선언이 되었으며 인류의 미래는 여전히 분열된 채로 남아 있다.<br><br>
 </p>
-            <a href="index.html" class="back-btn">&lt; 홈으로 돌아가기</a>
+            <a href="index.html" class="back-btn">&lt; Other data</a>
         </div>
     </div>
 
