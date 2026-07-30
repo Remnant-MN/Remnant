@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REMNANT OFFICIAL</title>
+    <title>REM NANT // Post Human Archive</title>
     <style>
         :root {
             --bg-color: #7A858B;
@@ -57,6 +57,7 @@
             letter-spacing: 3px;
             color: var(--text-main);
             text-transform: uppercase;
+            text-decoration: none;
         }
 
         .logo::after {
@@ -134,11 +135,14 @@
             margin-bottom: 4rem;
         }
 
+        /* 카드를 누르면 링크처럼 이동하도록 설정된 박스 */
         .info-card {
             background: var(--card-bg);
             padding: 2.5rem;
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 8px;
+            text-decoration: none;
+            display: block;
             transition: transform 0.3s, border-color 0.3s;
         }
 
@@ -162,7 +166,6 @@
             margin-bottom: 1.2rem;
         }
 
-        /* 카드형 세로 이미지 스타일 (글자가 잘리지 않도록 비율 조정) */
         .image-only-grid {
             display: flex;
             justify-content: center;
@@ -172,10 +175,10 @@
         }
 
         .pure-img {
-            width: 280px;  /* 카드의 가로 크기 */
-            height: 420px; /* 세로로 긴 카드 비율 (글자가 다 보이도록 충분한 높이 확보) */
+            width: 280px;
+            height: 420px;
             border-radius: 20px;
-            object-fit: cover; /* 이미지가 찌그러지지 않고 비율을 유지하도록 설정 */
+            object-fit: cover;
             border: 2px solid var(--accent-color);
             box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
             transition: transform 0.3s;
@@ -211,18 +214,18 @@
 <body>
 
     <header>
-        <div class="logo">REM NANT</div>
+        <a href="index.html" class="logo">REM NANT</a>
         <nav>
             <ul>
-                <li><a href="#">세계관</a></li>
-                <li><a href="#">아카이브</a></li>
-                <li><a href="#">규정</a></li>
-                <li><a href="#">가입신청</a></li>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="world.html">세계관</a></li>
+                <li><a href="phaf.html">PHAF 세력</a></li>
+                <li><a href="hia.html">HIA 세력</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="main-banner" style="background-image: url('image_1.png');">
+    <div class="main-banner">
         <div class="banner-text">
             <h1>인간의 한계를 넘어서, 새로운 존재의 시대가 시작된다.</h1>
             <p>포스트 휴먼 아카이브 : REM NANT</p>
@@ -230,43 +233,38 @@
     </div>
 
     <div class="container">
+        <!-- 3개의 카드 (각각 지정된 html 파일로 이동) -->
         <section class="info-grid">
-            <div class="info-card">
+            <a href="world.html" class="info-card">
                 <h2>세계관</h2>
                 <p>2145년. 인류는 하나의 정부 아래 통제되고 있다.</p>
-                <p>인간의 생물학적 순수성을 지키려는 H.I.A.</p>
-                <p>기계와의 융합을 새로운 진화라 믿는 P.H.A.F.</p>
-                <p>두 세력의 대립 속에서 인류의 미래는 두 갈래로 나뉘었다.</p>
-            </div>
-            <div class="info-card">
+                <p>인간의 생물학적 순수성을 지키려는 H.I.A와 기계와의 융합을 믿는 P.H.A.F의 대립.</p>
+                <p style="color: var(--accent-color); font-weight: bold; margin-top: 1rem;">> 자세히 보기</p>
+            </a>
+            <a href="phaf.html" class="info-card">
                 <h2>포스트휴먼 세력 PHAF</h2>
-                <p>1. P.H.A.F는 인간의 한계를 넘어선 진화를 추구하는 포스트휴먼 연합으로, 의식 이전·기계 융합·집단 지성을 통해 자유와 초월을 목표로 한다.</p>
-                <p>2. 조직은 초월 핵심층 → 진화 설계층 → 전선 실행층 → 진화 참여층의 4단계 계급 체계로 구성되며, 전략 수립부터 전투, 기술 개발, 정보 공유까지 역할이 분담된다.</p>
-            </div>
-            <div class="info-card">
+                <p>인간의 한계를 넘어선 진화를 추구하는 포스트휴먼 연합.</p>
+                <p>의식 이전·기계 융합·집단 지성을 통해 자유와 초월을 목표로 한다.</p>
+                <p style="color: var(--accent-color); font-weight: bold; margin-top: 1rem;">> 자세히 보기</p>
+            </a>
+            <a href="hia.html" class="info-card">
                 <h2>반대세력 HIA</h2>
-                <p>1. H.I.A는 인간 순수성을 절대 기준으로 삼는 세계 정부의 강압적 통치 조직으로, 포스트휴먼을 식별·통제·박멸하는 것이 최우선 임무다.</p>
-                <p>2. 조직은 최고 통치층 → 중앙 통치층 → 작전·감시층 → 현장 집행층의 4단계 계급 체계로 구성되며, 각 계층이 정책, 감시, 심문, 군사 작전을 분담한다.</p>
-            </div>
+                <p>인간 순수성을 절대 기준으로 삼는 세계 정부의 강압적 통치 조직.</p>
+                <p>포스트휴먼을 식별·통제·박멸하는 것이 최우선 임무다.</p>
+                <p style="color: var(--accent-color); font-weight: bold; margin-top: 1rem;">> 자세히 보기</p>
+            </a>
         </section>
 
-        <h2 style="margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem;">NODE</h2>
+        <h2 style="margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem;">ADMIN ARCHIVE</h2>
         
-        <!-- 카드형 이미지 나열 섹션 -->
-        <section class="image-only-grid">
-            <!-- 첫 번째 관리자 카드 이미지 (파일명에 맞게 수정해서 사용하세요) -->
+        <div class="image-only-grid">
             <img src="이학주.jpg" alt="Baal 카드" class="pure-img">
-            
-            <!-- 두 번째 관리자 카드 이미지 -->
             <img src="남주혁.jpg" alt="Helix 카드" class="pure-img">
-            
-            <!-- 세 번째 빈 칸 (모집 중) -->
             <div style="width: 280px; height: 420px; border-radius: 20px; border: 3px dashed var(--text-sub); display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 3rem; color: var(--text-sub); background: rgba(0,0,0,0.3); gap: 1rem;">
                 <span>?</span>
                 <span style="font-size: 1rem; letter-spacing: 2px;">COMING SOON</span>
             </div>
-        </section>
-
+        </div>
     </div>
 
     <footer>
