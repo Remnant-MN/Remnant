@@ -13,6 +13,17 @@
             --accent-color: #00FFCC;
             --card-bg: rgba(0, 0, 0, 0.7);
         }
+         body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.5) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.08), rgba(0, 255, 0, 0.04), rgba(0, 0, 255, 0.08));
+            z-index: 999;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; }
         header { background: var(--bg-dark); border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: sticky; top: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
@@ -62,9 +73,9 @@ P.H.A.F 직급 체계<br><br>
 중첩체 (Convergence Organism)<br>
    •   복수 의식이 하나의 구조 안에 공존하는 집합 존재<br>
    •   개인 경계가 희미하며 합의 사고로 판단<br>
-   •   전략·방향성 결정의 중심 노드<br>
+   •   전략·방향성 결정의 중심 노드<br><br>
 
-⸻<br>
+⸻<br><br>
 
 Ⅱ. 진화 설계 계층 (Ascension Directorate)<br><br>
 
@@ -78,9 +89,9 @@ P.H.A.F 직급 체계<br><br>
 
 해방체 (Liberation Operative)<br>
    •   H.I.A 시설 파괴 및 개조자 구조 작전 지휘<br>
-   •   독립 사상의 실질적 실행자<br>
+   •   독립 사상의 실질적 실행자<br><br>
 
-⸻<br>
+⸻<br><br>
 
 Ⅲ. 전선 실행 계층 (Evolution Command)<br><br>
 
@@ -96,7 +107,7 @@ P.H.A.F 직급 체계<br><br>
    •   생물학과 기계 비율이 거의 동등한 혼합 존재<br>
    •   의식 안정화 완료 단계<br><br>
 
-⸻<br>
+⸻<br><br>
 
 Ⅳ. 진화 참여 계층 (Emergent Collective)<br><br>
 
