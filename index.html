@@ -162,7 +162,7 @@
             margin-bottom: 1.2rem;
         }
 
-        /* 카드 박스를 제거하고 이미지만 나열하는 스타일 */
+        /* 카드형 세로 이미지 스타일 (글자가 잘리지 않도록 비율 조정) */
         .image-only-grid {
             display: flex;
             justify-content: center;
@@ -172,17 +172,18 @@
         }
 
         .pure-img {
-            width: 220px;
-            height: 220px;
-            border-radius: 30px;
-            object-fit: cover;
-            border: 3px solid var(--accent-color);
+            width: 280px;  /* 카드의 가로 크기 */
+            height: 420px; /* 세로로 긴 카드 비율 (글자가 다 보이도록 충분한 높이 확보) */
+            border-radius: 20px;
+            object-fit: cover; /* 이미지가 찌그러지지 않고 비율을 유지하도록 설정 */
+            border: 2px solid var(--accent-color);
             box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
             transition: transform 0.3s;
+            background: #000;
         }
 
         .pure-img:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         footer {
@@ -249,13 +250,21 @@
             </div>
         </section>
 
-        <h2 style="margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem;">ADMIN ARCHIVE</h2>
+        <h2 style="margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem;">NODE</h2>
         
-        <!-- 카드 박스를 없애고 이미지만 깔끔하게 나열하는 섹션 -->
+        <!-- 카드형 이미지 나열 섹션 -->
         <section class="image-only-grid">
-            <img src="이학주.jpg" alt="관리자1 이미지" class="pure-img">
-            <img src="남주혁.jpg" alt="관리자2 이미지" class="pure-img">
-            <div style="width: 220px; height: 220px; border-radius: 30px; border: 3px dashed var(--text-sub); display: flex; justify-content: center; align-items: center; font-size: 3rem; color: var(--text-sub); background: rgba(0,0,0,0.3);">?</div>
+            <!-- 첫 번째 관리자 카드 이미지 (파일명에 맞게 수정해서 사용하세요) -->
+            <img src="card_baal.jpg" alt="Baal 카드" class="pure-img">
+            
+            <!-- 두 번째 관리자 카드 이미지 -->
+            <img src="card_helix.jpg" alt="Helix 카드" class="pure-img">
+            
+            <!-- 세 번째 빈 칸 (모집 중) -->
+            <div style="width: 280px; height: 420px; border-radius: 20px; border: 3px dashed var(--text-sub); display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 3rem; color: var(--text-sub); background: rgba(0,0,0,0.3); gap: 1rem;">
+                <span>?</span>
+                <span style="font-size: 1rem; letter-spacing: 2px;">COMING SOON</span>
+            </div>
         </section>
 
     </div>
