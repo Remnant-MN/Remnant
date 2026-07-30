@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세계관 - REM NANT</title>
+    <style>
+        :root {
+            --bg-color: #7A858B;
+            --bg-dark: #1a1a1a;
+            --text-main: #EAEAEA;
+            --text-sub: #BAC3C7;
+            --accent-color: #00FFCC;
+            --card-bg: rgba(0, 0, 0, 0.7);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; }
+        header { background: var(--bg-dark); border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: sticky; top: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-size: 1.5rem; font-weight: 900; letter-spacing: 3px; color: var(--text-main); text-transform: uppercase; text-decoration: none; }
+        .logo::after { content: ' //'; color: var(--accent-color); }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: var(--text-sub); text-decoration: none; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; transition: color 0.3s; }
+        nav a:hover { color: var(--accent-color); }
+        .container { max-width: 1200px; margin: 4rem auto; padding: 0 2rem; }
+        .detail-content { background: var(--card-bg); padding: 3rem; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; }
+        .detail-content h2 { font-size: 2rem; color: var(--accent-color); margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; }
+        .detail-content p { font-size: 1.1rem; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.8; }
+        .back-btn { display: inline-block; margin-top: 1.5rem; padding: 0.6rem 1.5rem; background: transparent; color: var(--accent-color); border: 1px solid var(--accent-color); text-decoration: none; font-weight: bold; border-radius: 4px; transition: all 0.3s; }
+        .back-btn:hover { background: var(--accent-color); color: var(--bg-color); }
+        footer { background: var(--bg-dark); text-align: center; padding: 3rem; color: var(--text-sub); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 6rem; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">REM NANT</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="world.html" style="color:var(--accent-color);">세계관</a></li>
+                <li><a href="phaf.html">PHAF 세력</a></li>
+                <li><a href="hia.html">HIA 세력</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="detail-content">
+            <h2>WORLD VIEW</h2>
+            <p>2145년. 인류는 단 하나의 거대 정부 아래 엄격하게 통제되고 있습니다.</p>
+            <p>오랜 세월 동안 당연하게 여겨졌던 육체의 가치와 생물학적 순수성을 고수하려는 세력과, 기계 공학적 결합과 의식의 디지털 업로드를 통해 인류의 진화를 이끌어내야 한다는 세력 간의 마찰은 피할 수 없는 거대한 균열을 만들어냈습니다.</p>
+            <p>두 세력의 이념 대립 속에서 인류의 미래는 이제 두 갈래의 갈림길에 놓이게 되었습니다.</p>
+            <a href="index.html" class="back-btn">&lt; 홈으로 돌아가기</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 REMNANT OFFICIAL ARCHIVE. All rights reserved.</p>
+    </footer>
+</body>
+</html>
