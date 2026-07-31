@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REMNANT OFFICIAL</title>
+    <title>REMNANT</title>
     <style>
         :root {
             --bg-color: #7A858B;
@@ -61,7 +61,7 @@
         }
 
         .logo::after {
-            content: ' ';
+            content: ' //';
             color: var(--accent-color);
         }
 
@@ -87,7 +87,7 @@
         .main-banner {
             width: 100%;
             height: 500px;
-            background-image: url('image_1.png');
+            background-image: url('image_1.png'); /* 대문 대표 사진 파일명 입력 */
             background-size: cover;
             background-position: center;
             position: relative;
@@ -126,6 +126,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .info-grid {
@@ -135,7 +137,6 @@
             margin-bottom: 4rem;
         }
 
-        /* 카드를 누르면 링크처럼 이동하도록 설정된 박스 */
         .info-card {
             background: var(--card-bg);
             padding: 2.5rem;
@@ -183,6 +184,7 @@
             box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
             transition: transform 0.3s;
             background: #000;
+            display: block;
         }
 
         .pure-img:hover {
@@ -197,6 +199,8 @@
             font-size: 0.8rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 6rem;
+            position: relative;
+            z-index: 1;
         }
 
         @media (max-width: 992px) {
@@ -227,13 +231,12 @@
 
     <div class="main-banner">
         <div class="banner-text">
-            <h1>R E M N A N T</h1>
-            <p>설명</p>
+            <h1>인간의 한계를 넘어서, 새로운 존재의 시대가 시작된다.</h1>
+            <p>포스트 휴먼 아카이브 : REMNANT</p>
         </div>
     </div>
 
     <div class="container">
-        <!-- 3개의 카드 (각각 지정된 html 파일로 이동) -->
         <section class="info-grid">
             <a href="world.html" class="info-card">
                 <h2>세계관</h2>
@@ -257,19 +260,28 @@
 
         <h2 style="margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem;">NODE</h2>
         
-        <div class="image-only-grid">
-            <img src="이학주.jpg" alt="Baal 카드" class="pure-img">
-            <img src="남주혁.jpg" alt="Helix 카드" class="pure-img">
+        <section class="image-only-grid">
+            <!-- 프로필 1: 클릭 시 연동될 링크 주소 입력 (target="_blank"는 새 창 열기) -->
+            <a href="https://example.com/profile1" target="_blank">
+                <img src="이학주.jpg" alt="Baal 카드" class="pure-img">
+            </a>
+
+            <!-- 프로필 2: 클릭 시 연동될 링크 주소 입력 -->
+                <a href="https://www.postype.com/@canele-ii5x"target="_blank">
+                <img src="남주혁.jpg" alt="Helix 카드" class="pure-img">
+            </a>
+
+            <!-- 준비 중인 카드 -->
             <div style="width: 280px; height: 420px; border-radius: 20px; border: 3px dashed var(--text-sub); display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 3rem; color: var(--text-sub); background: rgba(0,0,0,0.3); gap: 1rem;">
                 <span>?</span>
                 <span style="font-size: 1rem; letter-spacing: 2px;">COMING SOON</span>
             </div>
-        </div>
+        </section>
     </div>
 
     <footer>
-        <p>&copy; 2026 REMNANT OFFICIAL. All rights reserved.</p>
-        <p>본 사이트는 멤버놀이 Remnant의 공식 홈페이지입니다.</p>
+        <p>&copy; 2026 REMNANT OFFICIAL.</p>
+        <p>본 사이트는 REMNANT의 공식 홈페이지입니다.</p>
     </footer>
 
 </body>
