@@ -187,7 +187,7 @@
             margin-bottom: 4rem;
         }
 
-        /* 1. NODE 프로필 카드 스타일 (사진만 표시) */
+        /* 1. NODE 프로필 카드 스타일 (1023x1537 비율 적용) */
         .profile-card {
             width: 300px;
             background: var(--card-bg);
@@ -206,9 +206,10 @@
             border-color: #fff;
         }
 
+        /* 너비 300px 기준 1023:1537 비율 계산 (세로 약 450px) */
         .profile-img-wrap {
             width: 100%;
-            height: 380px;
+            height: 450px; 
             background: #000;
             overflow: hidden;
         }
@@ -220,10 +221,10 @@
             display: block;
         }
 
-        /* 준비 중(Coming Soon) 프로필 카드 스타일 */
+        /* 준비 중(Coming Soon) 프로필 카드 스타일 (동일한 높이 적용) */
         .coming-soon-card {
             width: 300px;
-            height: 380px;
+            height: 450px;
             background: var(--card-bg);
             border: 3px dashed var(--text-sub);
             border-radius: 16px;
@@ -246,7 +247,7 @@
         }
 
 
-        /* 2. 하단 앰블럼 카드 스타일 (정사각형 1:1 비율 적용) */
+        /* 2. 하단 앰블럼 카드 스타일 (정사각형 1:1 비율) */
         .emblem-card {
             width: 300px;
             background: var(--card-bg);
@@ -258,7 +259,6 @@
             box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
         }
 
-        /* 앰블럼 상단 사진 영역: 가로폭(300px)에 맞춰 세로폭도 동일하게 300px로 설정 (1:1 정방형) */
         .emblem-img-section {
             width: 100%;
             height: 300px; 
@@ -273,7 +273,7 @@
         .emblem-img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 1254x1254 같은 정사각형 비율 이미지가 왜곡 없이 꽉 차게 들어감 */
+            object-fit: cover;
             display: block;
         }
 
@@ -368,11 +368,11 @@
             </a>
         </section>
 
-        <!-- 상단: NODE 프로필 세션 (사진만 표시) -->
+        <!-- 상단: NODE 프로필 세션 (1023x1537 비율 적용) -->
         <h2 class="section-title">NODE</h2>
         <section class="card-row-grid">
             <!-- 프로필 1 (남주혁 사진만) -->
-            <a href="https://www.postype.com/@canele-ii5x" target="_blank" class="profile-card">
+            <a href="https://curious.quizby.me/9402222" target="_blank" class="profile-card">
                 <div class="profile-img-wrap">
                     <img src="남주혁.jpg" alt="프로필 1 사진" class="pure-img">
                 </div>
@@ -395,7 +395,7 @@
             </div>
         </section>
 
-        <!-- 하단: 앰블럼 세션 (정사각형 1:1 비율 적용) -->
+        <!-- 하단: 앰블럼 세션 (정사각형 1:1 비율) -->
         <h2 class="section-title" style="margin-top: 2rem;">앰블럼</h2>
         <section class="card-row-grid">
             <!-- 앰블럼 1 -->
@@ -403,9 +403,9 @@
                 <div class="emblem-img-section">
                     <img src="1.jpg" alt="앰블럼 1 사진" class="emblem-img">
                 </div>
-                <div class="emblem-desc-section">
-                    <div class="emblem-desc-title"> 공식 EMBLEM</div>
-                    <p class="emblem-desc-text">카톡방 공식 EMBLEM입니다.</p>
+             <div class="emblem-desc-section">
+                    <div class="emblem-desc-title">공식Emblem</div>
+                    <p class="emblem-desc text">카톡방 공식Emblem입니다.</p>
                 </div>
             </div>
 
@@ -414,9 +414,9 @@
                 <div class="emblem-img-section">
                     <img src="2.jpg" alt="앰블럼 2 사진" class="emblem-img">
                 </div>
-                <div class="emblem-desc-section">
-                    <div class="emblem-desc-title">P.H.A.F EMBLEM</div>
-                    <p class="emblem-desc-text">P.H.A.F 상징 EMBLEM입니다.</p>
+<div class="emblem-desc-section">
+                    <div class="emblem-desc-title">P.H.A.F Emblem</div>
+                    <p class="emblem-desc-text">P.H.A.F 상징 Emblem입니다.</p>
                 </div>
             </div>
 
@@ -425,11 +425,9 @@
                 <div class="emblem-img-section">
                     <img src="3.jpg" alt="앰블럼 3 사진" class="emblem-img">
                 </div>
-                <div class="emblem-desc-section">
-                    <div class="emblem-desc-title">H.I.A EMBLEM</div>
-                    <p class="emblem-desc-text">H.I.A 상징 EMBLEM입니다.</p>
-                </div>
-            </div>
+<div class="emblem-desc-section">
+                    <div class="emblem-desc-title">H.I.A Emblem</div>
+                    <p class="emblem-desc-text">H.I.A 상징 Emblem입니다.</p>
         </section>
     </div>
 
