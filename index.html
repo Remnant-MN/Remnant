@@ -11,7 +11,7 @@
             --text-main: #EAEAEA;
             --text-sub: #BAC3C7;
             --accent-color: #00FFCC;
-            --card-bg: rgba(0, 0, 0, 0.7);
+            --card-bg: rgba(0, 0, 0, 0.75);
         }
 
         * {
@@ -175,12 +175,12 @@
             margin-top: 2rem;
         }
 
-        /* 세로형 프로필 카드 구조 */
+        /* 텍스트와 사진이 들어가는 프로필 카드 구조 */
         .profile-card {
-            width: 280px;
+            width: 300px;
             background: var(--card-bg);
             border: 2px solid var(--accent-color);
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
             text-decoration: none;
             display: flex;
@@ -194,9 +194,25 @@
             border-color: #fff;
         }
 
+        .card-header-section {
+            padding: 1.2rem 1.2rem 0.5rem 1.2rem;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: var(--text-main);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
         .profile-img-wrap {
             width: 100%;
-            height: 320px;
+            height: 180px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
             overflow: hidden;
             background: #000;
         }
@@ -205,44 +221,93 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
             display: block;
         }
 
-        .profile-card:hover .pure-img {
-            transform: scale(1.03);
+        .card-info-section {
+            padding: 0.8rem 1.2rem;
+            text-align: center;
         }
 
-        /* 카드 하단에 앰블럼 3개가 가로로 나란히 들어가는 영역 */
+        .info-group {
+            margin-bottom: 0.6rem;
+        }
+
+        .info-label {
+            font-size: 0.7rem;
+            color: var(--text-sub);
+            font-style: italic;
+        }
+
+        .info-value {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        /* 앰블럼 및 설명 공간을 감싸는 전체 카드 하단 공통 영역 */
+        .card-footer-emblem-area {
+            margin-top: auto;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.8rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
         .emblem-row-box {
             width: 100%;
-            height: 100px;
-            background: rgba(0, 0, 0, 0.85);
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
-            gap: 12px;
-            padding: 0 1rem;
         }
 
-        /* 각각의 앰블럼 아이콘 스타일 (크기 및 모양 조절 가능) */
+        .emblem-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
         .emblem-icon {
-            width: 45px;
-            height: 45px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             object-fit: cover;
             border: 1.5px solid var(--accent-color);
             background: #111;
-            box-shadow: 0 0 8px rgba(0, 255, 204, 0.3);
+            box-shadow: 0 0 6px rgba(0, 255, 204, 0.3);
+            margin-bottom: 2px;
         }
 
-        /* 준비 중(Coming Soon) 세로형 카드 스타일 */
+        .emblem-label {
+            font-size: 0.6rem;
+            color: var(--text-sub);
+        }
+
+        .emblem-desc-box {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 0.4rem;
+            text-align: center;
+        }
+
+        .emblem-desc-text {
+            font-size: 0.68rem;
+            color: var(--text-sub);
+            line-height: 1.3;
+        }
+
+        /* 준비 중(Coming Soon) 카드 스타일 */
         .coming-soon-card {
-            width: 280px;
+            width: 300px;
             background: var(--card-bg);
             border: 3px dashed var(--text-sub);
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -251,7 +316,7 @@
 
         .coming-soon-top {
             width: 100%;
-            height: 320px;
+            padding: 4rem 1rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -259,18 +324,6 @@
             font-size: 3rem;
             color: var(--text-sub);
             gap: 1rem;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
-        }
-
-        .coming-soon-emblem {
-            width: 100%;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-sub);
-            font-size: 0.85rem;
-            letter-spacing: 1px;
         }
 
         footer {
@@ -300,7 +353,7 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">REM NANT</a>
+        <a href="index.html" class="logo">REMNANT</a>
         <nav>
             <ul>
                 <li><a href="index.html">HOME</a></li>
@@ -345,18 +398,49 @@
         <section class="image-only-grid">
             <!-- 프로필 1 (남주혁 카드) -->
             <a href="https://www.postype.com/@canele-ii5x" target="_blank" class="profile-card">
-                <div class="profile-img-wrap">
-                    <img src="남주혁.jpg" alt="Helix 카드" class="pure-img">
+                <div class="card-header-section">
+                    <div class="card-title">NODE</div>
+                    <div class="profile-img-wrap">
+                        <img src="남주혁.jpg" alt="Helix 카드" class="pure-img">
+                    </div>
+                <!-- 전체 카드 최하단에 위치하는 앰블럼 및 설명 영역 -->
+                <div class="card-footer-emblem-area">
+                    <div class="emblem-row-box">
+                        <div class="emblem-item">
+                            <img src="1.jpg" alt="공식 앰블럼" class="emblem-icon">
+                            <span class="emblem-label">공식 앰블럼</span>
+                        </div>
+                        <div class="emblem-item">
+                            <img src="2.jpg" alt="P.H.A.F 앰블럼" class="emblem-icon">
+                            <span class="emblem-label">P.H.A.F 앰블럼</span>
+                        </div>
+                        <div class="emblem-item">
+                            <img src="3.jpg" alt="H.I.A 앰블럼" class="emblem-icon">
+                            <span class="emblem-label">H.I.A 앰블럼</span>
+                        </div>
+                    </div>
+                    <div class="emblem-desc-box">
+                        <p class="emblem-desc-text">코어 시스템을 총괄하며 진화를 이끄는 상징적 표식</p>
+                    </div>
                 </div>
             </a>
+
             <!-- 프로필 2 (준비 중 카드) -->
             <div class="coming-soon-card">
                 <div class="coming-soon-top">
                     <span>?</span>
                     <span style="font-size: 1rem; letter-spacing: 2px;">COMING SOON</span>
                 </div>
-                <div class="coming-soon-emblem">
-                    <span>LOCKED</span>
+                <!-- 전체 카드 최하단에 위치하는 앰블럼 및 설명 영역 -->
+                <div class="card-footer-emblem-area">
+                    <div class="emblem-row-box" style="visibility: hidden;">
+                        <div class="emblem-item"><div class="emblem-icon"></div></div>
+                        <div class="emblem-item"><div class="emblem-icon"></div></div>
+                        <div class="emblem-item"><div class="emblem-icon"></div></div>
+                    </div>
+                    <div class="emblem-desc-box">
+                        <p class="emblem-desc-text" style="color: var(--text-sub);">LOCKED DATA</p>
+                    </div>
                 </div>
             </div>
 
@@ -366,15 +450,18 @@
                     <span>?</span>
                     <span style="font-size: 1rem; letter-spacing: 2px;">COMING SOON</span>
                 </div>
-                <div class="coming-soon-emblem">
-                    <span>LOCKED</span>
+                <!-- 전체 카드 최하단에 위치하는 앰블럼 및 설명 영역 -->
+                <div class="card-footer-emblem-area">
+                    <div class="emblem-row-box" style="visibility: hidden;">
+                        <div class="emblem-item"><div class="emblem-icon"></div></div>
+                        <div class="emblem-item"><div class="emblem-icon"></div></div>
+                        <div class="emblem-item"><div class="emblem-icon"></div></div>
+                    </div>
+                    <div class="emblem-desc-box">
+                        <p class="emblem-desc-text" style="color: var(--text-sub);">LOCKED DATA</p>
+                    </div>
                 </div>
-                  <!-- 하단에 앰블럼 3개가 가로로 나란히 들어가는 공간 -->
-                <div class="emblem-row-box">
-                    <img src="1.jpg" alt="공식 앰블럼" class="emblem-icon">
-                    <img src="2.jpg" alt="P.H.A.F 앰블럼" class="emblem-icon">
-                    <img src="3.jpg" alt="H.I.A 앰블럼" class="emblem-icon">
-                </div>
+            </div>
         </section>
     </div>
 
