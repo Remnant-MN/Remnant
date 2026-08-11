@@ -175,72 +175,102 @@
             margin-top: 2rem;
         }
 
+        /* 세로형 프로필 카드 구조 */
         .profile-card {
             width: 280px;
+            background: var(--card-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 20px;
+            overflow: hidden;
+            text-decoration: none;
             display: flex;
             flex-direction: column;
-            text-decoration: none;
-            transition: transform 0.3s;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         .profile-card:hover {
             transform: translateY(-10px);
+            border-color: #fff;
+        }
+
+        .profile-img-wrap {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            background: #000;
         }
 
         .pure-img {
-            width: 280px;
-            height: 420px;
-            border-radius: 20px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border: 2px solid var(--accent-color);
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
-            background: #000;
+            transition: transform 0.3s;
             display: block;
         }
 
+        .profile-card:hover .pure-img {
+            transform: scale(1.03);
+        }
+
+        /* 카드 하단에 앰블럼 3개가 가로로 나란히 들어가는 영역 */
+        .emblem-row-box {
+            width: 100%;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.85);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            padding: 0 1rem;
+        }
+
+        /* 각각의 앰블럼 아이콘 스타일 (크기 및 모양 조절 가능) */
+        .emblem-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid var(--accent-color);
+            background: #111;
+            box-shadow: 0 0 8px rgba(0, 255, 204, 0.3);
+        }
+
+        /* 준비 중(Coming Soon) 세로형 카드 스타일 */
         .coming-soon-card {
             width: 280px;
-            height: 420px;
-            border-radius: 20px;
+            background: var(--card-bg);
             border: 3px dashed var(--text-sub);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .coming-soon-top {
+            width: 100%;
+            height: 320px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             font-size: 3rem;
             color: var(--text-sub);
-            background: rgba(0,0,0,0.3);
             gap: 1rem;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
         }
 
-        /* 3개의 프로필 카드 전체 하단에 배치되는 앰블럼 소개 영역 */
-        .global-emblem-section {
+        .coming-soon-emblem {
             width: 100%;
-            background: var(--card-bg);
-            border: 2px solid var(--accent-color);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-top: 3rem;
+            height: 100px;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            text-align: center;
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.15);
-        }
-
-        .global-emblem-section h3 {
-            font-size: 1.3rem;
-            color: var(--text-main);
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--accent-color);
-            display: inline-block;
-            padding-bottom: 0.3rem;
-        }
-
-        .global-emblem-section p {
-            font-size: 0.95rem;
             color: var(--text-sub);
-            line-height: 1.6;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
 
         footer {
@@ -312,43 +342,44 @@
 
         <h2 style="margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem;">NODE</h2>
         
-        <!-- 프로필 카드 3개 나란히 배치 -->
         <section class="image-only-grid">
-            <!-- 프로필 1 -->
+            <!-- 프로필 1 (남주혁 카드) -->
             <a href="https://www.postype.com/@canele-ii5x" target="_blank" class="profile-card">
-                <img src="남주혁.jpg" alt="Helix 카드" class="pure-img">
+                <div class="profile-img-wrap">
+                    <img src="남주혁.jpg" alt="Helix 카드" class="pure-img">
+                </div>
             </a>
-
-            <!-- 프로필 2 (준비 중) -->
+            <!-- 프로필 2 (준비 중 카드) -->
             <div class="coming-soon-card">
-                <span>?</span>
-                <span style="font-size: 1rem; letter-spacing: 2px;">COMING SOON</span>
+                <div class="coming-soon-top">
+                    <span>?</span>
+                    <span style="font-size: 1rem; letter-spacing: 2px;">COMING SOON</span>
+                </div>
+                <div class="coming-soon-emblem">
+                    <span>LOCKED</span>
+                </div>
             </div>
 
-            <!-- 프로필 3 (준비 중) -->
+            <!-- 프로필 3 (준비 중 카드) -->
             <div class="coming-soon-card">
-                <span>?</span>
-                <span style="font-size: 1rem; letter-spacing: 2px;">COMING SOON</span>
-            </div>
-        </section>
-
-      <!-- 3개 프로필 카드 전체 하단에 위치하는 앰블럼 소개 공간 -->
-<section class="global-emblem-section">
-    <h3>EMBLEM ARCHIVE</h3>
-    
-    <!-- 앰블럼 이미지가 들어갈 공간 -->
-    <div class="emblem-img-container">
-        <img src="1.jpg" alt="1번 공식 앰블럼" class="emblem-item">
-        <img src="2.jpg" alt="2번 P.H.A.F 앰블럼" class="emblem-item">
-        <img src="3.jpg" alt="3번 H.I.A 앰블럼" class="emblem-item">
-    </div>
-
-    <p>REMNANT 세계관 을상징하는 고유 앰블럼입니다</p>
+                <div class="coming-soon-top">
+                    <span>?</span>
+                    <span style="font-size: 1rem; letter-spacing: 2px;">COMING SOON</span>
+                </div>
+                <div class="coming-soon-emblem">
+                    <span>LOCKED</span>
+                </div>
+                  <!-- 하단에 앰블럼 3개가 가로로 나란히 들어가는 공간 -->
+                <div class="emblem-row-box">
+                    <img src="1.jpg" alt="공식 앰블럼" class="emblem-icon">
+                    <img src="2.jpg" alt="P.H.A.F 앰블럼" class="emblem-icon">
+                    <img src="3.jpg" alt="H.I.A 앰블럼" class="emblem-icon">
+                </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2027 REMNANT OFFICIAL.</p>
+        <p>&copy; 2026 REMNANT OFFICIAL.</p>
         <p>본 사이트는 REMNANT의 공식 홈페이지입니다.</p>
     </footer>
 
