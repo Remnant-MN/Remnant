@@ -25,67 +25,83 @@ body {
 }
 
 /* =========================
-   ACCESS SCREEN
+   ACCESS
 ========================= */
 
 #access-screen {
     position: fixed;
     inset: 0;
-    background:
-        radial-gradient(circle at center, #171717 0%, #070707 45%, #000 100%);
+    z-index: 9999;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 99999;
+
+    background:
+        radial-gradient(circle, #181818 0%, #050505 45%, #000 100%);
 }
 
 .access-box {
     width: min(420px, 90%);
+
+    padding: 50px 35px;
+
     text-align: center;
-    padding: 45px 35px;
+
     border: 1px solid #333;
-    background: rgba(5, 5, 5, 0.95);
-    box-shadow: 0 0 60px rgba(255,255,255,0.04);
+    background: #050505;
+
+    box-shadow: 0 0 80px rgba(255,255,255,0.04);
 }
 
 .access-title {
     font-size: 32px;
     letter-spacing: 8px;
-    margin-bottom: 10px;
 }
 
 .access-subtitle {
-    color: #777;
-    font-size: 11px;
+    margin-top: 12px;
+
+    color: #666;
+
+    font-size: 10px;
     letter-spacing: 4px;
-    margin-bottom: 35px;
 }
 
 .access-input {
     width: 100%;
-    padding: 14px;
-    background: #0d0d0d;
-    border: 1px solid #333;
-    color: white;
-    text-align: center;
-    letter-spacing: 5px;
-    outline: none;
-}
 
-.access-input:focus {
-    border-color: #777;
+    margin-top: 35px;
+    padding: 15px;
+
+    background: #0c0c0c;
+
+    border: 1px solid #333;
+
+    color: white;
+
+    text-align: center;
+
+    outline: none;
+
+    letter-spacing: 5px;
 }
 
 .access-button {
     width: 100%;
+
     margin-top: 12px;
-    padding: 14px;
-    background: #e8e8e8;
-    color: #050505;
+    padding: 15px;
+
     border: none;
+
+    background: #ddd;
+    color: #050505;
+
     cursor: pointer;
-    letter-spacing: 4px;
+
     font-weight: bold;
+    letter-spacing: 4px;
 }
 
 .access-button:hover {
@@ -93,42 +109,53 @@ body {
 }
 
 .access-error {
-    margin-top: 15px;
-    color: #777;
-    font-size: 12px;
     display: none;
-}
 
-/* =========================
-   MAIN
-========================= */
+    margin-top: 15px;
+
+    color: #777;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
 
 #main-site {
     display: none;
 }
 
 /* =========================
-   NAVIGATION
+   NAV
 ========================= */
 
 nav {
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
     height: 70px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 0 6%;
-    background: rgba(5,5,5,0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #171717;
+
+    background: rgba(5,5,5,0.88);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid #1d1d1d;
+
     z-index: 1000;
 }
 
 .logo {
-    font-size: 20px;
+    color: white;
+
+    font-size: 19px;
+
     letter-spacing: 5px;
 }
 
@@ -138,10 +165,14 @@ nav {
 }
 
 .nav-links a {
-    color: #777;
+    color: #666;
+
     text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 2px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
     transition: 0.3s;
 }
 
@@ -155,28 +186,38 @@ nav {
 
 .hero {
     min-height: 100vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     position: relative;
-    overflow: hidden;
 
     background:
-        radial-gradient(circle at center, #1a1a1a 0%, #080808 42%, #000 100%);
+        radial-gradient(
+            circle at center,
+            #1b1b1b 0%,
+            #080808 45%,
+            #000 100%
+        );
 }
 
-.hero::before {
+.hero::after {
     content: "";
+
     position: absolute;
     inset: 0;
+
     background:
         repeating-linear-gradient(
             0deg,
             transparent,
-            transparent 3px,
-            rgba(255,255,255,0.015) 4px
+            transparent 4px,
+            rgba(255,255,255,0.015) 5px
         );
+
     pointer-events: none;
 }
 
@@ -187,31 +228,40 @@ nav {
 
 .hero h1 {
     font-size: clamp(55px, 12vw, 150px);
-    letter-spacing: 18px;
+
     font-weight: normal;
+
+    letter-spacing: 18px;
 }
 
 .hero p {
-    margin-top: 25px;
-    color: #777;
+    margin-top: 30px;
+
+    color: #666;
+
+    font-size: 11px;
+
     letter-spacing: 7px;
-    font-size: 12px;
 }
 
 /* =========================
-   SECTIONS
+   SECTION
 ========================= */
 
 section {
     padding: 120px 8%;
+
     border-bottom: 1px solid #151515;
 }
 
 .section-title {
-    font-size: 13px;
-    color: #777;
-    letter-spacing: 5px;
     margin-bottom: 50px;
+
+    color: #666;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
 }
 
 /* =========================
@@ -220,63 +270,88 @@ section {
 
 .archon {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 80px;
+
     align-items: center;
 }
 
 .archon-symbol {
     width: 250px;
     height: 250px;
+
     margin: auto;
+
     border: 1px solid #444;
+
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     position: relative;
 }
 
 .archon-symbol::before {
     content: "";
-    width: 115px;
-    height: 115px;
+
+    width: 110px;
+    height: 110px;
+
     border: 1px solid #777;
+
     border-radius: 50%;
 }
 
 .archon-symbol::after {
     content: "";
+
     position: absolute;
+
     width: 2px;
     height: 170px;
-    background: #888;
+
+    background: #777;
 }
 
 .archon-info h2 {
     font-size: 50px;
+
     font-weight: normal;
+
     letter-spacing: 8px;
 }
 
 .archon-name {
     margin-top: 15px;
-    color: #888;
+
+    color: #777;
+
     letter-spacing: 4px;
 }
 
 .archon-role {
     margin-top: 30px;
-    font-size: 12px;
+
     color: #aaa;
+
+    font-size: 11px;
+
     letter-spacing: 4px;
 }
 
 .archon-motto {
     margin-top: 35px;
+
     color: #666;
-    font-size: 12px;
+
+    font-size: 11px;
+
     line-height: 2;
+
     letter-spacing: 2px;
 }
 
@@ -286,33 +361,45 @@ section {
 
 .rules {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 1px;
+
     background: #222;
 }
 
 .rule {
-    background: #080808;
-    padding: 35px;
     min-height: 150px;
+
+    padding: 35px;
+
+    background: #080808;
 }
 
 .rule-number {
-    color: #555;
-    font-size: 12px;
+    color: #444;
+
+    font-size: 11px;
+
     letter-spacing: 3px;
 }
 
 .rule h3 {
     margin-top: 20px;
-    font-size: 18px;
+
+    font-size: 17px;
+
     font-weight: normal;
 }
 
 .rule p {
     margin-top: 12px;
+
     color: #666;
-    font-size: 12px;
+
+    font-size: 11px;
+
     line-height: 1.8;
 }
 
@@ -322,78 +409,103 @@ section {
 
 .divisions {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 20px;
 }
 
 .division {
     display: block;
+
     position: relative;
+
     min-height: 260px;
+
     padding: 40px;
-    border: 1px solid #252525;
+
+    border: 1px solid #242424;
+
     background:
         linear-gradient(
             135deg,
-            #0d0d0d,
+            #0e0e0e,
             #050505
         );
-    color: inherit;
-    text-decoration: none;
-    overflow: hidden;
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        background 0.3s ease;
-    cursor: pointer;
-}
 
-.division::after {
-    content: "↗";
-    position: absolute;
-    right: 25px;
-    bottom: 20px;
-    color: #444;
-    font-size: 22px;
+    color: white;
+
+    text-decoration: none;
+
     transition: 0.3s;
 }
 
 .division:hover {
     transform: translateY(-6px);
+
     border-color: #777;
-    background: #101010;
+
+    background: #111;
+}
+
+.division::after {
+    content: "↗";
+
+    position: absolute;
+
+    right: 25px;
+    bottom: 20px;
+
+    color: #444;
+
+    font-size: 22px;
+
+    transition: 0.3s;
 }
 
 .division:hover::after {
     color: white;
-    transform: translate(4px, -4px);
+
+    transform: translate(4px,-4px);
 }
 
 .division-code {
     color: #444;
-    font-size: 11px;
+
+    font-size: 10px;
+
     letter-spacing: 3px;
 }
 
 .division h3 {
     margin-top: 35px;
-    font-size: 32px;
+
+    font-size: 30px;
+
     font-weight: normal;
+
     letter-spacing: 5px;
 }
 
 .division p {
     margin-top: 8px;
-    color: #777;
-    font-size: 11px;
+
+    color: #666;
+
+    font-size: 10px;
+
     letter-spacing: 3px;
 }
 
 .division-desc {
     display: block;
+
     margin-top: 45px;
+
     color: #aaa;
+
     font-size: 12px;
+
     letter-spacing: 3px;
 }
 
@@ -403,14 +515,21 @@ section {
 
 .operatives {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 12px;
 }
 
 .operative {
     padding: 30px 20px;
+
+    min-height: 150px;
+
     border: 1px solid #1d1d1d;
+
     background: #080808;
+
     transition: 0.3s;
 }
 
@@ -420,20 +539,29 @@ section {
 
 .operative-code {
     color: #444;
-    font-size: 10px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
 }
 
 .operative h3 {
-    margin-top: 25px;
+    margin-top: 20px;
+
     font-size: 20px;
+
     font-weight: normal;
+
     letter-spacing: 3px;
 }
 
 .operative p {
     margin-top: 8px;
+
     color: #666;
+
     font-size: 10px;
+
     letter-spacing: 2px;
 }
 
@@ -443,16 +571,23 @@ section {
 
 .archive {
     border: 1px solid #222;
+
     background: #080808;
 }
 
 .archive-row {
     display: flex;
+
     justify-content: space-between;
+
     padding: 22px 25px;
+
     border-bottom: 1px solid #1b1b1b;
+
     color: #777;
-    font-size: 11px;
+
+    font-size: 10px;
+
     letter-spacing: 2px;
 }
 
@@ -470,20 +605,29 @@ section {
 
 footer {
     padding: 70px 8%;
+
     text-align: center;
+
     color: #444;
+
     font-size: 10px;
+
     letter-spacing: 5px;
 }
 
 /* =========================
-   RESPONSIVE
+   MOBILE
 ========================= */
 
 @media (max-width: 900px) {
 
+    .nav-links {
+        display: none;
+    }
+
     .archon {
         grid-template-columns: 1fr;
+
         text-align: center;
     }
 
@@ -498,10 +642,6 @@ footer {
     .operatives {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .nav-links {
-        display: none;
-    }
 }
 
 @media (max-width: 500px) {
@@ -512,6 +652,7 @@ footer {
 
     .hero h1 {
         font-size: 45px;
+
         letter-spacing: 8px;
     }
 
@@ -521,10 +662,6 @@ footer {
 
     .operatives {
         grid-template-columns: 1fr;
-    }
-
-    .division h3 {
-        font-size: 26px;
     }
 }
 </style>
@@ -563,10 +700,7 @@ footer {
             ENTER
         </button>
 
-        <div
-            id="access-error"
-            class="access-error"
-        >
+        <div id="access-error" class="access-error">
             ACCESS DENIED.
         </div>
 
@@ -581,409 +715,420 @@ footer {
 
 <div id="main-site">
 
-    <!-- NAV -->
 
-    <nav>
+<nav>
 
-        <div class="logo">
+    <a href="#" class="logo">
+        THE VEIL.
+    </a>
+
+    <div class="nav-links">
+
+        <a href="#archon">
+            ARCHON
+        </a>
+
+        <a href="#rules">
+            RULES
+        </a>
+
+        <a href="#divisions">
+            DIVISIONS
+        </a>
+
+        <a href="#archive">
+            ARCHIVE
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <h1>
             THE VEIL.
+        </h1>
+
+        <p>
+            WE DO NOT EXIST.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- ARCHON -->
+
+<section id="archon">
+
+    <div class="section-title">
+        01 / ARCHON
+    </div>
+
+    <div class="archon">
+
+        <div class="archon-symbol"></div>
+
+        <div class="archon-info">
+
+            <h2>
+                ARCHON
+            </h2>
+
+            <div class="archon-name">
+                최산 / CHOI SAN
+            </div>
+
+            <div class="archon-role">
+                ARCHON / NOX
+            </div>
+
+            <div class="archon-motto">
+                NOT A RING.<br>
+                NOT A SYMBOL.<br>
+                BUT A COMMAND.
+            </div>
+
         </div>
 
-        <div class="nav-links">
-            <a href="#archon">ARCHON</a>
-            <a href="#rules">RULES</a>
-            <a href="#divisions">DIVISIONS</a>
-            <a href="#archive">ARCHIVE</a>
+    </div>
+
+</section>
+
+
+<!-- RULES -->
+
+<section id="rules">
+
+    <div class="section-title">
+        02 / THE SEVEN RULES
+    </div>
+
+    <div class="rules">
+
+        <div class="rule">
+            <div class="rule-number">01</div>
+            <h3>계약은 반드시 이행한다.</h3>
+            <p>모든 계약은 반드시 완료한다.</p>
         </div>
 
-    </nav>
+        <div class="rule">
+            <div class="rule-number">02</div>
+            <h3>조직원을 개인적인 이유로 죽이지 않는다.</h3>
+            <p>내부의 피는 어떠한 개인적 이유로도 허용되지 않는다.</p>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">03</div>
+            <h3>조직의 존재를 외부에 알려서는 안 된다.</h3>
+            <p>THE VEIL.의 존재는 외부에 드러나지 않는다.</p>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">04</div>
+            <h3>의뢰인을 배신하지 않는다.</h3>
+            <p>계약이 시작된 순간 의뢰인은 보호된다.</p>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">05</div>
+            <h3>동료의 계약을 방해하지 않는다.</h3>
+            <p>하나의 계약은 하나의 계약자에게 귀속된다.</p>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">06</div>
+            <h3>수장의 명령에는 이유를 묻지 않는다.</h3>
+            <p>ARCHON의 명령에는 질문이 존재하지 않는다.</p>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">07</div>
+            <h3>조직을 배신한 자는 반드시 죽인다.</h3>
+            <p>배신은 THE VEIL.에 대한 사형 선고다.</p>
+        </div>
+
+    </div>
+
+</section>
 
 
-    <!-- HERO -->
+<!-- DIVISIONS -->
 
-    <header class="hero">
+<section id="divisions">
 
-        <div class="hero-content">
+    <div class="section-title">
+        03 / DIVISIONS
+    </div>
 
-            <h1>THE VEIL.</h1>
+    <div class="divisions">
+
+
+        <!-- FIELD -->
+
+        <a
+            href="field.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="division"
+        >
+
+            <span class="division-code">
+                01
+            </span>
+
+            <h3>
+                실전부
+            </h3>
 
             <p>
-                WE DO NOT EXIST.
+                FIELD DIVISION
             </p>
 
+            <span class="division-desc">
+                죽인다.
+            </span>
+
+        </a>
+
+
+        <!-- INTELLIGENCE -->
+
+        <a
+            href="#"
+            onclick="comingSoon(event, 'INTELLIGENCE')"
+            class="division"
+        >
+
+            <span class="division-code">
+                02
+            </span>
+
+            <h3>
+                정보부
+            </h3>
+
+            <p>
+                INTELLIGENCE DIVISION
+            </p>
+
+            <span class="division-desc">
+                찾아낸다.
+            </span>
+
+        </a>
+
+
+        <!-- SUPPORT -->
+
+        <a
+            href="#"
+            onclick="comingSoon(event, 'SUPPORT')"
+            class="division"
+        >
+
+            <span class="division-code">
+                03
+            </span>
+
+            <h3>
+                지원부
+            </h3>
+
+            <p>
+                SUPPORT DIVISION
+            </p>
+
+            <span class="division-desc">
+                돕는다.
+            </span>
+
+        </a>
+
+
+        <!-- PROCESS -->
+
+        <a
+            href="#"
+            onclick="comingSoon(event, 'PROCESS')"
+            class="division"
+        >
+
+            <span class="division-code">
+                04
+            </span>
+
+            <h3>
+                처리부
+            </h3>
+
+            <p>
+                PROCESS DIVISION
+            </p>
+
+            <span class="division-desc">
+                지운다.
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- OPERATIVES -->
+
+<section>
+
+    <div class="section-title">
+        04 / OPERATIVES
+    </div>
+
+    <div class="operatives">
+
+        <div class="operative">
+            <div class="operative-code">FIELD / 01</div>
+            <h3>HAWK</h3>
+            <p>저격수</p>
         </div>
 
-    </header>
-
-
-    <!-- ARCHON -->
-
-    <section id="archon">
-
-        <div class="section-title">
-            01 / ARCHON
+        <div class="operative">
+            <div class="operative-code">FIELD / 02</div>
+            <h3>WRAITH</h3>
+            <p>침투자</p>
         </div>
 
-        <div class="archon">
-
-            <div class="archon-symbol"></div>
-
-            <div class="archon-info">
-
-                <h2>ARCHON</h2>
-
-                <div class="archon-name">
-                    최산 / CHOI SAN
-                </div>
-
-                <div class="archon-role">
-                    ARCHON / NOX
-                </div>
-
-                <div class="archon-motto">
-
-                    NOT A RING.<br>
-                    NOT A SYMBOL.<br>
-                    BUT A COMMAND.
-
-                </div>
-
-            </div>
-
+        <div class="operative">
+            <div class="operative-code">FIELD / 03</div>
+            <h3>VENOM</h3>
+            <p>독살자</p>
         </div>
 
-    </section>
-
-
-    <!-- RULES -->
-
-    <section id="rules">
-
-        <div class="section-title">
-            02 / THE SEVEN RULES
+        <div class="operative">
+            <div class="operative-code">FIELD / 04</div>
+            <h3>HUNTER</h3>
+            <p>사냥꾼</p>
         </div>
 
-        <div class="rules">
-
-            <div class="rule">
-                <div class="rule-number">01</div>
-                <h3>계약은 반드시 이행한다.</h3>
-                <p>모든 계약은 반드시 완료한다.</p>
-            </div>
-
-            <div class="rule">
-                <div class="rule-number">02</div>
-                <h3>조직원을 개인적인 이유로 죽이지 않는다.</h3>
-                <p>내부의 피는 어떠한 개인적 이유로도 허용되지 않는다.</p>
-            </div>
-
-            <div class="rule">
-                <div class="rule-number">03</div>
-                <h3>조직의 존재를 외부에 알려서는 안 된다.</h3>
-                <p>THE VEIL.의 존재는 외부에 드러나지 않는다.</p>
-            </div>
-
-            <div class="rule">
-                <div class="rule-number">04</div>
-                <h3>의뢰인을 배신하지 않는다.</h3>
-                <p>계약이 시작된 순간 의뢰인은 보호된다.</p>
-            </div>
-
-            <div class="rule">
-                <div class="rule-number">05</div>
-                <h3>동료의 계약을 방해하지 않는다.</h3>
-                <p>하나의 계약은 하나의 계약자에게 귀속된다.</p>
-            </div>
-
-            <div class="rule">
-                <div class="rule-number">06</div>
-                <h3>수장의 명령에는 이유를 묻지 않는다.</h3>
-                <p>ARCHON의 명령에는 질문이 존재하지 않는다.</p>
-            </div>
-
-            <div class="rule">
-                <div class="rule-number">07</div>
-                <h3>조직을 배신한 자는 반드시 죽인다.</h3>
-                <p>배신은 THE VEIL.에 대한 사형 선고다.</p>
-            </div>
-
+        <div class="operative">
+            <div class="operative-code">INTEL / 01</div>
+            <h3>SCRIBE</h3>
+            <p>정보책</p>
         </div>
 
-    </section>
-
-
-    <!-- DIVISIONS -->
-
-    <section id="divisions">
-
-        <div class="section-title">
-            03 / DIVISIONS
+        <div class="operative">
+            <div class="operative-code">INTEL / 02</div>
+            <h3>WATCHER</h3>
+            <p>감시자</p>
         </div>
 
-        <div class="divisions">
-
-            <!-- 새 탭으로 FIELD -->
-
-            <a
-                href="field.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="division"
-            >
-
-                <span class="division-code">
-                    01
-                </span>
-
-                <h3>
-                    실전부
-                </h3>
-
-                <p>
-                    FIELD DIVISION
-                </p>
-
-                <span class="division-desc">
-                    죽인다.
-                </span>
-
-            </a>
-
-
-            <!-- 새 탭으로 INTELLIGENCE -->
-
-            <a
-                href="intel.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="division"
-            >
-
-                <span class="division-code">
-                    02
-                </span>
-
-                <h3>
-                    정보부
-                </h3>
-
-                <p>
-                    INTELLIGENCE DIVISION
-                </p>
-
-                <span class="division-desc">
-                    찾아낸다.
-                </span>
-
-            </a>
-
-
-            <!-- 새 탭으로 SUPPORT -->
-
-            <a
-                href="support.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="division"
-            >
-
-                <span class="division-code">
-                    03
-                </span>
-
-                <h3>
-                    지원부
-                </h3>
-
-                <p>
-                    SUPPORT DIVISION
-                </p>
-
-                <span class="division-desc">
-                    돕는다.
-                </span>
-
-            </a>
-
-
-            <!-- 새 탭으로 PROCESS -->
-
-            <a
-                href="process.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="division"
-            >
-
-                <span class="division-code">
-                    04
-                </span>
-
-                <h3>
-                    처리부
-                </h3>
-
-                <p>
-                    PROCESS DIVISION
-                </p>
-
-                <span class="division-desc">
-                    지운다.
-                </span>
-
-            </a>
-
+        <div class="operative">
+            <div class="operative-code">INTEL / 03</div>
+            <h3>ORACLE</h3>
+            <p>설계자</p>
         </div>
 
-    </section>
-
-
-    <!-- OPERATIVES -->
-
-    <section>
-
-        <div class="section-title">
-            04 / OPERATIVES
+        <div class="operative">
+            <div class="operative-code">SUPPORT / 01</div>
+            <h3>FORGE</h3>
+            <p>무기장인</p>
         </div>
 
-        <div class="operatives">
-
-            <div class="operative">
-                <div class="operative-code">FIELD / 01</div>
-                <h3>HAWK</h3>
-                <p>저격수</p>
-            </div>
-
-            <div class="operative">
-                <div class="operative-code">FIELD / 02</div>
-                <h3>WRAITH</h3>
-                <p>침투자</p>
-            </div>
-
-            <div class="operative">
-                <div class="operative-code">FIELD / 03</div>
-                <h3>VENOM</h3>
-                <p>독살자</p>
-            </div>
-
-            <div class="operative">
-                <div class="operative-code">FIELD / 04</div>
-                <h3>HUNTER</h3>
-                <p>사냥꾼</p>
-            </div>
-
-            <div class="operative">
-                <div class="operative-code">INTEL / 01</div>
-                <h3>SCRIBE</h3>
-                <p>정보책</p>
-            </div>
-
-            <div class="operative">
-                <div class="operative-code">INTEL / 02</div>
-                <h3>WATCHER</h3>
-                <p>감시자</p>
-            </div>
-
-            <div class="operative">
-                <div class="operative-code">INTEL / 03</div>
-                <h3>ORACLE</h3>
-                <p>설계자</p>
-            </div>
-
-            <div class="operative">
-                <div class="operative-code">SUPPORT / 01</div>
-                <h3>FORGE</h3>
-                <p>무기장인</p>
-            </div>
-
-            <div class="operative">
-                <div class="operative-code">SUPPORT / 02</div>
-                <h3>MERCY</h3>
-                <p>의사</p>
-            </div>
-
-            <div class="operative">
-                <div class="operative-code">SUPPORT / 03</div>
-                <h3>MIRROR</h3>
-                <p>위장 전문가</p>
-            </div>
-
-            <div class="operative">
-                <div class="operative-code">SUPPORT / 04</div>
-                <h3>COURIER</h3>
-                <p>운송 · 장비</p>
-            </div>
-
-            <div class="operative">
-                <div class="operative-code">PROCESS / 01</div>
-                <h3>CLEANER</h3>
-                <p>현장 처리</p>
-            </div>
-
+        <div class="operative">
+            <div class="operative-code">SUPPORT / 02</div>
+            <h3>MERCY</h3>
+            <p>의사</p>
         </div>
 
-    </section>
-
-
-    <!-- ARCHIVE -->
-
-    <section id="archive">
-
-        <div class="section-title">
-            05 / CLASSIFIED ARCHIVE
+        <div class="operative">
+            <div class="operative-code">SUPPORT / 03</div>
+            <h3>MIRROR</h3>
+            <p>위장 전문가</p>
         </div>
 
-        <div class="archive">
-
-            <div class="archive-row">
-                <span>VEIL-001 / ORIGIN</span>
-                <span class="archive-status">
-                    CLASSIFIED
-                </span>
-            </div>
-
-            <div class="archive-row">
-                <span>VEIL-002 / ARCHON</span>
-                <span class="archive-status">
-                    RESTRICTED
-                </span>
-            </div>
-
-            <div class="archive-row">
-                <span>VEIL-003 / CONTRACTS</span>
-                <span class="archive-status">
-                    CLASSIFIED
-                </span>
-            </div>
-
-            <div class="archive-row">
-                <span>VEIL-004 / MEMBERS</span>
-                <span class="archive-status">
-                    RESTRICTED
-                </span>
-            </div>
-
-            <div class="archive-row">
-                <span>VEIL-005 / BETRAYAL</span>
-                <span class="archive-status">
-                    EYES ONLY
-                </span>
-            </div>
-
+        <div class="operative">
+            <div class="operative-code">SUPPORT / 04</div>
+            <h3>COURIER</h3>
+            <p>운송 · 장비</p>
         </div>
 
-    </section>
+        <div class="operative">
+            <div class="operative-code">PROCESS / 01</div>
+            <h3>CLEANER</h3>
+            <p>현장 처리</p>
+        </div>
+
+    </div>
+
+</section>
 
 
-    <!-- FOOTER -->
+<!-- ARCHIVE -->
 
-    <footer>
+<section id="archive">
 
-        THE VEIL.<br><br>
+    <div class="section-title">
+        05 / CLASSIFIED ARCHIVE
+    </div>
 
-        DISCIPLINE. UNITY. SILENCE.
+    <div class="archive">
 
-    </footer>
+        <div class="archive-row">
+            <span>VEIL-001 / ORIGIN</span>
+            <span class="archive-status">
+                CLASSIFIED
+            </span>
+        </div>
+
+        <div class="archive-row">
+            <span>VEIL-002 / ARCHON</span>
+            <span class="archive-status">
+                RESTRICTED
+            </span>
+        </div>
+
+        <div class="archive-row">
+            <span>VEIL-003 / CONTRACTS</span>
+            <span class="archive-status">
+                CLASSIFIED
+            </span>
+        </div>
+
+        <div class="archive-row">
+            <span>VEIL-004 / MEMBERS</span>
+            <span class="archive-status">
+                RESTRICTED
+            </span>
+        </div>
+
+        <div class="archive-row">
+            <span>VEIL-005 / BETRAYAL</span>
+            <span class="archive-status">
+                EYES ONLY
+            </span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    THE VEIL.<br><br>
+
+    DISCIPLINE. UNITY. SILENCE.
+
+</footer>
+
 
 </div>
 
@@ -991,11 +1136,10 @@ footer {
 <script>
 
 /* =========================
-   ACCESS CODE
+   ACCESS
 ========================= */
 
 const ACCESS_CODE = "261001";
-
 
 function checkAccess() {
 
@@ -1029,13 +1173,10 @@ function checkAccess() {
         ).value = "";
 
     }
-
 }
 
 
-/* =========================
-   ENTER KEY
-========================= */
+/* ENTER KEY */
 
 document
     .getElementById("access-code")
@@ -1048,9 +1189,7 @@ document
     });
 
 
-/* =========================
-   SESSION CHECK
-========================= */
+/* SESSION */
 
 window.addEventListener("load", function() {
 
@@ -1066,10 +1205,24 @@ window.addEventListener("load", function() {
         document.getElementById(
             "main-site"
         ).style.display = "block";
-
     }
 
 });
+
+
+/* =========================
+   COMING SOON
+========================= */
+
+function comingSoon(event, name) {
+
+    event.preventDefault();
+
+    alert(
+        name +
+        "\n\nCLASSIFIED.\n\nACCESS NOT YET AVAILABLE."
+    );
+}
 
 </script>
 
