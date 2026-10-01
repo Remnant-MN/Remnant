@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>INTELLIGENCE // THE VEIL.</title>
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    background: #030303;
+
+    color: #e5e5e5;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    background:
+        rgba(3, 3, 3, 0.92);
+
+    backdrop-filter: blur(14px);
+
+    border-bottom:
+        1px solid #1b1b1b;
+
+    z-index: 1000;
+}
+
+.logo {
+
+    font-size: 17px;
+
+    letter-spacing: 6px;
+
+    white-space: nowrap;
+}
+
+.nav-links {
+
+    display: flex;
+
+    gap: 30px;
+}
+
+.nav-links a {
+
+    color: #555;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    transition:
+        color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.nav-links .active {
+    color: #ddd;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height: 70vh;
+
+    display: flex;
+
+    align-items: center;
+
+    padding:
+        140px 5%
+        90px;
+
+    border-bottom:
+        1px solid #191919;
+
+    background:
+
+        radial-gradient(
+            ellipse at 72% 40%,
+            #252525 0%,
+            #101010 30%,
+            transparent 63%
+        ),
+
+        linear-gradient(
+            110deg,
+            #020202,
+            #090909,
+            #111
+        );
+}
+
+.hero-content {
+
+    width:
+        min(1450px, 100%);
+
+    margin: 0 auto;
+}
+
+.hero-small {
+
+    margin-bottom: 25px;
+
+    color: #505050;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+}
+
+.hero h1 {
+
+    font-size:
+        clamp(55px, 10vw, 135px);
+
+    font-weight: normal;
+
+    line-height: 0.88;
+
+    letter-spacing: 10px;
+}
+
+.hero-subtitle {
+
+    margin-top: 30px;
+
+    color: #777;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+}
+
+.hero-korean {
+
+    margin-top: 30px;
+
+    color: #ccc;
+
+    font-size: 25px;
+
+    letter-spacing: 9px;
+}
+
+.hero-description {
+
+    width: 560px;
+
+    max-width: 100%;
+
+    margin-top: 35px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid #303030;
+
+    color: #666;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    line-height: 2.1;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section {
+
+    padding:
+        110px 5%;
+
+    border-bottom:
+        1px solid #171717;
+}
+
+.container {
+
+    width:
+        min(1200px, 100%);
+
+    margin: 0 auto;
+}
+
+.label {
+
+    color: #4c4c4c;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+}
+
+.section-title {
+
+    margin-top: 12px;
+
+    color: #ddd;
+
+    font-size: 32px;
+
+    font-weight: normal;
+
+    letter-spacing: 6px;
+}
+
+
+/* =========================================================
+   PROFILE GRID
+   2 → 2 → 1
+========================================================= */
+
+.profile-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+    max-width: 1000px;
+
+    margin:
+        60px auto 0;
+}
+
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+
+.profile-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #080808;
+
+    border:
+        1px solid #292929;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.profile-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color: #666;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.65);
+}
+
+
+/* =========================================================
+   ORACLE
+========================================================= */
+
+.profile-card.oracle {
+
+    grid-column:
+        1 / 3;
+
+    width:
+        calc(50% - 9px);
+
+    justify-self:
+        center;
+
+    border-color:
+        #3a3a3a;
+}
+
+.profile-card.oracle:hover {
+
+    border-color:
+        #888;
+
+    box-shadow:
+        0 0 50px
+        rgba(255,255,255,0.06);
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.profile-image {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 360px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            #292929 0%,
+            #141414 35%,
+            #060606 75%
+        );
+}
+
+.profile-image img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(100%)
+        brightness(0.63)
+        contrast(1.12);
+
+    transition:
+        transform 0.7s ease,
+        filter 0.7s ease;
+}
+
+.profile-card:hover
+.profile-image img {
+
+    transform:
+        scale(1.06);
+
+    filter:
+        grayscale(100%)
+        brightness(0.8)
+        contrast(1.12);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.profile-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 60%;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(0,0,0,0.92)
+        );
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   IMAGE PLACEHOLDER
+========================================================= */
+
+.profile-placeholder {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #333;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.profile-number {
+
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    z-index: 5;
+
+    color: #888;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.profile-status {
+
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    z-index: 5;
+
+    color: #666;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+.profile-status::before {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 5px;
+    height: 5px;
+
+    margin-right: 6px;
+
+    border-radius: 50%;
+
+    background: #777;
+}
+
+
+/* =========================================================
+   PROFILE INFO
+========================================================= */
+
+.profile-info {
+
+    position: absolute;
+
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 5;
+}
+
+.profile-code {
+
+    color: #555;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+.profile-name {
+
+    margin-top: 8px;
+
+    color: #eee;
+
+    font-size: 28px;
+
+    font-weight: normal;
+
+    letter-spacing: 5px;
+
+    line-height: 1.1;
+}
+
+.profile-role {
+
+    margin-top: 9px;
+
+    color: #999;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.profile-description {
+
+    margin-top: 13px;
+
+    color: #777;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   DETAIL
+========================================================= */
+
+.profile-detail {
+
+    position: relative;
+
+    padding:
+        17px 20px;
+
+    background: #070707;
+
+    border-top:
+        1px solid #202020;
+}
+
+.profile-detail-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    min-height: 30px;
+
+    border-bottom:
+        1px solid #151515;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+}
+
+.profile-detail-row:last-child {
+    border-bottom: none;
+}
+
+.profile-detail-row span:first-child {
+    color: #444;
+}
+
+.profile-detail-row span:last-child {
+    color: #777;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   ORACLE SPECIAL STYLE
+========================================================= */
+
+.oracle .profile-image {
+
+    height: 390px;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            #353535 0%,
+            #151515 38%,
+            #050505 80%
+        );
+}
+
+.oracle .profile-name {
+
+    font-size: 34px;
+
+    letter-spacing: 8px;
+}
+
+.oracle .profile-role {
+
+    color: #aaa;
+}
+
+.oracle .profile-code {
+
+    color: #666;
+}
+
+.oracle .profile-detail {
+
+    background:
+        #080808;
+}
+
+
+/* =========================================================
+   INTELLIGENCE SYSTEM
+========================================================= */
+
+.system {
+
+    margin-top: 70px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 1px;
+
+    background: #252525;
+
+    border:
+        1px solid #252525;
+}
+
+.system-item {
+
+    min-height: 150px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding: 22px;
+
+    background: #060606;
+
+    transition:
+        background 0.3s ease;
+}
+
+.system-item:hover {
+    background: #0d0d0d;
+}
+
+.system-number {
+
+    color: #444;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+.system-name {
+
+    color: #aaa;
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+}
+
+.system-description {
+
+    color: #555;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 80px;
+
+    margin-top: 60px;
+}
+
+.about-text {
+
+    color: #777;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    line-height: 2.2;
+}
+
+.about-text strong {
+
+    color: #ddd;
+
+    font-weight: normal;
+}
+
+
+/* =========================================================
+   STATUS BOX
+========================================================= */
+
+.status-box {
+
+    padding: 25px;
+
+    border:
+        1px solid #252525;
+
+    background: #060606;
+}
+
+.status-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    min-height: 48px;
+
+    border-bottom:
+        1px solid #191919;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.status-row:last-child {
+    border-bottom: none;
+}
+
+.status-row span:first-child {
+    color: #444;
+}
+
+.status-row span:last-child {
+    color: #888;
+}
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+.back {
+
+    padding:
+        60px 5%;
+}
+
+.back a {
+
+    display: inline-block;
+
+    padding:
+        15px 22px;
+
+    border:
+        1px solid #333;
+
+    color: #777;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.back a:hover {
+
+    color: #fff;
+
+    border-color: #777;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        60px 5%;
+
+    text-align: center;
+
+    color: #3d3d3d;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+
+    letter-spacing: 5px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .profile-grid {
+
+        max-width: 700px;
+    }
+
+    .system {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    nav {
+
+        height: 64px;
+
+        padding:
+            0 6%;
+    }
+
+    .nav-links {
+
+        display: none;
+    }
+
+
+    .hero {
+
+        min-height: 75vh;
+
+        padding:
+            110px 6%
+            70px;
+    }
+
+    .hero h1 {
+
+        font-size: 48px;
+
+        letter-spacing: 6px;
+    }
+
+    .hero-korean {
+
+        font-size: 20px;
+
+        letter-spacing: 6px;
+    }
+
+
+    .section {
+
+        padding:
+            80px 6%;
+    }
+
+
+    .profile-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 18px;
+    }
+
+
+    .profile-card.oracle {
+
+        grid-column:
+            auto;
+
+        width: 100%;
+    }
+
+
+    .profile-image {
+
+        height: 370px;
+    }
+
+
+    .oracle .profile-image {
+
+        height: 370px;
+    }
+
+
+    .system {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .about {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+
+        font-size: 40px;
+
+        letter-spacing: 5px;
+    }
+
+    .profile-image {
+
+        height: 340px;
+    }
+
+    .oracle .profile-image {
+
+        height: 340px;
+    }
+
+    .profile-name {
+
+        font-size: 24px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     NAVIGATION
+======================================================= -->
+
+<nav>
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+        THE VEIL.
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="field.html">
+            FIELD
+        </a>
+
+        <a
+            href="intel.html"
+            class="active"
+        >
+            INTEL
+        </a>
+
+        <a href="support.html">
+            SUPPORT
+        </a>
+
+        <a href="process.html">
+            PROCESS
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+
+        <div class="hero-small">
+            DIVISION // 02
+        </div>
+
+
+        <h1>
+            INTELLIGENCE
+        </h1>
+
+
+        <div class="hero-subtitle">
+            INTELLIGENCE DIVISION
+        </div>
+
+
+        <div class="hero-korean">
+            찾아낸다.
+        </div>
+
+
+        <div class="hero-description">
+
+            THE VEIL.의 모든 작전은
+            정보에서 시작된다.
+
+            <br><br>
+
+            조직과 의뢰,
+            목표에 관한 정보를 수집하고
+            기록하고 감시한다.
+
+            <br><br>
+
+            수집된 정보는 분석되고,
+            하나의 작전으로 완성된다.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     OPERATIVES
+======================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+
+    <div class="label">
+        INTELLIGENCE DIVISION
+    </div>
+
+
+    <div class="section-title">
+        OPERATIVES
+    </div>
+
+
+
+    <div class="profile-grid">
+
+
+        <!-- =================================================
+             SCRIBE 01
+        ================================================== -->
+
+        <div class="profile-card">
+
+            <div class="profile-image">
+
+                <img
+                    src="images/scribe01.jpg"
+                    alt="SCRIBE"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
+
+                <div
+                    class="profile-placeholder"
+                    style="display:none;"
+                >
+                    PROFILE IMAGE
+                </div>
+
+
+                <div class="profile-number">
+                    INTEL // 01
+                </div>
+
+
+                <div class="profile-status">
+                    ACTIVE
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
+                        OPERATIVE / 01
+                    </div>
+
+                    <div class="profile-name">
+                        SCRIBE
+                    </div>
+
+                    <div class="profile-role">
+                        정보책
+                    </div>
+
+                    <div class="profile-description">
+                        조직과 의뢰,
+                        목표에 관한 정보를 수집하고 기록한다.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <span>
+                        ACTIVE
+                    </span>
+
+                </div>
+
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        SPECIALTY
+                    </span>
+
+                    <span>
+                        INFORMATION
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SCRIBE 02
+        ================================================== -->
+
+        <div class="profile-card">
+
+            <div class="profile-image">
+
+                <img
+                    src="images/scribe02.jpg"
+                    alt="SCRIBE"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
+
+                <div
+                    class="profile-placeholder"
+                    style="display:none;"
+                >
+                    PROFILE IMAGE
+                </div>
+
+
+                <div class="profile-number">
+                    INTEL // 02
+                </div>
+
+
+                <div class="profile-status">
+                    ACTIVE
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
+                        OPERATIVE / 02
+                    </div>
+
+                    <div class="profile-name">
+                        SCRIBE
+                    </div>
+
+                    <div class="profile-role">
+                        정보책
+                    </div>
+
+                    <div class="profile-description">
+                        각종 기록과 자료를 분석하고
+                        조직의 정보망을 관리한다.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <span>
+                        ACTIVE
+                    </span>
+
+                </div>
+
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        SPECIALTY
+                    </span>
+
+                    <span>
+                        ARCHIVE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             WATCHER 01
+        ================================================== -->
+
+        <div class="profile-card">
+
+            <div class="profile-image">
+
+                <img
+                    src="images/watcher01.jpg"
+                    alt="WATCHER"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
+
+                <div
+                    class="profile-placeholder"
+                    style="display:none;"
+                >
+                    PROFILE IMAGE
+                </div>
+
+
+                <div class="profile-number">
+                    INTEL // 03
+                </div>
+
+
+                <div class="profile-status">
+                    ACTIVE
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
+                        OPERATIVE / 03
+                    </div>
+
+                    <div class="profile-name">
+                        WATCHER
+                    </div>
+
+                    <div class="profile-role">
+                        감시자
+                    </div>
+
+                    <div class="profile-description">
+                        목표를 감시하고
+                        동선과 행동 패턴을 파악한다.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <span>
+                        ACTIVE
+                    </span>
+
+                </div>
+
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        SPECIALTY
+                    </span>
+
+                    <span>
+                        SURVEILLANCE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             WATCHER 02
+        ================================================== -->
+
+        <div class="profile-card">
+
+            <div class="profile-image">
+
+                <img
+                    src="images/watcher02.jpg"
+                    alt="WATCHER"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
+
+                <div
+                    class="profile-placeholder"
+                    style="display:none;"
+                >
+                    PROFILE IMAGE
+                </div>
+
+
+                <div class="profile-number">
+                    INTEL // 04
+                </div>
+
+
+                <div class="profile-status">
+                    ACTIVE
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
+                        OPERATIVE / 04
+                    </div>
+
+                    <div class="profile-name">
+                        WATCHER
+                    </div>
+
+                    <div class="profile-role">
+                        감시자
+                    </div>
+
+                    <div class="profile-description">
+                        현장을 관찰하고
+                        목표의 변화를 지속적으로 기록한다.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <span>
+                        ACTIVE
+                    </span>
+
+                </div>
+
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        SPECIALTY
+                    </span>
+
+                    <span>
+                        MONITORING
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ORACLE
+        ================================================== -->
+
+        <div class="profile-card oracle">
+
+            <div class="profile-image">
+
+                <img
+                    src="images/oracle.jpg"
+                    alt="ORACLE"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
+
+                <div
+                    class="profile-placeholder"
+                    style="display:none;"
+                >
+                    PROFILE IMAGE
+                </div>
+
+
+                <div class="profile-number">
+                    INTEL // 05
+                </div>
+
+
+                <div class="profile-status">
+                    COMMAND
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
+                        OPERATIVE / 05
+                    </div>
+
+                    <div class="profile-name">
+                        ORACLE
+                    </div>
+
+                    <div class="profile-role">
+                        설계자
+                    </div>
+
+                    <div class="profile-description">
+                        수집된 모든 정보를 분석하여
+                        암살 작전의 전체적인 계획을 세운다.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <span>
+                        ACTIVE
+                    </span>
+
+                </div>
+
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        SPECIALTY
+                    </span>
+
+                    <span>
+                        STRATEGY
+                    </span>
+
+                </div>
+
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        AUTHORITY
+                    </span>
+
+                    <span>
+                        HIGH
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     INTELLIGENCE SYSTEM
+======================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+
+    <div class="label">
+        INTELLIGENCE SYSTEM
+    </div>
+
+
+    <div class="section-title">
+        INFORMATION FLOW
+    </div>
+
+
+    <div class="system">
+
+
+        <div class="system-item">
+
+            <div class="system-number">
+                01
+            </div>
+
+            <div class="system-name">
+                INFORMATION
+            </div>
+
+            <div class="system-description">
+                목표와 의뢰에 관한
+                정보를 수집한다.
+            </div>
+
+        </div>
+
+
+        <div class="system-item">
+
+            <div class="system-number">
+                02
+            </div>
+
+            <div class="system-name">
+                SURVEILLANCE
+            </div>
+
+            <div class="system-description">
+                목표의 움직임과
+                행동 패턴을 감시한다.
+            </div>
+
+        </div>
+
+
+        <div class="system-item">
+
+            <div class="system-number">
+                03
+            </div>
+
+            <div class="system-name">
+                ANALYSIS
+            </div>
+
+            <div class="system-description">
+                수집된 정보를 분석하고
+                의미를 찾아낸다.
+            </div>
+
+        </div>
+
+
+        <div class="system-item">
+
+            <div class="system-number">
+                04
+            </div>
+
+            <div class="system-name">
+                STRATEGY
+            </div>
+
+            <div class="system-description">
+                분석 결과를 기반으로
+                작전을 설계한다.
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     ABOUT
+======================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+
+    <div class="label">
+        INTELLIGENCE DIVISION
+    </div>
+
+
+    <div class="section-title">
+        ABOUT
+    </div>
+
+
+    <div class="about">
+
+
+        <div class="about-text">
+
+            정보부는
+            <strong>THE VEIL.</strong>의
+            눈과 기록이다.
+
+            <br><br>
+
+            조직과 의뢰인,
+            목표와 주변 인물에 관한
+            모든 정보를 수집한다.
+
+            <br><br>
+
+            감시자는 움직임을 관찰하고,
+            정보책은 기록을 남기며,
+            설계자는 그 모든 정보를
+            하나의 작전으로 완성한다.
+
+        </div>
+
+
+        <div class="status-box">
+
+
+            <div class="status-row">
+
+                <span>
+                    DIVISION
+                </span>
+
+                <span>
+                    INTEL / 02
+                </span>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    OPERATIVES
+                </span>
+
+                <span>
+                    05
+                </span>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    SCRIBE
+                </span>
+
+                <span>
+                    02
+                </span>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    WATCHER
+                </span>
+
+                <span>
+                    02
+                </span>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    ORACLE
+                </span>
+
+                <span>
+                    01
+                </span>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    COMMAND
+                </span>
+
+                <span>
+                    ARCHON
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     BACK
+======================================================= -->
+
+<div class="back">
+
+    <a href="index.html">
+
+        ← BACK TO THE VEIL.
+
+    </a>
+
+</div>
+
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+    THE VEIL.
+
+    <br><br>
+
+    DISCIPLINE. UNITY. SILENCE.
+
+    <br><br>
+
+    INTELLIGENCE DIVISION // 02
+
+</footer>
+
+
+</body>
+
+</html>
