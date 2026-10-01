@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>FIELD // THE VEIL.</title>
+
 
 <style>
 
@@ -23,9 +29,14 @@ html {
 }
 
 body {
-    background: #050505;
-    color: #e8e8e8;
-    font-family: Georgia, "Times New Roman", serif;
+    background: #030303;
+    color: #e5e5e5;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     overflow-x: hidden;
 }
 
@@ -36,32 +47,12 @@ a {
 
 
 /* ==================================================
-   GLOBAL
-================================================== */
-
-.container {
-    width: min(1400px, 90%);
-    margin: auto;
-}
-
-.label {
-    color: #666;
-    font-size: 10px;
-    letter-spacing: 4px;
-}
-
-.line {
-    height: 1px;
-    background: #242424;
-}
-
-
-/* ==================================================
-   NAV
+   NAVIGATION
 ================================================== */
 
 nav {
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -72,36 +63,56 @@ nav {
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 3%;
+    padding: 0 5%;
 
-    background: rgba(3, 3, 3, 0.86);
-    backdrop-filter: blur(15px);
+    background:
+        rgba(3, 3, 3, 0.88);
 
-    border-bottom: 1px solid #222;
+    backdrop-filter: blur(14px);
+
+    border-bottom:
+        1px solid #1c1c1c;
 
     z-index: 1000;
 }
 
+
 .logo {
     font-size: 17px;
-    letter-spacing: 5px;
+
+    letter-spacing: 6px;
+
+    color: #eeeeee;
 }
+
 
 .nav-links {
     display: flex;
-    gap: 35px;
+
+    gap: 30px;
 }
 
+
 .nav-links a {
-    color: #666;
-    font-size: 10px;
+    color: #4d4d4d;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
     letter-spacing: 3px;
+
     transition: 0.3s;
 }
 
-.nav-links a:hover,
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+
 .nav-links .active {
-    color: white;
+    color: #dddddd;
 }
 
 
@@ -110,516 +121,750 @@ nav {
 ================================================== */
 
 .hero {
-    min-height: 720px;
-    height: 100vh;
-    max-height: 900px;
+
+    min-height: 100vh;
 
     position: relative;
 
     display: flex;
+
     align-items: center;
 
     overflow: hidden;
 
-    border-bottom: 1px solid #222;
+    border-bottom:
+        1px solid #202020;
 
     background:
+
         radial-gradient(
-            ellipse at 70% 45%,
-            rgba(90, 90, 90, 0.2),
-            transparent 35%
+            ellipse at 75% 45%,
+            #262626 0%,
+            #121212 25%,
+            transparent 52%
         ),
-        radial-gradient(
-            ellipse at 80% 70%,
-            rgba(70, 70, 70, 0.15),
-            transparent 30%
-        ),
+
         linear-gradient(
             90deg,
             #020202 0%,
-            #070707 45%,
-            #111 100%
+            #070707 50%,
+            #111111 100%
         );
 }
 
 
-/* 가상의 연기 */
+/* 화면 노이즈 */
 
 .hero::before {
+
     content: "";
 
     position: absolute;
+
     inset: 0;
 
     background:
-        radial-gradient(
-            ellipse at 75% 40%,
-            rgba(255,255,255,0.08),
-            transparent 20%
-        ),
-        radial-gradient(
-            ellipse at 65% 70%,
-            rgba(255,255,255,0.05),
-            transparent 30%
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 4px,
+            rgba(255,255,255,0.012) 5px
         );
 
-    filter: blur(30px);
+    pointer-events: none;
 }
 
 
-/* 가상의 작전원 실루엣 */
+/* 오른쪽 실루엣 */
 
 .hero::after {
+
     content: "";
 
-    position: absolute;
-
-    width: 430px;
-    height: 600px;
-
-    right: 10%;
-    bottom: -80px;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 25%,
-            #181818 0%,
-            #090909 35%,
-            transparent 36%
-        ),
-        linear-gradient(
-            90deg,
-            transparent 5%,
-            #101010 20%,
-            #1b1b1b 50%,
-            #0b0b0b 80%,
-            transparent 95%
-        );
-
-    opacity: 0.9;
-
-    filter: blur(1px);
-
-    transform: perspective(700px) rotateY(-10deg);
-
-    box-shadow:
-        0 0 100px rgba(255,255,255,0.03);
-
-}
-
-
-/* 타겟팅 원 */
-
-.target {
-    position: absolute;
-
-    right: 43%;
-    top: 48%;
-
-    width: 80px;
-    height: 80px;
-
-    border: 1px solid #444;
-    border-radius: 50%;
-
-    opacity: 0.5;
-}
-
-.target::before,
-.target::after {
-    content: "";
-
-    position: absolute;
-
-    background: #555;
-}
-
-.target::before {
-    width: 110px;
-    height: 1px;
-
-    top: 39px;
-    left: -16px;
-}
-
-.target::after {
-    width: 1px;
-    height: 110px;
-
-    top: -16px;
-    left: 39px;
-}
-
-
-/* HERO CONTENT */
-
-.hero-content {
-    position: relative;
-    z-index: 10;
-
-    width: min(1400px, 90%);
-    margin: auto;
-}
-
-.hero-left {
-    width: 48%;
-}
-
-.hero-number {
-    color: #777;
-    font-size: 11px;
-    letter-spacing: 5px;
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-size: clamp(70px, 10vw, 150px);
-    font-weight: normal;
-    letter-spacing: 18px;
-    line-height: 0.9;
-}
-
-.hero-subtitle {
-    margin-top: 25px;
-
-    font-size: 13px;
-    letter-spacing: 7px;
-
-    color: #aaa;
-}
-
-.hero-korean {
-    margin-top: 35px;
-
-    font-size: 19px;
-    letter-spacing: 7px;
-
-    color: #ddd;
-}
-
-.hero-description {
-    margin-top: 35px;
-
-    width: 470px;
-    max-width: 100%;
-
-    padding-top: 25px;
-
-    border-top: 1px solid #333;
-
-    color: #777;
-
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    line-height: 2;
-
-    letter-spacing: 1px;
-}
-
-
-/* HERO SIDE TEXT */
-
-.hero-side {
     position: absolute;
 
     right: 4%;
-    top: 42%;
 
-    z-index: 20;
+    bottom: -130px;
 
-    color: #777;
+    width: 500px;
 
-    font-size: 10px;
-    line-height: 2;
-
-    letter-spacing: 4px;
-}
-
-
-/* ==================================================
-   INTRO
-================================================== */
-
-.intro {
-    padding: 110px 0;
-}
-
-.intro-grid {
-    display: grid;
-    grid-template-columns: 280px 1fr 300px;
-    gap: 60px;
-}
-
-.intro-title {
-    font-size: 13px;
-    letter-spacing: 5px;
-    color: #777;
-}
-
-.intro-text {
-    font-size: 15px;
-    line-height: 2.2;
-    color: #aaa;
-    max-width: 650px;
-}
-
-.intro-text strong {
-    color: white;
-    font-weight: normal;
-}
-
-.intro-status {
-    border-left: 1px solid #333;
-    padding-left: 25px;
-}
-
-.status-row {
-    display: flex;
-    justify-content: space-between;
-
-    padding: 12px 0;
-
-    border-bottom: 1px solid #1d1d1d;
-
-    font-family: Arial, sans-serif;
-    font-size: 10px;
-}
-
-.status-row span:first-child {
-    color: #555;
-}
-
-.status-row span:last-child {
-    color: #aaa;
-}
-
-
-/* ==================================================
-   OPERATIVES
-================================================== */
-
-.operatives-section {
-    padding: 110px 0;
-
-    border-top: 1px solid #1a1a1a;
-    border-bottom: 1px solid #1a1a1a;
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-
-    margin-bottom: 40px;
-}
-
-.section-title {
-    font-size: 25px;
-    letter-spacing: 6px;
-    font-weight: normal;
-}
-
-.section-subtitle {
-    color: #555;
-    font-size: 10px;
-    letter-spacing: 3px;
-}
-
-.operatives {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-}
-
-
-/* OPERATIVE CARD */
-
-.operative {
-    min-height: 430px;
-
-    position: relative;
-
-    border: 1px solid #242424;
-
-    overflow: hidden;
+    height: 700px;
 
     background:
-        linear-gradient(
-            180deg,
-            #111 0%,
-            #070707 70%,
-            #040404 100%
-        );
 
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease;
-}
-
-.operative:hover {
-    transform: translateY(-8px);
-    border-color: #666;
-}
-
-
-/* 인물 실루엣 */
-
-.operative-image {
-    height: 270px;
-
-    position: relative;
-
-    background:
         radial-gradient(
-            ellipse at 50% 30%,
+            ellipse at 50% 25%,
             #303030 0%,
-            #151515 25%,
-            #080808 50%
-        );
-}
-
-.operative-image::before {
-    content: "";
-
-    position: absolute;
-
-    width: 120px;
-    height: 150px;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    background:
-        radial-gradient(
-            ellipse at 50% 30%,
-            #292929 0%,
-            #111 45%,
-            #050505 70%
+            #171717 28%,
+            #080808 60%,
+            transparent 72%
         );
 
-    border-radius: 45% 45% 20% 20%;
+    opacity: 0.65;
 
-    box-shadow:
-        0 0 80px rgba(255,255,255,0.04);
-}
-
-.operative-image::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 100px;
-
-    background:
-        linear-gradient(
-            transparent,
-            #060606
-        );
+    filter: blur(2px);
 }
 
 
-/* CARD CONTENT */
+.hero-content {
 
-.operative-info {
-    position: absolute;
+    width: 90%;
 
-    left: 25px;
-    right: 25px;
-    bottom: 25px;
+    max-width: 1400px;
+
+    margin: auto;
+
+    position: relative;
 
     z-index: 5;
 }
 
-.operative-number {
-    color: #555;
-    font-size: 9px;
-    letter-spacing: 3px;
-}
 
-.operative h3 {
-    margin-top: 12px;
+.hero-small {
 
-    font-size: 25px;
-    font-weight: normal;
-
-    letter-spacing: 4px;
-}
-
-.operative-role {
-    margin-top: 7px;
-
-    color: #777;
-
-    font-size: 10px;
-    letter-spacing: 2px;
-}
-
-.operative-description {
-    margin-top: 20px;
-
-    color: #888;
+    color: #555555;
 
     font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 28px;
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(65px, 12vw, 155px);
+
+    font-weight: normal;
+
+    line-height: 0.85;
+
+    letter-spacing: 18px;
+
+    color: #eeeeee;
+}
+
+
+.hero-subtitle {
+
+    margin-top: 30px;
+
+    color: #777777;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
+}
+
+
+.hero-korean {
+
+    margin-top: 32px;
+
+    font-size: 22px;
+
+    letter-spacing: 8px;
+
+    color: #cfcfcf;
+}
+
+
+.hero-description {
+
+    width: 500px;
+
+    max-width: 100%;
+
+    margin-top: 38px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #303030;
+
+    color: #666666;
+
+    font-family: Arial, sans-serif;
+
     font-size: 11px;
-    line-height: 1.7;
+
+    line-height: 2;
+
+    letter-spacing: 0.5px;
 }
 
 
 /* ==================================================
-   FIELD CAPABILITIES
+   COMMON SECTION
 ================================================== */
 
-.capabilities {
-    padding: 110px 0;
+.section {
+
+    padding:
+        120px 5%;
+
+    border-bottom:
+        1px solid #171717;
 }
 
-.capability-grid {
+
+.container {
+
+    width: min(1400px, 100%);
+
+    margin: auto;
+}
+
+
+.label {
+
+    color: #4b4b4b;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+}
+
+
+.section-title {
+
+    margin-top: 12px;
+
+    color: #dddddd;
+
+    font-size: 31px;
+
+    font-weight: normal;
+
+    letter-spacing: 6px;
+}
+
+
+/* ==================================================
+   ABOUT
+================================================== */
+
+.about-grid {
+
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        240px
+        1fr
+        280px;
 
-    gap: 1px;
+    gap: 70px;
 
-    background: #222;
+    align-items: start;
 }
 
-.capability {
-    min-height: 220px;
 
-    padding: 35px;
+.about-text {
 
-    background: #070707;
+    color: #777777;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    line-height: 2.2;
 }
 
-.capability-number {
-    color: #444;
-    font-size: 10px;
+
+.about-text strong {
+
+    color: #dddddd;
+
+    font-weight: normal;
+}
+
+
+.status {
+
+    border-left:
+        1px solid #292929;
+
+    padding-left: 25px;
+}
+
+
+.status-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 14px 0;
+
+    border-bottom:
+        1px solid #191919;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+.status-row span:first-child {
+    color: #444444;
+}
+
+
+.status-row span:last-child {
+    color: #888888;
+}
+
+
+/* ==================================================
+   OPERATIVE SECTION
+================================================== */
+
+.operative-grid {
+
+    margin-top: 50px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+}
+
+
+/* ==================================================
+   PROFILE CARD
+================================================== */
+
+.card {
+
+    position: relative;
+
+    min-height: 520px;
+
+    overflow: hidden;
+
+    background:
+        #080808;
+
+    border:
+        1px solid #242424;
+
+    transition:
+        transform 0.5s ease,
+        border-color 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+
+.card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        #5a5a5a;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,0.65);
+}
+
+
+/* ==================================================
+   PROFILE PHOTO
+================================================== */
+
+.card-image {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 390px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #272727 0%,
+            #101010 45%,
+            #050505 100%
+        );
+}
+
+
+/* 사진 */
+
+.card-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    filter:
+        grayscale(100%)
+        contrast(1.08)
+        brightness(0.72);
+
+    transform:
+        scale(1.015);
+
+    transition:
+        transform 0.8s cubic-bezier(
+            0.2,
+            0.7,
+            0.2,
+            1
+        ),
+        filter 0.8s ease;
+}
+
+
+/* 마우스 오버 */
+
+.card:hover .card-image img {
+
+    transform:
+        scale(1.06);
+
+    filter:
+        grayscale(100%)
+        contrast(1.08)
+        brightness(0.88);
+}
+
+
+/* ==================================================
+   PHOTO OVERLAY
+================================================== */
+
+.card-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.05) 0%,
+            rgba(0,0,0,0.05) 40%,
+            rgba(0,0,0,0.25) 65%,
+            rgba(0,0,0,0.95) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* 사진 위 코드 */
+
+.photo-code {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 20px;
+
+    z-index: 3;
+
+    padding: 7px 10px;
+
+    border:
+        1px solid rgba(
+            255,
+            255,
+            255,
+            0.18
+        );
+
+    background:
+        rgba(0,0,0,0.35);
+
+    backdrop-filter:
+        blur(5px);
+
+    color: #aaaaaa;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
     letter-spacing: 3px;
 }
 
-.capability h3 {
-    margin-top: 35px;
 
-    font-size: 20px;
+/* 우측 상단 상태 */
+
+.photo-status {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #777777;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+
+.photo-status::before {
+
+    content: "";
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #8c8c8c;
+
+    box-shadow:
+        0 0 8px
+        rgba(255,255,255,0.5);
+}
+
+
+/* 사진이 없을 때 */
+
+.photo-placeholder {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #333333;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+}
+
+
+/* ==================================================
+   CARD CONTENT
+================================================== */
+
+.card-content {
+
+    position: absolute;
+
+    left: 25px;
+
+    right: 25px;
+
+    bottom: 24px;
+
+    z-index: 5;
+}
+
+
+.card-code {
+
+    color: #555555;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+
+.card h3 {
+
+    margin-top: 9px;
+
+    color: #eeeeee;
+
+    font-size: 27px;
+
+    font-weight: normal;
+
+    letter-spacing: 5px;
+
+    line-height: 1;
+}
+
+
+.card-role {
+
+    margin-top: 10px;
+
+    color: #888888;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+
+.card-description {
+
+    margin-top: 17px;
+
+    color: #707070;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+}
+
+
+/* 카드 하단 선 */
+
+.card-content::after {
+
+    content: "";
+
+    display: block;
+
+    width: 35px;
+
+    height: 1px;
+
+    margin-top: 18px;
+
+    background: #555555;
+
+    transition:
+        width 0.4s ease;
+}
+
+
+.card:hover .card-content::after {
+
+    width: 70px;
+}
+
+
+/* ==================================================
+   CAPABILITIES
+================================================== */
+
+.capabilities {
+
+    margin-top: 50px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 1px;
+
+    background:
+        #242424;
+}
+
+
+.capability {
+
+    min-height: 220px;
+
+    padding: 38px;
+
+    background:
+        #070707;
+
+    transition:
+        background 0.3s ease;
+}
+
+
+.capability:hover {
+
+    background:
+        #0d0d0d;
+}
+
+
+.capability-number {
+
+    color: #414141;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+
+.capability h3 {
+
+    margin-top: 38px;
+
+    color: #d8d8d8;
+
+    font-size: 19px;
+
     font-weight: normal;
 
     letter-spacing: 3px;
 }
 
+
 .capability p {
+
     margin-top: 15px;
 
-    color: #666;
+    color: #666666;
 
     font-family: Arial, sans-serif;
-    font-size: 11px;
-    line-height: 1.8;
+
+    font-size: 10px;
+
+    line-height: 1.9;
 }
 
 
@@ -628,112 +873,157 @@ nav {
 ================================================== */
 
 .operation {
-    padding: 110px 0;
+
+    padding:
+        120px 5%;
 
     background:
+
         radial-gradient(
             ellipse at center,
-            #121212,
-            #050505 60%
+            #141414,
+            #050505 70%
         );
 
-    border-top: 1px solid #1d1d1d;
-    border-bottom: 1px solid #1d1d1d;
+    border-bottom:
+        1px solid #202020;
 }
 
+
 .operation-grid {
+
+    width:
+        min(1400px, 100%);
+
+    margin:
+        auto;
+
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
-    gap: 80px;
+    gap: 90px;
 
     align-items: center;
 }
 
-.operation-title {
-    font-size: 55px;
+
+.operation h2 {
+
+    margin-top: 15px;
+
+    color: #eeeeee;
+
+    font-size: 65px;
 
     font-weight: normal;
 
-    letter-spacing: 8px;
+    letter-spacing: 9px;
 }
 
-.operation-description {
+
+.operation-text {
+
     margin-top: 25px;
 
-    color: #777;
+    color: #777777;
 
     font-family: Arial, sans-serif;
 
-    font-size: 12px;
-    line-height: 2;
+    font-size: 11px;
+
+    line-height: 2.1;
 }
+
 
 .operation-box {
-    border: 1px solid #292929;
 
-    padding: 35px;
+    border:
+        1px solid #292929;
 
-    background: rgba(0,0,0,0.3);
+    padding:
+        30px;
 }
+
 
 .operation-row {
+
     display: flex;
+
     justify-content: space-between;
 
-    padding: 17px 0;
+    padding: 18px 0;
 
-    border-bottom: 1px solid #1d1d1d;
+    border-bottom:
+        1px solid #1d1d1d;
 
-    font-size: 10px;
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
     letter-spacing: 2px;
 }
+
 
 .operation-row:last-child {
     border-bottom: none;
 }
 
+
 .operation-row span:first-child {
-    color: #555;
+    color: #444444;
 }
 
+
 .operation-row span:last-child {
-    color: #aaa;
+    color: #999999;
 }
 
 
 /* ==================================================
-   BACK BUTTON
+   BACK
 ================================================== */
 
-.back-section {
-    padding: 60px 0;
+.back {
 
-    border-bottom: 1px solid #1d1d1d;
+    padding:
+        60px 5%;
+
+    border-bottom:
+        1px solid #181818;
 }
 
-.back-button {
-    display: inline-flex;
 
-    align-items: center;
-    gap: 15px;
+.back a {
 
-    padding: 15px 22px;
+    display: inline-block;
 
-    border: 1px solid #333;
+    padding:
+        15px 22px;
 
-    color: #777;
+    border:
+        1px solid #333333;
 
-    font-size: 10px;
+    color: #777777;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
     letter-spacing: 3px;
 
-    transition: 0.3s;
+    transition:
+        0.3s;
 }
 
-.back-button:hover {
-    color: white;
-    border-color: #777;
+
+.back a:hover {
+
+    color: #ffffff;
+
+    border-color:
+        #777777;
 }
 
 
@@ -742,101 +1032,207 @@ nav {
 ================================================== */
 
 footer {
-    padding: 70px 0;
+
+    padding:
+        70px 5%;
 
     text-align: center;
 
-    color: #444;
+    color: #3e3e3e;
 
-    font-size: 10px;
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
 
     letter-spacing: 5px;
 }
 
 
 /* ==================================================
-   RESPONSIVE
+   TABLET
 ================================================== */
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
 
-    .hero-left {
-        width: 65%;
+    .operative-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    .hero::after {
-        right: -80px;
-        opacity: 0.7;
+    .about-grid {
+
+        grid-template-columns:
+            200px
+            1fr;
     }
 
-    .intro-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
+    .status {
 
-    .intro-status {
-        border-left: none;
-        border-top: 1px solid #333;
-        padding: 25px 0 0;
+        grid-column:
+            2;
     }
-
-    .operatives {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .operation-grid {
-        grid-template-columns: 1fr;
-    }
-
 }
+
+
+/* ==================================================
+   MOBILE
+================================================== */
 
 @media (max-width: 700px) {
 
     nav {
-        height: 60px;
+
+        padding:
+            0 6%;
     }
+
 
     .nav-links {
+
         display: none;
     }
+
 
     .hero {
-        min-height: 700px;
+
+        min-height:
+            90vh;
     }
 
-    .hero-left {
-        width: 100%;
-    }
 
     .hero h1 {
-        font-size: 65px;
-        letter-spacing: 10px;
+
+        font-size:
+            55px;
+
+        letter-spacing:
+            9px;
     }
 
-    .hero-side {
-        display: none;
-    }
 
     .hero::after {
-        right: -180px;
-        opacity: 0.45;
+
+        right:
+            -220px;
     }
 
-    .operatives {
-        grid-template-columns: 1fr;
+
+    .section {
+
+        padding:
+            90px 6%;
     }
 
-    .capability-grid {
-        grid-template-columns: 1fr;
+
+    .about-grid {
+
+        grid-template-columns:
+            1fr;
     }
 
-    .operation-title {
-        font-size: 38px;
+
+    .status {
+
+        grid-column:
+            auto;
+
+        border-left:
+            none;
+
+        border-top:
+            1px solid #292929;
+
+        padding:
+            25px 0 0;
     }
 
+
+    .operative-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .card {
+
+        min-height:
+            540px;
+    }
+
+
+    .card-image {
+
+        height:
+            410px;
+    }
+
+
+    .capabilities {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .operation-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            50px;
+    }
+
+
+    .operation h2 {
+
+        font-size:
+            45px;
+    }
+}
+
+
+/* ==================================================
+   SMALL MOBILE
+================================================== */
+
+@media (max-width: 430px) {
+
+    .hero h1 {
+
+        font-size:
+            46px;
+
+        letter-spacing:
+            7px;
+    }
+
+
+    .hero-korean {
+
+        font-size:
+            18px;
+    }
+
+
+    .card-image {
+
+        height:
+            390px;
+    }
+
+
+    .card {
+
+        min-height:
+            515px;
+    }
 }
 
 </style>
+
 </head>
 
 
@@ -849,13 +1245,20 @@ footer {
 
 <nav>
 
-    <a href="index.html" class="logo">
+    <a
+        href="index.html"
+        class="logo"
+    >
         THE VEIL.
     </a>
 
+
     <div class="nav-links">
 
-        <a href="field.html" class="active">
+        <a
+            href="field.html"
+            class="active"
+        >
             FIELD
         </a>
 
@@ -876,71 +1279,65 @@ footer {
 </nav>
 
 
-
 <!-- ==================================================
      HERO
 ================================================== -->
 
 <section class="hero">
 
-    <div class="target"></div>
-
     <div class="hero-content">
 
-        <div class="hero-left">
-
-            <div class="hero-number">
-                DIVISION // 01
-            </div>
-
-            <h1>
-                FIELD
-            </h1>
-
-            <div class="hero-subtitle">
-                FIELD DIVISION
-            </div>
-
-            <div class="hero-korean">
-                죽인다.
-            </div>
-
-            <div class="hero-description">
-
-                THE VEIL.의 직접적인 작전 수행을 담당하는
-                최전선의 조직이다.<br>
-
-                목표의 제거와 확보, 추적과 침투,
-                모든 실전 임무의 시작과 끝에 존재한다.
-
-            </div>
-
+        <div class="hero-small">
+            DIVISION // 01
         </div>
 
-    </div>
+
+        <h1>
+            FIELD
+        </h1>
 
 
-    <div class="hero-side">
+        <div class="hero-subtitle">
+            FIELD DIVISION
+        </div>
 
-        PRECISION.<br>
-        SPEED.<br>
-        SILENCE.
+
+        <div class="hero-korean">
+            죽인다.
+        </div>
+
+
+        <div class="hero-description">
+
+            THE VEIL.의 직접적인 작전 수행을 담당하는
+            최전선의 조직.
+
+            <br><br>
+
+            목표의 제거와 확보,
+            추적과 침투.
+
+            <br>
+
+            모든 실전 임무의 시작과 끝에 존재한다.
+
+        </div>
 
     </div>
 
 </section>
 
 
-
 <!-- ==================================================
-     INTRO
+     ABOUT
 ================================================== -->
 
-<section class="intro">
+<section class="section">
 
     <div class="container">
 
-        <div class="intro-grid">
+        <div class="about-grid">
+
 
             <div>
 
@@ -948,27 +1345,22 @@ footer {
                     FIELD DIVISION
                 </div>
 
-                <div style="
-                    margin-top:15px;
-                    font-size:12px;
-                    color:#444;
-                    letter-spacing:3px;
-                ">
+                <div class="section-title">
                     ABOUT
                 </div>
 
             </div>
 
 
-            <div class="intro-text">
+            <div class="about-text">
 
-                실전부는 <strong>THE VEIL.</strong>의
-                모든 작전에서 가장 먼저 움직이고,
-                가장 마지막까지 남는다.
+                실전부는
+                <strong>THE VEIL.</strong>의 모든 작전에서
+                가장 먼저 움직이고 가장 마지막까지 남는다.
 
                 <br><br>
 
-                그들은 그림자 속에서 목표를 제거하고,
+                그림자 속에서 목표를 제거하고,
                 필요할 때는 추적하며,
                 필요할 때는 침투한다.
 
@@ -985,26 +1377,57 @@ footer {
             </div>
 
 
-            <div class="intro-status">
+            <div class="status">
 
                 <div class="status-row">
-                    <span>STATUS</span>
-                    <span>ACTIVE</span>
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <span>
+                        ACTIVE
+                    </span>
+
                 </div>
 
-                <div class="status-row">
-                    <span>DIVISION</span>
-                    <span>FIELD / 01</span>
-                </div>
 
                 <div class="status-row">
-                    <span>OPERATIVES</span>
-                    <span>04</span>
+
+                    <span>
+                        DIVISION
+                    </span>
+
+                    <span>
+                        FIELD / 01
+                    </span>
+
                 </div>
 
+
                 <div class="status-row">
-                    <span>COMMAND</span>
-                    <span>ARCHON</span>
+
+                    <span>
+                        OPERATIVES
+                    </span>
+
+                    <span>
+                        04
+                    </span>
+
+                </div>
+
+
+                <div class="status-row">
+
+                    <span>
+                        COMMAND
+                    </span>
+
+                    <span>
+                        ARCHON
+                    </span>
+
                 </div>
 
             </div>
@@ -1016,60 +1439,88 @@ footer {
 </section>
 
 
-
 <!-- ==================================================
      OPERATIVES
 ================================================== -->
 
-<section class="operatives-section">
+<section class="section">
 
     <div class="container">
 
-        <div class="section-header">
 
-            <div>
-
-                <div class="label">
-                    FIELD DIVISION
-                </div>
-
-                <h2 class="section-title">
-                    OPERATIVES
-                </h2>
-
-            </div>
-
-            <div class="section-subtitle">
-                FOUR SHADOWS / ONE PURPOSE
-            </div>
-
+        <div class="label">
+            FIELD DIVISION
         </div>
 
 
-        <div class="operatives">
+        <div class="section-title">
+            OPERATIVES
+        </div>
 
 
-            <!-- HAWK -->
+        <div class="operative-grid">
 
-            <div class="operative">
 
-                <div class="operative-image"></div>
+            <!-- ==========================================
+                 HAWK
+            =========================================== -->
 
-                <div class="operative-info">
+            <div class="card">
 
-                    <div class="operative-number">
+
+                <div class="card-image">
+
+
+                    <!-- 사진 파일 -->
+                    <img
+                        src="images/hawk.jpg"
+                        alt="HAWK profile"
+                        onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='flex';
+                        "
+                    >
+
+
+                    <!-- 사진이 없을 경우 -->
+                    <div
+                        class="photo-placeholder"
+                        style="display:none;"
+                    >
+                        PROFILE IMAGE
+                    </div>
+
+
+                    <div class="photo-code">
                         FIELD // 01
                     </div>
+
+
+                    <div class="photo-status">
+                        ACTIVE
+                    </div>
+
+                </div>
+
+
+                <div class="card-content">
+
+                    <div class="card-code">
+                        OPERATIVE / 01
+                    </div>
+
 
                     <h3>
                         HAWK
                     </h3>
 
-                    <div class="operative-role">
+
+                    <div class="card-role">
                         저격수
                     </div>
 
-                    <div class="operative-description">
+
+                    <div class="card-description">
                         장거리에서 목표를 제거하고
                         아군을 엄호한다.
                     </div>
@@ -1079,37 +1530,64 @@ footer {
             </div>
 
 
-            <!-- WRAITH -->
+            <!-- ==========================================
+                 WRAITH
+            =========================================== -->
 
-            <div class="operative">
+            <div class="card">
 
-                <div
-                    class="operative-image"
-                    style="
-                        background:
-                        radial-gradient(
-                            ellipse at 50% 35%,
-                            #222,
-                            #070707 60%
-                        );
-                    "
-                ></div>
 
-                <div class="operative-info">
+                <div class="card-image">
 
-                    <div class="operative-number">
+
+                    <img
+                        src="images/wraith.jpg"
+                        alt="WRAITH profile"
+                        onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='flex';
+                        "
+                    >
+
+
+                    <div
+                        class="photo-placeholder"
+                        style="display:none;"
+                    >
+                        PROFILE IMAGE
+                    </div>
+
+
+                    <div class="photo-code">
                         FIELD // 02
                     </div>
+
+
+                    <div class="photo-status">
+                        ACTIVE
+                    </div>
+
+                </div>
+
+
+                <div class="card-content">
+
+                    <div class="card-code">
+                        OPERATIVE / 02
+                    </div>
+
 
                     <h3>
                         WRAITH
                     </h3>
 
-                    <div class="operative-role">
+
+                    <div class="card-role">
                         침투자
                     </div>
 
-                    <div class="operative-description">
+
+                    <div class="card-description">
                         잠입과 정보 탈취,
                         목표 접근 및 제거를 담당한다.
                     </div>
@@ -1119,37 +1597,64 @@ footer {
             </div>
 
 
-            <!-- VENOM -->
+            <!-- ==========================================
+                 VENOM
+            =========================================== -->
 
-            <div class="operative">
+            <div class="card">
 
-                <div
-                    class="operative-image"
-                    style="
-                        background:
-                        radial-gradient(
-                            ellipse at 50% 30%,
-                            #252525,
-                            #060606 60%
-                        );
-                    "
-                ></div>
 
-                <div class="operative-info">
+                <div class="card-image">
 
-                    <div class="operative-number">
+
+                    <img
+                        src="images/venom.jpg"
+                        alt="VENOM profile"
+                        onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='flex';
+                        "
+                    >
+
+
+                    <div
+                        class="photo-placeholder"
+                        style="display:none;"
+                    >
+                        PROFILE IMAGE
+                    </div>
+
+
+                    <div class="photo-code">
                         FIELD // 03
                     </div>
+
+
+                    <div class="photo-status">
+                        ACTIVE
+                    </div>
+
+                </div>
+
+
+                <div class="card-content">
+
+                    <div class="card-code">
+                        OPERATIVE / 03
+                    </div>
+
 
                     <h3>
                         VENOM
                     </h3>
 
-                    <div class="operative-role">
+
+                    <div class="card-role">
                         독살자
                     </div>
 
-                    <div class="operative-description">
+
+                    <div class="card-description">
                         독극물과 약물을 이용해
                         흔적 없이 목표를 제거한다.
                     </div>
@@ -1159,37 +1664,64 @@ footer {
             </div>
 
 
-            <!-- HUNTER -->
+            <!-- ==========================================
+                 HUNTER
+            =========================================== -->
 
-            <div class="operative">
+            <div class="card">
 
-                <div
-                    class="operative-image"
-                    style="
-                        background:
-                        radial-gradient(
-                            ellipse at 50% 30%,
-                            #202020,
-                            #050505 60%
-                        );
-                    "
-                ></div>
 
-                <div class="operative-info">
+                <div class="card-image">
 
-                    <div class="operative-number">
+
+                    <img
+                        src="images/hunter.jpg"
+                        alt="HUNTER profile"
+                        onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='flex';
+                        "
+                    >
+
+
+                    <div
+                        class="photo-placeholder"
+                        style="display:none;"
+                    >
+                        PROFILE IMAGE
+                    </div>
+
+
+                    <div class="photo-code">
                         FIELD // 04
                     </div>
+
+
+                    <div class="photo-status">
+                        ACTIVE
+                    </div>
+
+                </div>
+
+
+                <div class="card-content">
+
+                    <div class="card-code">
+                        OPERATIVE / 04
+                    </div>
+
 
                     <h3>
                         HUNTER
                     </h3>
 
-                    <div class="operative-role">
+
+                    <div class="card-role">
                         사냥꾼
                     </div>
 
-                    <div class="operative-description">
+
+                    <div class="card-description">
                         도주한 목표나 배신자를
                         추적하고 제거한다.
                     </div>
@@ -1206,33 +1738,26 @@ footer {
 </section>
 
 
-
 <!-- ==================================================
      CAPABILITIES
 ================================================== -->
 
-<section class="capabilities">
+<section class="section">
 
     <div class="container">
 
-        <div class="section-header">
 
-            <div>
-
-                <div class="label">
-                    FIELD CAPABILITIES
-                </div>
-
-                <h2 class="section-title">
-                    OPERATIONS
-                </h2>
-
-            </div>
-
+        <div class="label">
+            FIELD CAPABILITIES
         </div>
 
 
-        <div class="capability-grid">
+        <div class="section-title">
+            OPERATIONS
+        </div>
+
+
+        <div class="capabilities">
 
 
             <div class="capability">
@@ -1246,9 +1771,8 @@ footer {
                 </h3>
 
                 <p>
-                    지정된 목표를 제거한다.
-                    계약의 조건과 명령을
-                    최우선으로 수행한다.
+                    지정된 목표에 대한
+                    직접적인 작전 수행.
                 </p>
 
             </div>
@@ -1266,8 +1790,7 @@ footer {
 
                 <p>
                     목표 지역에 침투하고
-                    작전 수행에 필요한
-                    위치를 확보한다.
+                    작전 위치를 확보한다.
                 </p>
 
             </div>
@@ -1285,8 +1808,7 @@ footer {
 
                 <p>
                     작전 대상과 조직원을
-                    지정된 장소까지
-                    안전하게 이동시킨다.
+                    지정된 장소까지 이동시킨다.
                 </p>
 
             </div>
@@ -1303,8 +1825,7 @@ footer {
                 </h3>
 
                 <p>
-                    도주한 목표와
-                    조직을 배신한 대상을
+                    도주한 목표와 배신자를
                     추적한다.
                 </p>
 
@@ -1322,8 +1843,8 @@ footer {
                 </h3>
 
                 <p>
-                    작전 지역을 확인하고
-                    현장 정보를 확보한다.
+                    작전 지역과 현장을 확인하고
+                    필요한 정보를 확보한다.
                 </p>
 
             </div>
@@ -1336,13 +1857,12 @@ footer {
                 </div>
 
                 <h3>
-                    SUPPORT FIRE
+                    SUPPORT
                 </h3>
 
                 <p>
                     다른 조직원의 작전을
-                    현장에서 지원하고
-                    퇴로를 확보한다.
+                    현장에서 지원한다.
                 </p>
 
             </div>
@@ -1355,72 +1875,112 @@ footer {
 </section>
 
 
-
 <!-- ==================================================
-     OPERATION STATUS
+     CURRENT STATUS
 ================================================== -->
 
 <section class="operation">
 
-    <div class="container">
-
-        <div class="operation-grid">
+    <div class="operation-grid">
 
 
-            <div>
+        <div>
 
-                <div class="label">
-                    FIELD / CURRENT STATUS
-                </div>
+            <div class="label">
+                FIELD / CURRENT STATUS
+            </div>
 
-                <h2 class="operation-title">
-                    READY.
-                </h2>
 
-                <div class="operation-description">
+            <h2>
+                READY.
+            </h2>
 
-                    모든 작전은 ARCHON의 승인 이후
-                    시작된다.
 
-                    <br><br>
+            <div class="operation-text">
 
-                    실전부는 명령을 기다린다.
-                    그리고 명령이 내려지는 순간,
-                    움직인다.
+                모든 작전은 ARCHON의 승인 이후 시작된다.
 
-                </div>
+                <br><br>
+
+                실전부는 명령을 기다린다.
+
+                <br>
+
+                그리고 명령이 내려지는 순간,
+                움직인다.
+
+            </div>
+
+        </div>
+
+
+        <div class="operation-box">
+
+
+            <div class="operation-row">
+
+                <span>
+                    DIVISION
+                </span>
+
+                <span>
+                    FIELD
+                </span>
 
             </div>
 
 
-            <div class="operation-box">
+            <div class="operation-row">
 
-                <div class="operation-row">
-                    <span>DIVISION</span>
-                    <span>FIELD</span>
-                </div>
+                <span>
+                    COMMANDER
+                </span>
 
-                <div class="operation-row">
-                    <span>COMMANDER</span>
-                    <span>ARCHON</span>
-                </div>
-
-                <div class="operation-row">
-                    <span>STATUS</span>
-                    <span>OPERATIONAL</span>
-                </div>
-
-                <div class="operation-row">
-                    <span>ACTIVE UNITS</span>
-                    <span>04</span>
-                </div>
-
-                <div class="operation-row">
-                    <span>PROTOCOL</span>
-                    <span>VEIL-01</span>
-                </div>
+                <span>
+                    ARCHON
+                </span>
 
             </div>
+
+
+            <div class="operation-row">
+
+                <span>
+                    STATUS
+                </span>
+
+                <span>
+                    OPERATIONAL
+                </span>
+
+            </div>
+
+
+            <div class="operation-row">
+
+                <span>
+                    ACTIVE UNITS
+                </span>
+
+                <span>
+                    04
+                </span>
+
+            </div>
+
+
+            <div class="operation-row">
+
+                <span>
+                    PROTOCOL
+                </span>
+
+                <span>
+                    VEIL-01
+                </span>
+
+            </div>
+
 
         </div>
 
@@ -1429,26 +1989,17 @@ footer {
 </section>
 
 
-
 <!-- ==================================================
      BACK
 ================================================== -->
 
-<section class="back-section">
+<div class="back">
 
-    <div class="container">
+    <a href="index.html">
+        ← BACK TO THE VEIL.
+    </a>
 
-        <a
-            href="index.html"
-            class="back-button"
-        >
-            ← BACK TO THE VEIL.
-        </a>
-
-    </div>
-
-</section>
-
+</div>
 
 
 <!-- ==================================================
@@ -1457,19 +2008,15 @@ footer {
 
 <footer>
 
-    <div class="container">
+    THE VEIL.
 
-        THE VEIL.
+    <br><br>
 
-        <br><br>
+    DISCIPLINE. UNITY. SILENCE.
 
-        DISCIPLINE. UNITY. SILENCE.
+    <br><br>
 
-        <br><br>
-
-        FIELD DIVISION // 01
-
-    </div>
+    FIELD DIVISION // 01
 
 </footer>
 
