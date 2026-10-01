@@ -7,1200 +7,648 @@
 <title>THE VEIL.</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #050505;
-    color: #e8e8e8;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 0.04em;
-}
-
-
-/* =========================================================
-   ACCESS SCREEN
-========================================================= */
-
-#access-screen {
-    position: fixed;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,255,255,0.045),
-            transparent 35%
-        ),
-        #030303;
-
-    z-index: 9999;
-
-    transition:
-        opacity 0.8s ease,
-        visibility 0.8s ease;
-}
-
-#access-screen.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.access-box {
-    width: min(420px, 88vw);
-
-    padding: 55px 40px;
-
-    text-align: center;
-
-    border: 1px solid #252525;
-
-    background:
-        linear-gradient(
-            145deg,
-            #0d0d0d,
-            #050505
-        );
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,0.65);
-}
-
-.access-mark {
-    width: 58px;
-    height: 58px;
-
-    margin: 0 auto 30px;
-
-    border: 1px solid #666;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 24px;
-    color: #fff;
-}
-
-.access-title {
-    color: #fff;
-
-    font-size: 23px;
-    font-weight: 700;
-
-    letter-spacing: 0.28em;
-}
-
-.access-subtitle {
-    margin-top: 12px;
-
-    color: #555;
-
-    font-size: 9px;
-
-    letter-spacing: 0.3em;
-}
-
-.access-line {
-    width: 100%;
-    height: 1px;
-
-    margin: 35px 0;
-
-    background: #222;
-}
-
-#access-code {
-    width: 100%;
-
-    padding: 16px 14px;
-
-    background: #080808;
-
-    border: 1px solid #292929;
-
-    outline: none;
-
-    color: #fff;
-
-    text-align: center;
-
-    font-size: 16px;
-
-    letter-spacing: 0.45em;
-
-    transition: 0.25s;
-}
-
-#access-code:focus {
-    border-color: #666;
-}
-
-#access-code::placeholder {
-    color: #444;
-    letter-spacing: 0.2em;
-}
-
-.access-button {
-    width: 100%;
-
-    margin-top: 14px;
-
-    padding: 16px;
-
-    background: #e8e8e8;
-
-    border: none;
-
-    color: #050505;
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.25em;
-
-    cursor: pointer;
-
-    transition: 0.25s;
-}
-
-.access-button:hover {
-    background: #fff;
-}
-
-.access-error {
-    height: 16px;
-
-    margin-top: 15px;
-
-    color: #777;
-
-    font-size: 9px;
-
-    letter-spacing: 0.15em;
-}
-
-
-/* =========================================================
-   MAIN SITE
-========================================================= */
-
-#site {
-    opacity: 0;
-
-    transition: opacity 0.8s ease;
-
-    pointer-events: none;
-}
-
-#site.visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-
-/* =========================================================
-   NAV
-========================================================= */
-
-nav {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 64px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 42px;
-
-    background: rgba(5,5,5,0.88);
-
-    backdrop-filter: blur(14px);
-
-    border-bottom: 1px solid #1c1c1c;
-
-    z-index: 1000;
-}
-
-.logo {
-    color: #fff;
-
-    text-decoration: none;
-
-    font-size: 15px;
-    font-weight: 700;
-
-    letter-spacing: 0.25em;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-
-    gap: 25px;
-}
-
-.nav-link {
-    color: #666;
-
-    text-decoration: none;
-
-    font-size: 9px;
-
-    letter-spacing: 0.17em;
-
-    transition: 0.25s;
-}
-
-.nav-link:hover {
-    color: #fff;
-}
-
-.nav-status {
-    color: #444;
-
-    font-size: 8px;
-
-    letter-spacing: 0.15em;
-}
-
-.nav-status::before {
-    content: "";
-
-    display: inline-block;
-
-    width: 5px;
-    height: 5px;
-
-    margin-right: 7px;
-
-    border-radius: 50%;
-
-    background: #777;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-    min-height: 100vh;
-
-    padding:
-        150px 8%
-        100px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    border-bottom: 1px solid #181818;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,0.15),
-            rgba(0,0,0,0.9)
-        ),
-        radial-gradient(
-            circle at 70% 35%,
-            rgba(255,255,255,0.055),
-            transparent 35%
-        );
-}
-
-.hero-label {
-    color: #555;
-
-    font-size: 10px;
-
-    letter-spacing: 0.4em;
-
-    margin-bottom: 30px;
-}
-
-.hero h1 {
-    color: #fff;
-
-    font-size: clamp(65px, 12vw, 170px);
-
-    line-height: 0.82;
-
-    font-weight: 800;
-
-    letter-spacing: 0.02em;
-}
-
-.hero-subtitle {
-    margin-top: 35px;
-
-    color: #777;
-
-    font-size: 12px;
-
-    letter-spacing: 0.35em;
-}
-
-.hero-motto {
-    margin-top: 70px;
-
-    color: #aaa;
-
-    font-size: 13px;
-
-    letter-spacing: 0.3em;
-}
-
-.hero-line {
-    width: 80px;
-    height: 1px;
-
-    margin-top: 25px;
-
-    background: #555;
-}
-
-
-/* =========================================================
-   GENERAL SECTION
-========================================================= */
-
-.section {
-    padding: 120px 7%;
-
-    border-bottom: 1px solid #171717;
-}
-
-.container {
-    max-width: 1100px;
-
-    margin: 0 auto;
-}
-
-.section-label {
-    color: #555;
-
-    font-size: 9px;
-
-    letter-spacing: 0.32em;
-
-    margin-bottom: 15px;
-}
-
-.section-title {
-    color: #eee;
-
-    font-size: 36px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.08em;
-}
-
-
-/* =========================================================
-   ARCHON
-========================================================= */
-
-.archon-section {
-    min-height: 750px;
-
-    display: flex;
-    align-items: center;
-}
-
-.archon-grid {
-    display: grid;
-
-    grid-template-columns: 0.8fr 1.2fr;
-
-    gap: 100px;
-
-    align-items: center;
-}
-
-
-/* SYMBOL */
-
-.archon-symbol {
-    width: 290px;
-    height: 290px;
-
-    margin: 0 auto;
-
-    border: 1px solid #292929;
-
-    border-radius: 50%;
-
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle,
-            #121212,
-            #050505 70%
-        );
-
-    box-shadow:
-        0 0 80px rgba(255,255,255,0.025);
-}
-
-.archon-symbol::before {
-    content: "";
-
-    width: 1px;
-    height: 230px;
-
-    position: absolute;
-
-    background: #555;
-}
-
-.archon-symbol::after {
-    content: "";
-
-    width: 130px;
-    height: 1px;
-
-    position: absolute;
-
-    background: #333;
-}
-
-.archon-blade {
-    width: 3px;
-    height: 150px;
-
-    background: #ddd;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-.archon-blade::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -6px;
-
-    width: 15px;
-    height: 15px;
-
-    border-top: 1px solid #fff;
-    border-right: 1px solid #fff;
-
-    transform: rotate(-45deg);
-}
-
-.archon-center {
-    position: absolute;
-
-    width: 14px;
-    height: 14px;
-
-    border: 1px solid #aaa;
-
-    transform: rotate(45deg);
-
-    background: #050505;
-
-    z-index: 3;
-}
-
-
-/* ARCHON INFO */
-
-.archon-code {
-    color: #555;
-
-    font-size: 10px;
-
-    letter-spacing: 0.35em;
-
-    margin-bottom: 18px;
-}
-
-.archon-name {
-    color: #fff;
-
-    font-size: clamp(45px, 6vw, 75px);
-
-    line-height: 0.9;
-
-    font-weight: 800;
-
-    letter-spacing: 0.04em;
-}
-
-.archon-korean {
-    margin-top: 15px;
-
-    color: #aaa;
-
-    font-size: 13px;
-
-    letter-spacing: 0.3em;
-}
-
-.archon-position {
-    margin-top: 35px;
-
-    color: #777;
-
-    font-size: 10px;
-
-    letter-spacing: 0.25em;
-}
-
-.archon-call {
-    margin-top: 8px;
-
-    color: #ddd;
-
-    font-size: 13px;
-
-    letter-spacing: 0.2em;
-}
-
-.archon-description {
-    max-width: 520px;
-
-    margin-top: 35px;
-
-    color: #777;
-
-    font-size: 12px;
-
-    line-height: 2;
-
-    letter-spacing: 0.05em;
-}
-
-.archon-motto {
-    margin-top: 40px;
-
-    padding-left: 18px;
-
-    border-left: 1px solid #555;
-
-    color: #aaa;
-
-    font-size: 11px;
-
-    line-height: 1.8;
-
-    letter-spacing: 0.15em;
-}
-
-
-/* =========================================================
-   RULES
-========================================================= */
-
-.rules-grid {
-    margin-top: 60px;
-
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    border-top: 1px solid #222;
-    border-left: 1px solid #222;
-}
-
-.rule {
-    min-height: 150px;
-
-    padding: 28px;
-
-    border-right: 1px solid #222;
-    border-bottom: 1px solid #222;
-
-    background: #080808;
-
-    transition: 0.25s;
-}
-
-.rule:hover {
-    background: #0d0d0d;
-}
-
-.rule-number {
-    color: #444;
-
-    font-size: 10px;
-
-    letter-spacing: 0.2em;
-}
-
-.rule-text {
-    margin-top: 30px;
-
-    color: #ddd;
-
-    font-size: 13px;
-
-    line-height: 1.7;
-
-    letter-spacing: 0.08em;
-}
-
-
-/* 마지막 규칙 */
-
-.rule:last-child {
-    grid-column: 1 / 3;
-}
-
-
-/* =========================================================
-   DIVISIONS
-========================================================= */
-
-.division-grid {
-    margin-top: 60px;
-
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 18px;
-}
-
-.division-card {
-    min-height: 280px;
-
-    position: relative;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: flex-end;
-
-    padding: 30px;
-
-    color: #fff;
-
-    text-decoration: none;
-
-    border: 1px solid #242424;
-
-    background:
-        linear-gradient(
-            145deg,
-            #111,
-            #070707
-        );
-
-    overflow: hidden;
-
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        background 0.3s ease;
-}
-
-.division-card::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(255,255,255,0.06),
-            transparent 30%
-        );
-
-    opacity: 0.7;
-
-    transition: 0.3s;
-}
-
-.division-card:hover {
-    transform: translateY(-6px);
-
-    border-color: #555;
-
-    background: #0c0c0c;
-}
-
-.division-card:hover::before {
-    opacity: 1;
-}
-
-.division-number {
-    position: absolute;
-
-    top: 24px;
-    left: 25px;
-
-    color: #444;
-
-    font-size: 10px;
-
-    letter-spacing: 0.2em;
-}
-
-.division-name {
-    position: relative;
-
-    font-size: 34px;
-
-    font-weight: 800;
-
-    letter-spacing: 0.08em;
-}
-
-.division-korean {
-    position: relative;
-
-    margin-top: 8px;
-
-    color: #888;
-
-    font-size: 11px;
-
-    letter-spacing: 0.2em;
-}
-
-.division-desc {
-    position: relative;
-
-    margin-top: 25px;
-
-    color: #666;
-
-    font-size: 10px;
-
-    letter-spacing: 0.25em;
-}
-
-.division-arrow {
-    position: absolute;
-
-    right: 25px;
-    bottom: 27px;
-
-    color: #555;
-
-    font-size: 18px;
-
-    transition: 0.25s;
-}
-
-.division-card:hover .division-arrow {
-    color: #fff;
-
-    transform: translateX(5px);
-}
-
-
-/* =========================================================
-   ORGANIZATION
-========================================================= */
-
-.organization {
-    margin-top: 80px;
-
-    padding: 45px;
-
-    border: 1px solid #222;
-
-    background: #080808;
-}
-
-.organization-header {
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-
-    padding-bottom: 25px;
-
-    border-bottom: 1px solid #1c1c1c;
-}
-
-.organization-title {
-    color: #ddd;
-
-    font-size: 13px;
-
-    letter-spacing: 0.2em;
-}
-
-.organization-status {
-    color: #555;
-
-    font-size: 9px;
-
-    letter-spacing: 0.2em;
-}
-
-.org-list {
-    margin-top: 28px;
-}
-
-.org-row {
-    display: grid;
-
-    grid-template-columns: 90px 1fr 1fr;
-
-    gap: 20px;
-
-    padding: 18px 0;
-
-    border-bottom: 1px solid #181818;
-}
-
-.org-row:last-child {
-    border-bottom: none;
-}
-
-.org-number {
-    color: #444;
-
-    font-size: 9px;
-
-    letter-spacing: 0.15em;
-}
-
-.org-name {
-    color: #ccc;
-
-    font-size: 11px;
-
-    letter-spacing: 0.15em;
-}
-
-.org-description {
-    color: #666;
-
-    font-size: 10px;
-
-    letter-spacing: 0.08em;
-}
-
-
-/* =========================================================
-   FINAL STATEMENT
-========================================================= */
-
-.final-section {
-    min-height: 65vh;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,255,255,0.035),
-            transparent 35%
-        );
-}
-
-.final-mark {
-    color: #555;
-
-    font-size: 9px;
-
-    letter-spacing: 0.4em;
-
-    margin-bottom: 25px;
-}
-
-.final-title {
-    color: #eee;
-
-    font-size: clamp(35px, 6vw, 75px);
-
-    font-weight: 800;
-
-    letter-spacing: 0.08em;
-}
-
-.final-subtitle {
-    margin-top: 25px;
-
-    color: #555;
-
-    font-size: 10px;
-
-    letter-spacing: 0.3em;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-    padding: 35px 7%;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    color: #444;
-
-    font-size: 9px;
-
-    letter-spacing: 0.2em;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 900px) {
-
-    nav {
-        padding: 0 22px;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
-    .nav-right {
-        gap: 14px;
+    html {
+        scroll-behavior: smooth;
     }
 
-    .nav-link {
-        font-size: 8px;
+    body {
+        background: #050505;
+        color: #e8e8e8;
+        font-family: Arial, Helvetica, sans-serif;
+        letter-spacing: 0.5px;
+        overflow-x: hidden;
     }
 
-    .archon-grid {
-        grid-template-columns: 1fr;
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 
-        gap: 70px;
+    /* =========================
+       ACCESS
+    ========================= */
 
+    #access-screen {
+        position: fixed;
+        inset: 0;
+        background:
+            radial-gradient(circle at center, #151515 0%, #080808 45%, #020202 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .access-box {
+        width: min(90%, 430px);
+        padding: 50px 35px;
+        border: 1px solid #292929;
+        background: rgba(8, 8, 8, 0.96);
         text-align: center;
+        box-shadow: 0 0 80px rgba(255,255,255,0.03);
     }
 
-    .archon-description {
-        margin-left: auto;
-        margin-right: auto;
+    .access-small {
+        font-size: 10px;
+        letter-spacing: 4px;
+        color: #666;
+        margin-bottom: 20px;
     }
 
-    .archon-motto {
-        text-align: left;
+    .access-title {
+        font-size: 32px;
+        letter-spacing: 8px;
+        margin-bottom: 10px;
     }
 
-    .archon-symbol {
-        width: 250px;
-        height: 250px;
+    .access-sub {
+        font-size: 11px;
+        color: #555;
+        letter-spacing: 3px;
+        margin-bottom: 35px;
     }
 
-    .rules-grid {
-        grid-template-columns: 1fr;
+    .access-input {
+        width: 100%;
+        padding: 15px;
+        background: #0b0b0b;
+        border: 1px solid #333;
+        color: #fff;
+        text-align: center;
+        font-size: 18px;
+        letter-spacing: 7px;
+        outline: none;
     }
 
-    .rule:last-child {
-        grid-column: auto;
+    .access-input:focus {
+        border-color: #777;
     }
 
-    .division-grid {
-        grid-template-columns: 1fr;
+    .access-button {
+        width: 100%;
+        margin-top: 12px;
+        padding: 15px;
+        background: #111;
+        border: 1px solid #333;
+        color: #ddd;
+        cursor: pointer;
+        letter-spacing: 4px;
+        transition: 0.3s;
     }
 
-    .org-row {
-        grid-template-columns: 70px 1fr;
+    .access-button:hover {
+        background: #1c1c1c;
+        border-color: #666;
     }
 
-    .org-description {
-        grid-column: 2;
-    }
-}
-
-
-@media (max-width: 650px) {
-
-    nav {
-        height: 58px;
-
-        padding: 0 16px;
+    .access-error {
+        margin-top: 15px;
+        font-size: 11px;
+        color: #777;
+        display: none;
+        letter-spacing: 2px;
     }
 
-    .logo {
-        font-size: 12px;
-    }
+    /* =========================
+       MAIN
+    ========================= */
 
-    .nav-status {
+    #site {
         display: none;
     }
 
-    .nav-right {
-        gap: 10px;
+    body.unlocked #site {
+        display: block;
     }
 
-    .nav-link {
-        font-size: 7px;
+    body.unlocked #access-screen {
+        display: none;
     }
+
+    /* =========================
+       NAV
+    ========================= */
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 6%;
+        background: rgba(5,5,5,0.88);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #171717;
+        z-index: 1000;
+    }
+
+    .nav-logo {
+        font-size: 16px;
+        letter-spacing: 6px;
+        font-weight: bold;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: #777;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #fff;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-        padding:
-            110px 25px
-            80px;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 20px 80px;
+        position: relative;
+        background:
+            radial-gradient(circle at center, #141414 0%, #070707 45%, #030303 100%);
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 12%;
+        border: 1px solid rgba(255,255,255,0.035);
+        pointer-events: none;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-classified {
+        font-size: 10px;
+        color: #666;
+        letter-spacing: 5px;
+        margin-bottom: 30px;
     }
 
     .hero h1 {
-        font-size: 58px;
+        font-size: clamp(54px, 10vw, 120px);
+        letter-spacing: 16px;
+        font-weight: 300;
+        margin-left: 16px;
     }
 
-    .hero-subtitle {
-        font-size: 9px;
-
-        letter-spacing: 0.18em;
+    .hero-line {
+        width: 80px;
+        height: 1px;
+        background: #444;
+        margin: 35px auto;
     }
 
-    .hero-motto {
+    .hero-main {
+        font-size: clamp(17px, 2vw, 25px);
+        letter-spacing: 7px;
+        color: #aaa;
+        margin-bottom: 18px;
+    }
+
+    .hero-sub {
         font-size: 10px;
-
-        letter-spacing: 0.2em;
+        color: #555;
+        letter-spacing: 4px;
     }
 
-    .section {
-        padding: 80px 20px;
+    /* =========================
+       COMMON
+    ========================= */
+
+    section {
+        padding: 120px 7%;
+        border-top: 1px solid #151515;
+    }
+
+    .section-label {
+        font-size: 9px;
+        letter-spacing: 4px;
+        color: #555;
+        margin-bottom: 18px;
     }
 
     .section-title {
-        font-size: 27px;
+        font-size: clamp(30px, 5vw, 55px);
+        font-weight: 300;
+        letter-spacing: 7px;
     }
 
+    .section-subtitle {
+        color: #555;
+        font-size: 11px;
+        letter-spacing: 3px;
+        margin-top: 15px;
+    }
+
+    /* =========================
+       ARCHON
+    ========================= */
+
     .archon-section {
-        min-height: auto;
+        text-align: center;
     }
 
     .archon-symbol {
-        width: 210px;
-        height: 210px;
+        width: 170px;
+        height: 170px;
+        margin: 55px auto 45px;
+        border: 1px solid #393939;
+        border-radius: 50%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .archon-symbol::before {
-        height: 165px;
+        content: "";
+        width: 2px;
+        height: 115px;
+        background: #777;
+        position: absolute;
     }
 
-    .archon-blade {
-        height: 110px;
+    .archon-symbol::after {
+        content: "";
+        width: 28px;
+        height: 28px;
+        border: 1px solid #777;
+        transform: rotate(45deg);
+        position: absolute;
     }
 
     .archon-name {
-        font-size: 48px;
+        font-size: 38px;
+        letter-spacing: 8px;
+        margin-bottom: 10px;
+    }
+
+    .archon-position {
+        font-size: 12px;
+        letter-spacing: 5px;
+        color: #777;
+        margin-bottom: 8px;
+    }
+
+    .archon-call {
+        font-size: 10px;
+        letter-spacing: 4px;
+        color: #444;
+    }
+
+    .archon-motto {
+        margin-top: 45px;
+        font-size: 11px;
+        color: #666;
+        letter-spacing: 4px;
+    }
+
+    /* =========================
+       RULES
+    ========================= */
+
+    .rules-section {
+        background: #070707;
     }
 
     .rules-grid {
-        margin-top: 45px;
+        max-width: 1050px;
+        margin: 60px auto 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        background: #1b1b1b;
+        border: 1px solid #1b1b1b;
     }
 
     .rule {
-        min-height: auto;
+        background: #080808;
+        padding: 30px;
+        min-height: 105px;
+        transition: 0.3s;
+    }
 
-        padding: 23px;
+    .rule:hover {
+        background: #0d0d0d;
+    }
+
+    .rule-number {
+        font-size: 10px;
+        color: #555;
+        letter-spacing: 3px;
+        margin-bottom: 14px;
     }
 
     .rule-text {
-        margin-top: 22px;
+        font-size: 13px;
+        color: #aaa;
+        letter-spacing: 1px;
+        line-height: 1.8;
+    }
 
-        font-size: 11px;
+    /* =========================
+       DIVISIONS
+    ========================= */
+
+    .division-section {
+        text-align: center;
+    }
+
+    .division-grid {
+        max-width: 1100px;
+        margin: 60px auto 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
     }
 
     .division-card {
-        min-height: 240px;
-
-        padding: 25px;
+        position: relative;
+        min-height: 300px;
+        border: 1px solid #252525;
+        background:
+            linear-gradient(145deg, #101010, #070707);
+        padding: 38px;
+        text-align: left;
+        overflow: hidden;
+        transition:
+            transform 0.35s ease,
+            border-color 0.35s ease,
+            background 0.35s ease;
     }
 
-    .division-name {
+    .division-card::before {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        right: -80px;
+        bottom: -80px;
+        border: 1px solid #202020;
+        border-radius: 50%;
+        transition: 0.4s;
+    }
+
+    .division-card:hover {
+        transform: translateY(-5px);
+        border-color: #555;
+        background: #0d0d0d;
+    }
+
+    .division-card:hover::before {
+        transform: scale(1.3);
+    }
+
+    .division-number {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 4px;
+        color: #555;
+        margin-bottom: 50px;
+    }
+
+    .division-card h3 {
         font-size: 28px;
+        font-weight: 300;
+        letter-spacing: 5px;
+        margin-bottom: 12px;
     }
 
-    .organization {
-        padding: 25px;
+    .division-korean {
+        color: #777;
+        font-size: 12px;
+        letter-spacing: 3px;
+        margin-bottom: 30px;
     }
 
-    .organization-header {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 10px;
+    .division-motto {
+        font-size: 11px;
+        letter-spacing: 3px;
+        color: #aaa;
     }
 
-    .org-row {
-        grid-template-columns: 55px 1fr;
+    .division-arrow {
+        position: absolute;
+        right: 30px;
+        bottom: 28px;
+        font-size: 20px;
+        color: #444;
+        transition: 0.3s;
     }
+
+    .division-card:hover .division-arrow {
+        color: #aaa;
+        transform: translateX(5px);
+    }
+
+    /* =========================
+       ORGANIZATION
+    ========================= */
+
+    .structure-section {
+        background: #070707;
+    }
+
+    .structure {
+        max-width: 900px;
+        margin: 60px auto 0;
+    }
+
+    .structure-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 0;
+        border-bottom: 1px solid #1b1b1b;
+    }
+
+    .structure-name {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    .structure-role {
+        font-size: 10px;
+        color: #555;
+        letter-spacing: 2px;
+    }
+
+    /* =========================
+       FINAL
+    ========================= */
+
+    .final-section {
+        text-align: center;
+        min-height: 65vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .final-title {
+        font-size: clamp(35px, 6vw, 70px);
+        letter-spacing: 10px;
+        font-weight: 300;
+        margin-bottom: 30px;
+    }
+
+    .final-sub {
+        font-size: 11px;
+        color: #555;
+        letter-spacing: 5px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-        flex-direction: column;
-
-        gap: 12px;
-
-        line-height: 1.6;
+        padding: 35px 7%;
+        border-top: 1px solid #151515;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #444;
+        font-size: 9px;
+        letter-spacing: 3px;
     }
-}
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+        nav {
+            padding: 0 5%;
+        }
+
+        .nav-links {
+            gap: 12px;
+        }
+
+        .nav-links a {
+            font-size: 8px;
+        }
+
+        .hero h1 {
+            letter-spacing: 8px;
+        }
+
+        .rules-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .division-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .division-card {
+            min-height: 270px;
+        }
+
+        section {
+            padding: 90px 6%;
+        }
+
+        footer {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+
+    @media (max-width: 500px) {
+
+        .nav-logo {
+            font-size: 12px;
+            letter-spacing: 4px;
+        }
+
+        .nav-links {
+            gap: 8px;
+        }
+
+        .nav-links a {
+            font-size: 7px;
+            letter-spacing: 1px;
+        }
+
+        .access-box {
+            padding: 40px 25px;
+        }
+
+        .archon-symbol {
+            width: 130px;
+            height: 130px;
+        }
+
+        .archon-symbol::before {
+            height: 85px;
+        }
+
+        .archon-name {
+            font-size: 28px;
+        }
+
+        .division-card {
+            padding: 28px;
+        }
+    }
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =========================================================
+<!-- =========================
      ACCESS SCREEN
-========================================================= -->
+========================= -->
 
 <div id="access-screen">
 
     <div class="access-box">
 
-        <div class="access-mark">
-            V
+        <div class="access-small">
+            CLASSIFIED ORGANIZATION
         </div>
 
         <div class="access-title">
             THE VEIL.
         </div>
 
-        <div class="access-subtitle">
-            RESTRICTED ACCESS
+        <div class="access-sub">
+            AUTHORIZED PERSONNEL ONLY
         </div>
-
-        <div class="access-line"></div>
 
         <input
             type="password"
             id="access-code"
+            class="access-input"
             placeholder="ACCESS CODE"
             maxlength="6"
             autocomplete="off"
@@ -1210,329 +658,214 @@ footer {
             class="access-button"
             onclick="checkAccess()"
         >
-            ENTER THE VEIL
+            ENTER
         </button>
 
-        <div
-            class="access-error"
-            id="access-error"
-        ></div>
+        <div id="access-error" class="access-error">
+            ACCESS DENIED
+        </div>
 
     </div>
 
 </div>
 
 
-<!-- =========================================================
+<!-- =========================
      SITE
-========================================================= -->
+========================= -->
 
 <div id="site">
 
+    <!-- NAV -->
 
-<!-- =========================================================
-     NAV
-========================================================= -->
+    <nav>
 
-<nav>
-
-    <a href="index.html" class="logo">
-        THE VEIL.
-    </a>
-
-    <div class="nav-right">
-
-        <a
-            href="field.html"
-            target="_blank"
-            rel="noopener"
-            class="nav-link"
-        >
-            FIELD
+        <a href="index.html" class="nav-logo">
+            THE VEIL.
         </a>
 
-        <a
-            href="intel.html"
-            target="_blank"
-            rel="noopener"
-            class="nav-link"
-        >
-            INTEL
-        </a>
+        <div class="nav-links">
 
-        <a
-            href="support.html"
-            target="_blank"
-            rel="noopener"
-            class="nav-link"
-        >
-            SUPPORT
-        </a>
+            <a href="field.html" target="_blank" rel="noopener">
+                FIELD
+            </a>
 
-        <a
-            href="process.html"
-            target="_blank"
-            rel="noopener"
-            class="nav-link"
-        >
-            PROCESS
-        </a>
+            <a href="intel.html" target="_blank" rel="noopener">
+                INTEL
+            </a>
 
-        <div class="nav-status">
-            CLASSIFIED
+            <a href="support.html" target="_blank" rel="noopener">
+                SUPPORT
+            </a>
+
+            <a href="process.html" target="_blank" rel="noopener">
+                PROCESS
+            </a>
+
         </div>
 
-    </div>
-
-</nav>
+    </nav>
 
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+    <!-- HERO -->
 
-<section class="hero">
+    <header class="hero">
 
-    <div class="hero-label">
-        CLASSIFIED ORGANIZATION // 001
-    </div>
+        <div class="hero-content">
 
-    <h1>
-        THE VEIL.
-    </h1>
-
-    <div class="hero-subtitle">
-        WE DO NOT EXIST.
-    </div>
-
-    <div class="hero-motto">
-        DISCIPLINE. UNITY. SILENCE.
-    </div>
-
-    <div class="hero-line"></div>
-
-</section>
-
-
-<!-- =========================================================
-     ARCHON
-========================================================= -->
-
-<section class="section archon-section">
-
-    <div class="container">
-
-        <div class="archon-grid">
-
-
-            <!-- SYMBOL -->
-
-            <div class="archon-symbol">
-
-                <div class="archon-blade"></div>
-
-                <div class="archon-center"></div>
-
+            <div class="hero-classified">
+                CLASSIFIED ORGANIZATION // 001
             </div>
 
+            <h1>
+                THE VEIL.
+            </h1>
 
-            <!-- INFORMATION -->
+            <div class="hero-line"></div>
 
-            <div>
+            <div class="hero-main">
+                WE DO NOT EXIST.
+            </div>
 
-                <div class="archon-code">
-                    COMMAND // ARCHON
-                </div>
-
-                <div class="archon-name">
-                    CHOI SAN
-                </div>
-
-                <div class="archon-korean">
-                    최산
-                </div>
-
-                <div class="archon-position">
-                    POSITION
-                </div>
-
-                <div class="archon-call">
-                    ARCHON
-                </div>
-
-                <div class="archon-position">
-                    CALL SIGN
-                </div>
-
-                <div class="archon-call">
-                    NOX
-                </div>
-
-                <div class="archon-description">
-
-                    조직의 수장.
-                    <br>
-                    모든 계약과 작전의 최종 권한을 가진다.
-                    <br>
-                    조직의 존재를 결정하고,
-                    조직의 방향을 결정한다.
-
-                </div>
-
-                <div class="archon-motto">
-
-                    NOT A RING.<br>
-                    NOT A SYMBOL.<br>
-                    BUT A COMMAND.
-
-                </div>
-
+            <div class="hero-sub">
+                DISCIPLINE. UNITY. SILENCE.
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </header>
 
 
-<!-- =========================================================
-     RULES
-========================================================= -->
+    <!-- ARCHON -->
 
-<section class="section">
-
-    <div class="container">
+    <section class="archon-section">
 
         <div class="section-label">
-            THE VEIL // CODE
+            COMMAND // 000
         </div>
 
         <div class="section-title">
-            SEVEN RULES
+            ARCHON
+        </div>
+
+        <div class="section-subtitle">
+            THE ONE WHO COMMANDS
+        </div>
+
+
+        <div class="archon-symbol"></div>
+
+
+        <div class="archon-name">
+            최산
+        </div>
+
+        <div class="archon-position">
+           CHOI SAN / ARCHON
+        </div>
+
+        <div class="archon-call">
+            CALL SIGN // NOX
+        </div>
+
+        <div class="archon-motto">
+            NOT A RING. NOT A SYMBOL. BUT A COMMAND.
+        </div>
+
+    </section>
+
+
+    <!-- RULES -->
+
+    <section class="rules-section">
+
+        <div class="section-label">
+            INTERNAL CODE // 007
+        </div>
+
+        <div class="section-title">
+            THE SEVEN RULES
+        </div>
+
+        <div class="section-subtitle">
+            ABSOLUTE. WITHOUT EXCEPTION.
         </div>
 
 
         <div class="rules-grid">
 
-
             <div class="rule">
-
-                <div class="rule-number">
-                    RULE / 01
-                </div>
-
+                <div class="rule-number">RULE // 01</div>
                 <div class="rule-text">
                     계약은 반드시 이행한다.
                 </div>
-
             </div>
 
-
             <div class="rule">
-
-                <div class="rule-number">
-                    RULE / 02
-                </div>
-
+                <div class="rule-number">RULE // 02</div>
                 <div class="rule-text">
                     조직원을 개인적인 이유로 죽이지 않는다.
                 </div>
-
             </div>
 
-
             <div class="rule">
-
-                <div class="rule-number">
-                    RULE / 03
-                </div>
-
+                <div class="rule-number">RULE // 03</div>
                 <div class="rule-text">
                     조직의 존재를 외부에 알려서는 안 된다.
                 </div>
-
             </div>
 
-
             <div class="rule">
-
-                <div class="rule-number">
-                    RULE / 04
-                </div>
-
+                <div class="rule-number">RULE // 04</div>
                 <div class="rule-text">
                     의뢰인을 배신하지 않는다.
                 </div>
-
             </div>
 
-
             <div class="rule">
-
-                <div class="rule-number">
-                    RULE / 05
-                </div>
-
+                <div class="rule-number">RULE // 05</div>
                 <div class="rule-text">
                     동료의 계약을 방해하지 않는다.
                 </div>
-
             </div>
 
-
             <div class="rule">
-
-                <div class="rule-number">
-                    RULE / 06
-                </div>
-
+                <div class="rule-number">RULE // 06</div>
                 <div class="rule-text">
                     수장의 명령에는 이유를 묻지 않는다.
                 </div>
-
             </div>
 
-
             <div class="rule">
-
-                <div class="rule-number">
-                    RULE / 07
-                </div>
-
+                <div class="rule-number">RULE // 07</div>
                 <div class="rule-text">
                     조직을 배신한 자는 반드시 죽인다.
                 </div>
-
             </div>
-
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================================================
-     DIVISIONS
-========================================================= -->
+    <!-- DIVISIONS -->
 
-<section class="section">
-
-    <div class="container">
+    <section class="division-section">
 
         <div class="section-label">
-            THE VEIL // ORGANIZATION
+            ORGANIZATION // 004
         </div>
 
         <div class="section-title">
             DIVISIONS
         </div>
 
+        <div class="section-subtitle">
+            SELECT A DIVISION
+        </div>
+
 
         <div class="division-grid">
-
 
             <!-- FIELD -->
 
@@ -1543,19 +876,19 @@ footer {
                 class="division-card"
             >
 
-                <div class="division-number">
+                <span class="division-number">
                     DIVISION // 01
-                </div>
+                </span>
 
-                <div class="division-name">
+                <h3>
                     FIELD
-                </div>
+                </h3>
 
                 <div class="division-korean">
                     실전부
                 </div>
 
-                <div class="division-desc">
+                <div class="division-motto">
                     죽인다.
                 </div>
 
@@ -1566,7 +899,7 @@ footer {
             </a>
 
 
-            <!-- INTELLIGENCE -->
+            <!-- INTEL -->
 
             <a
                 href="intel.html"
@@ -1575,19 +908,19 @@ footer {
                 class="division-card"
             >
 
-                <div class="division-number">
+                <span class="division-number">
                     DIVISION // 02
-                </div>
+                </span>
 
-                <div class="division-name">
+                <h3>
                     INTELLIGENCE
-                </div>
+                </h3>
 
                 <div class="division-korean">
                     정보부
                 </div>
 
-                <div class="division-desc">
+                <div class="division-motto">
                     찾아낸다.
                 </div>
 
@@ -1607,19 +940,19 @@ footer {
                 class="division-card"
             >
 
-                <div class="division-number">
+                <span class="division-number">
                     DIVISION // 03
-                </div>
+                </span>
 
-                <div class="division-name">
+                <h3>
                     SUPPORT
-                </div>
+                </h3>
 
                 <div class="division-korean">
                     지원부
                 </div>
 
-                <div class="division-desc">
+                <div class="division-motto">
                     돕는다.
                 </div>
 
@@ -1639,19 +972,19 @@ footer {
                 class="division-card"
             >
 
-                <div class="division-number">
+                <span class="division-number">
                     DIVISION // 04
-                </div>
+                </span>
 
-                <div class="division-name">
+                <h3>
                     PROCESS
-                </div>
+                </h3>
 
                 <div class="division-korean">
                     처리부
                 </div>
 
-                <div class="division-desc">
+                <div class="division-motto">
                     지운다.
                 </div>
 
@@ -1661,257 +994,186 @@ footer {
 
             </a>
 
-
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================================================
-     ORGANIZATION
-========================================================= -->
+    <!-- ORGANIZATION -->
 
-<section class="section">
-
-    <div class="container">
+    <section class="structure-section">
 
         <div class="section-label">
             ORGANIZATIONAL STRUCTURE
         </div>
 
         <div class="section-title">
-            THE VEIL
+            THE VEIL.
+        </div>
+
+        <div class="section-subtitle">
+            ONE ORGANIZATION. FOUR DIVISIONS.
         </div>
 
 
-        <div class="organization">
+        <div class="structure">
 
+            <div class="structure-row">
 
-            <div class="organization-header">
-
-                <div class="organization-title">
-                    INTERNAL STRUCTURE
+                <div class="structure-name">
+                    ARCHON
                 </div>
 
-                <div class="organization-status">
-                    CLASSIFIED // ARCHON AUTHORITY
+                <div class="structure-role">
+                    COMMAND
                 </div>
 
             </div>
 
+            <div class="structure-row">
 
-            <div class="org-list">
-
-
-                <div class="org-row">
-
-                    <div class="org-number">
-                        01
-                    </div>
-
-                    <div class="org-name">
-                        FIELD
-                    </div>
-
-                    <div class="org-description">
-                        실전 작전 및 목표 제거.
-                    </div>
-
+                <div class="structure-name">
+                    FIELD
                 </div>
 
-
-                <div class="org-row">
-
-                    <div class="org-number">
-                        02
-                    </div>
-
-                    <div class="org-name">
-                        INTELLIGENCE
-                    </div>
-
-                    <div class="org-description">
-                        정보 수집, 감시 및 작전 설계.
-                    </div>
-
+                <div class="structure-role">
+                    06 OPERATIVES
                 </div>
 
+            </div>
 
-                <div class="org-row">
+            <div class="structure-row">
 
-                    <div class="org-number">
-                        03
-                    </div>
-
-                    <div class="org-name">
-                        SUPPORT
-                    </div>
-
-                    <div class="org-description">
-                        무기, 의료, 위장 및 운송 지원.
-                    </div>
-
+                <div class="structure-name">
+                    INTELLIGENCE
                 </div>
 
-
-                <div class="org-row">
-
-                    <div class="org-number">
-                        04
-                    </div>
-
-                    <div class="org-name">
-                        PROCESS
-                    </div>
-
-                    <div class="org-description">
-                        사건 이후의 흔적 및 증거 처리.
-                    </div>
-
+                <div class="structure-role">
+                    05 OPERATIVES
                 </div>
 
+            </div>
+
+            <div class="structure-row">
+
+                <div class="structure-name">
+                    SUPPORT
+                </div>
+
+                <div class="structure-role">
+                    05 OPERATIVES
+                </div>
+
+            </div>
+
+            <div class="structure-row">
+
+                <div class="structure-name">
+                    PROCESS
+                </div>
+
+                <div class="structure-role">
+                    01 OPERATIVE
+                </div>
 
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================================================
-     FINAL
-========================================================= -->
+    <!-- FINAL -->
 
-<section class="final-section">
+    <section class="final-section">
 
-    <div>
+        <div>
 
-        <div class="final-mark">
-            BEYOND THE VEIL
+            <div class="final-title">
+                WE DO NOT EXIST.
+            </div>
+
+            <div class="final-sub">
+                THERE IS ONLY THE VEIL.
+            </div>
+
         </div>
 
-        <div class="final-title">
-            WE DO NOT EXIST.
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            THE VEIL.
         </div>
 
-        <div class="final-subtitle">
-            THERE IS ONLY THE VEIL.
+        <div>
+            CLASSIFIED // 001
         </div>
 
-    </div>
+        <div>
+            NO RECORDS FOUND
+        </div>
 
-</section>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-    <div>
-        THE VEIL.
-    </div>
-
-    <div>
-        DISCIPLINE. UNITY. SILENCE.
-    </div>
-
-    <div>
-        ARCHON // NOX
-    </div>
-
-</footer>
-
+    </footer>
 
 </div>
 
 
-<!-- =========================================================
-     ACCESS SCRIPT
-========================================================= -->
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
-const ACCESS_CODE = "261001";
+    const ACCESS_CODE = "261001";
 
-const accessScreen =
-    document.getElementById("access-screen");
+    function checkAccess() {
 
-const site =
-    document.getElementById("site");
+        const input = document.getElementById("access-code");
+        const error = document.getElementById("access-error");
 
-const accessInput =
-    document.getElementById("access-code");
+        if (input.value === ACCESS_CODE) {
 
-const accessError =
-    document.getElementById("access-error");
+            sessionStorage.setItem("veil_access", "granted");
 
+            document.body.classList.add("unlocked");
 
-function checkAccess() {
+        } else {
 
-    const entered =
-        accessInput.value.trim();
+            error.style.display = "block";
 
-    if (entered === ACCESS_CODE) {
+            input.value = "";
 
-        accessError.textContent = "";
-
-        accessScreen.classList.add("hidden");
-
-        site.classList.add("visible");
-
-        sessionStorage.setItem(
-            "veil_access",
-            "granted"
-        );
-
-    } else {
-
-        accessError.textContent =
-            "ACCESS DENIED.";
-
-        accessInput.value = "";
-
-        accessInput.focus();
-
-    }
-
-}
-
-
-/* ENTER 키 */
-
-accessInput.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Enter") {
-
-            checkAccess();
+            setTimeout(() => {
+                error.style.display = "none";
+            }, 1800);
 
         }
-
     }
-);
 
 
-/* 같은 탭에서 이미 인증한 경우 */
+    document
+        .getElementById("access-code")
+        .addEventListener("keydown", function(event) {
 
-if (
-    sessionStorage.getItem("veil_access")
-    === "granted"
-) {
+            if (event.key === "Enter") {
+                checkAccess();
+            }
 
-    accessScreen.classList.add("hidden");
+        });
 
-    site.classList.add("visible");
 
-}
+    window.addEventListener("load", function() {
+
+        if (sessionStorage.getItem("veil_access") === "granted") {
+            document.body.classList.add("unlocked");
+        }
+
+    });
 
 </script>
 
