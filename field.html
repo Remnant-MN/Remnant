@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
 
 <meta charset="UTF-8">
@@ -14,9 +15,9 @@
 
 <style>
 
-/* ==================================================
+/* =========================================================
    RESET
-================================================== */
+========================================================= */
 
 * {
     margin: 0;
@@ -29,7 +30,9 @@ html {
 }
 
 body {
+
     background: #030303;
+
     color: #e5e5e5;
 
     font-family:
@@ -46,55 +49,57 @@ a {
 }
 
 
-/* ==================================================
+/* =========================================================
    NAVIGATION
-================================================== */
+========================================================= */
 
 nav {
+
     position: fixed;
 
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 70px;
+    height: 72px;
 
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
     padding: 0 5%;
 
     background:
-        rgba(3, 3, 3, 0.88);
+        rgba(3, 3, 3, 0.92);
 
     backdrop-filter: blur(14px);
 
     border-bottom:
-        1px solid #1c1c1c;
+        1px solid #1b1b1b;
 
     z-index: 1000;
 }
 
-
 .logo {
+
     font-size: 17px;
 
     letter-spacing: 6px;
 
-    color: #eeeeee;
+    white-space: nowrap;
 }
 
-
 .nav-links {
+
     display: flex;
 
     gap: 30px;
 }
 
-
 .nav-links a {
-    color: #4d4d4d;
+
+    color: #555;
 
     font-family: Arial, sans-serif;
 
@@ -102,229 +107,161 @@ nav {
 
     letter-spacing: 3px;
 
-    transition: 0.3s;
+    transition:
+        color 0.3s ease;
 }
-
 
 .nav-links a:hover {
-    color: #ffffff;
-}
 
+    color: #fff;
+}
 
 .nav-links .active {
-    color: #dddddd;
+
+    color: #ddd;
 }
 
 
-/* ==================================================
+/* =========================================================
    HERO
-================================================== */
+========================================================= */
 
 .hero {
 
-    min-height: 100vh;
-
-    position: relative;
+    min-height: 70vh;
 
     display: flex;
 
     align-items: center;
 
-    overflow: hidden;
+    padding:
+        140px 5%
+        90px;
 
     border-bottom:
-        1px solid #202020;
+        1px solid #191919;
 
     background:
 
         radial-gradient(
-            ellipse at 75% 45%,
-            #262626 0%,
-            #121212 25%,
-            transparent 52%
+            ellipse at 75% 40%,
+            #292929 0%,
+            #111 28%,
+            transparent 62%
         ),
 
         linear-gradient(
-            90deg,
-            #020202 0%,
-            #070707 50%,
-            #111111 100%
+            110deg,
+            #020202,
+            #090909,
+            #111
         );
 }
-
-
-/* 화면 노이즈 */
-
-.hero::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 4px,
-            rgba(255,255,255,0.012) 5px
-        );
-
-    pointer-events: none;
-}
-
-
-/* 오른쪽 실루엣 */
-
-.hero::after {
-
-    content: "";
-
-    position: absolute;
-
-    right: 4%;
-
-    bottom: -130px;
-
-    width: 500px;
-
-    height: 700px;
-
-    background:
-
-        radial-gradient(
-            ellipse at 50% 25%,
-            #303030 0%,
-            #171717 28%,
-            #080808 60%,
-            transparent 72%
-        );
-
-    opacity: 0.65;
-
-    filter: blur(2px);
-}
-
 
 .hero-content {
 
-    width: 90%;
+    width:
+        min(1450px, 100%);
 
-    max-width: 1400px;
-
-    margin: auto;
-
-    position: relative;
-
-    z-index: 5;
+    margin: 0 auto;
 }
-
 
 .hero-small {
 
-    color: #555555;
+    margin-bottom: 25px;
+
+    color: #505050;
 
     font-family: Arial, sans-serif;
 
     font-size: 9px;
 
     letter-spacing: 5px;
-
-    margin-bottom: 28px;
 }
-
 
 .hero h1 {
 
     font-size:
-        clamp(65px, 12vw, 155px);
+        clamp(65px, 11vw, 150px);
 
     font-weight: normal;
 
     line-height: 0.85;
 
-    letter-spacing: 18px;
-
-    color: #eeeeee;
+    letter-spacing: 15px;
 }
-
 
 .hero-subtitle {
 
     margin-top: 30px;
 
-    color: #777777;
+    color: #777;
 
     font-family: Arial, sans-serif;
 
     font-size: 10px;
 
-    letter-spacing: 6px;
+    letter-spacing: 5px;
 }
-
 
 .hero-korean {
 
-    margin-top: 32px;
+    margin-top: 30px;
 
-    font-size: 22px;
+    color: #ccc;
 
-    letter-spacing: 8px;
+    font-size: 25px;
 
-    color: #cfcfcf;
+    letter-spacing: 9px;
 }
-
 
 .hero-description {
 
-    width: 500px;
+    width: 550px;
 
     max-width: 100%;
 
-    margin-top: 38px;
+    margin-top: 35px;
 
     padding-top: 25px;
 
-    border-top: 1px solid #303030;
+    border-top:
+        1px solid #303030;
 
-    color: #666666;
+    color: #666;
 
     font-family: Arial, sans-serif;
 
     font-size: 11px;
 
-    line-height: 2;
-
-    letter-spacing: 0.5px;
+    line-height: 2.1;
 }
 
 
-/* ==================================================
-   COMMON SECTION
-================================================== */
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
 
 .section {
 
     padding:
-        120px 5%;
+        110px 5%;
 
     border-bottom:
         1px solid #171717;
 }
 
-
 .container {
 
-    width: min(1400px, 100%);
+    width:
+        min(1450px, 100%);
 
-    margin: auto;
+    margin: 0 auto;
 }
-
 
 .label {
 
-    color: #4b4b4b;
+    color: #4c4c4c;
 
     font-family: Arial, sans-serif;
 
@@ -333,14 +270,13 @@ nav {
     letter-spacing: 4px;
 }
 
-
 .section-title {
 
     margin-top: 12px;
 
-    color: #dddddd;
+    color: #ddd;
 
-    font-size: 31px;
+    font-size: 32px;
 
     font-weight: normal;
 
@@ -348,61 +284,450 @@ nav {
 }
 
 
-/* ==================================================
-   ABOUT
-================================================== */
+/* =========================================================
+   PROFILE GRID
+========================================================= */
 
-.about-grid {
+.profile-grid {
 
     display: grid;
 
     grid-template-columns:
-        240px
-        1fr
-        280px;
+        repeat(4, minmax(0, 1fr));
 
-    gap: 70px;
+    gap: 16px;
 
-    align-items: start;
+    margin-top: 55px;
 }
 
 
-.about-text {
+/* =========================================================
+   PROFILE CARD
+========================================================= */
 
-    color: #777777;
+.profile-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #080808;
+
+    border:
+        1px solid #292929;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.profile-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color: #666;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.65);
+}
+
+
+/* =========================================================
+   PROFILE IMAGE AREA
+========================================================= */
+
+.profile-image {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 350px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            #2b2b2b 0%,
+            #151515 35%,
+            #070707 75%
+        );
+}
+
+
+/* 실제 이미지 */
+
+.profile-image img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(100%)
+        brightness(0.65)
+        contrast(1.12);
+
+    transition:
+        transform 0.7s ease,
+        filter 0.7s ease;
+}
+
+.profile-card:hover
+.profile-image img {
+
+    transform:
+        scale(1.06);
+
+    filter:
+        grayscale(100%)
+        brightness(0.82)
+        contrast(1.12);
+}
+
+
+/* 이미지 아래쪽 어둡게 */
+
+.profile-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 55%;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(0, 0, 0, 0.88)
+        );
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   PROFILE IMAGE PLACEHOLDER
+========================================================= */
+
+.profile-placeholder {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #363636;
 
     font-family: Arial, sans-serif;
 
-    font-size: 12px;
+    font-size: 8px;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   PROFILE NUMBER
+========================================================= */
+
+.profile-number {
+
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    z-index: 5;
+
+    color: #888;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   PROFILE STATUS
+========================================================= */
+
+.profile-status {
+
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    z-index: 5;
+
+    color: #666;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+.profile-status::before {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 5px;
+    height: 5px;
+
+    margin-right: 6px;
+
+    border-radius: 50%;
+
+    background: #777;
+}
+
+
+/* =========================================================
+   PROFILE NAME AREA
+   중요:
+   사진 영역 내부에 들어감.
+   상세 정보와 겹치지 않음.
+========================================================= */
+
+.profile-info {
+
+    position: absolute;
+
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+
+    z-index: 5;
+}
+
+.profile-code {
+
+    color: #555;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+.profile-name {
+
+    margin-top: 7px;
+
+    color: #eee;
+
+    font-size: 27px;
+
+    font-weight: normal;
+
+    letter-spacing: 4px;
+
+    line-height: 1.1;
+}
+
+.profile-role {
+
+    margin-top: 8px;
+
+    color: #999;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.profile-description {
+
+    margin-top: 12px;
+
+    color: #777;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   PROFILE DETAIL
+   사진 영역과 완전히 분리
+========================================================= */
+
+.profile-detail {
+
+    position: relative;
+
+    padding:
+        17px 20px;
+
+    background: #070707;
+
+    border-top:
+        1px solid #202020;
+
+    z-index: 10;
+}
+
+.profile-detail-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    min-height: 28px;
+
+    border-bottom:
+        1px solid #151515;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+}
+
+.profile-detail-row:last-child {
+
+    border-bottom: none;
+}
+
+.profile-detail-row span:first-child {
+
+    color: #444;
+}
+
+.profile-detail-row span:last-child {
+
+    color: #777;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   CLASSIFIED PROFILE
+========================================================= */
+
+.profile-card.classified
+.profile-image {
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            #171717 0%,
+            #0a0a0a 60%,
+            #040404 100%
+        );
+}
+
+.profile-card.classified
+.profile-name {
+
+    color: #777;
+
+    letter-spacing: 3px;
+}
+
+.profile-card.classified
+.profile-status {
+
+    color: #555;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 80px;
+
+    margin-top: 60px;
+}
+
+.about-text {
+
+    color: #777;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
 
     line-height: 2.2;
 }
 
-
 .about-text strong {
 
-    color: #dddddd;
+    color: #ddd;
 
     font-weight: normal;
 }
 
 
-.status {
+/* =========================================================
+   STATUS BOX
+========================================================= */
 
-    border-left:
-        1px solid #292929;
+.status-box {
 
-    padding-left: 25px;
+    padding: 25px;
+
+    border:
+        1px solid #252525;
+
+    background: #060606;
 }
-
 
 .status-row {
 
     display: flex;
 
+    align-items: center;
+
     justify-content: space-between;
 
-    padding: 14px 0;
+    min-height: 48px;
 
     border-bottom:
         1px solid #191919;
@@ -414,586 +739,31 @@ nav {
     letter-spacing: 2px;
 }
 
+.status-row:last-child {
 
-.status-row span:first-child {
-    color: #444444;
-}
-
-
-.status-row span:last-child {
-    color: #888888;
-}
-
-
-/* ==================================================
-   OPERATIVE SECTION
-================================================== */
-
-.operative-grid {
-
-    margin-top: 50px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 14px;
-}
-
-
-/* ==================================================
-   PROFILE CARD
-================================================== */
-
-.card {
-
-    position: relative;
-
-    min-height: 520px;
-
-    overflow: hidden;
-
-    background:
-        #080808;
-
-    border:
-        1px solid #242424;
-
-    transition:
-        transform 0.5s ease,
-        border-color 0.5s ease,
-        box-shadow 0.5s ease;
-}
-
-
-.card:hover {
-
-    transform:
-        translateY(-8px);
-
-    border-color:
-        #5a5a5a;
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,0.65);
-}
-
-
-/* ==================================================
-   PROFILE PHOTO
-================================================== */
-
-.card-image {
-
-    position: relative;
-
-    width: 100%;
-
-    height: 390px;
-
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            #272727 0%,
-            #101010 45%,
-            #050505 100%
-        );
-}
-
-
-/* 사진 */
-
-.card-image img {
-
-    width: 100%;
-
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    object-position: center;
-
-    filter:
-        grayscale(100%)
-        contrast(1.08)
-        brightness(0.72);
-
-    transform:
-        scale(1.015);
-
-    transition:
-        transform 0.8s cubic-bezier(
-            0.2,
-            0.7,
-            0.2,
-            1
-        ),
-        filter 0.8s ease;
-}
-
-
-/* 마우스 오버 */
-
-.card:hover .card-image img {
-
-    transform:
-        scale(1.06);
-
-    filter:
-        grayscale(100%)
-        contrast(1.08)
-        brightness(0.88);
-}
-
-
-/* ==================================================
-   PHOTO OVERLAY
-================================================== */
-
-.card-image::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,0.05) 0%,
-            rgba(0,0,0,0.05) 40%,
-            rgba(0,0,0,0.25) 65%,
-            rgba(0,0,0,0.95) 100%
-        );
-
-    pointer-events: none;
-}
-
-
-/* 사진 위 코드 */
-
-.photo-code {
-
-    position: absolute;
-
-    top: 20px;
-
-    left: 20px;
-
-    z-index: 3;
-
-    padding: 7px 10px;
-
-    border:
-        1px solid rgba(
-            255,
-            255,
-            255,
-            0.18
-        );
-
-    background:
-        rgba(0,0,0,0.35);
-
-    backdrop-filter:
-        blur(5px);
-
-    color: #aaaaaa;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 3px;
-}
-
-
-/* 우측 상단 상태 */
-
-.photo-status {
-
-    position: absolute;
-
-    top: 20px;
-
-    right: 20px;
-
-    z-index: 3;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    color: #777777;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 7px;
-
-    letter-spacing: 2px;
-}
-
-
-.photo-status::before {
-
-    content: "";
-
-    width: 5px;
-
-    height: 5px;
-
-    border-radius: 50%;
-
-    background: #8c8c8c;
-
-    box-shadow:
-        0 0 8px
-        rgba(255,255,255,0.5);
-}
-
-
-/* 사진이 없을 때 */
-
-.photo-placeholder {
-
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #333333;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 5px;
-}
-
-
-/* ==================================================
-   CARD CONTENT
-================================================== */
-
-.card-content {
-
-    position: absolute;
-
-    left: 25px;
-
-    right: 25px;
-
-    bottom: 24px;
-
-    z-index: 5;
-}
-
-
-.card-code {
-
-    color: #555555;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 3px;
-}
-
-
-.card h3 {
-
-    margin-top: 9px;
-
-    color: #eeeeee;
-
-    font-size: 27px;
-
-    font-weight: normal;
-
-    letter-spacing: 5px;
-
-    line-height: 1;
-}
-
-
-.card-role {
-
-    margin-top: 10px;
-
-    color: #888888;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-}
-
-
-.card-description {
-
-    margin-top: 17px;
-
-    color: #707070;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 9px;
-
-    line-height: 1.8;
-}
-
-
-/* 카드 하단 선 */
-
-.card-content::after {
-
-    content: "";
-
-    display: block;
-
-    width: 35px;
-
-    height: 1px;
-
-    margin-top: 18px;
-
-    background: #555555;
-
-    transition:
-        width 0.4s ease;
-}
-
-
-.card:hover .card-content::after {
-
-    width: 70px;
-}
-
-
-/* ==================================================
-   CAPABILITIES
-================================================== */
-
-.capabilities {
-
-    margin-top: 50px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 1px;
-
-    background:
-        #242424;
-}
-
-
-.capability {
-
-    min-height: 220px;
-
-    padding: 38px;
-
-    background:
-        #070707;
-
-    transition:
-        background 0.3s ease;
-}
-
-
-.capability:hover {
-
-    background:
-        #0d0d0d;
-}
-
-
-.capability-number {
-
-    color: #414141;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-}
-
-
-.capability h3 {
-
-    margin-top: 38px;
-
-    color: #d8d8d8;
-
-    font-size: 19px;
-
-    font-weight: normal;
-
-    letter-spacing: 3px;
-}
-
-
-.capability p {
-
-    margin-top: 15px;
-
-    color: #666666;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 10px;
-
-    line-height: 1.9;
-}
-
-
-/* ==================================================
-   OPERATION
-================================================== */
-
-.operation {
-
-    padding:
-        120px 5%;
-
-    background:
-
-        radial-gradient(
-            ellipse at center,
-            #141414,
-            #050505 70%
-        );
-
-    border-bottom:
-        1px solid #202020;
-}
-
-
-.operation-grid {
-
-    width:
-        min(1400px, 100%);
-
-    margin:
-        auto;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 90px;
-
-    align-items: center;
-}
-
-
-.operation h2 {
-
-    margin-top: 15px;
-
-    color: #eeeeee;
-
-    font-size: 65px;
-
-    font-weight: normal;
-
-    letter-spacing: 9px;
-}
-
-
-.operation-text {
-
-    margin-top: 25px;
-
-    color: #777777;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 11px;
-
-    line-height: 2.1;
-}
-
-
-.operation-box {
-
-    border:
-        1px solid #292929;
-
-    padding:
-        30px;
-}
-
-
-.operation-row {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 18px 0;
-
-    border-bottom:
-        1px solid #1d1d1d;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-}
-
-
-.operation-row:last-child {
     border-bottom: none;
 }
 
+.status-row span:first-child {
 
-.operation-row span:first-child {
-    color: #444444;
+    color: #444;
+}
+
+.status-row span:last-child {
+
+    color: #888;
 }
 
 
-.operation-row span:last-child {
-    color: #999999;
-}
-
-
-/* ==================================================
-   BACK
-================================================== */
+/* =========================================================
+   BACK BUTTON
+========================================================= */
 
 .back {
 
     padding:
         60px 5%;
-
-    border-bottom:
-        1px solid #181818;
 }
-
 
 .back a {
 
@@ -1003,9 +773,9 @@ nav {
         15px 22px;
 
     border:
-        1px solid #333333;
+        1px solid #333;
 
-    color: #777777;
+    color: #777;
 
     font-family: Arial, sans-serif;
 
@@ -1014,221 +784,151 @@ nav {
     letter-spacing: 3px;
 
     transition:
-        0.3s;
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
-
 
 .back a:hover {
 
-    color: #ffffff;
+    color: #fff;
 
-    border-color:
-        #777777;
+    border-color: #777;
 }
 
 
-/* ==================================================
+/* =========================================================
    FOOTER
-================================================== */
+========================================================= */
 
 footer {
 
     padding:
-        70px 5%;
+        60px 5%;
 
     text-align: center;
 
-    color: #3e3e3e;
+    color: #3d3d3d;
 
     font-family: Arial, sans-serif;
 
     font-size: 9px;
 
+    line-height: 1.8;
+
     letter-spacing: 5px;
 }
 
 
-/* ==================================================
+/* =========================================================
    TABLET
-================================================== */
+========================================================= */
 
-@media (max-width: 1050px) {
+@media (max-width: 1100px) {
 
-    .operative-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .about-grid {
+    .profile-grid {
 
         grid-template-columns:
-            200px
-            1fr;
+            repeat(2, minmax(0, 1fr));
     }
 
-    .status {
-
-        grid-column:
-            2;
-    }
 }
 
 
-/* ==================================================
+/* =========================================================
    MOBILE
-================================================== */
+========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 650px) {
 
     nav {
+
+        height: 64px;
 
         padding:
             0 6%;
     }
-
 
     .nav-links {
 
         display: none;
     }
 
-
     .hero {
 
-        min-height:
-            90vh;
-    }
+        min-height: 75vh;
 
+        padding:
+            110px 6%
+            70px;
+    }
 
     .hero h1 {
 
-        font-size:
-            55px;
+        font-size: 55px;
 
-        letter-spacing:
-            9px;
+        letter-spacing: 8px;
     }
 
+    .hero-korean {
 
-    .hero::after {
+        font-size: 20px;
 
-        right:
-            -220px;
+        letter-spacing: 6px;
     }
-
 
     .section {
 
         padding:
-            90px 6%;
+            80px 6%;
     }
 
-
-    .about-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .status {
-
-        grid-column:
-            auto;
-
-        border-left:
-            none;
-
-        border-top:
-            1px solid #292929;
-
-        padding:
-            25px 0 0;
-    }
-
-
-    .operative-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .card {
-
-        min-height:
-            540px;
-    }
-
-
-    .card-image {
-
-        height:
-            410px;
-    }
-
-
-    .capabilities {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .operation-grid {
+    .profile-grid {
 
         grid-template-columns:
             1fr;
 
-        gap:
-            50px;
+        gap: 18px;
     }
 
+    .profile-image {
 
-    .operation h2 {
-
-        font-size:
-            45px;
+        height: 380px;
     }
+
+    .about {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 40px;
+    }
+
 }
 
 
-/* ==================================================
+/* =========================================================
    SMALL MOBILE
-================================================== */
+========================================================= */
 
-@media (max-width: 430px) {
+@media (max-width: 400px) {
 
     .hero h1 {
 
-        font-size:
-            46px;
+        font-size: 44px;
 
-        letter-spacing:
-            7px;
+        letter-spacing: 6px;
     }
 
+    .profile-image {
 
-    .hero-korean {
-
-        font-size:
-            18px;
+        height: 340px;
     }
 
+    .profile-name {
 
-    .card-image {
-
-        height:
-            390px;
+        font-size: 24px;
     }
 
-
-    .card {
-
-        min-height:
-            515px;
-    }
 }
 
 </style>
@@ -1239,9 +939,9 @@ footer {
 <body>
 
 
-<!-- ==================================================
+<!-- =======================================================
      NAVIGATION
-================================================== -->
+======================================================= -->
 
 <nav>
 
@@ -1279,9 +979,10 @@ footer {
 </nav>
 
 
-<!-- ==================================================
+
+<!-- =======================================================
      HERO
-================================================== -->
+======================================================= -->
 
 <section class="hero">
 
@@ -1317,7 +1018,7 @@ footer {
             목표의 제거와 확보,
             추적과 침투.
 
-            <br>
+            <br><br>
 
             모든 실전 임무의 시작과 끝에 존재한다.
 
@@ -1328,58 +1029,103 @@ footer {
 </section>
 
 
-<!-- ==================================================
-     ABOUT
-================================================== -->
+
+<!-- =======================================================
+     OPERATIVES
+======================================================= -->
 
 <section class="section">
 
-    <div class="container">
-
-        <div class="about-grid">
+<div class="container">
 
 
-            <div>
+    <div class="label">
+        FIELD DIVISION
+    </div>
 
-                <div class="label">
-                    FIELD DIVISION
+
+    <div class="section-title">
+        OPERATIVES
+    </div>
+
+
+
+    <div class="profile-grid">
+
+
+        <!-- =================================================
+             HAWK
+        ================================================== -->
+
+        <div class="profile-card">
+
+
+            <div class="profile-image">
+
+
+                <!-- 사진 -->
+
+                <img
+                    src="images/hawk.jpg"
+                    alt="HAWK"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
+
+
+                <!-- 사진이 없을 때 -->
+
+                <div
+                    class="profile-placeholder"
+                    style="display:none;"
+                >
+                    PROFILE IMAGE
                 </div>
 
-                <div class="section-title">
-                    ABOUT
+
+                <div class="profile-number">
+                    FIELD // 01
+                </div>
+
+
+                <div class="profile-status">
+                    ACTIVE
+                </div>
+
+
+                <!-- 이름 영역 -->
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
+                        OPERATIVE / 01
+                    </div>
+
+                    <div class="profile-name">
+                        HAWK
+                    </div>
+
+                    <div class="profile-role">
+                        저격수
+                    </div>
+
+                    <div class="profile-description">
+                        장거리에서 목표를 제거하고
+                        아군을 엄호한다.
+                    </div>
+
                 </div>
 
             </div>
 
 
-            <div class="about-text">
+            <!-- 상세 정보 -->
 
-                실전부는
-                <strong>THE VEIL.</strong>의 모든 작전에서
-                가장 먼저 움직이고 가장 마지막까지 남는다.
+            <div class="profile-detail">
 
-                <br><br>
-
-                그림자 속에서 목표를 제거하고,
-                필요할 때는 추적하며,
-                필요할 때는 침투한다.
-
-                <br><br>
-
-                실전부에게 작전은 단순한 임무가 아니다.
-
-                <br>
-
-                <strong>
-                    작전의 성공 그 자체가 존재 이유다.
-                </strong>
-
-            </div>
-
-
-            <div class="status">
-
-                <div class="status-row">
+                <div class="profile-detail-row">
 
                     <span>
                         STATUS
@@ -1392,40 +1138,14 @@ footer {
                 </div>
 
 
-                <div class="status-row">
+                <div class="profile-detail-row">
 
                     <span>
-                        DIVISION
+                        SPECIALTY
                     </span>
 
                     <span>
-                        FIELD / 01
-                    </span>
-
-                </div>
-
-
-                <div class="status-row">
-
-                    <span>
-                        OPERATIVES
-                    </span>
-
-                    <span>
-                        04
-                    </span>
-
-                </div>
-
-
-                <div class="status-row">
-
-                    <span>
-                        COMMAND
-                    </span>
-
-                    <span>
-                        ARCHON
+                        LONG RANGE
                     </span>
 
                 </div>
@@ -1434,160 +1154,61 @@ footer {
 
         </div>
 
-    </div>
-
-</section>
 
 
-<!-- ==================================================
-     OPERATIVES
-================================================== -->
+        <!-- =================================================
+             WRAITH
+        ================================================== -->
 
-<section class="section">
-
-    <div class="container">
+        <div class="profile-card">
 
 
-        <div class="label">
-            FIELD DIVISION
-        </div>
+            <div class="profile-image">
 
 
-        <div class="section-title">
-            OPERATIVES
-        </div>
+                <img
+                    src="images/wraith.jpg"
+                    alt="WRAITH"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
 
 
-        <div class="operative-grid">
-
-
-            <!-- ==========================================
-                 HAWK
-            =========================================== -->
-
-            <div class="card">
-
-
-                <div class="card-image">
-
-
-                    <!-- 사진 파일 -->
-                    <img
-                        src="images/hawk.jpg"
-                        alt="HAWK profile"
-                        onerror="
-                            this.style.display='none';
-                            this.nextElementSibling.style.display='flex';
-                        "
-                    >
-
-
-                    <!-- 사진이 없을 경우 -->
-                    <div
-                        class="photo-placeholder"
-                        style="display:none;"
-                    >
-                        PROFILE IMAGE
-                    </div>
-
-
-                    <div class="photo-code">
-                        FIELD // 01
-                    </div>
-
-
-                    <div class="photo-status">
-                        ACTIVE
-                    </div>
-
+                <div
+                    class="profile-placeholder"
+                    style="display:none;"
+                >
+                    PROFILE IMAGE
                 </div>
 
 
-                <div class="card-content">
-
-                    <div class="card-code">
-                        OPERATIVE / 01
-                    </div>
-
-
-                    <h3>
-                        HAWK
-                    </h3>
-
-
-                    <div class="card-role">
-                        저격수
-                    </div>
-
-
-                    <div class="card-description">
-                        장거리에서 목표를 제거하고
-                        아군을 엄호한다.
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- ==========================================
-                 WRAITH
-            =========================================== -->
-
-            <div class="card">
-
-
-                <div class="card-image">
-
-
-                    <img
-                        src="images/wraith.jpg"
-                        alt="WRAITH profile"
-                        onerror="
-                            this.style.display='none';
-                            this.nextElementSibling.style.display='flex';
-                        "
-                    >
-
-
-                    <div
-                        class="photo-placeholder"
-                        style="display:none;"
-                    >
-                        PROFILE IMAGE
-                    </div>
-
-
-                    <div class="photo-code">
-                        FIELD // 02
-                    </div>
-
-
-                    <div class="photo-status">
-                        ACTIVE
-                    </div>
-
+                <div class="profile-number">
+                    FIELD // 02
                 </div>
 
 
-                <div class="card-content">
+                <div class="profile-status">
+                    ACTIVE
+                </div>
 
-                    <div class="card-code">
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
                         OPERATIVE / 02
                     </div>
 
-
-                    <h3>
+                    <div class="profile-name">
                         WRAITH
-                    </h3>
+                    </div>
 
-
-                    <div class="card-role">
+                    <div class="profile-role">
                         침투자
                     </div>
 
-
-                    <div class="card-description">
+                    <div class="profile-description">
                         잠입과 정보 탈취,
                         목표 접근 및 제거를 담당한다.
                     </div>
@@ -1597,64 +1218,92 @@ footer {
             </div>
 
 
-            <!-- ==========================================
-                 VENOM
-            =========================================== -->
+            <div class="profile-detail">
 
-            <div class="card">
+                <div class="profile-detail-row">
 
+                    <span>
+                        STATUS
+                    </span>
 
-                <div class="card-image">
-
-
-                    <img
-                        src="images/venom.jpg"
-                        alt="VENOM profile"
-                        onerror="
-                            this.style.display='none';
-                            this.nextElementSibling.style.display='flex';
-                        "
-                    >
-
-
-                    <div
-                        class="photo-placeholder"
-                        style="display:none;"
-                    >
-                        PROFILE IMAGE
-                    </div>
-
-
-                    <div class="photo-code">
-                        FIELD // 03
-                    </div>
-
-
-                    <div class="photo-status">
+                    <span>
                         ACTIVE
-                    </div>
+                    </span>
 
                 </div>
 
 
-                <div class="card-content">
+                <div class="profile-detail-row">
 
-                    <div class="card-code">
+                    <span>
+                        SPECIALTY
+                    </span>
+
+                    <span>
+                        INFILTRATION
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             VENOM
+        ================================================== -->
+
+        <div class="profile-card">
+
+
+            <div class="profile-image">
+
+
+                <img
+                    src="images/venom.jpg"
+                    alt="VENOM"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
+
+
+                <div
+                    class="profile-placeholder"
+                    style="display:none;"
+                >
+                    PROFILE IMAGE
+                </div>
+
+
+                <div class="profile-number">
+                    FIELD // 03
+                </div>
+
+
+                <div class="profile-status">
+                    ACTIVE
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
                         OPERATIVE / 03
                     </div>
 
-
-                    <h3>
+                    <div class="profile-name">
                         VENOM
-                    </h3>
+                    </div>
 
-
-                    <div class="card-role">
+                    <div class="profile-role">
                         독살자
                     </div>
 
-
-                    <div class="card-description">
+                    <div class="profile-description">
                         독극물과 약물을 이용해
                         흔적 없이 목표를 제거한다.
                     </div>
@@ -1664,64 +1313,92 @@ footer {
             </div>
 
 
-            <!-- ==========================================
-                 HUNTER
-            =========================================== -->
+            <div class="profile-detail">
 
-            <div class="card">
+                <div class="profile-detail-row">
 
+                    <span>
+                        STATUS
+                    </span>
 
-                <div class="card-image">
-
-
-                    <img
-                        src="images/hunter.jpg"
-                        alt="HUNTER profile"
-                        onerror="
-                            this.style.display='none';
-                            this.nextElementSibling.style.display='flex';
-                        "
-                    >
-
-
-                    <div
-                        class="photo-placeholder"
-                        style="display:none;"
-                    >
-                        PROFILE IMAGE
-                    </div>
-
-
-                    <div class="photo-code">
-                        FIELD // 04
-                    </div>
-
-
-                    <div class="photo-status">
+                    <span>
                         ACTIVE
-                    </div>
+                    </span>
 
                 </div>
 
 
-                <div class="card-content">
+                <div class="profile-detail-row">
 
-                    <div class="card-code">
+                    <span>
+                        SPECIALTY
+                    </span>
+
+                    <span>
+                        TOXICOLOGY
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             HUNTER
+        ================================================== -->
+
+        <div class="profile-card">
+
+
+            <div class="profile-image">
+
+
+                <img
+                    src="images/hunter.jpg"
+                    alt="HUNTER"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
+
+
+                <div
+                    class="profile-placeholder"
+                    style="display:none;"
+                >
+                    PROFILE IMAGE
+                </div>
+
+
+                <div class="profile-number">
+                    FIELD // 04
+                </div>
+
+
+                <div class="profile-status">
+                    ACTIVE
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
                         OPERATIVE / 04
                     </div>
 
-
-                    <h3>
+                    <div class="profile-name">
                         HUNTER
-                    </h3>
+                    </div>
 
-
-                    <div class="card-role">
+                    <div class="profile-role">
                         사냥꾼
                     </div>
 
-
-                    <div class="card-description">
+                    <div class="profile-description">
                         도주한 목표나 배신자를
                         추적하고 제거한다.
                     </div>
@@ -1731,209 +1408,475 @@ footer {
             </div>
 
 
+            <div class="profile-detail">
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <span>
+                        ACTIVE
+                    </span>
+
+                </div>
+
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        SPECIALTY
+                    </span>
+
+                    <span>
+                        PURSUIT
+                    </span>
+
+                </div>
+
+            </div>
+
         </div>
 
+
+
+        <!-- =================================================
+             PROFILE 05
+        ================================================== -->
+
+        <div class="profile-card classified">
+
+
+            <div class="profile-image">
+
+
+                <div class="profile-placeholder">
+                    PROFILE IMAGE
+                </div>
+
+
+                <div class="profile-number">
+                    FIELD // 05
+                </div>
+
+
+                <div class="profile-status">
+                    CLASSIFIED
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
+                        OPERATIVE / 05
+                    </div>
+
+                    <div class="profile-name">
+                        CLASSIFIED
+                    </div>
+
+                    <div class="profile-role">
+                        기밀
+                    </div>
+
+                    <div class="profile-description">
+                        접근 권한이 필요한
+                        비공개 프로필.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <span>
+                        CLASSIFIED
+                    </span>
+
+                </div>
+
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        ACCESS
+                    </span>
+
+                    <span>
+                        RESTRICTED
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PROFILE 06
+        ================================================== -->
+
+        <div class="profile-card classified">
+
+
+            <div class="profile-image">
+
+
+                <div class="profile-placeholder">
+                    PROFILE IMAGE
+                </div>
+
+
+                <div class="profile-number">
+                    FIELD // 06
+                </div>
+
+
+                <div class="profile-status">
+                    CLASSIFIED
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
+                        OPERATIVE / 06
+                    </div>
+
+                    <div class="profile-name">
+                        CLASSIFIED
+                    </div>
+
+                    <div class="profile-role">
+                        기밀
+                    </div>
+
+                    <div class="profile-description">
+                        접근 권한이 필요한
+                        비공개 프로필.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <span>
+                        CLASSIFIED
+                    </span>
+
+                </div>
+
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        ACCESS
+                    </span>
+
+                    <span>
+                        RESTRICTED
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PROFILE 07
+        ================================================== -->
+
+        <div class="profile-card classified">
+
+
+            <div class="profile-image">
+
+
+                <div class="profile-placeholder">
+                    PROFILE IMAGE
+                </div>
+
+
+                <div class="profile-number">
+                    FIELD // 07
+                </div>
+
+
+                <div class="profile-status">
+                    CLASSIFIED
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
+                        OPERATIVE / 07
+                    </div>
+
+                    <div class="profile-name">
+                        CLASSIFIED
+                    </div>
+
+                    <div class="profile-role">
+                        기밀
+                    </div>
+
+                    <div class="profile-description">
+                        접근 권한이 필요한
+                        비공개 프로필.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <span>
+                        CLASSIFIED
+                    </span>
+
+                </div>
+
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        ACCESS
+                    </span>
+
+                    <span>
+                        RESTRICTED
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PROFILE 08
+        ================================================== -->
+
+        <div class="profile-card classified">
+
+
+            <div class="profile-image">
+
+
+                <div class="profile-placeholder">
+                    PROFILE IMAGE
+                </div>
+
+
+                <div class="profile-number">
+                    FIELD // 08
+                </div>
+
+
+                <div class="profile-status">
+                    CLASSIFIED
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div class="profile-code">
+                        OPERATIVE / 08
+                    </div>
+
+                    <div class="profile-name">
+                        CLASSIFIED
+                    </div>
+
+                    <div class="profile-role">
+                        기밀
+                    </div>
+
+                    <div class="profile-description">
+                        접근 권한이 필요한
+                        비공개 프로필.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <span>
+                        CLASSIFIED
+                    </span>
+
+                </div>
+
+
+                <div class="profile-detail-row">
+
+                    <span>
+                        ACCESS
+                    </span>
+
+                    <span>
+                        RESTRICTED
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
     </div>
+
+</div>
 
 </section>
 
 
-<!-- ==================================================
-     CAPABILITIES
-================================================== -->
+
+<!-- =======================================================
+     ABOUT
+======================================================= -->
 
 <section class="section">
 
-    <div class="container">
+<div class="container">
 
 
-        <div class="label">
-            FIELD CAPABILITIES
-        </div>
-
-
-        <div class="section-title">
-            OPERATIONS
-        </div>
-
-
-        <div class="capabilities">
-
-
-            <div class="capability">
-
-                <div class="capability-number">
-                    01
-                </div>
-
-                <h3>
-                    ELIMINATION
-                </h3>
-
-                <p>
-                    지정된 목표에 대한
-                    직접적인 작전 수행.
-                </p>
-
-            </div>
-
-
-            <div class="capability">
-
-                <div class="capability-number">
-                    02
-                </div>
-
-                <h3>
-                    INFILTRATION
-                </h3>
-
-                <p>
-                    목표 지역에 침투하고
-                    작전 위치를 확보한다.
-                </p>
-
-            </div>
-
-
-            <div class="capability">
-
-                <div class="capability-number">
-                    03
-                </div>
-
-                <h3>
-                    EXTRACTION
-                </h3>
-
-                <p>
-                    작전 대상과 조직원을
-                    지정된 장소까지 이동시킨다.
-                </p>
-
-            </div>
-
-
-            <div class="capability">
-
-                <div class="capability-number">
-                    04
-                </div>
-
-                <h3>
-                    PURSUIT
-                </h3>
-
-                <p>
-                    도주한 목표와 배신자를
-                    추적한다.
-                </p>
-
-            </div>
-
-
-            <div class="capability">
-
-                <div class="capability-number">
-                    05
-                </div>
-
-                <h3>
-                    RECON
-                </h3>
-
-                <p>
-                    작전 지역과 현장을 확인하고
-                    필요한 정보를 확보한다.
-                </p>
-
-            </div>
-
-
-            <div class="capability">
-
-                <div class="capability-number">
-                    06
-                </div>
-
-                <h3>
-                    SUPPORT
-                </h3>
-
-                <p>
-                    다른 조직원의 작전을
-                    현장에서 지원한다.
-                </p>
-
-            </div>
-
-
-        </div>
-
+    <div class="label">
+        FIELD DIVISION
     </div>
 
-</section>
+
+    <div class="section-title">
+        ABOUT
+    </div>
 
 
-<!-- ==================================================
-     CURRENT STATUS
-================================================== -->
-
-<section class="operation">
-
-    <div class="operation-grid">
+    <div class="about">
 
 
-        <div>
+        <div class="about-text">
 
-            <div class="label">
-                FIELD / CURRENT STATUS
-            </div>
+            실전부는
+            <strong>THE VEIL.</strong>의
+            직접적인 작전 수행을 담당한다.
 
+            <br><br>
 
-            <h2>
-                READY.
-            </h2>
+            목표의 제거와 확보,
+            추적과 침투 등
+            현장에서 발생하는 모든 작전을 수행한다.
 
+            <br><br>
 
-            <div class="operation-text">
-
-                모든 작전은 ARCHON의 승인 이후 시작된다.
-
-                <br><br>
-
-                실전부는 명령을 기다린다.
-
-                <br>
-
-                그리고 명령이 내려지는 순간,
-                움직인다.
-
-            </div>
+            명령이 내려지는 순간 움직이고,
+            계약이 끝나는 순간 사라진다.
 
         </div>
 
 
-        <div class="operation-box">
+        <div class="status-box">
 
 
-            <div class="operation-row">
+            <div class="status-row">
 
                 <span>
                     DIVISION
                 </span>
 
                 <span>
-                    FIELD
+                    FIELD / 01
                 </span>
 
             </div>
 
 
-            <div class="operation-row">
+            <div class="status-row">
 
                 <span>
-                    COMMANDER
+                    OPERATIVES
+                </span>
+
+                <span>
+                    08
+                </span>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    ACTIVE
+                </span>
+
+                <span>
+                    04
+                </span>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    CLASSIFIED
+                </span>
+
+                <span>
+                    04
+                </span>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    COMMAND
                 </span>
 
                 <span>
@@ -1943,68 +1886,35 @@ footer {
             </div>
 
 
-            <div class="operation-row">
-
-                <span>
-                    STATUS
-                </span>
-
-                <span>
-                    OPERATIONAL
-                </span>
-
-            </div>
-
-
-            <div class="operation-row">
-
-                <span>
-                    ACTIVE UNITS
-                </span>
-
-                <span>
-                    04
-                </span>
-
-            </div>
-
-
-            <div class="operation-row">
-
-                <span>
-                    PROTOCOL
-                </span>
-
-                <span>
-                    VEIL-01
-                </span>
-
-            </div>
-
-
         </div>
 
     </div>
 
+</div>
+
 </section>
 
 
-<!-- ==================================================
+
+<!-- =======================================================
      BACK
-================================================== -->
+======================================================= -->
 
 <div class="back">
 
     <a href="index.html">
+
         ← BACK TO THE VEIL.
+
     </a>
 
 </div>
 
 
-<!-- ==================================================
+
+<!-- =======================================================
      FOOTER
-================================================== -->
+======================================================= -->
 
 <footer>
 
@@ -2022,4 +1932,5 @@ footer {
 
 
 </body>
+
 </html>
