@@ -20,112 +20,200 @@ html {
 body {
     background: #050505;
     color: #e8e8e8;
-    font-family: Georgia, "Times New Roman", serif;
-    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.04em;
 }
 
-/* =========================
-   ACCESS
-========================= */
+
+/* =========================================================
+   ACCESS SCREEN
+========================================================= */
 
 #access-screen {
     position: fixed;
     inset: 0;
-    z-index: 9999;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     background:
-        radial-gradient(circle, #181818 0%, #050505 45%, #000 100%);
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.045),
+            transparent 35%
+        ),
+        #030303;
+
+    z-index: 9999;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+#access-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .access-box {
-    width: min(420px, 90%);
+    width: min(420px, 88vw);
 
-    padding: 50px 35px;
+    padding: 55px 40px;
 
     text-align: center;
 
-    border: 1px solid #333;
-    background: #050505;
+    border: 1px solid #252525;
 
-    box-shadow: 0 0 80px rgba(255,255,255,0.04);
+    background:
+        linear-gradient(
+            145deg,
+            #0d0d0d,
+            #050505
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.65);
+}
+
+.access-mark {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 30px;
+
+    border: 1px solid #666;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+    color: #fff;
 }
 
 .access-title {
-    font-size: 32px;
-    letter-spacing: 8px;
+    color: #fff;
+
+    font-size: 23px;
+    font-weight: 700;
+
+    letter-spacing: 0.28em;
 }
 
 .access-subtitle {
     margin-top: 12px;
 
-    color: #666;
+    color: #555;
 
-    font-size: 10px;
-    letter-spacing: 4px;
+    font-size: 9px;
+
+    letter-spacing: 0.3em;
 }
 
-.access-input {
+.access-line {
+    width: 100%;
+    height: 1px;
+
+    margin: 35px 0;
+
+    background: #222;
+}
+
+#access-code {
     width: 100%;
 
-    margin-top: 35px;
-    padding: 15px;
+    padding: 16px 14px;
 
-    background: #0c0c0c;
+    background: #080808;
 
-    border: 1px solid #333;
-
-    color: white;
-
-    text-align: center;
+    border: 1px solid #292929;
 
     outline: none;
 
-    letter-spacing: 5px;
+    color: #fff;
+
+    text-align: center;
+
+    font-size: 16px;
+
+    letter-spacing: 0.45em;
+
+    transition: 0.25s;
+}
+
+#access-code:focus {
+    border-color: #666;
+}
+
+#access-code::placeholder {
+    color: #444;
+    letter-spacing: 0.2em;
 }
 
 .access-button {
     width: 100%;
 
-    margin-top: 12px;
-    padding: 15px;
+    margin-top: 14px;
+
+    padding: 16px;
+
+    background: #e8e8e8;
 
     border: none;
 
-    background: #ddd;
     color: #050505;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.25em;
 
     cursor: pointer;
 
-    font-weight: bold;
-    letter-spacing: 4px;
+    transition: 0.25s;
 }
 
 .access-button:hover {
-    background: white;
+    background: #fff;
 }
 
 .access-error {
-    display: none;
+    height: 16px;
 
     margin-top: 15px;
 
     color: #777;
 
-    font-size: 11px;
-    letter-spacing: 2px;
+    font-size: 9px;
+
+    letter-spacing: 0.15em;
 }
 
-#main-site {
-    display: none;
+
+/* =========================================================
+   MAIN SITE
+========================================================= */
+
+#site {
+    opacity: 0;
+
+    transition: opacity 0.8s ease;
+
+    pointer-events: none;
 }
 
-/* =========================
+#site.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* =========================================================
    NAV
-========================= */
+========================================================= */
 
 nav {
     position: fixed;
@@ -134,562 +222,987 @@ nav {
     left: 0;
 
     width: 100%;
-    height: 70px;
+    height: 64px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 6%;
+    padding: 0 42px;
 
     background: rgba(5,5,5,0.88);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
 
-    border-bottom: 1px solid #1d1d1d;
+    border-bottom: 1px solid #1c1c1c;
 
     z-index: 1000;
 }
 
 .logo {
-    color: white;
+    color: #fff;
 
-    font-size: 19px;
+    text-decoration: none;
 
-    letter-spacing: 5px;
+    font-size: 15px;
+    font-weight: 700;
+
+    letter-spacing: 0.25em;
 }
 
-.nav-links {
+.nav-right {
     display: flex;
-    gap: 30px;
+    align-items: center;
+
+    gap: 25px;
 }
 
-.nav-links a {
+.nav-link {
     color: #666;
 
     text-decoration: none;
 
-    font-size: 10px;
+    font-size: 9px;
 
-    letter-spacing: 3px;
+    letter-spacing: 0.17em;
 
-    transition: 0.3s;
+    transition: 0.25s;
 }
 
-.nav-links a:hover {
-    color: white;
+.nav-link:hover {
+    color: #fff;
 }
 
-/* =========================
+.nav-status {
+    color: #444;
+
+    font-size: 8px;
+
+    letter-spacing: 0.15em;
+}
+
+.nav-status::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 5px;
+    height: 5px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    background: #777;
+}
+
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
     min-height: 100vh;
 
+    padding:
+        150px 8%
+        100px;
+
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
 
-    text-align: center;
-
-    position: relative;
+    border-bottom: 1px solid #181818;
 
     background:
+        linear-gradient(
+            rgba(0,0,0,0.15),
+            rgba(0,0,0,0.9)
+        ),
         radial-gradient(
-            circle at center,
-            #1b1b1b 0%,
-            #080808 45%,
-            #000 100%
+            circle at 70% 35%,
+            rgba(255,255,255,0.055),
+            transparent 35%
         );
 }
 
-.hero::after {
-    content: "";
+.hero-label {
+    color: #555;
 
-    position: absolute;
-    inset: 0;
+    font-size: 10px;
 
-    background:
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 4px,
-            rgba(255,255,255,0.015) 5px
-        );
+    letter-spacing: 0.4em;
 
-    pointer-events: none;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
+    margin-bottom: 30px;
 }
 
 .hero h1 {
-    font-size: clamp(55px, 12vw, 150px);
+    color: #fff;
 
-    font-weight: normal;
+    font-size: clamp(65px, 12vw, 170px);
 
-    letter-spacing: 18px;
+    line-height: 0.82;
+
+    font-weight: 800;
+
+    letter-spacing: 0.02em;
 }
 
-.hero p {
-    margin-top: 30px;
+.hero-subtitle {
+    margin-top: 35px;
 
-    color: #666;
+    color: #777;
 
-    font-size: 11px;
+    font-size: 12px;
 
-    letter-spacing: 7px;
+    letter-spacing: 0.35em;
 }
 
-/* =========================
-   SECTION
-========================= */
+.hero-motto {
+    margin-top: 70px;
 
-section {
-    padding: 120px 8%;
+    color: #aaa;
 
-    border-bottom: 1px solid #151515;
+    font-size: 13px;
+
+    letter-spacing: 0.3em;
+}
+
+.hero-line {
+    width: 80px;
+    height: 1px;
+
+    margin-top: 25px;
+
+    background: #555;
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+.section {
+    padding: 120px 7%;
+
+    border-bottom: 1px solid #171717;
+}
+
+.container {
+    max-width: 1100px;
+
+    margin: 0 auto;
+}
+
+.section-label {
+    color: #555;
+
+    font-size: 9px;
+
+    letter-spacing: 0.32em;
+
+    margin-bottom: 15px;
 }
 
 .section-title {
-    margin-bottom: 50px;
+    color: #eee;
 
-    color: #666;
+    font-size: 36px;
 
-    font-size: 11px;
+    font-weight: 700;
 
-    letter-spacing: 5px;
+    letter-spacing: 0.08em;
 }
 
-/* =========================
-   ARCHON
-========================= */
 
-.archon {
+/* =========================================================
+   ARCHON
+========================================================= */
+
+.archon-section {
+    min-height: 750px;
+
+    display: flex;
+    align-items: center;
+}
+
+.archon-grid {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.8fr 1.2fr;
 
-    gap: 80px;
+    gap: 100px;
 
     align-items: center;
 }
 
+
+/* SYMBOL */
+
 .archon-symbol {
-    width: 250px;
-    height: 250px;
+    width: 290px;
+    height: 290px;
 
-    margin: auto;
+    margin: 0 auto;
 
-    border: 1px solid #444;
+    border: 1px solid #292929;
 
     border-radius: 50%;
+
+    position: relative;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    position: relative;
+    background:
+        radial-gradient(
+            circle,
+            #121212,
+            #050505 70%
+        );
+
+    box-shadow:
+        0 0 80px rgba(255,255,255,0.025);
 }
 
 .archon-symbol::before {
     content: "";
 
-    width: 110px;
-    height: 110px;
+    width: 1px;
+    height: 230px;
 
-    border: 1px solid #777;
+    position: absolute;
 
-    border-radius: 50%;
+    background: #555;
 }
 
 .archon-symbol::after {
     content: "";
 
+    width: 130px;
+    height: 1px;
+
     position: absolute;
 
-    width: 2px;
-    height: 170px;
-
-    background: #777;
+    background: #333;
 }
 
-.archon-info h2 {
-    font-size: 50px;
+.archon-blade {
+    width: 3px;
+    height: 150px;
 
-    font-weight: normal;
+    background: #ddd;
 
-    letter-spacing: 8px;
+    position: relative;
+
+    z-index: 2;
+}
+
+.archon-blade::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -6px;
+
+    width: 15px;
+    height: 15px;
+
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+
+    transform: rotate(-45deg);
+}
+
+.archon-center {
+    position: absolute;
+
+    width: 14px;
+    height: 14px;
+
+    border: 1px solid #aaa;
+
+    transform: rotate(45deg);
+
+    background: #050505;
+
+    z-index: 3;
+}
+
+
+/* ARCHON INFO */
+
+.archon-code {
+    color: #555;
+
+    font-size: 10px;
+
+    letter-spacing: 0.35em;
+
+    margin-bottom: 18px;
 }
 
 .archon-name {
+    color: #fff;
+
+    font-size: clamp(45px, 6vw, 75px);
+
+    line-height: 0.9;
+
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+}
+
+.archon-korean {
     margin-top: 15px;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    letter-spacing: 0.3em;
+}
+
+.archon-position {
+    margin-top: 35px;
 
     color: #777;
 
-    letter-spacing: 4px;
+    font-size: 10px;
+
+    letter-spacing: 0.25em;
 }
 
-.archon-role {
-    margin-top: 30px;
+.archon-call {
+    margin-top: 8px;
+
+    color: #ddd;
+
+    font-size: 13px;
+
+    letter-spacing: 0.2em;
+}
+
+.archon-description {
+    max-width: 520px;
+
+    margin-top: 35px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 2;
+
+    letter-spacing: 0.05em;
+}
+
+.archon-motto {
+    margin-top: 40px;
+
+    padding-left: 18px;
+
+    border-left: 1px solid #555;
 
     color: #aaa;
 
     font-size: 11px;
 
-    letter-spacing: 4px;
+    line-height: 1.8;
+
+    letter-spacing: 0.15em;
 }
 
-.archon-motto {
-    margin-top: 35px;
 
-    color: #666;
-
-    font-size: 11px;
-
-    line-height: 2;
-
-    letter-spacing: 2px;
-}
-
-/* =========================
+/* =========================================================
    RULES
-========================= */
+========================================================= */
 
-.rules {
+.rules-grid {
+    margin-top: 60px;
+
     display: grid;
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 1px;
-
-    background: #222;
+    border-top: 1px solid #222;
+    border-left: 1px solid #222;
 }
 
 .rule {
     min-height: 150px;
 
-    padding: 35px;
+    padding: 28px;
+
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #222;
 
     background: #080808;
+
+    transition: 0.25s;
+}
+
+.rule:hover {
+    background: #0d0d0d;
 }
 
 .rule-number {
     color: #444;
 
-    font-size: 11px;
+    font-size: 10px;
 
-    letter-spacing: 3px;
+    letter-spacing: 0.2em;
 }
 
-.rule h3 {
-    margin-top: 20px;
+.rule-text {
+    margin-top: 30px;
 
-    font-size: 17px;
+    color: #ddd;
 
-    font-weight: normal;
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    letter-spacing: 0.08em;
 }
 
-.rule p {
-    margin-top: 12px;
 
-    color: #666;
+/* 마지막 규칙 */
 
-    font-size: 11px;
-
-    line-height: 1.8;
+.rule:last-child {
+    grid-column: 1 / 3;
 }
 
-/* =========================
+
+/* =========================================================
    DIVISIONS
-========================= */
+========================================================= */
 
-.divisions {
+.division-grid {
+    margin-top: 60px;
+
     display: grid;
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 20px;
+    gap: 18px;
 }
 
-.division {
-    display: block;
+.division-card {
+    min-height: 280px;
 
     position: relative;
 
-    min-height: 260px;
+    display: flex;
 
-    padding: 40px;
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding: 30px;
+
+    color: #fff;
+
+    text-decoration: none;
 
     border: 1px solid #242424;
 
     background:
         linear-gradient(
-            135deg,
-            #0e0e0e,
-            #050505
+            145deg,
+            #111,
+            #070707
         );
 
-    color: white;
+    overflow: hidden;
 
-    text-decoration: none;
-
-    transition: 0.3s;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
 }
 
-.division:hover {
-    transform: translateY(-6px);
-
-    border-color: #777;
-
-    background: #111;
-}
-
-.division::after {
-    content: "↗";
+.division-card::before {
+    content: "";
 
     position: absolute;
 
-    right: 25px;
-    bottom: 20px;
+    inset: 0;
 
-    color: #444;
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255,255,255,0.06),
+            transparent 30%
+        );
 
-    font-size: 22px;
+    opacity: 0.7;
 
     transition: 0.3s;
 }
 
-.division:hover::after {
-    color: white;
+.division-card:hover {
+    transform: translateY(-6px);
 
-    transform: translate(4px,-4px);
+    border-color: #555;
+
+    background: #0c0c0c;
 }
 
-.division-code {
+.division-card:hover::before {
+    opacity: 1;
+}
+
+.division-number {
+    position: absolute;
+
+    top: 24px;
+    left: 25px;
+
     color: #444;
 
     font-size: 10px;
 
-    letter-spacing: 3px;
+    letter-spacing: 0.2em;
 }
 
-.division h3 {
-    margin-top: 35px;
+.division-name {
+    position: relative;
 
-    font-size: 30px;
+    font-size: 34px;
 
-    font-weight: normal;
+    font-weight: 800;
 
-    letter-spacing: 5px;
+    letter-spacing: 0.08em;
 }
 
-.division p {
+.division-korean {
+    position: relative;
+
     margin-top: 8px;
 
-    color: #666;
+    color: #888;
 
-    font-size: 10px;
+    font-size: 11px;
 
-    letter-spacing: 3px;
+    letter-spacing: 0.2em;
 }
 
 .division-desc {
-    display: block;
+    position: relative;
 
-    margin-top: 45px;
-
-    color: #aaa;
-
-    font-size: 12px;
-
-    letter-spacing: 3px;
-}
-
-/* =========================
-   OPERATIVES
-========================= */
-
-.operatives {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 12px;
-}
-
-.operative {
-    padding: 30px 20px;
-
-    min-height: 150px;
-
-    border: 1px solid #1d1d1d;
-
-    background: #080808;
-
-    transition: 0.3s;
-}
-
-.operative:hover {
-    border-color: #555;
-}
-
-.operative-code {
-    color: #444;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-}
-
-.operative h3 {
-    margin-top: 20px;
-
-    font-size: 20px;
-
-    font-weight: normal;
-
-    letter-spacing: 3px;
-}
-
-.operative p {
-    margin-top: 8px;
+    margin-top: 25px;
 
     color: #666;
 
     font-size: 10px;
 
-    letter-spacing: 2px;
+    letter-spacing: 0.25em;
 }
 
-/* =========================
-   ARCHIVE
-========================= */
+.division-arrow {
+    position: absolute;
 
-.archive {
+    right: 25px;
+    bottom: 27px;
+
+    color: #555;
+
+    font-size: 18px;
+
+    transition: 0.25s;
+}
+
+.division-card:hover .division-arrow {
+    color: #fff;
+
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   ORGANIZATION
+========================================================= */
+
+.organization {
+    margin-top: 80px;
+
+    padding: 45px;
+
     border: 1px solid #222;
 
     background: #080808;
 }
 
-.archive-row {
+.organization-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #1c1c1c;
+}
+
+.organization-title {
+    color: #ddd;
+
+    font-size: 13px;
+
+    letter-spacing: 0.2em;
+}
+
+.organization-status {
+    color: #555;
+
+    font-size: 9px;
+
+    letter-spacing: 0.2em;
+}
+
+.org-list {
+    margin-top: 28px;
+}
+
+.org-row {
+    display: grid;
+
+    grid-template-columns: 90px 1fr 1fr;
+
+    gap: 20px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #181818;
+}
+
+.org-row:last-child {
+    border-bottom: none;
+}
+
+.org-number {
+    color: #444;
+
+    font-size: 9px;
+
+    letter-spacing: 0.15em;
+}
+
+.org-name {
+    color: #ccc;
+
+    font-size: 11px;
+
+    letter-spacing: 0.15em;
+}
+
+.org-description {
+    color: #666;
+
+    font-size: 10px;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   FINAL STATEMENT
+========================================================= */
+
+.final-section {
+    min-height: 65vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.035),
+            transparent 35%
+        );
+}
+
+.final-mark {
+    color: #555;
+
+    font-size: 9px;
+
+    letter-spacing: 0.4em;
+
+    margin-bottom: 25px;
+}
+
+.final-title {
+    color: #eee;
+
+    font-size: clamp(35px, 6vw, 75px);
+
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+.final-subtitle {
+    margin-top: 25px;
+
+    color: #555;
+
+    font-size: 10px;
+
+    letter-spacing: 0.3em;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 35px 7%;
+
     display: flex;
 
     justify-content: space-between;
 
-    padding: 22px 25px;
-
-    border-bottom: 1px solid #1b1b1b;
-
-    color: #777;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-.archive-row:last-child {
-    border-bottom: none;
-}
-
-.archive-status {
-    color: #444;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    padding: 70px 8%;
-
-    text-align: center;
-
     color: #444;
 
-    font-size: 10px;
+    font-size: 9px;
 
-    letter-spacing: 5px;
+    letter-spacing: 0.2em;
 }
 
-/* =========================
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 900px) {
 
-    .nav-links {
-        display: none;
+    nav {
+        padding: 0 22px;
     }
 
-    .archon {
+    .nav-right {
+        gap: 14px;
+    }
+
+    .nav-link {
+        font-size: 8px;
+    }
+
+    .archon-grid {
         grid-template-columns: 1fr;
+
+        gap: 70px;
 
         text-align: center;
     }
 
-    .rules {
+    .archon-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .archon-motto {
+        text-align: left;
+    }
+
+    .archon-symbol {
+        width: 250px;
+        height: 250px;
+    }
+
+    .rules-grid {
         grid-template-columns: 1fr;
     }
 
-    .divisions {
+    .rule:last-child {
+        grid-column: auto;
+    }
+
+    .division-grid {
         grid-template-columns: 1fr;
     }
 
-    .operatives {
-        grid-template-columns: repeat(2, 1fr);
+    .org-row {
+        grid-template-columns: 70px 1fr;
+    }
+
+    .org-description {
+        grid-column: 2;
     }
 }
 
-@media (max-width: 500px) {
 
-    section {
-        padding: 90px 6%;
+@media (max-width: 650px) {
+
+    nav {
+        height: 58px;
+
+        padding: 0 16px;
+    }
+
+    .logo {
+        font-size: 12px;
+    }
+
+    .nav-status {
+        display: none;
+    }
+
+    .nav-right {
+        gap: 10px;
+    }
+
+    .nav-link {
+        font-size: 7px;
+    }
+
+    .hero {
+        padding:
+            110px 25px
+            80px;
     }
 
     .hero h1 {
-        font-size: 45px;
-
-        letter-spacing: 8px;
+        font-size: 58px;
     }
 
-    .archon-info h2 {
-        font-size: 38px;
+    .hero-subtitle {
+        font-size: 9px;
+
+        letter-spacing: 0.18em;
     }
 
-    .operatives {
-        grid-template-columns: 1fr;
+    .hero-motto {
+        font-size: 10px;
+
+        letter-spacing: 0.2em;
+    }
+
+    .section {
+        padding: 80px 20px;
+    }
+
+    .section-title {
+        font-size: 27px;
+    }
+
+    .archon-section {
+        min-height: auto;
+    }
+
+    .archon-symbol {
+        width: 210px;
+        height: 210px;
+    }
+
+    .archon-symbol::before {
+        height: 165px;
+    }
+
+    .archon-blade {
+        height: 110px;
+    }
+
+    .archon-name {
+        font-size: 48px;
+    }
+
+    .rules-grid {
+        margin-top: 45px;
+    }
+
+    .rule {
+        min-height: auto;
+
+        padding: 23px;
+    }
+
+    .rule-text {
+        margin-top: 22px;
+
+        font-size: 11px;
+    }
+
+    .division-card {
+        min-height: 240px;
+
+        padding: 25px;
+    }
+
+    .division-name {
+        font-size: 28px;
+    }
+
+    .organization {
+        padding: 25px;
+    }
+
+    .organization-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .org-row {
+        grid-template-columns: 55px 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 12px;
+
+        line-height: 1.6;
     }
 }
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
+
+<!-- =========================================================
      ACCESS SCREEN
-========================= -->
+========================================================= -->
 
 <div id="access-screen">
 
     <div class="access-box">
+
+        <div class="access-mark">
+            V
+        </div>
 
         <div class="access-title">
             THE VEIL.
         </div>
 
         <div class="access-subtitle">
-            CLASSIFIED ACCESS
+            RESTRICTED ACCESS
         </div>
+
+        <div class="access-line"></div>
 
         <input
             type="password"
             id="access-code"
-            class="access-input"
             placeholder="ACCESS CODE"
+            maxlength="6"
             autocomplete="off"
         >
 
@@ -697,105 +1210,596 @@ footer {
             class="access-button"
             onclick="checkAccess()"
         >
-            ENTER
+            ENTER THE VEIL
         </button>
 
-        <div id="access-error" class="access-error">
-            ACCESS DENIED.
-        </div>
+        <div
+            class="access-error"
+            id="access-error"
+        ></div>
 
     </div>
 
 </div>
 
 
-<!-- =========================
-     MAIN SITE
-========================= -->
+<!-- =========================================================
+     SITE
+========================================================= -->
 
-<div id="main-site">
+<div id="site">
 
+
+<!-- =========================================================
+     NAV
+========================================================= -->
 
 <nav>
 
-    <a href="#" class="logo">
+    <a href="index.html" class="logo">
         THE VEIL.
     </a>
 
-    <div class="nav-links">
+    <div class="nav-right">
 
-        <a href="#archon">
-            ARCHON
+        <a
+            href="field.html"
+            target="_blank"
+            rel="noopener"
+            class="nav-link"
+        >
+            FIELD
         </a>
 
-        <a href="#rules">
-            RULES
+        <a
+            href="intel.html"
+            target="_blank"
+            rel="noopener"
+            class="nav-link"
+        >
+            INTEL
         </a>
 
-        <a href="#divisions">
-            DIVISIONS
+        <a
+            href="support.html"
+            target="_blank"
+            rel="noopener"
+            class="nav-link"
+        >
+            SUPPORT
         </a>
 
-        <a href="#archive">
-            ARCHIVE
+        <a
+            href="process.html"
+            target="_blank"
+            rel="noopener"
+            class="nav-link"
+        >
+            PROCESS
         </a>
+
+        <div class="nav-status">
+            CLASSIFIED
+        </div>
 
     </div>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-<header class="hero">
+<section class="hero">
 
-    <div class="hero-content">
+    <div class="hero-label">
+        CLASSIFIED ORGANIZATION // 001
+    </div>
 
-        <h1>
-            THE VEIL.
-        </h1>
+    <h1>
+        THE VEIL.
+    </h1>
 
-        <p>
+    <div class="hero-subtitle">
+        WE DO NOT EXIST.
+    </div>
+
+    <div class="hero-motto">
+        DISCIPLINE. UNITY. SILENCE.
+    </div>
+
+    <div class="hero-line"></div>
+
+</section>
+
+
+<!-- =========================================================
+     ARCHON
+========================================================= -->
+
+<section class="section archon-section">
+
+    <div class="container">
+
+        <div class="archon-grid">
+
+
+            <!-- SYMBOL -->
+
+            <div class="archon-symbol">
+
+                <div class="archon-blade"></div>
+
+                <div class="archon-center"></div>
+
+            </div>
+
+
+            <!-- INFORMATION -->
+
+            <div>
+
+                <div class="archon-code">
+                    COMMAND // ARCHON
+                </div>
+
+                <div class="archon-name">
+                    CHOI SAN
+                </div>
+
+                <div class="archon-korean">
+                    최산
+                </div>
+
+                <div class="archon-position">
+                    POSITION
+                </div>
+
+                <div class="archon-call">
+                    ARCHON
+                </div>
+
+                <div class="archon-position">
+                    CALL SIGN
+                </div>
+
+                <div class="archon-call">
+                    NOX
+                </div>
+
+                <div class="archon-description">
+
+                    조직의 수장.
+                    <br>
+                    모든 계약과 작전의 최종 권한을 가진다.
+                    <br>
+                    조직의 존재를 결정하고,
+                    조직의 방향을 결정한다.
+
+                </div>
+
+                <div class="archon-motto">
+
+                    NOT A RING.<br>
+                    NOT A SYMBOL.<br>
+                    BUT A COMMAND.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RULES
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-label">
+            THE VEIL // CODE
+        </div>
+
+        <div class="section-title">
+            SEVEN RULES
+        </div>
+
+
+        <div class="rules-grid">
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    RULE / 01
+                </div>
+
+                <div class="rule-text">
+                    계약은 반드시 이행한다.
+                </div>
+
+            </div>
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    RULE / 02
+                </div>
+
+                <div class="rule-text">
+                    조직원을 개인적인 이유로 죽이지 않는다.
+                </div>
+
+            </div>
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    RULE / 03
+                </div>
+
+                <div class="rule-text">
+                    조직의 존재를 외부에 알려서는 안 된다.
+                </div>
+
+            </div>
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    RULE / 04
+                </div>
+
+                <div class="rule-text">
+                    의뢰인을 배신하지 않는다.
+                </div>
+
+            </div>
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    RULE / 05
+                </div>
+
+                <div class="rule-text">
+                    동료의 계약을 방해하지 않는다.
+                </div>
+
+            </div>
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    RULE / 06
+                </div>
+
+                <div class="rule-text">
+                    수장의 명령에는 이유를 묻지 않는다.
+                </div>
+
+            </div>
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    RULE / 07
+                </div>
+
+                <div class="rule-text">
+                    조직을 배신한 자는 반드시 죽인다.
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DIVISIONS
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-label">
+            THE VEIL // ORGANIZATION
+        </div>
+
+        <div class="section-title">
+            DIVISIONS
+        </div>
+
+
+        <div class="division-grid">
+
+
+            <!-- FIELD -->
+
+            <a
+                href="field.html"
+                target="_blank"
+                rel="noopener"
+                class="division-card"
+            >
+
+                <div class="division-number">
+                    DIVISION // 01
+                </div>
+
+                <div class="division-name">
+                    FIELD
+                </div>
+
+                <div class="division-korean">
+                    실전부
+                </div>
+
+                <div class="division-desc">
+                    죽인다.
+                </div>
+
+                <div class="division-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <!-- INTELLIGENCE -->
+
+            <a
+                href="intel.html"
+                target="_blank"
+                rel="noopener"
+                class="division-card"
+            >
+
+                <div class="division-number">
+                    DIVISION // 02
+                </div>
+
+                <div class="division-name">
+                    INTELLIGENCE
+                </div>
+
+                <div class="division-korean">
+                    정보부
+                </div>
+
+                <div class="division-desc">
+                    찾아낸다.
+                </div>
+
+                <div class="division-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <!-- SUPPORT -->
+
+            <a
+                href="support.html"
+                target="_blank"
+                rel="noopener"
+                class="division-card"
+            >
+
+                <div class="division-number">
+                    DIVISION // 03
+                </div>
+
+                <div class="division-name">
+                    SUPPORT
+                </div>
+
+                <div class="division-korean">
+                    지원부
+                </div>
+
+                <div class="division-desc">
+                    돕는다.
+                </div>
+
+                <div class="division-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <!-- PROCESS -->
+
+            <a
+                href="process.html"
+                target="_blank"
+                rel="noopener"
+                class="division-card"
+            >
+
+                <div class="division-number">
+                    DIVISION // 04
+                </div>
+
+                <div class="division-name">
+                    PROCESS
+                </div>
+
+                <div class="division-korean">
+                    처리부
+                </div>
+
+                <div class="division-desc">
+                    지운다.
+                </div>
+
+                <div class="division-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ORGANIZATION
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-label">
+            ORGANIZATIONAL STRUCTURE
+        </div>
+
+        <div class="section-title">
+            THE VEIL
+        </div>
+
+
+        <div class="organization">
+
+
+            <div class="organization-header">
+
+                <div class="organization-title">
+                    INTERNAL STRUCTURE
+                </div>
+
+                <div class="organization-status">
+                    CLASSIFIED // ARCHON AUTHORITY
+                </div>
+
+            </div>
+
+
+            <div class="org-list">
+
+
+                <div class="org-row">
+
+                    <div class="org-number">
+                        01
+                    </div>
+
+                    <div class="org-name">
+                        FIELD
+                    </div>
+
+                    <div class="org-description">
+                        실전 작전 및 목표 제거.
+                    </div>
+
+                </div>
+
+
+                <div class="org-row">
+
+                    <div class="org-number">
+                        02
+                    </div>
+
+                    <div class="org-name">
+                        INTELLIGENCE
+                    </div>
+
+                    <div class="org-description">
+                        정보 수집, 감시 및 작전 설계.
+                    </div>
+
+                </div>
+
+
+                <div class="org-row">
+
+                    <div class="org-number">
+                        03
+                    </div>
+
+                    <div class="org-name">
+                        SUPPORT
+                    </div>
+
+                    <div class="org-description">
+                        무기, 의료, 위장 및 운송 지원.
+                    </div>
+
+                </div>
+
+
+                <div class="org-row">
+
+                    <div class="org-number">
+                        04
+                    </div>
+
+                    <div class="org-name">
+                        PROCESS
+                    </div>
+
+                    <div class="org-description">
+                        사건 이후의 흔적 및 증거 처리.
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL
+========================================================= -->
+
+<section class="final-section">
+
+    <div>
+
+        <div class="final-mark">
+            BEYOND THE VEIL
+        </div>
+
+        <div class="final-title">
             WE DO NOT EXIST.
-        </p>
+        </div>
 
-    </div>
-
-</header>
-
-
-<!-- ARCHON -->
-
-<section id="archon">
-
-    <div class="section-title">
-        01 / ARCHON
-    </div>
-
-    <div class="archon">
-
-        <div class="archon-symbol"></div>
-
-        <div class="archon-info">
-
-            <h2>
-                ARCHON
-            </h2>
-
-            <div class="archon-name">
-                최산 / CHOI SAN
-            </div>
-
-            <div class="archon-role">
-                ARCHON / NOX
-            </div>
-
-            <div class="archon-motto">
-                NOT A RING.<br>
-                NOT A SYMBOL.<br>
-                BUT A COMMAND.
-            </div>
-
+        <div class="final-subtitle">
+            THERE IS ONLY THE VEIL.
         </div>
 
     </div>
@@ -803,329 +1807,23 @@ footer {
 </section>
 
 
-<!-- RULES -->
-
-<section id="rules">
-
-    <div class="section-title">
-        02 / THE SEVEN RULES
-    </div>
-
-    <div class="rules">
-
-        <div class="rule">
-            <div class="rule-number">01</div>
-            <h3>계약은 반드시 이행한다.</h3>
-            <p>모든 계약은 반드시 완료한다.</p>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">02</div>
-            <h3>조직원을 개인적인 이유로 죽이지 않는다.</h3>
-            <p>내부의 피는 어떠한 개인적 이유로도 허용되지 않는다.</p>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">03</div>
-            <h3>조직의 존재를 외부에 알려서는 안 된다.</h3>
-            <p>THE VEIL.의 존재는 외부에 드러나지 않는다.</p>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">04</div>
-            <h3>의뢰인을 배신하지 않는다.</h3>
-            <p>계약이 시작된 순간 의뢰인은 보호된다.</p>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">05</div>
-            <h3>동료의 계약을 방해하지 않는다.</h3>
-            <p>하나의 계약은 하나의 계약자에게 귀속된다.</p>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">06</div>
-            <h3>수장의 명령에는 이유를 묻지 않는다.</h3>
-            <p>ARCHON의 명령에는 질문이 존재하지 않는다.</p>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">07</div>
-            <h3>조직을 배신한 자는 반드시 죽인다.</h3>
-            <p>배신은 THE VEIL.에 대한 사형 선고다.</p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- DIVISIONS -->
-
-<section id="divisions">
-
-    <div class="section-title">
-        03 / DIVISIONS
-    </div>
-
-    <div class="divisions">
-
-
-        <!-- FIELD -->
-
-        <a
-            href="field.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="division"
-        >
-
-            <span class="division-code">
-                01
-            </span>
-
-            <h3>
-                실전부
-            </h3>
-
-            <p>
-                FIELD DIVISION
-            </p>
-
-            <span class="division-desc">
-                죽인다.
-            </span>
-
-        </a>
-
-
-        <!-- INTELLIGENCE -->
-
-        <a
-            href="#"
-            onclick="comingSoon(event, 'INTELLIGENCE')"
-            class="division"
-        >
-
-            <span class="division-code">
-                02
-            </span>
-
-            <h3>
-                정보부
-            </h3>
-
-            <p>
-                INTELLIGENCE DIVISION
-            </p>
-
-            <span class="division-desc">
-                찾아낸다.
-            </span>
-
-        </a>
-
-
-        <!-- SUPPORT -->
-
-        <a
-            href="#"
-            onclick="comingSoon(event, 'SUPPORT')"
-            class="division"
-        >
-
-            <span class="division-code">
-                03
-            </span>
-
-            <h3>
-                지원부
-            </h3>
-
-            <p>
-                SUPPORT DIVISION
-            </p>
-
-            <span class="division-desc">
-                돕는다.
-            </span>
-
-        </a>
-
-
-        <!-- PROCESS -->
-
-        <a
-            href="#"
-            onclick="comingSoon(event, 'PROCESS')"
-            class="division"
-        >
-
-            <span class="division-code">
-                04
-            </span>
-
-            <h3>
-                처리부
-            </h3>
-
-            <p>
-                PROCESS DIVISION
-            </p>
-
-            <span class="division-desc">
-                지운다.
-            </span>
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- OPERATIVES -->
-
-<section>
-
-    <div class="section-title">
-        04 / OPERATIVES
-    </div>
-
-    <div class="operatives">
-
-        <div class="operative">
-            <div class="operative-code">FIELD / 01</div>
-            <h3>HAWK</h3>
-            <p>저격수</p>
-        </div>
-
-        <div class="operative">
-            <div class="operative-code">FIELD / 02</div>
-            <h3>WRAITH</h3>
-            <p>침투자</p>
-        </div>
-
-        <div class="operative">
-            <div class="operative-code">FIELD / 03</div>
-            <h3>VENOM</h3>
-            <p>독살자</p>
-        </div>
-
-        <div class="operative">
-            <div class="operative-code">FIELD / 04</div>
-            <h3>HUNTER</h3>
-            <p>사냥꾼</p>
-        </div>
-
-        <div class="operative">
-            <div class="operative-code">INTEL / 01</div>
-            <h3>SCRIBE</h3>
-            <p>정보책</p>
-        </div>
-
-        <div class="operative">
-            <div class="operative-code">INTEL / 02</div>
-            <h3>WATCHER</h3>
-            <p>감시자</p>
-        </div>
-
-        <div class="operative">
-            <div class="operative-code">INTEL / 03</div>
-            <h3>ORACLE</h3>
-            <p>설계자</p>
-        </div>
-
-        <div class="operative">
-            <div class="operative-code">SUPPORT / 01</div>
-            <h3>FORGE</h3>
-            <p>무기장인</p>
-        </div>
-
-        <div class="operative">
-            <div class="operative-code">SUPPORT / 02</div>
-            <h3>MERCY</h3>
-            <p>의사</p>
-        </div>
-
-        <div class="operative">
-            <div class="operative-code">SUPPORT / 03</div>
-            <h3>MIRROR</h3>
-            <p>위장 전문가</p>
-        </div>
-
-        <div class="operative">
-            <div class="operative-code">SUPPORT / 04</div>
-            <h3>COURIER</h3>
-            <p>운송 · 장비</p>
-        </div>
-
-        <div class="operative">
-            <div class="operative-code">PROCESS / 01</div>
-            <h3>CLEANER</h3>
-            <p>현장 처리</p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ARCHIVE -->
-
-<section id="archive">
-
-    <div class="section-title">
-        05 / CLASSIFIED ARCHIVE
-    </div>
-
-    <div class="archive">
-
-        <div class="archive-row">
-            <span>VEIL-001 / ORIGIN</span>
-            <span class="archive-status">
-                CLASSIFIED
-            </span>
-        </div>
-
-        <div class="archive-row">
-            <span>VEIL-002 / ARCHON</span>
-            <span class="archive-status">
-                RESTRICTED
-            </span>
-        </div>
-
-        <div class="archive-row">
-            <span>VEIL-003 / CONTRACTS</span>
-            <span class="archive-status">
-                CLASSIFIED
-            </span>
-        </div>
-
-        <div class="archive-row">
-            <span>VEIL-004 / MEMBERS</span>
-            <span class="archive-status">
-                RESTRICTED
-            </span>
-        </div>
-
-        <div class="archive-row">
-            <span>VEIL-005 / BETRAYAL</span>
-            <span class="archive-status">
-                EYES ONLY
-            </span>
-        </div>
-
-    </div>
-
-</section>
-
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
-    THE VEIL.<br><br>
+    <div>
+        THE VEIL.
+    </div>
 
-    DISCIPLINE. UNITY. SILENCE.
+    <div>
+        DISCIPLINE. UNITY. SILENCE.
+    </div>
+
+    <div>
+        ARCHON // NOX
+    </div>
 
 </footer>
 
@@ -1133,95 +1831,86 @@ footer {
 </div>
 
 
-<script>
+<!-- =========================================================
+     ACCESS SCRIPT
+========================================================= -->
 
-/* =========================
-   ACCESS
-========================= */
+<script>
 
 const ACCESS_CODE = "261001";
 
+const accessScreen =
+    document.getElementById("access-screen");
+
+const site =
+    document.getElementById("site");
+
+const accessInput =
+    document.getElementById("access-code");
+
+const accessError =
+    document.getElementById("access-error");
+
+
 function checkAccess() {
 
-    const input =
-        document.getElementById("access-code").value;
+    const entered =
+        accessInput.value.trim();
 
-    const error =
-        document.getElementById("access-error");
+    if (entered === ACCESS_CODE) {
 
-    if (input === ACCESS_CODE) {
+        accessError.textContent = "";
+
+        accessScreen.classList.add("hidden");
+
+        site.classList.add("visible");
 
         sessionStorage.setItem(
             "veil_access",
             "granted"
         );
 
-        document.getElementById(
-            "access-screen"
-        ).style.display = "none";
-
-        document.getElementById(
-            "main-site"
-        ).style.display = "block";
-
     } else {
 
-        error.style.display = "block";
+        accessError.textContent =
+            "ACCESS DENIED.";
 
-        document.getElementById(
-            "access-code"
-        ).value = "";
+        accessInput.value = "";
+
+        accessInput.focus();
 
     }
+
 }
 
 
-/* ENTER KEY */
+/* ENTER 키 */
 
-document
-    .getElementById("access-code")
-    .addEventListener("keydown", function(event) {
+accessInput.addEventListener(
+    "keydown",
+    function(event) {
 
         if (event.key === "Enter") {
+
             checkAccess();
+
         }
 
-    });
-
-
-/* SESSION */
-
-window.addEventListener("load", function() {
-
-    if (
-        sessionStorage.getItem("veil_access")
-        === "granted"
-    ) {
-
-        document.getElementById(
-            "access-screen"
-        ).style.display = "none";
-
-        document.getElementById(
-            "main-site"
-        ).style.display = "block";
     }
+);
 
-});
 
+/* 같은 탭에서 이미 인증한 경우 */
 
-/* =========================
-   COMING SOON
-========================= */
+if (
+    sessionStorage.getItem("veil_access")
+    === "granted"
+) {
 
-function comingSoon(event, name) {
+    accessScreen.classList.add("hidden");
 
-    event.preventDefault();
+    site.classList.add("visible");
 
-    alert(
-        name +
-        "\n\nCLASSIFIED.\n\nACCESS NOT YET AVAILABLE."
-    );
 }
 
 </script>
