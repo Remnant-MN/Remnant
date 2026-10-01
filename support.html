@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SUPPORT // THE VEIL.</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,0.045), transparent 35%),
+        #050505;
+    color: #e8e8e8;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    letter-spacing: 0.04em;
+}
+
+/* =========================
+   NAV
+========================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 42px;
+
+    background: rgba(5,5,5,0.88);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid #1d1d1d;
+
+    z-index: 1000;
+}
+
+.logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #777;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    transition: 0.25s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 72vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 120px 8% 80px;
+
+    border-bottom: 1px solid #181818;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.25),
+            rgba(0,0,0,0.85)
+        ),
+        radial-gradient(
+            circle at 75% 40%,
+            rgba(255,255,255,0.06),
+            transparent 35%
+        );
+}
+
+.hero-label {
+    color: #555;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    font-size: clamp(54px, 9vw, 125px);
+    line-height: 0.88;
+    letter-spacing: 0.04em;
+    font-weight: 800;
+}
+
+.hero-subtitle {
+    margin-top: 26px;
+
+    color: #aaa;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+}
+
+.hero-slogan {
+    margin-top: 55px;
+
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5em;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    padding: 110px 7%;
+    border-bottom: 1px solid #171717;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.label {
+    color: #555;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    margin-bottom: 14px;
+}
+
+.section-title {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+/* =========================
+   PROFILE GRID
+========================= */
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+
+    max-width: 1000px;
+    margin: 60px auto 0;
+}
+
+/* =========================
+   PROFILE CARD
+========================= */
+
+.profile-card {
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111,
+            #080808
+        );
+
+    border: 1px solid #222;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    border-color: #444;
+    background: #0d0d0d;
+}
+
+/* =========================
+   ORACLE / CENTER CARD
+========================= */
+
+.profile-card.courier {
+    grid-column: 1 / 3;
+
+    width: calc(50% - 9px);
+
+    justify-self: center;
+
+    border-color: #333;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.profile-image {
+    position: relative;
+
+    height: 310px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #161616,
+            #080808
+        );
+
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    filter:
+        grayscale(100%)
+        contrast(1.15)
+        brightness(0.72);
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.profile-card:hover .profile-image img {
+    transform: scale(1.04);
+
+    filter:
+        grayscale(100%)
+        contrast(1.2)
+        brightness(0.85);
+}
+
+/* 이미지가 아직 없을 경우 */
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #292929;
+
+    font-size: 12px;
+    letter-spacing: 0.3em;
+}
+
+.profile-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.05),
+            rgba(0,0,0,0.8)
+        );
+}
+
+/* =========================
+   NUMBER
+========================= */
+
+.profile-number {
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    color: #777;
+
+    font-size: 10px;
+    letter-spacing: 0.2em;
+
+    z-index: 2;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.profile-status {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    color: #aaa;
+
+    font-size: 9px;
+    letter-spacing: 0.2em;
+
+    z-index: 2;
+}
+
+.profile-status::before {
+    content: "";
+    display: inline-block;
+
+    width: 5px;
+    height: 5px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    background: #888;
+}
+
+/* =========================
+   PROFILE INFO
+========================= */
+
+.profile-info {
+    position: absolute;
+
+    left: 24px;
+    right: 24px;
+    bottom: 22px;
+
+    z-index: 3;
+}
+
+.profile-code {
+    color: #777;
+
+    font-size: 9px;
+    letter-spacing: 0.25em;
+
+    margin-bottom: 8px;
+}
+
+.profile-name {
+    color: #fff;
+
+    font-size: 31px;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+.profile-role {
+    margin-top: 7px;
+
+    color: #999;
+
+    font-size: 11px;
+    letter-spacing: 0.2em;
+}
+
+/* =========================
+   DETAIL
+========================= */
+
+.profile-detail {
+    padding: 24px;
+
+    border-top: 1px solid #1c1c1c;
+}
+
+.profile-description {
+    min-height: 48px;
+
+    color: #999;
+
+    font-size: 12px;
+    line-height: 1.8;
+
+    letter-spacing: 0.04em;
+}
+
+.detail-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-top: 18px;
+    margin-top: 18px;
+
+    border-top: 1px solid #181818;
+}
+
+.detail-label {
+    color: #555;
+
+    font-size: 9px;
+    letter-spacing: 0.2em;
+}
+
+.detail-value {
+    color: #ccc;
+
+    font-size: 9px;
+    letter-spacing: 0.15em;
+}
+
+/* =========================
+   COURIER SPECIAL
+========================= */
+
+.profile-card.courier .profile-image {
+    height: 360px;
+}
+
+.profile-card.courier .profile-name {
+    font-size: 40px;
+}
+
+.profile-card.courier .profile-role {
+    color: #bbb;
+}
+
+/* =========================
+   SUPPORT SYSTEM
+========================= */
+
+.system {
+    margin-top: 90px;
+}
+
+.system-title {
+    color: #555;
+
+    font-size: 10px;
+    letter-spacing: 0.3em;
+
+    margin-bottom: 28px;
+}
+
+.system-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 1px solid #222;
+    border-left: 1px solid #222;
+}
+
+.system-item {
+    min-height: 150px;
+
+    padding: 25px;
+
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #222;
+
+    background: #080808;
+
+    transition: 0.25s;
+}
+
+.system-item:hover {
+    background: #0e0e0e;
+}
+
+.system-number {
+    color: #444;
+
+    font-size: 10px;
+    letter-spacing: 0.2em;
+}
+
+.system-name {
+    margin-top: 28px;
+
+    color: #eee;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+}
+
+.system-desc {
+    margin-top: 12px;
+
+    color: #666;
+
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: start;
+}
+
+.about-title {
+    font-size: 30px;
+
+    letter-spacing: 0.08em;
+}
+
+.about-text {
+    color: #888;
+
+    font-size: 12px;
+    line-height: 2;
+
+    letter-spacing: 0.05em;
+}
+
+/* =========================
+   STATUS BOX
+========================= */
+
+.status-box {
+    margin-top: 70px;
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    border: 1px solid #222;
+}
+
+.status-item {
+    padding: 22px;
+
+    border-right: 1px solid #222;
+}
+
+.status-item:last-child {
+    border-right: none;
+}
+
+.status-label {
+    color: #555;
+
+    font-size: 8px;
+    letter-spacing: 0.2em;
+}
+
+.status-value {
+    margin-top: 10px;
+
+    color: #ddd;
+
+    font-size: 13px;
+    letter-spacing: 0.1em;
+}
+
+/* =========================
+   BACK
+========================= */
+
+.back {
+    padding: 55px 7%;
+
+    text-align: center;
+
+    border-bottom: 1px solid #171717;
+}
+
+.back a {
+    color: #666;
+
+    text-decoration: none;
+
+    font-size: 10px;
+    letter-spacing: 0.25em;
+
+    transition: 0.25s;
+}
+
+.back a:hover {
+    color: #fff;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 35px 7%;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #444;
+
+    font-size: 9px;
+    letter-spacing: 0.2em;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        padding: 0 22px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .hero {
+        padding-left: 7%;
+    }
+
+    .system-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .status-box {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .status-item:nth-child(3) {
+        border-right: none;
+    }
+
+    .status-item:nth-child(-n+3) {
+        border-bottom: 1px solid #222;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    nav {
+        height: 58px;
+        padding: 0 16px;
+    }
+
+    .logo {
+        font-size: 12px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 8px;
+    }
+
+    .hero {
+        min-height: 65vh;
+
+        padding:
+            100px 25px
+            70px;
+    }
+
+    .hero h1 {
+        font-size: 54px;
+    }
+
+    .hero-subtitle {
+        font-size: 9px;
+        letter-spacing: 0.18em;
+    }
+
+    .hero-slogan {
+        font-size: 13px;
+        letter-spacing: 0.3em;
+    }
+
+    .section {
+        padding: 80px 20px;
+    }
+
+    .section-title {
+        font-size: 27px;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card.courier {
+        grid-column: auto;
+
+        width: 100%;
+    }
+
+    .profile-image,
+    .profile-card.courier .profile-image {
+        height: 300px;
+    }
+
+    .profile-card.courier .profile-name {
+        font-size: 32px;
+    }
+
+    .system-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .status-box {
+        grid-template-columns: 1fr;
+    }
+
+    .status-item {
+        border-right: none;
+        border-bottom: 1px solid #222;
+    }
+
+    .status-item:last-child {
+        border-bottom: none;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 12px;
+        line-height: 1.6;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAV
+========================= -->
+
+<nav>
+
+    <a href="index.html" class="logo">
+        THE VEIL.
+    </a>
+
+    <div class="nav-links">
+        <a href="field.html">FIELD</a>
+        <a href="intel.html">INTEL</a>
+        <a href="support.html">SUPPORT</a>
+        <a href="process.html">PROCESS</a>
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-label">
+        DIVISION // 03
+    </div>
+
+    <h1>
+        SUPPORT
+    </h1>
+
+    <div class="hero-subtitle">
+        SUPPORT DIVISION
+    </div>
+
+    <div class="hero-slogan">
+        돕는다.
+    </div>
+
+</section>
+
+
+<!-- =========================
+     OPERATIVES
+========================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="label">
+            SUPPORT DIVISION
+        </div>
+
+        <div class="section-title">
+            OPERATIVES
+        </div>
+
+
+        <div class="profile-grid">
+
+
+            <!-- FORGE -->
+
+            <article class="profile-card">
+
+                <div class="profile-image">
+
+                    <img
+                        src="images/forge.jpg"
+                        alt="FORGE"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <div class="image-placeholder" style="display:none;">
+                        NO IMAGE
+                    </div>
+
+                    <div class="profile-overlay"></div>
+
+                    <div class="profile-number">
+                        OPERATIVE / 01
+                    </div>
+
+                    <div class="profile-status">
+                        ACTIVE
+                    </div>
+
+                    <div class="profile-info">
+
+                        <div class="profile-code">
+                            SUPPORT // ARMAMENT
+                        </div>
+
+                        <div class="profile-name">
+                            FORGE
+                        </div>
+
+                        <div class="profile-role">
+                            무기장인
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="profile-detail">
+
+                    <div class="profile-description">
+                        암살에 필요한 무기와 장비를 제작하고 유지한다.
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            SPECIALTY
+                        </span>
+
+                        <span class="detail-value">
+                            ARMAMENT
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- MERCY -->
+
+            <article class="profile-card">
+
+                <div class="profile-image">
+
+                    <img
+                        src="images/mercy.jpg"
+                        alt="MERCY"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <div class="image-placeholder" style="display:none;">
+                        NO IMAGE
+                    </div>
+
+                    <div class="profile-overlay"></div>
+
+                    <div class="profile-number">
+                        OPERATIVE / 02
+                    </div>
+
+                    <div class="profile-status">
+                        ACTIVE
+                    </div>
+
+                    <div class="profile-info">
+
+                        <div class="profile-code">
+                            SUPPORT // MEDICAL
+                        </div>
+
+                        <div class="profile-name">
+                            MERCY
+                        </div>
+
+                        <div class="profile-role">
+                            의사
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="profile-detail">
+
+                    <div class="profile-description">
+                        부상당한 조직원을 치료하고 작전 중 발생한 의료 문제를 담당한다.
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            SPECIALTY
+                        </span>
+
+                        <span class="detail-value">
+                            MEDICAL
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- MIRROR 01 -->
+
+            <article class="profile-card">
+
+                <div class="profile-image">
+
+                    <img
+                        src="images/mirror01.jpg"
+                        alt="MIRROR 01"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <div class="image-placeholder" style="display:none;">
+                        NO IMAGE
+                    </div>
+
+                    <div class="profile-overlay"></div>
+
+                    <div class="profile-number">
+                        OPERATIVE / 03
+                    </div>
+
+                    <div class="profile-status">
+                        ACTIVE
+                    </div>
+
+                    <div class="profile-info">
+
+                        <div class="profile-code">
+                            SUPPORT // DISGUISE
+                        </div>
+
+                        <div class="profile-name">
+                            MIRROR
+                        </div>
+
+                        <div class="profile-role">
+                            위장 전문가
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="profile-detail">
+
+                    <div class="profile-description">
+                        목표와 상황에 맞는 신분과 외형을 구성하여 현장 침투를 지원한다.
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            SPECIALTY
+                        </span>
+
+                        <span class="detail-value">
+                            DISGUISE
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- MIRROR 02 -->
+
+            <article class="profile-card">
+
+                <div class="profile-image">
+
+                    <img
+                        src="images/mirror02.jpg"
+                        alt="MIRROR 02"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <div class="image-placeholder" style="display:none;">
+                        NO IMAGE
+                    </div>
+
+                    <div class="profile-overlay"></div>
+
+                    <div class="profile-number">
+                        OPERATIVE / 04
+                    </div>
+
+                    <div class="profile-status">
+                        ACTIVE
+                    </div>
+
+                    <div class="profile-info">
+
+                        <div class="profile-code">
+                            SUPPORT // IDENTITY
+                        </div>
+
+                        <div class="profile-name">
+                            MIRROR
+                        </div>
+
+                        <div class="profile-role">
+                            위장 전문가
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="profile-detail">
+
+                    <div class="profile-description">
+                        가짜 신분과 외형, 행동 양식을 설계하여 조직원의 정체를 숨긴다.
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            SPECIALTY
+                        </span>
+
+                        <span class="detail-value">
+                            IDENTITY
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- COURIER -->
+
+            <article class="profile-card courier">
+
+                <div class="profile-image">
+
+                    <img
+                        src="images/courier.jpg"
+                        alt="COURIER"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <div class="image-placeholder" style="display:none;">
+                        NO IMAGE
+                    </div>
+
+                    <div class="profile-overlay"></div>
+
+                    <div class="profile-number">
+                        OPERATIVE / 05
+                    </div>
+
+                    <div class="profile-status">
+                        COMMAND
+                    </div>
+
+                    <div class="profile-info">
+
+                        <div class="profile-code">
+                            SUPPORT // LOGISTICS
+                        </div>
+
+                        <div class="profile-name">
+                            COURIER
+                        </div>
+
+                        <div class="profile-role">
+                            운송 · 장비 담당
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="profile-detail">
+
+                    <div class="profile-description">
+                        작전에 필요한 장비와 물자를 운송하고 현장에 필요한 지원을 제공한다.
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            SPECIALTY
+                        </span>
+
+                        <span class="detail-value">
+                            LOGISTICS
+                        </span>
+
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            AUTHORITY
+                        </span>
+
+                        <span class="detail-value">
+                            HIGH
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SUPPORT SYSTEM
+========================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="system">
+
+            <div class="system-title">
+                SUPPORT SYSTEM // OPERATIONAL STRUCTURE
+            </div>
+
+            <div class="system-grid">
+
+                <div class="system-item">
+
+                    <div class="system-number">
+                        01
+                    </div>
+
+                    <div class="system-name">
+                        ARMAMENT
+                    </div>
+
+                    <div class="system-desc">
+                        무기 및 작전 장비의 제작과 관리.
+                    </div>
+
+                </div>
+
+
+                <div class="system-item">
+
+                    <div class="system-number">
+                        02
+                    </div>
+
+                    <div class="system-name">
+                        MEDICAL
+                    </div>
+
+                    <div class="system-desc">
+                        조직원의 치료와 의료 지원.
+                    </div>
+
+                </div>
+
+
+                <div class="system-item">
+
+                    <div class="system-number">
+                        03
+                    </div>
+
+                    <div class="system-name">
+                        DISGUISE
+                    </div>
+
+                    <div class="system-desc">
+                        위장과 신분 구축을 통한 침투 지원.
+                    </div>
+
+                </div>
+
+
+                <div class="system-item">
+
+                    <div class="system-number">
+                        04
+                    </div>
+
+                    <div class="system-name">
+                        LOGISTICS
+                    </div>
+
+                    <div class="system-desc">
+                        운송, 장비, 물자의 현장 지원.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="about">
+
+            <div>
+
+                <div class="label">
+                    SUPPORT DIVISION // 03
+                </div>
+
+                <div class="about-title">
+                    THEY KEEP<br>
+                    THE VEIL ALIVE.
+                </div>
+
+            </div>
+
+
+            <div class="about-text">
+
+                지원부는 직접 목표를 제거하지 않는다.
+                <br><br>
+
+                대신 실전부가 움직일 수 있도록 무기와 장비를 준비하고,
+                부상자를 치료하며, 신분과 외형을 숨기고,
+                필요한 모든 것을 목적지까지 전달한다.
+                <br><br>
+
+                보이지 않는 곳에서 모든 작전을 가능하게 만드는 것.
+                <br><br>
+
+                <strong>지원부 — 돕는다.</strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- STATUS -->
+
+        <div class="status-box">
+
+            <div class="status-item">
+
+                <div class="status-label">
+                    DIVISION
+                </div>
+
+                <div class="status-value">
+                    SUPPORT / 03
+                </div>
+
+            </div>
+
+
+            <div class="status-item">
+
+                <div class="status-label">
+                    OPERATIVES
+                </div>
+
+                <div class="status-value">
+                    05
+                </div>
+
+            </div>
+
+
+            <div class="status-item">
+
+                <div class="status-label">
+                    MIRROR
+                </div>
+
+                <div class="status-value">
+                    02
+                </div>
+
+            </div>
+
+
+            <div class="status-item">
+
+                <div class="status-label">
+                    SUPPORT
+                </div>
+
+                <div class="status-value">
+                    05
+                </div>
+
+            </div>
+
+
+            <div class="status-item">
+
+                <div class="status-label">
+                    COMMAND
+                </div>
+
+                <div class="status-value">
+                    ARCHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BACK
+========================= -->
+
+<div class="back">
+
+    <a href="index.html">
+        ← BACK TO THE VEIL.
+    </a>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div>
+        THE VEIL.
+    </div>
+
+    <div>
+        DISCIPLINE. UNITY. SILENCE.
+    </div>
+
+    <div>
+        SUPPORT DIVISION // 03
+    </div>
+
+</footer>
+
+</body>
+</html>
