@@ -1,1001 +1,1653 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE VEIL. // CONCLAVE</title>
-
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background:
-        radial-gradient(circle at 50% 20%, rgba(255,255,255,0.035), transparent 35%),
-        linear-gradient(180deg, #080808 0%, #050505 100%);
-    color: #e8e8e8;
-    font-family: Arial, Helvetica, sans-serif;
-    min-height: 100vh;
-    letter-spacing: 0.04em;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-/* =========================
-   NAV
-========================= */
-
-.nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 68px;
-    background: rgba(5,5,5,0.88);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #1b1b1b;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 42px;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-}
-
-.nav-links {
-    display: flex;
-    gap: 26px;
-}
-
-.nav-links a {
-    font-size: 10px;
-    color: #777;
-    letter-spacing: 0.16em;
-    transition: 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links .active {
-    color: #fff;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 76vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 130px 20px 80px;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 520px;
-    height: 520px;
-    border: 1px solid #181818;
-    border-radius: 50%;
-    opacity: 0.6;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    width: 360px;
-    height: 360px;
-    border: 1px solid #141414;
-    border-radius: 50%;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.classified {
-    font-size: 10px;
-    color: #555;
-    letter-spacing: 0.35em;
-    margin-bottom: 22px;
-}
-
-.hero h1 {
-    font-size: clamp(52px, 10vw, 120px);
-    font-weight: 300;
-    letter-spacing: 0.12em;
-    line-height: 0.95;
-}
-
-.hero-sub {
-    margin-top: 24px;
-    font-size: 12px;
-    color: #777;
-    letter-spacing: 0.3em;
-}
-
-.hero-line {
-    width: 70px;
-    height: 1px;
-    background: #555;
-    margin: 30px auto;
-}
-
-.hero-korean {
-    font-size: 14px;
-    color: #bdbdbd;
-    letter-spacing: 0.35em;
-}
-
-/* =========================
-   SECTION
-========================= */
-
-.section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 90px 24px;
-}
-
-.section-label {
-    font-size: 9px;
-    color: #555;
-    letter-spacing: 0.3em;
-    margin-bottom: 15px;
-}
-
-.section-title {
-    font-size: 30px;
-    font-weight: 300;
-    letter-spacing: 0.14em;
-}
-
-.section-description {
-    max-width: 680px;
-    margin-top: 18px;
-    color: #777;
-    font-size: 12px;
-    line-height: 2;
-}
-
-/* =========================
-   AUTHORITY
-========================= */
-
-.authority {
-    border-top: 1px solid #1b1b1b;
-    border-bottom: 1px solid #1b1b1b;
-    padding: 50px 0;
-}
-
-.authority-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: #1a1a1a;
-    margin-top: 45px;
-}
-
-.authority-item {
-    background: #080808;
-    padding: 38px 28px;
-    min-height: 190px;
-}
-
-.authority-number {
-    font-size: 10px;
-    color: #444;
-    letter-spacing: 0.2em;
-}
-
-.authority-item h3 {
-    margin-top: 28px;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-}
-
-.authority-item p {
-    margin-top: 14px;
-    color: #666;
-    font-size: 11px;
-    line-height: 1.8;
-}
-
-/* =========================
-   COMMAND
-========================= */
-
-.command {
-    margin-top: 20px;
-    border: 1px solid #242424;
-    background:
-        linear-gradient(135deg, rgba(255,255,255,0.025), transparent 50%),
-        #080808;
-    padding: 55px;
-    position: relative;
-}
-
-.command::before {
-    content: "CLASSIFIED";
-    position: absolute;
-    top: 18px;
-    right: 22px;
-    font-size: 8px;
-    color: #333;
-    letter-spacing: 0.25em;
-}
-
-.command-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-bottom: 1px solid #1d1d1d;
-    padding-bottom: 30px;
-}
-
-.command-code {
-    font-size: 9px;
-    color: #555;
-    letter-spacing: 0.2em;
-}
-
-.command h2 {
-    margin-top: 12px;
-    font-size: 42px;
-    font-weight: 300;
-    letter-spacing: 0.15em;
-}
-
-.command-role {
-    font-size: 11px;
-    color: #777;
-    margin-top: 8px;
-}
-
-.command-status {
-    font-size: 9px;
-    color: #aaa;
-    border: 1px solid #333;
-    padding: 9px 14px;
-    letter-spacing: 0.15em;
-}
-
-.command-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    padding-top: 35px;
-}
-
-.info-row {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #171717;
-    padding: 13px 0;
-}
-
-.info-row span:first-child {
-    color: #555;
-    font-size: 9px;
-    letter-spacing: 0.15em;
-}
-
-.info-row span:last-child {
-    color: #aaa;
-    font-size: 10px;
-}
-
-/* =========================
-   OPERATIONS
-========================= */
-
-.operations {
-    margin-top: 90px;
-}
-
-.operation-list {
-    margin-top: 45px;
-    border-top: 1px solid #1c1c1c;
-}
-
-.operation {
-    display: grid;
-    grid-template-columns: 70px 180px 1fr;
-    gap: 20px;
-    padding: 25px 0;
-    border-bottom: 1px solid #171717;
-    align-items: center;
-}
-
-.operation-number {
-    color: #444;
-    font-size: 10px;
-}
-
-.operation-name {
-    font-size: 12px;
-    letter-spacing: 0.16em;
-}
-
-.operation-desc {
-    color: #666;
-    font-size: 11px;
-    line-height: 1.7;
-}
-
-/* =========================
-   RULE
-========================= */
-
-.rule-box {
-    margin-top: 90px;
-    text-align: center;
-    padding: 75px 20px;
-    border-top: 1px solid #171717;
-    border-bottom: 1px solid #171717;
-}
-
-.rule-small {
-    color: #444;
-    font-size: 9px;
-    letter-spacing: 0.3em;
-}
-
-.rule-main {
-    margin-top: 25px;
-    font-size: clamp(26px, 5vw, 52px);
-    font-weight: 300;
-    letter-spacing: 0.12em;
-}
-
-.rule-sub {
-    margin-top: 18px;
-    color: #666;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-}
-
-/* =========================
-   STATUS
-========================= */
-
-.status {
-    margin-top: 90px;
-}
-
-.status-box {
-    margin-top: 35px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    border: 1px solid #1e1e1e;
-}
-
-.status-item {
-    padding: 25px;
-    border-right: 1px solid #1e1e1e;
-}
-
-.status-item:last-child {
-    border-right: none;
-}
-
-.status-label {
-    font-size: 8px;
-    color: #444;
-    letter-spacing: 0.2em;
-}
-
-.status-value {
-    margin-top: 12px;
-    font-size: 12px;
-    color: #aaa;
-    letter-spacing: 0.12em;
-}
-
-/* =========================
-   BACK
-========================= */
-
-.back {
-    text-align: center;
-    padding: 70px 20px;
-}
-
-.back a {
-    display: inline-block;
-    border: 1px solid #292929;
-    padding: 14px 25px;
-    font-size: 9px;
-    color: #666;
-    letter-spacing: 0.2em;
-    transition: 0.3s;
-}
-
-.back a:hover {
-    color: #fff;
-    border-color: #555;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    border-top: 1px solid #171717;
-    padding: 35px 20px;
-    text-align: center;
-}
-
-footer p {
-    font-size: 8px;
-    color: #333;
-    letter-spacing: 0.25em;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 800px) {
-
-    .nav {
-        padding: 0 20px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .authority-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .command {
-        padding: 35px 25px;
-    }
-
-    .command-top {
-        flex-direction: column;
-        gap: 25px;
-    }
-
-    .command-body {
-        grid-template-columns: 1fr;
-    }
-
-    .operation {
-        grid-template-columns: 45px 1fr;
-    }
-
-    .operation-desc {
-        grid-column: 2;
-    }
-
-    .status-box {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .status-item {
-        border-bottom: 1px solid #1e1e1e;
-    }
-
-    .status-item:nth-child(2) {
-        border-right: none;
-    }
-
-    .status-item:nth-child(3),
-    .status-item:nth-child(4) {
-        border-bottom: none;
-    }
-}
-
-@media (max-width: 500px) {
-
-    .hero {
-        min-height: 70vh;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-    }
-
-    .section {
-        padding: 70px 20px;
-    }
-
-    .command h2 {
-        font-size: 30px;
-    }
-
-    .status-box {
-        grid-template-columns: 1fr;
-    }
-
-    .status-item {
-        border-right: none !important;
-        border-bottom: 1px solid #1e1e1e !important;
-    }
-
-    .status-item:last-child {
-        border-bottom: none !important;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CONCLAVE // THE VEIL.</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(255,255,255,0.035),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 50% 80%,
+                    rgba(255,255,255,0.02),
+                    transparent 40%
+                ),
+                #050505;
+
+            color: #f2f2f2;
+
+            font-family:
+                "Noto Sans KR",
+                "Pretendard",
+                Arial,
+                sans-serif;
+
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(255,255,255,0.018) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.012) 1px,
+                    transparent 1px
+                );
+
+            background-size: 70px 70px;
+
+            pointer-events: none;
+            opacity: 0.18;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    transparent 35%,
+                    rgba(0,0,0,0.72) 100%
+                );
+
+            pointer-events: none;
+            z-index: -1;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .top-nav {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            height: 64px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(5,5,5,0.88);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            width: min(1200px, calc(100% - 40px));
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            letter-spacing: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #777;
+
+            text-decoration: none;
+
+            font-size: 11px;
+            letter-spacing: 2px;
+
+            transition:
+                color 0.25s ease,
+                text-shadow 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+
+            text-shadow:
+                0 0 12px rgba(255,255,255,0.35);
+        }
+
+        .nav-links a.active {
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page {
+            width: min(1400px, calc(100% - 60px));
+
+            margin: 0 auto;
+
+            padding-top: 64px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 270px;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding:
+                90px 20px
+                50px;
+        }
+
+        .hero-label {
+            color: #777;
+
+            font-size: 10px;
+            letter-spacing: 5px;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(48px, 8vw, 88px);
+
+            font-weight: 400;
+
+            letter-spacing: 8px;
+
+            color: #f4f4f4;
+
+            text-shadow:
+                0 0 30px rgba(255,255,255,0.08);
+        }
+
+        .hero-line {
+            width: 100px;
+            height: 1px;
+
+            background: #444;
+
+            margin: 25px 0 18px;
+        }
+
+        .hero-subtitle {
+            color: #888;
+
+            font-size: 12px;
+
+            letter-spacing: 5px;
+        }
+
+
+        /* =========================
+           CONCLAVE STRUCTURE
+        ========================= */
+
+        .conclave-structure {
+            width: 100%;
+
+            padding:
+                10px 0
+                100px;
+        }
+
+
+        /* =========================
+           ARCHON
+        ========================= */
+
+        .archon-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            position: relative;
+
+            margin-bottom: 90px;
+        }
+
+        .archon-title {
+            margin-bottom: 22px;
+
+            text-align: center;
+        }
+
+        .archon-title .small {
+            display: block;
+
+            color: #777;
+
+            font-size: 10px;
+            letter-spacing: 4px;
+
+            margin-bottom: 8px;
+        }
+
+        .archon-title h2 {
+            color: #ffffff;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 27px;
+
+            font-weight: 400;
+
+            letter-spacing: 5px;
+        }
+
+        .archon-card {
+            width: 260px;
+        }
+
+        .archon-image {
+            position: relative;
+
+            width: 100%;
+            height: 350px;
+
+            border: 1px solid #444;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #111,
+                    #070707
+                );
+
+            overflow: hidden;
+
+            box-shadow:
+                0 0 35px rgba(0,0,0,0.7);
+
+            transition:
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .archon-image::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent 55%,
+                    rgba(0,0,0,0.7)
+                );
+
+            pointer-events: none;
+        }
+
+        .archon-image:hover {
+            border-color: #777;
+
+            box-shadow:
+                0 0 45px rgba(255,255,255,0.08);
+
+            transform: translateY(-4px);
+        }
+
+        .archon-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            filter:
+                grayscale(100%)
+                contrast(1.05);
+
+            opacity: 0.92;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.5s ease;
+        }
+
+        .archon-image:hover img {
+            opacity: 1;
+            transform: scale(1.025);
+        }
+
+        .archon-image.no-image::before {
+            content: "PROFILE";
+
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            color: #444;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 18px;
+
+            letter-spacing: 5px;
+        }
+
+        .archon-info {
+            text-align: center;
+
+            padding-top: 18px;
+        }
+
+        .archon-name {
+            font-size: 14px;
+
+            letter-spacing: 4px;
+
+            color: #eee;
+        }
+
+        .archon-role {
+            margin-top: 7px;
+
+            color: #666;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+        }
+
+
+        /* =========================
+           CONNECTING LINE
+        ========================= */
+
+        .hierarchy-line {
+            position: absolute;
+
+            left: 50%;
+            bottom: -70px;
+
+            width: 1px;
+            height: 70px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #555,
+                    rgba(255,255,255,0.08)
+                );
+
+            transform: translateX(-50%);
+        }
+
+
+        /* =========================
+           CONCLAVE MEMBERS
+        ========================= */
+
+        .members-section {
+            position: relative;
+
+            padding-top: 5px;
+        }
+
+        .members-header {
+            text-align: center;
+
+            margin-bottom: 34px;
+        }
+
+        .members-header span {
+            color: #666;
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+        }
+
+        .members-header h3 {
+            margin-top: 9px;
+
+            color: #d8d8d8;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+
+            font-size: 17px;
+
+            letter-spacing: 4px;
+        }
+
+
+        /* =========================
+           FOUR MEMBERS
+        ========================= */
+
+        .members-grid {
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+
+            position: relative;
+        }
+
+        .member {
+            position: relative;
+
+            min-width: 0;
+
+            text-align: center;
+        }
+
+        .member-name {
+            min-height: 22px;
+
+            margin-bottom: 12px;
+
+            color: #e8e8e8;
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+        }
+
+        .member-code {
+            display: block;
+
+            margin-top: 5px;
+
+            color: #555;
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+        }
+
+        .member-card {
+            position: relative;
+
+            width: 100%;
+
+            height: 330px;
+
+            border: 1px solid #3d3d3d;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #111,
+                    #080808
+                );
+
+            overflow: hidden;
+
+            box-shadow:
+                0 0 25px rgba(0,0,0,0.55);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .member-card::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            border: 1px solid transparent;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.07),
+                    transparent 30%,
+                    transparent 70%,
+                    rgba(255,255,255,0.03)
+                );
+
+            pointer-events: none;
+        }
+
+        .member-card::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            height: 35%;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.7),
+                    transparent
+                );
+
+            pointer-events: none;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #777;
+
+            box-shadow:
+                0 0 35px rgba(255,255,255,0.055);
+        }
+
+        .member-card img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            filter:
+                grayscale(100%)
+                contrast(1.05);
+
+            opacity: 0.88;
+
+            transition:
+                transform 0.5s ease,
+                opacity 0.3s ease;
+        }
+
+        .member-card:hover img {
+            transform: scale(1.03);
+
+            opacity: 1;
+        }
+
+        .member-card.no-image::before {
+            content: "PROFILE";
+
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            color: #3d3d3d;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 15px;
+
+            letter-spacing: 4px;
+
+            z-index: 2;
+        }
+
+        .member-number {
+            position: absolute;
+
+            top: 14px;
+            left: 15px;
+
+            color: #777;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            z-index: 3;
+        }
+
+        .member-status {
+            position: absolute;
+
+            right: 15px;
+            bottom: 14px;
+
+            color: #999;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            z-index: 3;
+        }
+
+
+        /* =========================
+           MEMBER DETAILS
+        ========================= */
+
+        .member-detail {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-top: 12px;
+
+            padding:
+                0 3px;
+
+            color: #555;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 8px;
+
+            letter-spacing: 1.5px;
+        }
+
+        .member-detail strong {
+            color: #888;
+
+            font-weight: normal;
+        }
+
+
+        /* =========================
+           AUTHORITY SECTION
+        ========================= */
+
+        .authority-section {
+            margin-top: 90px;
+
+            border-top: 1px solid #222;
+
+            border-bottom: 1px solid #222;
+
+            padding:
+                38px 0;
+        }
+
+        .authority-title {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+        .authority-title span {
+            color: #555;
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+        }
+
+        .authority-title h3 {
+            margin-top: 8px;
+
+            color: #ddd;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-weight: 400;
+
+            font-size: 19px;
+
+            letter-spacing: 4px;
+        }
+
+        .authority-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 1px;
+
+            background: #222;
+
+            border: 1px solid #222;
+        }
+
+        .authority-item {
+            background: #080808;
+
+            min-height: 130px;
+
+            padding: 28px 20px;
+
+            text-align: center;
+        }
+
+        .authority-number {
+            color: #444;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+        }
+
+        .authority-item h4 {
+            margin-top: 13px;
+
+            color: #ddd;
+
+            font-size: 11px;
+
+            font-weight: 400;
+
+            letter-spacing: 3px;
+        }
+
+        .authority-item p {
+            margin-top: 10px;
+
+            color: #666;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           BOTTOM STATEMENT
+        ========================= */
+
+        .statement {
+            text-align: center;
+
+            padding:
+                100px 20px
+                80px;
+        }
+
+        .statement-line {
+            width: 50px;
+            height: 1px;
+
+            background: #444;
+
+            margin:
+                0 auto
+                25px;
+        }
+
+        .statement h2 {
+            color: #eee;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(22px, 4vw, 35px);
+
+            font-weight: 400;
+
+            letter-spacing: 5px;
+        }
+
+        .statement p {
+            margin-top: 15px;
+
+            color: #555;
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #181818;
+
+            padding:
+                30px 0
+                45px;
+
+            text-align: center;
+        }
+
+        .footer-main {
+            color: #666;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 12px;
+
+            letter-spacing: 5px;
+        }
+
+        .footer-sub {
+            margin-top: 10px;
+
+            color: #333;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            color: #555;
+
+            text-decoration: none;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            border: 1px solid #292929;
+
+            padding:
+                11px 20px;
+
+            transition:
+                color 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .back-link:hover {
+            color: #ddd;
+
+            border-color: #666;
+
+            background: rgba(255,255,255,0.025);
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 9px;
+
+                letter-spacing: 1.5px;
+            }
+
+            .members-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 35px 18px;
+            }
+
+            .member-card {
+                height: 350px;
+            }
+
+            .authority-grid {
+                grid-template-columns:
+                    1fr;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .top-nav {
+                height: 58px;
+            }
+
+            .nav-inner {
+                width:
+                    calc(100% - 24px);
+            }
+
+            .nav-logo {
+                font-size: 11px;
+
+                letter-spacing: 3px;
+            }
+
+            .nav-links {
+                gap: 9px;
+            }
+
+            .nav-links a {
+                font-size: 7px;
+
+                letter-spacing: 1px;
+            }
+
+            .page {
+                width:
+                    calc(100% - 28px);
+
+                padding-top: 58px;
+            }
+
+            .hero {
+                min-height: 220px;
+
+                padding:
+                    70px 10px
+                    35px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+
+                letter-spacing: 5px;
+            }
+
+            .hero-label {
+                font-size: 8px;
+
+                letter-spacing: 3px;
+            }
+
+            .hero-subtitle {
+                font-size: 8px;
+
+                letter-spacing: 3px;
+            }
+
+            .archon-card {
+                width: 210px;
+            }
+
+            .archon-image {
+                height: 290px;
+            }
+
+            .hierarchy-line {
+                bottom: -55px;
+
+                height: 55px;
+            }
+
+            .archon-section {
+                margin-bottom: 75px;
+            }
+
+            .members-header {
+                margin-bottom: 25px;
+            }
+
+            .members-grid {
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap: 28px 10px;
+            }
+
+            .member-name {
+                font-size: 9px;
+
+                letter-spacing: 2px;
+
+                margin-bottom: 8px;
+            }
+
+            .member-card {
+                height: 270px;
+            }
+
+            .member-number {
+                top: 9px;
+                left: 9px;
+
+                font-size: 7px;
+            }
+
+            .member-status {
+                right: 9px;
+                bottom: 9px;
+
+                font-size: 6px;
+            }
+
+            .member-detail {
+                font-size: 6px;
+
+                margin-top: 8px;
+            }
+
+            .authority-section {
+                margin-top: 65px;
+
+                padding:
+                    30px 0;
+            }
+
+            .authority-item {
+                min-height: 110px;
+
+                padding: 23px 15px;
+            }
+
+            .statement {
+                padding:
+                    70px 10px
+                    60px;
+            }
+
+            .statement h2 {
+                font-size: 20px;
+
+                letter-spacing: 3px;
+            }
+
+            .statement p {
+                font-size: 7px;
+
+                letter-spacing: 2px;
+            }
+
+            footer {
+                padding-bottom: 35px;
+            }
+        }
+
+
+        /* =========================
+           VERY SMALL MOBILE
+        ========================= */
+
+        @media (max-width: 390px) {
+
+            .nav-links {
+                gap: 6px;
+            }
+
+            .nav-links a:nth-child(4),
+            .nav-links a:nth-child(5) {
+                display: none;
+            }
+
+            .members-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .member-card {
+                height: 360px;
+            }
+
+            .member-name {
+                font-size: 11px;
+            }
+
+            .archon-card {
+                width: 220px;
+            }
+        }
+    </style>
 </head>
+
 
 <body>
 
-<!-- =========================
-     NAV
-========================= -->
+    <!-- =========================
+         TOP NAVIGATION
+    ========================== -->
 
-<nav class="nav">
-    <a href="index.html" class="logo">THE VEIL.</a>
+    <nav class="top-nav">
 
-    <div class="nav-links">
-        <a href="field.html">FIELD</a>
-        <a href="intel.html">INTEL</a>
-        <a href="support.html">SUPPORT</a>
-        <a href="process.html">PROCESS</a>
-        <a href="enforcement.html" class="active">ENFORCEMENT</a>
-    </div>
-</nav>
+        <div class="nav-inner">
 
+            <a
+                href="index.html"
+                class="nav-logo"
+            >
+                THE VEIL.
+            </a>
 
-<!-- =========================
-     HERO
-========================= -->
+            <div class="nav-links">
 
-<header class="hero">
+                <a
+                    href="field.html"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    FIELD
+                </a>
 
-    <div class="hero-content">
+                <a
+                    href="intel.html"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    INTEL
+                </a>
 
-        <div class="classified">
-            CLASSIFIED ORGANIZATION // 005
-        </div>
+                <a
+                    href="support.html"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    SUPPORT
+                </a>
 
-        <h1>ENFORCEMENT</h1>
+                <a
+                    href="process.html"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    PROCESS
+                </a>
 
-        <div class="hero-sub">
-            ENFORCEMENT DIVISION
-        </div>
+                <a
+                    href="conclave.html"
+                    class="active"
+                >
+                    CONCLAVE
+                </a>
 
-        <div class="hero-line"></div>
-
-        <div class="hero-korean">
-            집행부 — 명령을 집행한다.
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- =========================
-     INTRO
-========================= -->
-
-<section class="section">
-
-    <div class="section-label">
-        DIVISION // 05
-    </div>
-
-    <h2 class="section-title">
-        ENFORCEMENT
-    </h2>
-
-    <p class="section-description">
-        집행부는 THE VEIL.의 명령과 규율을 직접 집행하는 조직이다.
-        조직 내부의 질서를 유지하고, 규칙을 위반한 자를 처리하며,
-        ARCHON의 명령을 각 부서에 전달하고 실행한다.
-    </p>
-
-</section>
-
-
-<!-- =========================
-     AUTHORITY
-========================= -->
-
-<section class="section authority">
-
-    <div class="section-label">
-        AUTHORITY
-    </div>
-
-    <h2 class="section-title">
-        AUTHORITY STRUCTURE
-    </h2>
-
-    <div class="authority-grid">
-
-        <div class="authority-item">
-
-            <div class="authority-number">
-                01
             </div>
 
-            <h3>COMMAND</h3>
-
-            <p>
-                ARCHON의 명령을 전달하고
-                조직 전체에 실행한다.
-            </p>
-
         </div>
 
+    </nav>
 
-        <div class="authority-item">
 
-            <div class="authority-number">
-                02
+    <!-- =========================
+         MAIN PAGE
+    ========================== -->
+
+    <main class="page">
+
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section class="hero">
+
+            <div class="hero-label">
+                ADMINISTRATION // 01
             </div>
 
-            <h3>DISCIPLINE</h3>
+            <h1>
+                CONCLAVE
+            </h1>
 
-            <p>
-                조직의 규칙과 내부 질서를
-                감시하고 유지한다.
-            </p>
+            <div class="hero-line"></div>
 
-        </div>
-
-
-        <div class="authority-item">
-
-            <div class="authority-number">
-                03
+            <div class="hero-subtitle">
+                EXECUTIVE COUNCIL
             </div>
 
-            <h3>EXECUTION</h3>
-
-            <p>
-                조직에 대한 위반과 배신에
-                대한 처분을 집행한다.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
+        </section>
 
 
-<!-- =========================
-     COMMANDER
-========================= -->
+        <!-- =========================
+             STRUCTURE
+        ========================== -->
 
-<section class="section">
+        <section class="conclave-structure">
 
-    <div class="section-label">
-        COMMAND STRUCTURE
-    </div>
 
-    <h2 class="section-title">
-        COMMAND
-    </h2>
+            <!-- =========================
+                 ARCHON
+            ========================== -->
 
-    <div class="command">
+            <div class="archon-section">
 
-        <div class="command-top">
+                <div class="archon-title">
 
-            <div>
+                    <span class="small">
+                        COMMAND
+                    </span>
 
-                <div class="command-code">
-                    EXECUTIVE // 01
+                    <h2>
+                        ARCHON
+                    </h2>
+
                 </div>
 
-                <h2>ENFORCER</h2>
 
-                <div class="command-role">
-                    집행관 · 관리자
+                <div class="archon-card">
+
+                    <div class="archon-image">
+
+                        <img
+                            src="images/archon.jpg"
+                            alt="ARCHON profile"
+                            onerror="this.style.display='none'; this.parentElement.classList.add('no-image');"
+                        >
+
+                    </div>
+
+                    <div class="archon-info">
+
+                        <div class="archon-name">
+                            최산
+                        </div>
+
+                        <div class="archon-role">
+                            NOX // ARCHON
+                        </div>
+
+                    </div>
+
                 </div>
 
+
+                <div class="hierarchy-line"></div>
+
             </div>
 
-            <div class="command-status">
-                ACTIVE
-            </div>
 
-        </div>
+            <!-- =========================
+                 CONCLAVE MEMBERS
+            ========================== -->
 
+            <section class="members-section">
 
-        <div class="command-body">
+                <div class="members-header">
 
-            <div>
+                    <span>
+                        ADMINISTRATION
+                    </span>
 
-                <div class="info-row">
-                    <span>DESIGNATION</span>
-                    <span>ENFORCER</span>
+                    <h3>
+                        CONCLAVE MEMBERS
+                    </h3>
+
                 </div>
 
-                <div class="info-row">
-                    <span>ROLE</span>
-                    <span>EXECUTIVE</span>
+
+                <div class="members-grid">
+
+
+                    <!-- MEMBER 01 -->
+
+                    <article class="member">
+
+                        <div class="member-name">
+                            CONCLAVE 01
+
+                            <span class="member-code">
+                                EXECUTIVE // 01
+                            </span>
+                        </div>
+
+                        <div class="member-card">
+
+                            <span class="member-number">
+                                01
+                            </span>
+
+                            <img
+                                src="images/conclave01.jpg"
+                                alt="CONCLAVE member 01"
+                                onerror="this.style.display='none'; this.parentElement.classList.add('no-image');"
+                            >
+
+                            <span class="member-status">
+                                ACTIVE
+                            </span>
+
+                        </div>
+
+                        <div class="member-detail">
+                            <span>DESIGNATION</span>
+                            <strong>COUNCIL</strong>
+                        </div>
+
+                    </article>
+
+
+                    <!-- MEMBER 02 -->
+
+                    <article class="member">
+
+                        <div class="member-name">
+                            CONCLAVE 02
+
+                            <span class="member-code">
+                                EXECUTIVE // 02
+                            </span>
+                        </div>
+
+                        <div class="member-card">
+
+                            <span class="member-number">
+                                02
+                            </span>
+
+                            <img
+                                src="images/conclave02.jpg"
+                                alt="CONCLAVE member 02"
+                                onerror="this.style.display='none'; this.parentElement.classList.add('no-image');"
+                            >
+
+                            <span class="member-status">
+                                ACTIVE
+                            </span>
+
+                        </div>
+
+                        <div class="member-detail">
+                            <span>DESIGNATION</span>
+                            <strong>COUNCIL</strong>
+                        </div>
+
+                    </article>
+
+
+                    <!-- MEMBER 03 -->
+
+                    <article class="member">
+
+                        <div class="member-name">
+                            CONCLAVE 03
+
+                            <span class="member-code">
+                                EXECUTIVE // 03
+                            </span>
+                        </div>
+
+                        <div class="member-card">
+
+                            <span class="member-number">
+                                03
+                            </span>
+
+                            <img
+                                src="images/conclave03.jpg"
+                                alt="CONCLAVE member 03"
+                                onerror="this.style.display='none'; this.parentElement.classList.add('no-image');"
+                            >
+
+                            <span class="member-status">
+                                ACTIVE
+                            </span>
+
+                        </div>
+
+                        <div class="member-detail">
+                            <span>DESIGNATION</span>
+                            <strong>COUNCIL</strong>
+                        </div>
+
+                    </article>
+
+
+                    <!-- MEMBER 04 -->
+
+                    <article class="member">
+
+                        <div class="member-name">
+                            CONCLAVE 04
+
+                            <span class="member-code">
+                                EXECUTIVE // 04
+                            </span>
+                        </div>
+
+                        <div class="member-card">
+
+                            <span class="member-number">
+                                04
+                            </span>
+
+                            <img
+                                src="images/conclave04.jpg"
+                                alt="CONCLAVE member 04"
+                                onerror="this.style.display='none'; this.parentElement.classList.add('no-image');"
+                            >
+
+                            <span class="member-status">
+                                ACTIVE
+                            </span>
+
+                        </div>
+
+                        <div class="member-detail">
+                            <span>DESIGNATION</span>
+                            <strong>COUNCIL</strong>
+                        </div>
+
+                    </article>
+
+
                 </div>
 
-                <div class="info-row">
-                    <span>AUTHORITY</span>
-                    <span>HIGH</span>
+            </section>
+
+
+            <!-- =========================
+                 AUTHORITY
+            ========================== -->
+
+            <section class="authority-section">
+
+                <div class="authority-title">
+
+                    <span>
+                        AUTHORITY
+                    </span>
+
+                    <h3>
+                        EXECUTIVE FUNCTION
+                    </h3>
+
                 </div>
 
-            </div>
+
+                <div class="authority-grid">
+
+                    <div class="authority-item">
+
+                        <div class="authority-number">
+                            01
+                        </div>
+
+                        <h4>
+                            ORDER
+                        </h4>
+
+                        <p>
+                            조직 전체의 명령 체계를 관리한다.
+                        </p>
+
+                    </div>
 
 
-            <div>
+                    <div class="authority-item">
 
-                <div class="info-row">
-                    <span>COMMAND</span>
-                    <span>ARCHON</span>
+                        <div class="authority-number">
+                            02
+                        </div>
+
+                        <h4>
+                            CONTROL
+                        </h4>
+
+                        <p>
+                            각 부서의 운영과 질서를 감독한다.
+                        </p>
+
+                    </div>
+
+
+                    <div class="authority-item">
+
+                        <div class="authority-number">
+                            03
+                        </div>
+
+                        <h4>
+                            OVERSIGHT
+                        </h4>
+
+                        <p>
+                            조직의 규율과 기밀을 유지한다.
+                        </p>
+
+                    </div>
+
                 </div>
 
-                <div class="info-row">
-                    <span>DIVISION</span>
-                    <span>ENFORCEMENT</span>
-                </div>
+            </section>
 
-                <div class="info-row">
-                    <span>STATUS</span>
-                    <span>ACTIVE</span>
-                </div>
 
+            <!-- =========================
+                 STATEMENT
+            ========================== -->
+
+            <section class="statement">
+
+                <div class="statement-line"></div>
+
+                <h2>
+                    ORDER ABOVE ALL.
+                </h2>
+
+                <p>
+                    CONCLAVE // THE VEIL.
+                </p>
+
+            </section>
+
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <footer>
+
+            <div class="footer-main">
+                THE VEIL.
             </div>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     OPERATIONS
-========================= -->
-
-<section class="section operations">
-
-    <div class="section-label">
-        EXECUTIVE FUNCTIONS
-    </div>
-
-    <h2 class="section-title">
-        OPERATIONS
-    </h2>
-
-    <div class="operation-list">
-
-        <div class="operation">
-
-            <div class="operation-number">
-                01
+            <div class="footer-sub">
+                CLASSIFIED // INTERNAL USE ONLY
             </div>
 
-            <div class="operation-name">
-                COMMAND
-            </div>
+            <a
+                href="index.html"
+                class="back-link"
+            >
+                RETURN TO THE VEIL
+            </a>
 
-            <div class="operation-desc">
-                ARCHON의 명령을 각 부서에 전달하고 실행 상태를 확인한다.
-            </div>
+        </footer>
 
-        </div>
 
-
-        <div class="operation">
-
-            <div class="operation-number">
-                02
-            </div>
-
-            <div class="operation-name">
-                CONTROL
-            </div>
-
-            <div class="operation-desc">
-                조직 내부의 활동과 각 부서의 규율 준수 여부를 관리한다.
-            </div>
-
-        </div>
-
-
-        <div class="operation">
-
-            <div class="operation-number">
-                03
-            </div>
-
-            <div class="operation-name">
-                DISCIPLINE
-            </div>
-
-            <div class="operation-desc">
-                조직의 규칙을 위반한 조직원을 조사하고 필요한 조치를 집행한다.
-            </div>
-
-        </div>
-
-
-        <div class="operation">
-
-            <div class="operation-number">
-                04
-            </div>
-
-            <div class="operation-name">
-                JUDGMENT
-            </div>
-
-            <div class="operation-desc">
-                조직에 대한 배신과 중대한 위반 사항을 판정하고 처분을 결정한다.
-            </div>
-
-        </div>
-
-
-        <div class="operation">
-
-            <div class="operation-number">
-                05
-            </div>
-
-            <div class="operation-name">
-                EXECUTION
-            </div>
-
-            <div class="operation-desc">
-                결정된 명령과 처분을 직접 집행한다.
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     RULE
-========================= -->
-
-<section class="section">
-
-    <div class="rule-box">
-
-        <div class="rule-small">
-            ENFORCEMENT PROTOCOL
-        </div>
-
-        <div class="rule-main">
-            ORDERS ARE NOT REQUESTS.
-        </div>
-
-        <div class="rule-sub">
-            명령은 부탁이 아니다.
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     STATUS
-========================= -->
-
-<section class="section status">
-
-    <div class="section-label">
-        SYSTEM STATUS
-    </div>
-
-    <h2 class="section-title">
-        DIVISION STATUS
-    </h2>
-
-    <div class="status-box">
-
-        <div class="status-item">
-
-            <div class="status-label">
-                DIVISION
-            </div>
-
-            <div class="status-value">
-                ENFORCEMENT / 05
-            </div>
-
-        </div>
-
-
-        <div class="status-item">
-
-            <div class="status-label">
-                DESIGNATION
-            </div>
-
-            <div class="status-value">
-                EXECUTIVE
-            </div>
-
-        </div>
-
-
-        <div class="status-item">
-
-            <div class="status-label">
-                AUTHORITY
-            </div>
-
-            <div class="status-value">
-                HIGH
-            </div>
-
-        </div>
-
-
-        <div class="status-item">
-
-            <div class="status-label">
-                COMMAND
-            </div>
-
-            <div class="status-value">
-                ARCHON
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     BACK
-========================= -->
-
-<div class="back">
-
-    <a href="index.html">
-        RETURN TO THE VEIL.
-    </a>
-
-</div>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <p>
-        THE VEIL. // ENFORCEMENT DIVISION // CLASSIFIED
-    </p>
-
-</footer>
+    </main>
 
 </body>
 </html>
