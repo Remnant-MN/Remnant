@@ -32,7 +32,7 @@ a {
 }
 
 /* =========================
-   ACCESS
+   ACCESS SCREEN
 ========================= */
 
 #access-screen {
@@ -112,7 +112,7 @@ a {
 }
 
 /* =========================
-   MAIN
+   MAIN SITE
 ========================= */
 
 #main-site {
@@ -120,7 +120,7 @@ a {
 }
 
 /* =========================
-   NAV
+   NAVIGATION
 ========================= */
 
 .nav {
@@ -129,13 +129,18 @@ a {
     left: 0;
     width: 100%;
     height: 68px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 0 42px;
+
     background: rgba(4,4,4,0.86);
     backdrop-filter: blur(12px);
+
     border-bottom: 1px solid #171717;
+
     z-index: 1000;
 }
 
@@ -167,29 +172,39 @@ a {
 
 .hero {
     min-height: 100vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     padding: 100px 20px;
+
     position: relative;
     overflow: hidden;
 }
 
 .hero::before {
     content: "";
+
     position: absolute;
+
     width: 650px;
     height: 650px;
+
     border: 1px solid #151515;
     border-radius: 50%;
 }
 
 .hero::after {
     content: "";
+
     position: absolute;
+
     width: 450px;
     height: 450px;
+
     border: 1px solid #111;
     border-radius: 50%;
 }
@@ -201,57 +216,76 @@ a {
 
 .classified {
     color: #444;
+
     font-size: 9px;
+
     letter-spacing: 0.35em;
+
     margin-bottom: 28px;
 }
 
 .hero h1 {
     font-size: clamp(60px, 12vw, 150px);
+
     font-weight: 300;
+
     letter-spacing: 0.12em;
 }
 
 .hero-sub {
     margin-top: 25px;
+
     color: #555;
+
     font-size: 11px;
+
     letter-spacing: 0.35em;
 }
 
 .hero-line {
     width: 70px;
     height: 1px;
+
     background: #444;
+
     margin: 30px auto;
 }
 
 .hero-motto {
     font-size: 12px;
+
     color: #777;
+
     letter-spacing: 0.25em;
 }
 
 /* =========================
-   SECTIONS
+   SECTION
 ========================= */
 
 .section {
     max-width: 1100px;
+
     margin: auto;
+
     padding: 110px 25px;
 }
 
 .section-label {
     color: #444;
+
     font-size: 9px;
+
     letter-spacing: 0.3em;
+
     margin-bottom: 15px;
 }
 
 .section-title {
     font-size: 30px;
+
     font-weight: 300;
+
     letter-spacing: 0.15em;
 }
 
@@ -266,68 +300,111 @@ a {
 
 .archon-card {
     margin-top: 50px;
+
     display: grid;
+
     grid-template-columns: 220px 1fr;
+
     gap: 55px;
+
     align-items: center;
+
     border: 1px solid #202020;
+
     padding: 45px;
-    background: linear-gradient(135deg, #090909, #050505);
+
+    background:
+        linear-gradient(
+            135deg,
+            #090909,
+            #050505
+        );
 }
 
 .archon-symbol {
     width: 180px;
     height: 180px;
+
     border: 1px solid #333;
+
     border-radius: 50%;
+
     margin: auto;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     position: relative;
 }
 
 .archon-symbol::before {
     content: "";
+
     width: 4px;
     height: 105px;
+
     background: #777;
-    clip-path: polygon(50% 0, 100% 100%, 50% 82%, 0 100%);
+
+    clip-path:
+        polygon(
+            50% 0,
+            100% 100%,
+            50% 82%,
+            0 100%
+        );
 }
 
 .archon-small {
     font-size: 9px;
+
     color: #444;
+
     letter-spacing: 0.3em;
 }
 
 .archon-name {
     margin-top: 15px;
+
     font-size: 38px;
+
     font-weight: 300;
+
     letter-spacing: 0.12em;
 }
 
 .archon-position {
     margin-top: 10px;
+
     color: #888;
+
     font-size: 12px;
+
     letter-spacing: 0.25em;
 }
 
 .archon-call {
     margin-top: 5px;
+
     color: #444;
+
     font-size: 10px;
+
     letter-spacing: 0.2em;
 }
 
 .archon-motto {
     margin-top: 30px;
+
     padding-top: 25px;
+
     border-top: 1px solid #1b1b1b;
+
     color: #666;
+
     font-size: 11px;
+
     line-height: 2;
 }
 
@@ -341,93 +418,139 @@ a {
 
 .conclave-card {
     display: grid;
+
     grid-template-columns: 150px 1fr;
+
     gap: 40px;
+
     align-items: center;
+
     margin-top: 45px;
+
     padding: 35px;
+
     border: 1px solid #242424;
+
     background:
-        linear-gradient(135deg, rgba(255,255,255,0.025), transparent 60%),
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.025),
+            transparent 60%
+        ),
         #080808;
+
     transition: 0.35s;
 }
 
 .conclave-card:hover {
     border-color: #555;
+
     transform: translateY(-3px);
 }
+
+/* CONCLAVE ICON */
 
 .conclave-icon {
     width: 120px;
     height: 120px;
+
     margin: auto;
+
     border: 1px solid #3a3a3a;
+
     position: relative;
+
     display: flex;
+
     justify-content: center;
     align-items: center;
 }
 
-/* CONCLAVE 상징 */
 .conclave-icon::before {
     content: "";
+
     width: 58px;
     height: 58px;
+
     border: 1px solid #777;
+
     transform: rotate(45deg);
 }
 
 .conclave-icon::after {
     content: "";
+
     position: absolute;
+
     width: 25px;
     height: 25px;
+
     border: 1px solid #555;
+
     transform: rotate(45deg);
 }
 
 .conclave-code {
     color: #444;
+
     font-size: 9px;
+
     letter-spacing: 0.3em;
 }
 
 .conclave-title {
     margin-top: 12px;
+
     font-size: 34px;
+
     font-weight: 300;
+
     letter-spacing: 0.18em;
 }
 
 .conclave-sub {
     margin-top: 8px;
+
     color: #777;
+
     font-size: 11px;
+
     letter-spacing: 0.22em;
 }
 
 .conclave-description {
     margin-top: 25px;
+
     color: #666;
+
     max-width: 650px;
+
     font-size: 11px;
+
     line-height: 2;
 }
 
 .conclave-link {
     display: inline-block;
+
     margin-top: 25px;
+
     padding: 11px 18px;
+
     border: 1px solid #292929;
+
     color: #777;
+
     font-size: 9px;
+
     letter-spacing: 0.18em;
+
     transition: 0.3s;
 }
 
 .conclave-link:hover {
     color: #fff;
+
     border-color: #666;
 }
 
@@ -441,28 +564,39 @@ a {
 
 .rules-grid {
     margin-top: 50px;
+
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 1px;
+
     background: #191919;
 }
 
 .rule {
     background: #070707;
+
     padding: 32px;
+
     min-height: 135px;
 }
 
 .rule-number {
     color: #444;
+
     font-size: 9px;
+
     letter-spacing: 0.2em;
 }
 
 .rule-text {
     margin-top: 25px;
+
     font-size: 13px;
+
     line-height: 1.8;
+
     color: #aaa;
 }
 
@@ -476,55 +610,75 @@ a {
 
 .division-grid {
     margin-top: 50px;
+
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 16px;
 }
 
 .division {
     min-height: 240px;
+
     border: 1px solid #202020;
+
     padding: 32px;
+
     position: relative;
+
     overflow: hidden;
+
     transition: 0.35s;
 }
 
 .division:hover {
     border-color: #555;
+
     transform: translateY(-3px);
 }
 
 .division-number {
     color: #3f3f3f;
+
     font-size: 9px;
+
     letter-spacing: 0.25em;
 }
 
 .division-name {
     margin-top: 45px;
+
     font-size: 27px;
+
     font-weight: 300;
+
     letter-spacing: 0.14em;
 }
 
 .division-korean {
     margin-top: 8px;
+
     color: #777;
+
     font-size: 11px;
 }
 
 .division-slogan {
     position: absolute;
+
     right: 25px;
     bottom: 25px;
+
     color: #444;
+
     font-size: 10px;
+
     letter-spacing: 0.2em;
 }
 
 /* =========================
-   STRUCTURE
+   ORGANIZATION
 ========================= */
 
 .structure {
@@ -533,12 +687,15 @@ a {
 
 .structure-box {
     margin-top: 50px;
+
     border: 1px solid #1e1e1e;
 }
 
 .structure-row {
     display: grid;
+
     grid-template-columns: 150px 1fr;
+
     border-bottom: 1px solid #1a1a1a;
 }
 
@@ -548,16 +705,23 @@ a {
 
 .structure-label {
     padding: 20px;
+
     color: #444;
+
     font-size: 9px;
+
     letter-spacing: 0.18em;
+
     border-right: 1px solid #1a1a1a;
 }
 
 .structure-value {
     padding: 20px;
+
     color: #888;
+
     font-size: 10px;
+
     letter-spacing: 0.12em;
 }
 
@@ -567,19 +731,25 @@ a {
 
 .final {
     text-align: center;
+
     padding: 160px 20px;
 }
 
 .final-main {
     font-size: clamp(35px, 7vw, 80px);
+
     font-weight: 300;
+
     letter-spacing: 0.14em;
 }
 
 .final-sub {
     margin-top: 25px;
+
     color: #444;
+
     font-size: 10px;
+
     letter-spacing: 0.25em;
 }
 
@@ -589,13 +759,17 @@ a {
 
 footer {
     border-top: 1px solid #151515;
+
     padding: 35px 20px;
+
     text-align: center;
 }
 
 footer p {
     color: #333;
+
     font-size: 8px;
+
     letter-spacing: 0.25em;
 }
 
@@ -615,11 +789,13 @@ footer p {
 
     .archon-card {
         grid-template-columns: 1fr;
+
         padding: 30px;
     }
 
     .conclave-card {
         grid-template-columns: 1fr;
+
         text-align: center;
     }
 
@@ -634,6 +810,7 @@ footer p {
 
     .structure-label {
         border-right: none;
+
         border-bottom: 1px solid #1a1a1a;
     }
 }
@@ -661,9 +838,10 @@ footer p {
 
 <body>
 
-<!-- =========================
+
+<!-- ==================================================
      ACCESS SCREEN
-========================= -->
+================================================== -->
 
 <div id="access-screen">
 
@@ -687,48 +865,88 @@ footer p {
             autocomplete="off"
         >
 
-        <button class="access-button" onclick="checkAccess()">
+        <button
+            class="access-button"
+            onclick="checkAccess()"
+        >
             ENTER
         </button>
 
-        <div class="access-error" id="access-error"></div>
+        <div
+            class="access-error"
+            id="access-error"
+        ></div>
 
     </div>
 
 </div>
 
 
-<!-- =========================
+<!-- ==================================================
      MAIN SITE
-========================= -->
+================================================== -->
 
 <div id="main-site">
 
+
+<!-- ==================================================
+     NAVIGATION
+================================================== -->
+
 <nav class="nav">
 
-    <a href="index.html" class="logo">
+    <a
+        href="index.html"
+        class="logo"
+    >
         THE VEIL.
     </a>
 
+
     <div class="nav-links">
 
-        <a href="field.html" target="_blank" rel="noopener">
+        <a
+            href="field.html"
+            target="_blank"
+            rel="noopener"
+        >
             FIELD
         </a>
 
-        <a href="intel.html" target="_blank" rel="noopener">
+
+        <a
+            href="intel.html"
+            target="_blank"
+            rel="noopener"
+        >
             INTEL
         </a>
 
-        <a href="support.html" target="_blank" rel="noopener">
+
+        <a
+            href="support.html"
+            target="_blank"
+            rel="noopener"
+        >
             SUPPORT
         </a>
 
-        <a href="process.html" target="_blank" rel="noopener">
+
+        <a
+            href="process.html"
+            target="_blank"
+            rel="noopener"
+        >
             PROCESS
         </a>
 
-        <a href="conclave.html" target="_blank" rel="noopener">
+
+        <!-- CONCLAVE -->
+        <a
+            href="conclave.html"
+            target="_blank"
+            rel="noopener"
+        >
             CONCLAVE
         </a>
 
@@ -737,9 +955,9 @@ footer p {
 </nav>
 
 
-<!-- =========================
+<!-- ==================================================
      HERO
-========================= -->
+================================================== -->
 
 <header class="hero">
 
@@ -749,13 +967,19 @@ footer p {
             CLASSIFIED ORGANIZATION // 001
         </div>
 
-        <h1>THE VEIL.</h1>
+
+        <h1>
+            THE VEIL.
+        </h1>
+
 
         <div class="hero-sub">
             WE DO NOT EXIST.
         </div>
 
+
         <div class="hero-line"></div>
+
 
         <div class="hero-motto">
             DISCIPLINE. UNITY. SILENCE.
@@ -766,9 +990,9 @@ footer p {
 </header>
 
 
-<!-- =========================
+<!-- ==================================================
      ARCHON
-========================= -->
+================================================== -->
 
 <section class="section archon">
 
@@ -776,13 +1000,16 @@ footer p {
         COMMAND // 001
     </div>
 
+
     <h2 class="section-title">
         ARCHON
     </h2>
 
+
     <div class="archon-card">
 
         <div class="archon-symbol"></div>
+
 
         <div>
 
@@ -790,21 +1017,30 @@ footer p {
                 CHOI SAN
             </div>
 
+
             <div class="archon-name">
                 최산
             </div>
+
 
             <div class="archon-position">
                 ARCHON
             </div>
 
+
             <div class="archon-call">
                 CALL SIGN // NOX
             </div>
 
+
             <div class="archon-motto">
-                NOT A RING. NOT A SYMBOL.<br>
+
+                NOT A RING.
+                NOT A SYMBOL.
+                <br>
+
                 BUT A COMMAND.
+
             </div>
 
         </div>
@@ -814,9 +1050,9 @@ footer p {
 </section>
 
 
-<!-- =========================
+<!-- ==================================================
      CONCLAVE
-========================= -->
+================================================== -->
 
 <section class="section conclave-section">
 
@@ -824,13 +1060,19 @@ footer p {
         ADMINISTRATION // 002
     </div>
 
+
     <h2 class="section-title">
         CONCLAVE
     </h2>
 
+
     <div class="conclave-card">
 
+
+        <!-- CONCLAVE ICON -->
+
         <div class="conclave-icon"></div>
+
 
         <div>
 
@@ -838,22 +1080,30 @@ footer p {
                 EXECUTIVE COUNCIL
             </div>
 
+
             <div class="conclave-title">
                 CONCLAVE
             </div>
+
 
             <div class="conclave-sub">
                 THE ADMINISTRATORS OF THE VEIL.
             </div>
 
+
             <p class="conclave-description">
+
                 ARCHON의 명령 아래 조직 전체의 질서와 운영을 관리하는
-                비밀 관리자 집단. 각 부서를 통제하고 조직의 규율을
-                유지하며 필요한 명령을 집행한다.
+                비밀 관리자 집단.
+                각 부서를 통제하고 조직의 규율을 유지하며
+                필요한 명령을 집행한다.
+
             </p>
 
+
+            <!-- 정확한 연결 -->
             <a
-                href="enforcement.html"
+                href="conclave.html"
                 target="_blank"
                 rel="noopener"
                 class="conclave-link"
@@ -868,9 +1118,9 @@ footer p {
 </section>
 
 
-<!-- =========================
-     RULES
-========================= -->
+<!-- ==================================================
+     SEVEN RULES
+================================================== -->
 
 <section class="section rules">
 
@@ -878,59 +1128,103 @@ footer p {
         ORGANIZATIONAL CODE
     </div>
 
+
     <h2 class="section-title">
         SEVEN RULES
     </h2>
 
+
     <div class="rules-grid">
 
+
         <div class="rule">
-            <div class="rule-number">RULE // 01</div>
+
+            <div class="rule-number">
+                RULE // 01
+            </div>
+
             <div class="rule-text">
                 계약은 반드시 이행한다.
             </div>
+
         </div>
 
+
         <div class="rule">
-            <div class="rule-number">RULE // 02</div>
+
+            <div class="rule-number">
+                RULE // 02
+            </div>
+
             <div class="rule-text">
                 조직원을 개인적인 이유로 죽이지 않는다.
             </div>
+
         </div>
 
+
         <div class="rule">
-            <div class="rule-number">RULE // 03</div>
+
+            <div class="rule-number">
+                RULE // 03
+            </div>
+
             <div class="rule-text">
                 조직의 존재를 외부에 알려서는 안 된다.
             </div>
+
         </div>
 
+
         <div class="rule">
-            <div class="rule-number">RULE // 04</div>
+
+            <div class="rule-number">
+                RULE // 04
+            </div>
+
             <div class="rule-text">
                 의뢰인을 배신하지 않는다.
             </div>
+
         </div>
 
+
         <div class="rule">
-            <div class="rule-number">RULE // 05</div>
+
+            <div class="rule-number">
+                RULE // 05
+            </div>
+
             <div class="rule-text">
                 동료의 계약을 방해하지 않는다.
             </div>
+
         </div>
 
+
         <div class="rule">
-            <div class="rule-number">RULE // 06</div>
+
+            <div class="rule-number">
+                RULE // 06
+            </div>
+
             <div class="rule-text">
                 수장의 명령에는 이유를 묻지 않는다.
             </div>
+
         </div>
 
+
         <div class="rule">
-            <div class="rule-number">RULE // 07</div>
+
+            <div class="rule-number">
+                RULE // 07
+            </div>
+
             <div class="rule-text">
                 조직을 배신한 자는 반드시 죽인다.
             </div>
+
         </div>
 
     </div>
@@ -938,9 +1232,9 @@ footer p {
 </section>
 
 
-<!-- =========================
+<!-- ==================================================
      DIVISIONS
-========================= -->
+================================================== -->
 
 <section class="section divisions">
 
@@ -948,11 +1242,16 @@ footer p {
         ORGANIZATIONAL STRUCTURE
     </div>
 
+
     <h2 class="section-title">
         DIVISIONS
     </h2>
 
+
     <div class="division-grid">
+
+
+        <!-- FIELD -->
 
         <a
             href="field.html"
@@ -965,13 +1264,16 @@ footer p {
                 DIVISION // 01
             </div>
 
+
             <div class="division-name">
                 FIELD
             </div>
 
+
             <div class="division-korean">
                 실전부
             </div>
+
 
             <div class="division-slogan">
                 죽인다.
@@ -979,6 +1281,8 @@ footer p {
 
         </a>
 
+
+        <!-- INTELLIGENCE -->
 
         <a
             href="intel.html"
@@ -991,13 +1295,16 @@ footer p {
                 DIVISION // 02
             </div>
 
+
             <div class="division-name">
                 INTELLIGENCE
             </div>
 
+
             <div class="division-korean">
                 정보부
             </div>
+
 
             <div class="division-slogan">
                 찾아낸다.
@@ -1005,6 +1312,8 @@ footer p {
 
         </a>
 
+
+        <!-- SUPPORT -->
 
         <a
             href="support.html"
@@ -1017,13 +1326,16 @@ footer p {
                 DIVISION // 03
             </div>
 
+
             <div class="division-name">
                 SUPPORT
             </div>
 
+
             <div class="division-korean">
                 지원부
             </div>
+
 
             <div class="division-slogan">
                 돕는다.
@@ -1031,6 +1343,8 @@ footer p {
 
         </a>
 
+
+        <!-- PROCESS -->
 
         <a
             href="process.html"
@@ -1043,13 +1357,16 @@ footer p {
                 DIVISION // 04
             </div>
 
+
             <div class="division-name">
                 PROCESS
             </div>
 
+
             <div class="division-korean">
                 처리부
             </div>
+
 
             <div class="division-slogan">
                 지운다.
@@ -1062,9 +1379,9 @@ footer p {
 </section>
 
 
-<!-- =========================
-     STRUCTURE
-========================= -->
+<!-- ==================================================
+     ORGANIZATION
+================================================== -->
 
 <section class="section structure">
 
@@ -1072,11 +1389,14 @@ footer p {
         CHAIN OF COMMAND
     </div>
 
+
     <h2 class="section-title">
         ORGANIZATION
     </h2>
 
+
     <div class="structure-box">
+
 
         <div class="structure-row">
 
@@ -1121,9 +1441,9 @@ footer p {
 </section>
 
 
-<!-- =========================
+<!-- ==================================================
      FINAL
-========================= -->
+================================================== -->
 
 <section class="final">
 
@@ -1131,12 +1451,17 @@ footer p {
         WE DO NOT EXIST.
     </div>
 
+
     <div class="final-sub">
         THERE IS ONLY THE VEIL.
     </div>
 
 </section>
 
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
 
 <footer>
 
@@ -1146,50 +1471,87 @@ footer p {
 
 </footer>
 
+
 </div>
 
+
+<!-- ==================================================
+     ACCESS SCRIPT
+================================================== -->
 
 <script>
 
 const ACCESS_CODE = "261001";
 
+
 function checkAccess() {
 
-    const input = document.getElementById("access-code");
-    const error = document.getElementById("access-error");
+    const input =
+        document.getElementById("access-code");
+
+    const error =
+        document.getElementById("access-error");
+
 
     if (input.value === ACCESS_CODE) {
 
-        sessionStorage.setItem("veil_access", "granted");
+        sessionStorage.setItem(
+            "veil_access",
+            "granted"
+        );
 
-        document.getElementById("access-screen").style.display = "none";
-        document.getElementById("main-site").style.display = "block";
+
+        document.getElementById(
+            "access-screen"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "main-site"
+        ).style.display = "block";
+
 
     } else {
 
-        error.textContent = "ACCESS DENIED.";
+        error.textContent =
+            "ACCESS DENIED.";
 
         input.value = "";
 
     }
+
 }
 
 
 document
     .getElementById("access-code")
-    .addEventListener("keydown", function(event) {
+    .addEventListener(
+        "keydown",
+        function(event) {
 
-        if (event.key === "Enter") {
-            checkAccess();
+            if (event.key === "Enter") {
+
+                checkAccess();
+
+            }
+
         }
+    );
 
-    });
+
+if (
+    sessionStorage.getItem("veil_access")
+    === "granted"
+) {
+
+    document.getElementById(
+        "access-screen"
+    ).style.display = "none";
 
 
-if (sessionStorage.getItem("veil_access") === "granted") {
-
-    document.getElementById("access-screen").style.display = "none";
-    document.getElementById("main-site").style.display = "block";
+    document.getElementById(
+        "main-site"
+    ).style.display = "block";
 
 }
 
