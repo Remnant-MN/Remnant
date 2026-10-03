@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>THE VEIL.</title>
 
+
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
+
             background:
                 radial-gradient(
                     circle at 50% 15%,
@@ -40,13 +50,17 @@
                 sans-serif;
 
             min-height: 100vh;
+
             overflow-x: hidden;
         }
 
+
         body::before {
+
             content: "";
 
             position: fixed;
+
             inset: 0;
 
             background:
@@ -69,10 +83,13 @@
             z-index: -1;
         }
 
+
         body::after {
+
             content: "";
 
             position: fixed;
+
             inset: 0;
 
             background:
@@ -88,11 +105,13 @@
         }
 
 
+
         /* =========================
            ACCESS SCREEN
         ========================= */
 
         #access-screen {
+
             position: fixed;
 
             inset: 0;
@@ -117,31 +136,45 @@
                 visibility 0.7s ease;
         }
 
+
         #access-screen.hidden {
+
             opacity: 0;
+
             visibility: hidden;
         }
 
+
         .access-box {
-            width: min(420px, calc(100% - 40px));
+
+            width:
+                min(420px, calc(100% - 40px));
 
             text-align: center;
         }
 
+
         .access-symbol {
+
             width: 58px;
             height: 58px;
 
-            margin: 0 auto 30px;
+            margin:
+                0 auto
+                30px;
 
-            border: 1px solid #555;
+            border:
+                1px solid #555;
 
-            transform: rotate(45deg);
+            transform:
+                rotate(45deg);
 
             position: relative;
         }
 
+
         .access-symbol::before {
+
             content: "";
 
             position: absolute;
@@ -154,10 +187,13 @@
             left: 50%;
             top: -8px;
 
-            transform: rotate(-45deg);
+            transform:
+                rotate(-45deg);
         }
 
+
         .access-title {
+
             font-family:
                 Georgia,
                 "Times New Roman",
@@ -170,7 +206,9 @@
             color: #eee;
         }
 
+
         .access-subtitle {
+
             margin-top: 12px;
 
             color: #555;
@@ -180,23 +218,30 @@
             letter-spacing: 4px;
         }
 
+
         .access-line {
+
             width: 70px;
             height: 1px;
 
             background: #333;
 
-            margin: 28px auto;
+            margin:
+                28px auto;
         }
 
+
         .access-input {
+
             width: 100%;
 
-            padding: 15px 18px;
+            padding:
+                15px 18px;
 
             background: transparent;
 
-            border: 1px solid #333;
+            border:
+                1px solid #333;
 
             outline: none;
 
@@ -217,14 +262,19 @@
                 box-shadow 0.25s ease;
         }
 
+
         .access-input:focus {
+
             border-color: #666;
 
             box-shadow:
-                0 0 20px rgba(255,255,255,0.04);
+                0 0 20px
+                rgba(255,255,255,0.04);
         }
 
+
         .access-button {
+
             width: 100%;
 
             margin-top: 12px;
@@ -233,7 +283,8 @@
 
             background: #111;
 
-            border: 1px solid #333;
+            border:
+                1px solid #333;
 
             color: #aaa;
 
@@ -249,7 +300,9 @@
                 border-color 0.25s ease;
         }
 
+
         .access-button:hover {
+
             background: #181818;
 
             color: #fff;
@@ -257,7 +310,9 @@
             border-color: #666;
         }
 
+
         .access-error {
+
             height: 18px;
 
             margin-top: 12px;
@@ -270,19 +325,25 @@
         }
 
 
+
         /* =========================
            MAIN
         ========================= */
 
         #main-site {
+
             opacity: 0;
 
-            transition: opacity 0.8s ease;
+            transition:
+                opacity 0.8s ease;
         }
 
+
         #main-site.visible {
+
             opacity: 1;
         }
+
 
 
         /* =========================
@@ -290,12 +351,14 @@
         ========================= */
 
         .top-nav {
+
             position: fixed;
 
             top: 0;
             left: 0;
 
             width: 100%;
+
             height: 64px;
 
             display: flex;
@@ -307,25 +370,34 @@
                 rgba(5,5,5,0.88);
 
             border-bottom:
-                1px solid rgba(255,255,255,0.08);
+                1px solid
+                rgba(255,255,255,0.08);
 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter:
+                blur(12px);
+
+            -webkit-backdrop-filter:
+                blur(12px);
 
             z-index: 1000;
         }
 
+
         .nav-inner {
+
             width:
                 min(1200px, calc(100% - 40px));
 
             display: flex;
 
             align-items: center;
+
             justify-content: space-between;
         }
 
+
         .nav-logo {
+
             color: #fff;
 
             text-decoration: none;
@@ -340,7 +412,9 @@
             letter-spacing: 5px;
         }
 
+
         .nav-links {
+
             display: flex;
 
             align-items: center;
@@ -348,7 +422,9 @@
             gap: 27px;
         }
 
+
         .nav-links a {
+
             color: #777;
 
             text-decoration: none;
@@ -362,16 +438,22 @@
                 text-shadow 0.25s ease;
         }
 
+
         .nav-links a:hover {
+
             color: #fff;
 
             text-shadow:
-                0 0 12px rgba(255,255,255,0.3);
+                0 0 12px
+                rgba(255,255,255,0.3);
         }
 
+
         .nav-links a.active {
+
             color: #fff;
         }
+
 
 
         /* =========================
@@ -379,13 +461,16 @@
         ========================= */
 
         .page {
+
             width:
                 min(1200px, calc(100% - 50px));
 
-            margin: 0 auto;
+            margin:
+                0 auto;
 
             padding-top: 64px;
         }
+
 
 
         /* =========================
@@ -393,6 +478,7 @@
         ========================= */
 
         .hero {
+
             min-height: 600px;
 
             display: flex;
@@ -409,7 +495,9 @@
                 90px;
         }
 
+
         .hero-small {
+
             color: #555;
 
             font-size: 9px;
@@ -419,7 +507,9 @@
             margin-bottom: 22px;
         }
 
+
         .hero h1 {
+
             font-family:
                 Georgia,
                 "Times New Roman",
@@ -435,19 +525,26 @@
             color: #f3f3f3;
 
             text-shadow:
-                0 0 35px rgba(255,255,255,0.07);
+                0 0 35px
+                rgba(255,255,255,0.07);
         }
 
+
         .hero-line {
+
             width: 100px;
+
             height: 1px;
 
             background: #444;
 
-            margin: 28px 0 20px;
+            margin:
+                28px 0 20px;
         }
 
+
         .hero-sub {
+
             color: #666;
 
             font-size: 10px;
@@ -455,7 +552,9 @@
             letter-spacing: 5px;
         }
 
+
         .hero-statement {
+
             margin-top: 50px;
 
             color: #aaa;
@@ -471,22 +570,28 @@
         }
 
 
+
         /* =========================
            SECTION COMMON
         ========================= */
 
         .section {
+
             padding:
                 90px 0;
         }
 
+
         .section-header {
+
             text-align: center;
 
             margin-bottom: 45px;
         }
 
+
         .section-header .section-number {
+
             color: #444;
 
             font-family:
@@ -500,7 +605,9 @@
             margin-bottom: 12px;
         }
 
+
         .section-header h2 {
+
             color: #eee;
 
             font-family:
@@ -515,7 +622,9 @@
             letter-spacing: 5px;
         }
 
+
         .section-header p {
+
             margin-top: 12px;
 
             color: #555;
@@ -526,11 +635,13 @@
         }
 
 
+
         /* =========================
            SEVEN RULES
         ========================= */
 
         .rules-section {
+
             border-top:
                 1px solid #1c1c1c;
 
@@ -541,13 +652,17 @@
                 95px 0;
         }
 
+
         .rules-header {
+
             text-align: center;
 
             margin-bottom: 55px;
         }
 
+
         .rules-header .label {
+
             color: #444;
 
             font-family:
@@ -559,7 +674,9 @@
             letter-spacing: 4px;
         }
 
+
         .rules-header h2 {
+
             margin-top: 13px;
 
             color: #eee;
@@ -576,7 +693,9 @@
             letter-spacing: 6px;
         }
 
+
         .rules-header p {
+
             margin-top: 12px;
 
             color: #555;
@@ -586,7 +705,9 @@
             letter-spacing: 3px;
         }
 
+
         .rules-list {
+
             display: grid;
 
             grid-template-columns:
@@ -600,7 +721,9 @@
                 1px solid #222;
         }
 
+
         .rule {
+
             min-height: 145px;
 
             padding:
@@ -615,17 +738,23 @@
                 background 0.25s ease;
         }
 
+
         .rule:hover {
+
             background:
                 #0d0d0d;
         }
 
+
         .rule:last-child {
+
             grid-column:
                 1 / -1;
         }
 
+
         .rule-number {
+
             color: #444;
 
             font-family:
@@ -637,7 +766,9 @@
             letter-spacing: 2px;
         }
 
+
         .rule-title {
+
             margin-top: 14px;
 
             color: #ddd;
@@ -647,7 +778,9 @@
             letter-spacing: 2px;
         }
 
+
         .rule-text {
+
             margin-top: 10px;
 
             color: #666;
@@ -658,17 +791,21 @@
         }
 
 
+
         /* =========================
            CONCLAVE
         ========================= */
 
         .conclave-section {
+
             padding:
                 100px 0
                 80px;
         }
 
+
         .conclave-card {
+
             position: relative;
 
             display: block;
@@ -707,7 +844,9 @@
                 box-shadow 0.35s ease;
         }
 
+
         .conclave-card::before {
+
             content: "";
 
             position: absolute;
@@ -734,7 +873,9 @@
                 border-color 0.35s ease;
         }
 
+
         .conclave-card::after {
+
             content: "";
 
             position: absolute;
@@ -742,22 +883,28 @@
             inset: 15px;
 
             border:
-                1px solid rgba(255,255,255,0.025);
+                1px solid
+                rgba(255,255,255,0.025);
 
             pointer-events: none;
         }
 
+
         .conclave-card:hover {
+
             border-color: #666;
 
             transform:
                 translateY(-5px);
 
             box-shadow:
-                0 20px 60px rgba(0,0,0,0.5);
+                0 20px 60px
+                rgba(0,0,0,0.5);
         }
 
+
         .conclave-card:hover::before {
+
             transform:
                 translate(-50%, -50%)
                 rotate(45deg)
@@ -766,7 +913,9 @@
             border-color: #555;
         }
 
+
         .conclave-content {
+
             position: relative;
 
             z-index: 2;
@@ -774,7 +923,9 @@
             text-align: center;
         }
 
+
         .conclave-label {
+
             color: #555;
 
             font-family:
@@ -786,7 +937,9 @@
             letter-spacing: 4px;
         }
 
+
         .conclave-content h2 {
+
             margin-top: 16px;
 
             color: #eee;
@@ -803,7 +956,9 @@
             letter-spacing: 7px;
         }
 
+
         .conclave-content .korean {
+
             margin-top: 13px;
 
             color: #888;
@@ -813,7 +968,9 @@
             letter-spacing: 3px;
         }
 
+
         .conclave-content p {
+
             width:
                 min(580px, 100%);
 
@@ -829,7 +986,9 @@
             letter-spacing: 1px;
         }
 
+
         .conclave-enter {
+
             display: inline-block;
 
             margin-top: 28px;
@@ -852,7 +1011,9 @@
                 background 0.25s ease;
         }
 
+
         .conclave-card:hover .conclave-enter {
+
             color: #eee;
 
             border-color: #666;
@@ -862,17 +1023,21 @@
         }
 
 
+
         /* =========================
            DIVISIONS
         ========================= */
 
         .divisions-section {
+
             padding:
                 80px 0
                 110px;
         }
 
+
         .divisions-grid {
+
             display: grid;
 
             grid-template-columns:
@@ -881,7 +1046,9 @@
             gap: 18px;
         }
 
+
         .division-card {
+
             position: relative;
 
             min-height: 260px;
@@ -916,7 +1083,9 @@
                 box-shadow 0.3s ease;
         }
 
+
         .division-card::before {
+
             content: "";
 
             position: absolute;
@@ -935,7 +1104,9 @@
             pointer-events: none;
         }
 
+
         .division-card::after {
+
             content: "";
 
             position: absolute;
@@ -956,7 +1127,9 @@
             pointer-events: none;
         }
 
+
         .division-card:hover {
+
             transform:
                 translateY(-5px);
 
@@ -964,10 +1137,13 @@
                 #555;
 
             box-shadow:
-                0 20px 50px rgba(0,0,0,0.45);
+                0 20px 50px
+                rgba(0,0,0,0.45);
         }
 
+
         .division-number {
+
             position: absolute;
 
             top: 22px;
@@ -984,13 +1160,17 @@
             letter-spacing: 3px;
         }
 
+
         .division-content {
+
             position: relative;
 
             z-index: 2;
         }
 
+
         .division-code {
+
             color: #555;
 
             font-family:
@@ -1004,7 +1184,9 @@
             margin-bottom: 10px;
         }
 
+
         .division-name {
+
             color: #eee;
 
             font-family:
@@ -1019,7 +1201,9 @@
             letter-spacing: 4px;
         }
 
+
         .division-korean {
+
             margin-top: 8px;
 
             color: #777;
@@ -1029,7 +1213,9 @@
             letter-spacing: 2px;
         }
 
+
         .division-slogan {
+
             margin-top: 18px;
 
             color: #444;
@@ -1040,11 +1226,286 @@
         }
 
 
+
+        /* ==================================================
+           DEPARTMENT & MEMBER INTRODUCTION
+        ================================================== */
+
+        .emblem-section {
+
+            padding:
+                100px 0
+                110px;
+
+            border-top:
+                1px solid #1c1c1c;
+        }
+
+
+        .emblem-header {
+
+            text-align: center;
+
+            margin-bottom: 55px;
+        }
+
+
+        .emblem-header .section-number {
+
+            color: #444;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .emblem-header h2 {
+
+            color: #eee;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 30px;
+
+            font-weight: 400;
+
+            letter-spacing: 5px;
+        }
+
+
+        .emblem-header p {
+
+            margin-top: 12px;
+
+            color: #555;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+        }
+
+
+        .emblem-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 1px;
+
+            background: #252525;
+
+            border:
+                1px solid #252525;
+        }
+
+
+        .emblem-card {
+
+            display: block;
+
+            padding: 18px;
+
+            background: #070707;
+
+            text-decoration: none;
+
+            color: inherit;
+
+            transition:
+                background 0.3s ease;
+        }
+
+
+        .emblem-card:hover {
+
+            background: #0d0d0d;
+        }
+
+
+        .emblem-image {
+
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 1 / 1;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #252525 0%,
+                    #111 45%,
+                    #050505 100%
+                );
+
+            border:
+                1px solid #202020;
+        }
+
+
+        .emblem-image img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            filter:
+                grayscale(100%)
+                brightness(0.65);
+
+            opacity: 0.8;
+
+            transition:
+                filter 0.4s ease,
+                opacity 0.4s ease,
+                transform 0.4s ease;
+        }
+
+
+        .emblem-card:hover
+        .emblem-image img {
+
+            filter:
+                grayscale(0%)
+                brightness(0.95);
+
+            opacity: 1;
+
+            transform:
+                scale(1.03);
+        }
+
+
+        /* =========================
+           EMPTY EMBLEM
+        ========================= */
+
+        .emblem-card.empty {
+
+            cursor: default;
+        }
+
+
+        .emblem-card.empty:hover {
+
+            background: #070707;
+        }
+
+
+        .emblem-card.empty
+        .emblem-image {
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .emblem-card.empty
+        .emblem-image::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 42%;
+
+            aspect-ratio: 1 / 1;
+
+            border:
+                1px solid #292929;
+
+            transform:
+                rotate(45deg);
+        }
+
+
+        .emblem-card.empty
+        .emblem-image::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 1px;
+            height: 48%;
+
+            background: #333;
+        }
+
+
+        .emblem-card.empty
+        .emblem-image span {
+
+            position: relative;
+
+            z-index: 2;
+
+            color: #333;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 8px;
+
+            letter-spacing: 4px;
+        }
+
+
+        .emblem-name {
+
+            margin-top: 20px;
+
+            color: #aaa;
+
+            font-size: 14px;
+
+            letter-spacing: 3px;
+        }
+
+
+        .emblem-code {
+
+            margin-top: 8px;
+
+            color: #444;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+        }
+
+
+
         /* =========================
            FINAL STATEMENT
         ========================= */
 
         .final-section {
+
             text-align: center;
 
             padding:
@@ -1052,7 +1513,9 @@
                 100px;
         }
 
+
         .final-line {
+
             width: 55px;
             height: 1px;
 
@@ -1062,7 +1525,9 @@
                 0 auto 28px;
         }
 
+
         .final-section h2 {
+
             color: #eee;
 
             font-family:
@@ -1078,7 +1543,9 @@
             letter-spacing: 6px;
         }
 
+
         .final-section p {
+
             margin-top: 17px;
 
             color: #444;
@@ -1089,11 +1556,13 @@
         }
 
 
+
         /* =========================
            FOOTER
         ========================= */
 
         footer {
+
             border-top:
                 1px solid #181818;
 
@@ -1104,7 +1573,9 @@
             text-align: center;
         }
 
+
         .footer-main {
+
             color: #666;
 
             font-family:
@@ -1116,7 +1587,9 @@
             letter-spacing: 5px;
         }
 
+
         .footer-sub {
+
             margin-top: 10px;
 
             color: #333;
@@ -1131,6 +1604,7 @@
         }
 
 
+
         /* =========================
            RESPONSIVE
         ========================= */
@@ -1138,67 +1612,98 @@
         @media (max-width: 850px) {
 
             .nav-links {
+
                 gap: 15px;
             }
 
+
             .nav-links a {
+
                 font-size: 8px;
 
                 letter-spacing: 1px;
             }
 
+
             .rules-list {
+
                 grid-template-columns:
                     1fr;
             }
 
+
             .rule:last-child {
+
                 grid-column:
                     auto;
             }
 
+
             .divisions-grid {
+
                 grid-template-columns:
                     1fr;
             }
+
+
+            .emblem-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
         }
+
 
 
         @media (max-width: 600px) {
 
             .top-nav {
+
                 height: 58px;
             }
 
+
             .nav-inner {
+
                 width:
                     calc(100% - 24px);
             }
 
+
             .nav-logo {
+
                 font-size: 11px;
 
                 letter-spacing: 3px;
             }
 
+
             .nav-links {
+
                 gap: 8px;
             }
 
+
             .nav-links a {
+
                 font-size: 7px;
 
                 letter-spacing: 0.8px;
             }
 
+
             .page {
+
                 width:
                     calc(100% - 28px);
 
                 padding-top: 58px;
             }
 
+
             .hero {
+
                 min-height: 500px;
 
                 padding:
@@ -1206,144 +1711,240 @@
                     70px;
             }
 
+
             .hero h1 {
+
                 font-size: 47px;
 
                 letter-spacing: 6px;
             }
 
+
             .hero-small {
+
                 font-size: 7px;
 
                 letter-spacing: 3px;
             }
 
+
             .hero-sub {
+
                 font-size: 8px;
 
                 letter-spacing: 3px;
             }
 
+
             .hero-statement {
+
                 font-size: 13px;
 
                 letter-spacing: 2px;
             }
 
+
             .section {
+
                 padding:
                     65px 0;
             }
 
+
             .rules-section {
+
                 padding:
                     70px 0;
             }
 
+
             .rules-header h2 {
+
                 font-size: 27px;
 
                 letter-spacing: 4px;
             }
 
+
             .rule {
+
                 min-height: 125px;
 
                 padding:
                     25px 22px;
             }
 
+
             .rule-title {
+
                 font-size: 11px;
             }
 
+
             .rule-text {
+
                 font-size: 10px;
             }
 
+
             .conclave-section {
+
                 padding:
                     70px 0
                     55px;
             }
 
+
             .conclave-card {
+
                 min-height: 330px;
 
                 padding:
                     55px 25px;
             }
 
+
             .conclave-card::before {
+
                 width: 120px;
                 height: 120px;
             }
 
+
             .conclave-content h2 {
+
                 font-size: 30px;
 
                 letter-spacing: 5px;
             }
 
+
             .conclave-content .korean {
+
                 font-size: 10px;
 
                 letter-spacing: 2px;
             }
 
+
             .conclave-content p {
+
                 font-size: 9px;
 
                 line-height: 1.9;
             }
 
+
             .divisions-section {
+
                 padding:
                     55px 0
                     80px;
             }
 
+
             .division-card {
+
                 min-height: 230px;
 
                 padding: 28px;
             }
 
+
             .division-name {
+
                 font-size: 26px;
             }
 
+
+            .emblem-section {
+
+                padding:
+                    70px 0
+                    80px;
+            }
+
+
+            .emblem-header h2 {
+
+                font-size: 25px;
+
+                letter-spacing: 3px;
+            }
+
+
+            .emblem-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .emblem-card {
+
+                padding: 12px;
+            }
+
+
+            .emblem-name {
+
+                font-size: 11px;
+
+                letter-spacing: 2px;
+            }
+
+
+            .emblem-code {
+
+                font-size: 7px;
+
+                letter-spacing: 1px;
+            }
+
+
             .final-section {
+
                 padding:
                     80px 10px
                     70px;
             }
 
+
             .final-section h2 {
+
                 font-size: 22px;
 
                 letter-spacing: 3px;
             }
+
         }
+
 
 
         @media (max-width: 390px) {
 
             .nav-links {
+
                 gap: 6px;
             }
 
+
             .nav-links a:nth-child(4),
             .nav-links a:nth-child(5) {
+
                 display: none;
             }
 
+
             .hero h1 {
+
                 font-size: 42px;
             }
+
         }
 
     </style>
+
 </head>
 
 
@@ -1429,6 +2030,7 @@
                         CONCLAVE
                     </a>
 
+
                     <a
                         href="field.html"
                         target="_blank"
@@ -1436,6 +2038,7 @@
                     >
                         FIELD
                     </a>
+
 
                     <a
                         href="intel.html"
@@ -1445,6 +2048,7 @@
                         INTEL
                     </a>
 
+
                     <a
                         href="support.html"
                         target="_blank"
@@ -1452,6 +2056,7 @@
                     >
                         SUPPORT
                     </a>
+
 
                     <a
                         href="process.html"
@@ -1502,7 +2107,6 @@
 
             <!-- ==================================================
                  SEVEN RULES
-                 제일 상단 배치
             =================================================== -->
 
             <section
@@ -1657,7 +2261,6 @@
 
             <!-- ==================================================
                  CONCLAVE
-                 DIVISIONS 바로 위
             =================================================== -->
 
             <section
@@ -1737,8 +2340,7 @@
                     </div>
 
                     <h2>
-                       Department & Member Introduction
-
+                        DIVISIONS
                     </h2>
 
                     <p>
@@ -1787,6 +2389,7 @@
                     </a>
 
 
+
                     <!-- INTELLIGENCE -->
 
                     <a
@@ -1823,6 +2426,7 @@
                     </a>
 
 
+
                     <!-- SUPPORT -->
 
                     <a
@@ -1857,6 +2461,7 @@
                         </div>
 
                     </a>
+
 
 
                     <!-- PROCESS -->
@@ -1901,6 +2506,220 @@
 
 
 
+            <!-- ==================================================
+                 DEPARTMENT & MEMBER INTRODUCTION
+            =================================================== -->
+
+            <section
+                class="emblem-section"
+                id="departments"
+            >
+
+                <div class="emblem-header">
+
+                    <div class="section-number">
+                        DEPARTMENT & MEMBER INTRODUCTION
+                    </div>
+
+                    <h2>
+                        DIVISION EMBLEMS
+                    </h2>
+
+                    <p>
+                        EACH HAS ONE PURPOSE.
+                    </p>
+
+                </div>
+
+
+                <div class="emblem-grid">
+
+
+                    <!-- =========================
+                         FIELD
+                    ========================== -->
+
+                    <a
+                        href="field.html"
+                        target="_blank"
+                        rel="noopener"
+                        class="emblem-card"
+                    >
+
+                        <div class="emblem-image">
+
+                            <img
+                                src="images/field-symbol.jpg"
+                                alt="FIELD"
+                            >
+
+                        </div>
+
+                        <div class="emblem-name">
+                            FIELD
+                        </div>
+
+                        <div class="emblem-code">
+                            DIVISION // 01
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- =========================
+                         INTELLIGENCE
+                    ========================== -->
+
+                    <a
+                        href="intel.html"
+                        target="_blank"
+                        rel="noopener"
+                        class="emblem-card"
+                    >
+
+                        <div class="emblem-image">
+
+                            <img
+                                src="images/intel-symbol.jpg"
+                                alt="INTELLIGENCE"
+                            >
+
+                        </div>
+
+                        <div class="emblem-name">
+                            INTELLIGENCE
+                        </div>
+
+                        <div class="emblem-code">
+                            DIVISION // 02
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- =========================
+                         SUPPORT
+                    ========================== -->
+
+                    <a
+                        href="support.html"
+                        target="_blank"
+                        rel="noopener"
+                        class="emblem-card"
+                    >
+
+                        <div class="emblem-image">
+
+                            <img
+                                src="images/support-symbol.jpg"
+                                alt="SUPPORT"
+                            >
+
+                        </div>
+
+                        <div class="emblem-name">
+                            SUPPORT
+                        </div>
+
+                        <div class="emblem-code">
+                            DIVISION // 03
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- =========================
+                         PROCESS
+                    ========================== -->
+
+                    <a
+                        href="process.html"
+                        target="_blank"
+                        rel="noopener"
+                        class="emblem-card"
+                    >
+
+                        <div class="emblem-image">
+
+                            <img
+                                src="images/process-symbol.jpg"
+                                alt="PROCESS"
+                            >
+
+                        </div>
+
+                        <div class="emblem-name">
+                            PROCESS
+                        </div>
+
+                        <div class="emblem-code">
+                            DIVISION // 04
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- =========================
+                         FUTURE DIVISION 05
+                    ========================== -->
+
+                    <div class="emblem-card empty">
+
+                        <div class="emblem-image">
+
+                            <span>
+                                CLASSIFIED
+                            </span>
+
+                        </div>
+
+                        <div class="emblem-name">
+                            DIVISION 05
+                        </div>
+
+                        <div class="emblem-code">
+                            CLASSIFIED // 05
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================
+                         FUTURE DIVISION 06
+                    ========================== -->
+
+                    <div class="emblem-card empty">
+
+                        <div class="emblem-image">
+
+                            <span>
+                                CLASSIFIED
+                            </span>
+
+                        </div>
+
+                        <div class="emblem-name">
+                            DIVISION 06
+                        </div>
+
+                        <div class="emblem-code">
+                            CLASSIFIED // 06
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
             <!-- =========================
                  FINAL STATEMENT
             ========================== -->
@@ -1914,7 +2733,7 @@
                 </h2>
 
                 <p>
-                    “Loyalty to the end. Betrayal to the grave.”
+                    BEYOND THE VEIL, THERE IS ONLY THE VEIL.
                 </p>
 
             </section>
@@ -1952,30 +2771,51 @@
 
         const ACCESS_CODE = "261001";
 
+
         const accessScreen =
-            document.getElementById("access-screen");
+            document.getElementById(
+                "access-screen"
+            );
+
 
         const mainSite =
-            document.getElementById("main-site");
+            document.getElementById(
+                "main-site"
+            );
+
 
         const accessInput =
-            document.getElementById("access-code");
+            document.getElementById(
+                "access-code"
+            );
+
 
         const accessError =
-            document.getElementById("access-error");
+            document.getElementById(
+                "access-error"
+            );
+
 
 
         function unlockSite() {
 
-            accessScreen.classList.add("hidden");
+            accessScreen.classList.add(
+                "hidden"
+            );
 
-            mainSite.classList.add("visible");
+
+            mainSite.classList.add(
+                "visible"
+            );
+
 
             sessionStorage.setItem(
                 "veil_access",
                 "granted"
             );
+
         }
+
 
 
         function checkAccess() {
@@ -1983,7 +2823,10 @@
             const entered =
                 accessInput.value.trim();
 
-            if (entered === ACCESS_CODE) {
+
+            if (
+                entered === ACCESS_CODE
+            ) {
 
                 unlockSite();
 
@@ -1995,26 +2838,37 @@
                 accessInput.value = "";
 
                 accessInput.focus();
+
             }
+
         }
 
 
+
         accessInput.addEventListener(
+
             "keydown",
+
             function(event) {
 
-                if (event.key === "Enter") {
+                if (
+                    event.key === "Enter"
+                ) {
 
                     checkAccess();
 
                 }
 
             }
+
         );
 
 
+
         window.addEventListener(
+
             "load",
+
             function() {
 
                 if (
@@ -2028,18 +2882,25 @@
                 } else {
 
                     setTimeout(
+
                         function() {
+
                             accessInput.focus();
+
                         },
+
                         300
+
                     );
 
                 }
 
             }
+
         );
 
     </script>
+
 
 </body>
 </html>
