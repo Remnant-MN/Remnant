@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
 
     <meta charset="UTF-8">
@@ -13,6 +14,10 @@
 
 
     <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
 
         * {
             margin: 0;
@@ -55,6 +60,10 @@
         }
 
 
+        /* =====================================================
+           BACKGROUND GRID
+        ===================================================== */
+
         body::before {
 
             content: "";
@@ -84,6 +93,10 @@
         }
 
 
+        /* =====================================================
+           VIGNETTE
+        ===================================================== */
+
         body::after {
 
             content: "";
@@ -105,10 +118,9 @@
         }
 
 
-
-        /* =========================
+        /* =====================================================
            ACCESS SCREEN
-        ========================= */
+        ===================================================== */
 
         #access-screen {
 
@@ -127,6 +139,7 @@
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             z-index: 9999;
@@ -157,11 +170,11 @@
         .access-symbol {
 
             width: 58px;
+
             height: 58px;
 
             margin:
-                0 auto
-                30px;
+                0 auto 30px;
 
             border:
                 1px solid #555;
@@ -180,11 +193,13 @@
             position: absolute;
 
             width: 1px;
+
             height: 72px;
 
             background: #777;
 
             left: 50%;
+
             top: -8px;
 
             transform:
@@ -222,6 +237,7 @@
         .access-line {
 
             width: 70px;
+
             height: 1px;
 
             background: #333;
@@ -256,10 +272,6 @@
             font-size: 15px;
 
             letter-spacing: 6px;
-
-            transition:
-                border-color 0.25s ease,
-                box-shadow 0.25s ease;
         }
 
 
@@ -268,8 +280,7 @@
             border-color: #666;
 
             box-shadow:
-                0 0 20px
-                rgba(255,255,255,0.04);
+                0 0 20px rgba(255,255,255,0.04);
         }
 
 
@@ -325,10 +336,9 @@
         }
 
 
-
-        /* =========================
-           MAIN
-        ========================= */
+        /* =====================================================
+           MAIN SITE
+        ===================================================== */
 
         #main-site {
 
@@ -345,10 +355,9 @@
         }
 
 
-
-        /* =========================
+        /* =====================================================
            NAVIGATION
-        ========================= */
+        ===================================================== */
 
         .top-nav {
 
@@ -364,14 +373,14 @@
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             background:
                 rgba(5,5,5,0.88);
 
             border-bottom:
-                1px solid
-                rgba(255,255,255,0.08);
+                1px solid rgba(255,255,255,0.08);
 
             backdrop-filter:
                 blur(12px);
@@ -444,21 +453,13 @@
             color: #fff;
 
             text-shadow:
-                0 0 12px
-                rgba(255,255,255,0.3);
+                0 0 12px rgba(255,255,255,0.3);
         }
 
 
-        .nav-links a.active {
-
-            color: #fff;
-        }
-
-
-
-        /* =========================
+        /* =====================================================
            PAGE
-        ========================= */
+        ===================================================== */
 
         .page {
 
@@ -472,10 +473,9 @@
         }
 
 
-
-        /* =========================
+        /* =====================================================
            HERO
-        ========================= */
+        ===================================================== */
 
         .hero {
 
@@ -486,6 +486,7 @@
             flex-direction: column;
 
             align-items: center;
+
             justify-content: center;
 
             text-align: center;
@@ -525,8 +526,7 @@
             color: #f3f3f3;
 
             text-shadow:
-                0 0 35px
-                rgba(255,255,255,0.07);
+                0 0 35px rgba(255,255,255,0.07);
         }
 
 
@@ -570,17 +570,9 @@
         }
 
 
-
-        /* =========================
-           SECTION COMMON
-        ========================= */
-
-        .section {
-
-            padding:
-                90px 0;
-        }
-
+        /* =====================================================
+           COMMON SECTION HEADER
+        ===================================================== */
 
         .section-header {
 
@@ -590,7 +582,7 @@
         }
 
 
-        .section-header .section-number {
+        .section-number {
 
             color: #444;
 
@@ -635,10 +627,9 @@
         }
 
 
-
-        /* =========================
+        /* =====================================================
            SEVEN RULES
-        ========================= */
+        ===================================================== */
 
         .rules-section {
 
@@ -729,10 +720,7 @@
             padding:
                 30px 35px;
 
-            background:
-                #080808;
-
-            position: relative;
+            background: #080808;
 
             transition:
                 background 0.25s ease;
@@ -741,8 +729,7 @@
 
         .rule:hover {
 
-            background:
-                #0d0d0d;
+            background: #0d0d0d;
         }
 
 
@@ -791,10 +778,9 @@
         }
 
 
-
-        /* =========================
+        /* =====================================================
            CONCLAVE
-        ========================= */
+        ===================================================== */
 
         .conclave-section {
 
@@ -845,51 +831,6 @@
         }
 
 
-        .conclave-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 150px;
-            height: 150px;
-
-            border:
-                1px solid #333;
-
-            transform:
-                rotate(45deg);
-
-            top: 50%;
-            left: 50%;
-
-            translate:
-                -50% -50%;
-
-            opacity: 0.45;
-
-            transition:
-                transform 0.5s ease,
-                border-color 0.35s ease;
-        }
-
-
-        .conclave-card::after {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 15px;
-
-            border:
-                1px solid
-                rgba(255,255,255,0.025);
-
-            pointer-events: none;
-        }
-
-
         .conclave-card:hover {
 
             border-color: #666;
@@ -898,19 +839,7 @@
                 translateY(-5px);
 
             box-shadow:
-                0 20px 60px
-                rgba(0,0,0,0.5);
-        }
-
-
-        .conclave-card:hover::before {
-
-            transform:
-                translate(-50%, -50%)
-                rotate(45deg)
-                scale(1.08);
-
-            border-color: #555;
+                0 20px 60px rgba(0,0,0,0.5);
         }
 
 
@@ -1004,29 +933,12 @@
             font-size: 8px;
 
             letter-spacing: 3px;
-
-            transition:
-                color 0.25s ease,
-                border-color 0.25s ease,
-                background 0.25s ease;
         }
 
 
-        .conclave-card:hover .conclave-enter {
-
-            color: #eee;
-
-            border-color: #666;
-
-            background:
-                rgba(255,255,255,0.03);
-        }
-
-
-
-        /* =========================
+        /* =====================================================
            DIVISIONS
-        ========================= */
+        ===================================================== */
 
         .divisions-section {
 
@@ -1084,61 +996,15 @@
         }
 
 
-        .division-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,255,255,0.035),
-                    transparent 35%,
-                    transparent 65%,
-                    rgba(255,255,255,0.015)
-                );
-
-            pointer-events: none;
-        }
-
-
-        .division-card::after {
-
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-            bottom: 0;
-
-            width: 100%;
-            height: 45%;
-
-            background:
-                linear-gradient(
-                    to top,
-                    rgba(0,0,0,0.75),
-                    transparent
-                );
-
-            pointer-events: none;
-        }
-
-
         .division-card:hover {
 
             transform:
                 translateY(-5px);
 
-            border-color:
-                #555;
+            border-color: #555;
 
             box-shadow:
-                0 20px 50px
-                rgba(0,0,0,0.45);
+                0 20px 50px rgba(0,0,0,0.45);
         }
 
 
@@ -1147,6 +1013,7 @@
             position: absolute;
 
             top: 22px;
+
             left: 25px;
 
             color: #444;
@@ -1226,10 +1093,9 @@
         }
 
 
-
-        /* ==================================================
+        /* =====================================================
            DEPARTMENT & MEMBER INTRODUCTION
-        ================================================== */
+        ===================================================== */
 
         .emblem-section {
 
@@ -1238,6 +1104,9 @@
                 110px;
 
             border-top:
+                1px solid #1c1c1c;
+
+            border-bottom:
                 1px solid #1c1c1c;
         }
 
@@ -1260,7 +1129,7 @@
 
             font-size: 9px;
 
-            letter-spacing: 3px;
+            letter-spacing: 4px;
 
             margin-bottom: 12px;
         }
@@ -1275,7 +1144,7 @@
                 "Times New Roman",
                 serif;
 
-            font-size: 30px;
+            font-size: 32px;
 
             font-weight: 400;
 
@@ -1295,12 +1164,28 @@
         }
 
 
+        /* =====================================================
+           EMBLEM GRID
+
+           PC / TABLET / MOBILE
+           항상 2열 × 3행
+
+           01 ARCHON
+           02 CONCLAVE
+
+           03 FIELD
+           04 INTELLIGENCE
+
+           05 SUPPORT
+           06 PROCESS
+        ===================================================== */
+
         .emblem-grid {
 
             display: grid;
 
             grid-template-columns:
-                repeat(4, 1fr);
+                repeat(2, 1fr);
 
             gap: 1px;
 
@@ -1315,13 +1200,13 @@
 
             display: block;
 
-            padding: 18px;
-
-            background: #070707;
-
             text-decoration: none;
 
             color: inherit;
+
+            background: #080808;
+
+            padding-bottom: 22px;
 
             transition:
                 background 0.3s ease;
@@ -1360,6 +1245,7 @@
         .emblem-image img {
 
             width: 100%;
+
             height: 100%;
 
             object-fit: cover;
@@ -1393,99 +1279,32 @@
         }
 
 
-        /* =========================
-           EMPTY EMBLEM
-        ========================= */
-
-        .emblem-card.empty {
-
-            cursor: default;
-        }
-
-
-        .emblem-card.empty:hover {
-
-            background: #070707;
-        }
-
-
-        .emblem-card.empty
-        .emblem-image {
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-        }
-
-
-        .emblem-card.empty
-        .emblem-image::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 42%;
-
-            aspect-ratio: 1 / 1;
-
-            border:
-                1px solid #292929;
-
-            transform:
-                rotate(45deg);
-        }
-
-
-        .emblem-card.empty
-        .emblem-image::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 1px;
-            height: 48%;
-
-            background: #333;
-        }
-
-
-        .emblem-card.empty
-        .emblem-image span {
-
-            position: relative;
-
-            z-index: 2;
-
-            color: #333;
-
-            font-family:
-                "Courier New",
-                monospace;
-
-            font-size: 8px;
-
-            letter-spacing: 4px;
-        }
-
-
         .emblem-name {
 
-            margin-top: 20px;
+            margin-top: 18px;
 
-            color: #aaa;
+            padding: 0 18px;
 
-            font-size: 14px;
+            color: #ddd;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 16px;
 
             letter-spacing: 3px;
+
+            text-align: center;
         }
 
 
         .emblem-code {
 
             margin-top: 8px;
+
+            padding: 0 18px;
 
             color: #444;
 
@@ -1496,13 +1315,14 @@
             font-size: 8px;
 
             letter-spacing: 2px;
+
+            text-align: center;
         }
 
 
-
-        /* =========================
+        /* =====================================================
            FINAL STATEMENT
-        ========================= */
+        ===================================================== */
 
         .final-section {
 
@@ -1517,6 +1337,7 @@
         .final-line {
 
             width: 55px;
+
             height: 1px;
 
             background: #444;
@@ -1556,10 +1377,9 @@
         }
 
 
-
-        /* =========================
+        /* =====================================================
            FOOTER
-        ========================= */
+        ===================================================== */
 
         footer {
 
@@ -1604,10 +1424,12 @@
         }
 
 
+        /* =====================================================
+           MOBILE
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+           앰블럼은 여기에서도 절대 1열로 바꾸지 않음.
+           항상 2열 유지.
+        ===================================================== */
 
         @media (max-width: 850px) {
 
@@ -1627,34 +1449,27 @@
 
             .rules-list {
 
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
 
 
             .rule:last-child {
 
-                grid-column:
-                    auto;
+                grid-column: auto;
             }
 
 
             .divisions-grid {
 
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .emblem-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
 
         }
 
 
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
 
         @media (max-width: 600px) {
 
@@ -1744,13 +1559,6 @@
             }
 
 
-            .section {
-
-                padding:
-                    65px 0;
-            }
-
-
             .rules-section {
 
                 padding:
@@ -1804,13 +1612,6 @@
             }
 
 
-            .conclave-card::before {
-
-                width: 120px;
-                height: 120px;
-            }
-
-
             .conclave-content h2 {
 
                 font-size: 30px;
@@ -1857,11 +1658,23 @@
             }
 
 
+            /* =============================================
+               EMBLEM
+               
+               모바일에서도 2열 유지
+            ============================================= */
+
             .emblem-section {
 
                 padding:
-                    70px 0
+                    75px 0
                     80px;
+            }
+
+
+            .emblem-header {
+
+                margin-bottom: 35px;
             }
 
 
@@ -1880,15 +1693,11 @@
             }
 
 
-            .emblem-card {
-
-                padding: 12px;
-            }
-
-
             .emblem-name {
 
-                font-size: 11px;
+                margin-top: 14px;
+
+                font-size: 12px;
 
                 letter-spacing: 2px;
             }
@@ -1920,6 +1729,9 @@
         }
 
 
+        /* =====================================================
+           VERY SMALL MOBILE
+        ===================================================== */
 
         @media (max-width: 390px) {
 
@@ -1951,9 +1763,9 @@
 <body>
 
 
-    <!-- =========================
+    <!-- =====================================================
          ACCESS SCREEN
-    ========================== -->
+    ===================================================== -->
 
     <div id="access-screen">
 
@@ -1997,16 +1809,16 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          MAIN SITE
-    ========================== -->
+    ===================================================== -->
 
     <div id="main-site">
 
 
-        <!-- =========================
+        <!-- =================================================
              NAVIGATION
-        ========================== -->
+        ================================================== -->
 
         <nav class="top-nav">
 
@@ -2077,9 +1889,9 @@
         <main class="page">
 
 
-            <!-- =========================
+            <!-- =================================================
                  HERO
-            ========================== -->
+            ================================================== -->
 
             <section class="hero">
 
@@ -2087,15 +1899,19 @@
                     CLASSIFIED ORGANIZATION
                 </div>
 
+
                 <h1>
                     THE VEIL.
                 </h1>
 
+
                 <div class="hero-line"></div>
+
 
                 <div class="hero-sub">
                     우리는 의뢰인을 배신하지 않는다.
                 </div>
+
 
                 <div class="hero-statement">
                     "목표는 반드시 죽인다."
@@ -2105,9 +1921,9 @@
 
 
 
-            <!-- ==================================================
+            <!-- =================================================
                  SEVEN RULES
-            =================================================== -->
+            ================================================== -->
 
             <section
                 class="rules-section"
@@ -2259,9 +2075,9 @@
 
 
 
-            <!-- ==================================================
+            <!-- =================================================
                  CONCLAVE
-            =================================================== -->
+            ================================================== -->
 
             <section
                 class="conclave-section"
@@ -2324,9 +2140,9 @@
 
 
 
-            <!-- ==================================================
+            <!-- =================================================
                  DIVISIONS
-            =================================================== -->
+            ================================================== -->
 
             <section
                 class="divisions-section"
@@ -2389,7 +2205,6 @@
                     </a>
 
 
-
                     <!-- INTELLIGENCE -->
 
                     <a
@@ -2426,7 +2241,6 @@
                     </a>
 
 
-
                     <!-- SUPPORT -->
 
                     <a
@@ -2461,7 +2275,6 @@
                         </div>
 
                     </a>
-
 
 
                     <!-- PROCESS -->
@@ -2506,14 +2319,26 @@
 
 
 
-            <!-- ==================================================
+            <!-- =================================================
                  DEPARTMENT & MEMBER INTRODUCTION
-            =================================================== -->
+                 
+                 앰블럼 순서
+                 
+                 01 ARCHON
+                 02 CONCLAVE
+                 03 FIELD
+                 04 INTELLIGENCE
+                 05 SUPPORT
+                 06 PROCESS
+            ================================================== -->
 
             <section
                 class="emblem-section"
                 id="departments"
             >
+
+
+                <!-- SECTION TITLE -->
 
                 <div class="emblem-header">
 
@@ -2532,12 +2357,86 @@
                 </div>
 
 
+
+                <!-- =================================================
+                     EMBLEM GRID
+                     
+                     PC / TABLET / MOBILE
+                     항상 2열 × 3행
+                ================================================== -->
+
                 <div class="emblem-grid">
 
 
-                    <!-- =========================
-                         FIELD
-                    ========================== -->
+                    <!-- =================================================
+                         01. ARCHON
+                    ================================================== -->
+
+                    <a
+                        href="#"
+                        class="emblem-card"
+                    >
+
+                        <div class="emblem-image">
+
+                            <img
+                                src="archon.jpg"
+                                alt="ARCHON"
+                            >
+
+                        </div>
+
+
+                        <div class="emblem-name">
+                            ARCHON
+                        </div>
+
+
+                        <div class="emblem-code">
+                            COMMAND // 00
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- =================================================
+                         02. CONCLAVE
+                    ================================================== -->
+
+                    <a
+                        href="conclave.html"
+                        target="_blank"
+                        rel="noopener"
+                        class="emblem-card"
+                    >
+
+                        <div class="emblem-image">
+
+                            <img
+                                src="images/conclave-symbol.jpg"
+                                alt="CONCLAVE"
+                            >
+
+                        </div>
+
+
+                        <div class="emblem-name">
+                            CONCLAVE
+                        </div>
+
+
+                        <div class="emblem-code">
+                            ADMINISTRATION // 01
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- =================================================
+                         03. FIELD
+                    ================================================== -->
 
                     <a
                         href="field.html"
@@ -2555,9 +2454,11 @@
 
                         </div>
 
+
                         <div class="emblem-name">
                             FIELD
                         </div>
+
 
                         <div class="emblem-code">
                             DIVISION // 01
@@ -2567,9 +2468,9 @@
 
 
 
-                    <!-- =========================
-                         INTELLIGENCE
-                    ========================== -->
+                    <!-- =================================================
+                         04. INTELLIGENCE
+                    ================================================== -->
 
                     <a
                         href="intel.html"
@@ -2587,9 +2488,11 @@
 
                         </div>
 
+
                         <div class="emblem-name">
                             INTELLIGENCE
                         </div>
+
 
                         <div class="emblem-code">
                             DIVISION // 02
@@ -2599,9 +2502,9 @@
 
 
 
-                    <!-- =========================
-                         SUPPORT
-                    ========================== -->
+                    <!-- =================================================
+                         05. SUPPORT
+                    ================================================== -->
 
                     <a
                         href="support.html"
@@ -2619,9 +2522,11 @@
 
                         </div>
 
+
                         <div class="emblem-name">
                             SUPPORT
                         </div>
+
 
                         <div class="emblem-code">
                             DIVISION // 03
@@ -2631,9 +2536,9 @@
 
 
 
-                    <!-- =========================
-                         PROCESS
-                    ========================== -->
+                    <!-- =================================================
+                         06. PROCESS
+                    ================================================== -->
 
                     <a
                         href="process.html"
@@ -2651,9 +2556,11 @@
 
                         </div>
 
+
                         <div class="emblem-name">
                             PROCESS
                         </div>
+
 
                         <div class="emblem-code">
                             DIVISION // 04
@@ -2662,67 +2569,15 @@
                     </a>
 
 
-
-                    <!-- =========================
-                         FUTURE DIVISION 05
-                    ========================== -->
-
-                    <div class="emblem-card empty">
-
-                        <div class="emblem-image">
-
-                            <span>
-                                CLASSIFIED
-                            </span>
-
-                        </div>
-
-                        <div class="emblem-name">
-                            DIVISION 05
-                        </div>
-
-                        <div class="emblem-code">
-                            CLASSIFIED // 05
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- =========================
-                         FUTURE DIVISION 06
-                    ========================== -->
-
-                    <div class="emblem-card empty">
-
-                        <div class="emblem-image">
-
-                            <span>
-                                CLASSIFIED
-                            </span>
-
-                        </div>
-
-                        <div class="emblem-name">
-                            DIVISION 06
-                        </div>
-
-                        <div class="emblem-code">
-                            CLASSIFIED // 06
-                        </div>
-
-                    </div>
-
-
                 </div>
 
             </section>
 
 
 
-            <!-- =========================
+            <!-- =================================================
                  FINAL STATEMENT
-            ========================== -->
+            ================================================== -->
 
             <section class="final-section">
 
@@ -2740,9 +2595,9 @@
 
 
 
-            <!-- =========================
+            <!-- =================================================
                  FOOTER
-            ========================== -->
+            ================================================== -->
 
             <footer>
 
@@ -2763,14 +2618,22 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          ACCESS SCRIPT
-    ========================== -->
+    ===================================================== -->
 
     <script>
 
+        /* =====================================================
+           ACCESS CODE
+        ===================================================== */
+
         const ACCESS_CODE = "261001";
 
+
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
 
         const accessScreen =
             document.getElementById(
@@ -2797,6 +2660,10 @@
 
 
 
+        /* =====================================================
+           UNLOCK
+        ===================================================== */
+
         function unlockSite() {
 
             accessScreen.classList.add(
@@ -2818,6 +2685,10 @@
 
 
 
+        /* =====================================================
+           CHECK ACCESS
+        ===================================================== */
+
         function checkAccess() {
 
             const entered =
@@ -2830,12 +2701,17 @@
 
                 unlockSite();
 
-            } else {
+            }
+
+            else {
 
                 accessError.textContent =
                     "ACCESS DENIED.";
 
-                accessInput.value = "";
+
+                accessInput.value =
+                    "";
+
 
                 accessInput.focus();
 
@@ -2845,10 +2721,12 @@
 
 
 
+        /* =====================================================
+           ENTER KEY
+        ===================================================== */
+
         accessInput.addEventListener(
-
             "keydown",
-
             function(event) {
 
                 if (
@@ -2860,15 +2738,16 @@
                 }
 
             }
-
         );
 
 
 
+        /* =====================================================
+           PAGE LOAD
+        ===================================================== */
+
         window.addEventListener(
-
             "load",
-
             function() {
 
                 if (
@@ -2879,28 +2758,27 @@
 
                     unlockSite();
 
-                } else {
+                }
+
+                else {
 
                     setTimeout(
-
                         function() {
 
                             accessInput.focus();
 
                         },
-
                         300
-
                     );
 
                 }
 
             }
-
         );
 
     </script>
 
 
 </body>
+
 </html>
