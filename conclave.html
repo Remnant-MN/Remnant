@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE VEIL. // ENFORCEMENT</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at 50% 20%, rgba(255,255,255,0.035), transparent 35%),
+        linear-gradient(180deg, #080808 0%, #050505 100%);
+    color: #e8e8e8;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    letter-spacing: 0.04em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================
+   NAV
+========================= */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 68px;
+    background: rgba(5,5,5,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1b1b1b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 42px;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 26px;
+}
+
+.nav-links a {
+    font-size: 10px;
+    color: #777;
+    letter-spacing: 0.16em;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+    color: #fff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 76vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 130px 20px 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border: 1px solid #181818;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border: 1px solid #141414;
+    border-radius: 50%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.classified {
+    font-size: 10px;
+    color: #555;
+    letter-spacing: 0.35em;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(52px, 10vw, 120px);
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    line-height: 0.95;
+}
+
+.hero-sub {
+    margin-top: 24px;
+    font-size: 12px;
+    color: #777;
+    letter-spacing: 0.3em;
+}
+
+.hero-line {
+    width: 70px;
+    height: 1px;
+    background: #555;
+    margin: 30px auto;
+}
+
+.hero-korean {
+    font-size: 14px;
+    color: #bdbdbd;
+    letter-spacing: 0.35em;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 90px 24px;
+}
+
+.section-label {
+    font-size: 9px;
+    color: #555;
+    letter-spacing: 0.3em;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: 0.14em;
+}
+
+.section-description {
+    max-width: 680px;
+    margin-top: 18px;
+    color: #777;
+    font-size: 12px;
+    line-height: 2;
+}
+
+/* =========================
+   AUTHORITY
+========================= */
+
+.authority {
+    border-top: 1px solid #1b1b1b;
+    border-bottom: 1px solid #1b1b1b;
+    padding: 50px 0;
+}
+
+.authority-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #1a1a1a;
+    margin-top: 45px;
+}
+
+.authority-item {
+    background: #080808;
+    padding: 38px 28px;
+    min-height: 190px;
+}
+
+.authority-number {
+    font-size: 10px;
+    color: #444;
+    letter-spacing: 0.2em;
+}
+
+.authority-item h3 {
+    margin-top: 28px;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+}
+
+.authority-item p {
+    margin-top: 14px;
+    color: #666;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* =========================
+   COMMAND
+========================= */
+
+.command {
+    margin-top: 20px;
+    border: 1px solid #242424;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.025), transparent 50%),
+        #080808;
+    padding: 55px;
+    position: relative;
+}
+
+.command::before {
+    content: "CLASSIFIED";
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 8px;
+    color: #333;
+    letter-spacing: 0.25em;
+}
+
+.command-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #1d1d1d;
+    padding-bottom: 30px;
+}
+
+.command-code {
+    font-size: 9px;
+    color: #555;
+    letter-spacing: 0.2em;
+}
+
+.command h2 {
+    margin-top: 12px;
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+}
+
+.command-role {
+    font-size: 11px;
+    color: #777;
+    margin-top: 8px;
+}
+
+.command-status {
+    font-size: 9px;
+    color: #aaa;
+    border: 1px solid #333;
+    padding: 9px 14px;
+    letter-spacing: 0.15em;
+}
+
+.command-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding-top: 35px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #171717;
+    padding: 13px 0;
+}
+
+.info-row span:first-child {
+    color: #555;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+}
+
+.info-row span:last-child {
+    color: #aaa;
+    font-size: 10px;
+}
+
+/* =========================
+   OPERATIONS
+========================= */
+
+.operations {
+    margin-top: 90px;
+}
+
+.operation-list {
+    margin-top: 45px;
+    border-top: 1px solid #1c1c1c;
+}
+
+.operation {
+    display: grid;
+    grid-template-columns: 70px 180px 1fr;
+    gap: 20px;
+    padding: 25px 0;
+    border-bottom: 1px solid #171717;
+    align-items: center;
+}
+
+.operation-number {
+    color: #444;
+    font-size: 10px;
+}
+
+.operation-name {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+}
+
+.operation-desc {
+    color: #666;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* =========================
+   RULE
+========================= */
+
+.rule-box {
+    margin-top: 90px;
+    text-align: center;
+    padding: 75px 20px;
+    border-top: 1px solid #171717;
+    border-bottom: 1px solid #171717;
+}
+
+.rule-small {
+    color: #444;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+}
+
+.rule-main {
+    margin-top: 25px;
+    font-size: clamp(26px, 5vw, 52px);
+    font-weight: 300;
+    letter-spacing: 0.12em;
+}
+
+.rule-sub {
+    margin-top: 18px;
+    color: #666;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+    margin-top: 90px;
+}
+
+.status-box {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid #1e1e1e;
+}
+
+.status-item {
+    padding: 25px;
+    border-right: 1px solid #1e1e1e;
+}
+
+.status-item:last-child {
+    border-right: none;
+}
+
+.status-label {
+    font-size: 8px;
+    color: #444;
+    letter-spacing: 0.2em;
+}
+
+.status-value {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #aaa;
+    letter-spacing: 0.12em;
+}
+
+/* =========================
+   BACK
+========================= */
+
+.back {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.back a {
+    display: inline-block;
+    border: 1px solid #292929;
+    padding: 14px 25px;
+    font-size: 9px;
+    color: #666;
+    letter-spacing: 0.2em;
+    transition: 0.3s;
+}
+
+.back a:hover {
+    color: #fff;
+    border-color: #555;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid #171717;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 8px;
+    color: #333;
+    letter-spacing: 0.25em;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .nav {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .authority-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .command {
+        padding: 35px 25px;
+    }
+
+    .command-top {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .command-body {
+        grid-template-columns: 1fr;
+    }
+
+    .operation {
+        grid-template-columns: 45px 1fr;
+    }
+
+    .operation-desc {
+        grid-column: 2;
+    }
+
+    .status-box {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .status-item {
+        border-bottom: 1px solid #1e1e1e;
+    }
+
+    .status-item:nth-child(2) {
+        border-right: none;
+    }
+
+    .status-item:nth-child(3),
+    .status-item:nth-child(4) {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .hero {
+        min-height: 70vh;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .section {
+        padding: 70px 20px;
+    }
+
+    .command h2 {
+        font-size: 30px;
+    }
+
+    .status-box {
+        grid-template-columns: 1fr;
+    }
+
+    .status-item {
+        border-right: none !important;
+        border-bottom: 1px solid #1e1e1e !important;
+    }
+
+    .status-item:last-child {
+        border-bottom: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAV
+========================= -->
+
+<nav class="nav">
+    <a href="index.html" class="logo">THE VEIL.</a>
+
+    <div class="nav-links">
+        <a href="field.html">FIELD</a>
+        <a href="intel.html">INTEL</a>
+        <a href="support.html">SUPPORT</a>
+        <a href="process.html">PROCESS</a>
+        <a href="enforcement.html" class="active">ENFORCEMENT</a>
+    </div>
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="classified">
+            CLASSIFIED ORGANIZATION // 005
+        </div>
+
+        <h1>ENFORCEMENT</h1>
+
+        <div class="hero-sub">
+            ENFORCEMENT DIVISION
+        </div>
+
+        <div class="hero-line"></div>
+
+        <div class="hero-korean">
+            집행부 — 명령을 집행한다.
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="section">
+
+    <div class="section-label">
+        DIVISION // 05
+    </div>
+
+    <h2 class="section-title">
+        ENFORCEMENT
+    </h2>
+
+    <p class="section-description">
+        집행부는 THE VEIL.의 명령과 규율을 직접 집행하는 조직이다.
+        조직 내부의 질서를 유지하고, 규칙을 위반한 자를 처리하며,
+        ARCHON의 명령을 각 부서에 전달하고 실행한다.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     AUTHORITY
+========================= -->
+
+<section class="section authority">
+
+    <div class="section-label">
+        AUTHORITY
+    </div>
+
+    <h2 class="section-title">
+        AUTHORITY STRUCTURE
+    </h2>
+
+    <div class="authority-grid">
+
+        <div class="authority-item">
+
+            <div class="authority-number">
+                01
+            </div>
+
+            <h3>COMMAND</h3>
+
+            <p>
+                ARCHON의 명령을 전달하고
+                조직 전체에 실행한다.
+            </p>
+
+        </div>
+
+
+        <div class="authority-item">
+
+            <div class="authority-number">
+                02
+            </div>
+
+            <h3>DISCIPLINE</h3>
+
+            <p>
+                조직의 규칙과 내부 질서를
+                감시하고 유지한다.
+            </p>
+
+        </div>
+
+
+        <div class="authority-item">
+
+            <div class="authority-number">
+                03
+            </div>
+
+            <h3>EXECUTION</h3>
+
+            <p>
+                조직에 대한 위반과 배신에
+                대한 처분을 집행한다.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COMMANDER
+========================= -->
+
+<section class="section">
+
+    <div class="section-label">
+        COMMAND STRUCTURE
+    </div>
+
+    <h2 class="section-title">
+        COMMAND
+    </h2>
+
+    <div class="command">
+
+        <div class="command-top">
+
+            <div>
+
+                <div class="command-code">
+                    EXECUTIVE // 01
+                </div>
+
+                <h2>ENFORCER</h2>
+
+                <div class="command-role">
+                    집행관 · 관리자
+                </div>
+
+            </div>
+
+            <div class="command-status">
+                ACTIVE
+            </div>
+
+        </div>
+
+
+        <div class="command-body">
+
+            <div>
+
+                <div class="info-row">
+                    <span>DESIGNATION</span>
+                    <span>ENFORCER</span>
+                </div>
+
+                <div class="info-row">
+                    <span>ROLE</span>
+                    <span>EXECUTIVE</span>
+                </div>
+
+                <div class="info-row">
+                    <span>AUTHORITY</span>
+                    <span>HIGH</span>
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="info-row">
+                    <span>COMMAND</span>
+                    <span>ARCHON</span>
+                </div>
+
+                <div class="info-row">
+                    <span>DIVISION</span>
+                    <span>ENFORCEMENT</span>
+                </div>
+
+                <div class="info-row">
+                    <span>STATUS</span>
+                    <span>ACTIVE</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     OPERATIONS
+========================= -->
+
+<section class="section operations">
+
+    <div class="section-label">
+        EXECUTIVE FUNCTIONS
+    </div>
+
+    <h2 class="section-title">
+        OPERATIONS
+    </h2>
+
+    <div class="operation-list">
+
+        <div class="operation">
+
+            <div class="operation-number">
+                01
+            </div>
+
+            <div class="operation-name">
+                COMMAND
+            </div>
+
+            <div class="operation-desc">
+                ARCHON의 명령을 각 부서에 전달하고 실행 상태를 확인한다.
+            </div>
+
+        </div>
+
+
+        <div class="operation">
+
+            <div class="operation-number">
+                02
+            </div>
+
+            <div class="operation-name">
+                CONTROL
+            </div>
+
+            <div class="operation-desc">
+                조직 내부의 활동과 각 부서의 규율 준수 여부를 관리한다.
+            </div>
+
+        </div>
+
+
+        <div class="operation">
+
+            <div class="operation-number">
+                03
+            </div>
+
+            <div class="operation-name">
+                DISCIPLINE
+            </div>
+
+            <div class="operation-desc">
+                조직의 규칙을 위반한 조직원을 조사하고 필요한 조치를 집행한다.
+            </div>
+
+        </div>
+
+
+        <div class="operation">
+
+            <div class="operation-number">
+                04
+            </div>
+
+            <div class="operation-name">
+                JUDGMENT
+            </div>
+
+            <div class="operation-desc">
+                조직에 대한 배신과 중대한 위반 사항을 판정하고 처분을 결정한다.
+            </div>
+
+        </div>
+
+
+        <div class="operation">
+
+            <div class="operation-number">
+                05
+            </div>
+
+            <div class="operation-name">
+                EXECUTION
+            </div>
+
+            <div class="operation-desc">
+                결정된 명령과 처분을 직접 집행한다.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RULE
+========================= -->
+
+<section class="section">
+
+    <div class="rule-box">
+
+        <div class="rule-small">
+            ENFORCEMENT PROTOCOL
+        </div>
+
+        <div class="rule-main">
+            ORDERS ARE NOT REQUESTS.
+        </div>
+
+        <div class="rule-sub">
+            명령은 부탁이 아니다.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STATUS
+========================= -->
+
+<section class="section status">
+
+    <div class="section-label">
+        SYSTEM STATUS
+    </div>
+
+    <h2 class="section-title">
+        DIVISION STATUS
+    </h2>
+
+    <div class="status-box">
+
+        <div class="status-item">
+
+            <div class="status-label">
+                DIVISION
+            </div>
+
+            <div class="status-value">
+                ENFORCEMENT / 05
+            </div>
+
+        </div>
+
+
+        <div class="status-item">
+
+            <div class="status-label">
+                DESIGNATION
+            </div>
+
+            <div class="status-value">
+                EXECUTIVE
+            </div>
+
+        </div>
+
+
+        <div class="status-item">
+
+            <div class="status-label">
+                AUTHORITY
+            </div>
+
+            <div class="status-value">
+                HIGH
+            </div>
+
+        </div>
+
+
+        <div class="status-item">
+
+            <div class="status-label">
+                COMMAND
+            </div>
+
+            <div class="status-value">
+                ARCHON
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BACK
+========================= -->
+
+<div class="back">
+
+    <a href="index.html">
+        RETURN TO THE VEIL.
+    </a>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        THE VEIL. // ENFORCEMENT DIVISION // CLASSIFIED
+    </p>
+
+</footer>
+
+</body>
+</html>
