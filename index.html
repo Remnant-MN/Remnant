@@ -659,25 +659,475 @@
 
 
         /* =========================
-           SYMBOL HIERARCHY
+           CONCLAVE
         ========================= */
 
-        .symbol-hierarchy { display:flex; flex-direction:column; align-items:center; }
-        .command-symbol { width:min(430px,100%); }
-        .symbol-card { position:relative; border:1px solid #292929; background:linear-gradient(145deg,#101010,#070707); overflow:hidden; padding:25px; }
-        .symbol-card::before, .division-symbol-card::before { content:""; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.035),transparent 35%,transparent 65%,rgba(255,255,255,.015)); pointer-events:none; }
-        .symbol-image { width:100%; height:250px; border:1px solid #202020; background:#050505; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; z-index:1; }
-        .symbol-image img, .division-symbol-image img { width:100%; height:100%; object-fit:contain; display:block; opacity:.92; transition:transform .35s ease,opacity .35s ease; }
-        .symbol-card:hover .symbol-image img, .division-symbol-card:hover .division-symbol-image img { transform:scale(1.04); opacity:1; }
-        .symbol-content, .division-symbol-content { position:relative; z-index:2; margin-top:18px; }
-        .symbol-code, .division-symbol-code { color:#555; font-family:"Courier New",monospace; font-size:8px; letter-spacing:3px; }
-        .symbol-name { margin-top:8px; color:#eee; font-family:Georgia,"Times New Roman",serif; font-size:27px; font-weight:400; letter-spacing:4px; }
-        .symbol-korean, .division-symbol-korean { margin-top:7px; color:#777; font-size:10px; letter-spacing:2px; }
-        .hierarchy-line { width:1px; height:45px; background:#333; }
-        .division-symbol-grid { width:100%; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
-        .division-symbol-card { position:relative; min-height:290px; padding:18px; border:1px solid #292929; background:linear-gradient(145deg,#101010,#070707); overflow:hidden; }
-        .division-symbol-image { width:100%; height:185px; border:1px solid #202020; background:#050505; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; z-index:1; }
-        .division-symbol-name { margin-top:7px; color:#eee; font-family:Georgia,"Times New Roman",serif; font-size:18px; font-weight:400; letter-spacing:2px; }
+        .conclave-section {
+            padding:
+                100px 0
+                80px;
+        }
+
+        .conclave-card {
+            position: relative;
+
+            display: block;
+
+            width: 100%;
+
+            min-height: 300px;
+
+            padding:
+                60px 70px;
+
+            text-decoration: none;
+
+            color: inherit;
+
+            border:
+                1px solid #333;
+
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(255,255,255,0.035),
+                    transparent 40%
+                ),
+                linear-gradient(
+                    145deg,
+                    #101010,
+                    #070707
+                );
+
+            overflow: hidden;
+
+            transition:
+                border-color 0.35s ease,
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .conclave-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+            height: 150px;
+
+            border:
+                1px solid #333;
+
+            transform:
+                rotate(45deg);
+
+            top: 50%;
+            left: 50%;
+
+            translate:
+                -50% -50%;
+
+            opacity: 0.45;
+
+            transition:
+                transform 0.5s ease,
+                border-color 0.35s ease;
+        }
+
+        .conclave-card::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 15px;
+
+            border:
+                1px solid rgba(255,255,255,0.025);
+
+            pointer-events: none;
+        }
+
+        .conclave-card:hover {
+            border-color: #666;
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .conclave-card:hover::before {
+            transform:
+                translate(-50%, -50%)
+                rotate(45deg)
+                scale(1.08);
+
+            border-color: #555;
+        }
+
+        .conclave-content {
+            position: relative;
+
+            z-index: 2;
+
+            text-align: center;
+        }
+
+        .conclave-label {
+            color: #555;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+        }
+
+        .conclave-content h2 {
+            margin-top: 16px;
+
+            color: #eee;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+
+            font-size: 40px;
+
+            letter-spacing: 7px;
+        }
+
+        .conclave-content .korean {
+            margin-top: 13px;
+
+            color: #888;
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+        }
+
+        .conclave-content p {
+            width:
+                min(580px, 100%);
+
+            margin:
+                25px auto 0;
+
+            color: #555;
+
+            font-size: 10px;
+
+            line-height: 2;
+
+            letter-spacing: 1px;
+        }
+
+        .conclave-enter {
+            display: inline-block;
+
+            margin-top: 28px;
+
+            padding:
+                12px 25px;
+
+            border:
+                1px solid #333;
+
+            color: #777;
+
+            font-size: 8px;
+
+            letter-spacing: 3px;
+
+            transition:
+                color 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .conclave-card:hover .conclave-enter {
+            color: #eee;
+
+            border-color: #666;
+
+            background:
+                rgba(255,255,255,0.03);
+        }
+
+
+        /* =========================
+           DIVISIONS
+        ========================= */
+
+        .divisions-section {
+            padding:
+                80px 0
+                110px;
+        }
+
+        .divisions-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .division-card {
+            position: relative;
+
+            min-height: 260px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: flex-end;
+
+            padding: 35px;
+
+            text-decoration: none;
+
+            color: inherit;
+
+            border:
+                1px solid #292929;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #101010,
+                    #070707
+                );
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .division-card::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.035),
+                    transparent 35%,
+                    transparent 65%,
+                    rgba(255,255,255,0.015)
+                );
+
+            pointer-events: none;
+        }
+
+        .division-card::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            height: 45%;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.75),
+                    transparent
+                );
+
+            pointer-events: none;
+        }
+
+        .division-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #555;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.45);
+        }
+
+        .division-number {
+            position: absolute;
+
+            top: 22px;
+            left: 25px;
+
+            color: #444;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+        }
+
+        .division-content {
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .division-code {
+            color: #555;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 8px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 10px;
+        }
+
+        .division-name {
+            color: #eee;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 30px;
+
+            font-weight: 400;
+
+            letter-spacing: 4px;
+        }
+
+        .division-korean {
+            margin-top: 8px;
+
+            color: #777;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+        }
+
+        .division-slogan {
+            margin-top: 18px;
+
+            color: #444;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* =========================
+           ORGANIZATION
+        ========================= */
+
+        .organization-section {
+            padding:
+                90px 0;
+
+            border-top:
+                1px solid #1c1c1c;
+
+            border-bottom:
+                1px solid #1c1c1c;
+        }
+
+        .organization-chain {
+            max-width: 800px;
+
+            margin: 0 auto;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+        }
+
+        .org-item {
+            width: 100%;
+
+            max-width: 550px;
+
+            padding:
+                25px 30px;
+
+            border:
+                1px solid #292929;
+
+            background:
+                #080808;
+
+            text-align: center;
+        }
+
+        .org-label {
+            color: #444;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 8px;
+
+            letter-spacing: 3px;
+        }
+
+        .org-title {
+            margin-top: 9px;
+
+            color: #ddd;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 17px;
+
+            letter-spacing: 3px;
+        }
+
+        .org-detail {
+            margin-top: 7px;
+
+            color: #555;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+        }
+
+        .org-line {
+            width: 1px;
+            height: 35px;
+
+            background:
+                #333;
+        }
+
 
         /* =========================
            FINAL STATEMENT
@@ -799,10 +1249,6 @@
             .divisions-grid {
                 grid-template-columns:
                     1fr;
-            }
-
-            .division-symbol-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -955,10 +1401,6 @@
             .division-name {
                 font-size: 26px;
             }
-
-            .symbol-image { height:220px; }
-            .division-symbol-image { height:165px; }
-            .division-symbol-grid { grid-template-columns:1fr; }
 
             .organization-section {
                 padding:
@@ -1141,11 +1583,11 @@
                 <div class="hero-line"></div>
 
                 <div class="hero-sub">
-                    우리는 의뢰인을 배신하지 않는다.
+                    WE DO NOT EXIST.
                 </div>
 
                 <div class="hero-statement">
-                    "목표는 반드시 죽인다."
+                    "THE WORLD IS NOT WHAT IT SEEMS."
                 </div>
 
             </section>
@@ -1308,51 +1750,337 @@
 
 
             <!-- ==================================================
-                 SYMBOL HIERARCHY
+                 CONCLAVE
+                 DIVISIONS 바로 위
             =================================================== -->
 
-            <section class="conclave-section" id="symbols">
+            <section
+                class="conclave-section"
+                id="conclave"
+            >
+
                 <div class="section-header">
-                    <div class="section-number">COMMAND // 00—01</div>
-                    <h2>SYMBOLS</h2>
-                    <p>COMMAND // ADMINISTRATION // OPERATIONS</p>
+
+                    <div class="section-number">
+                        ADMINISTRATION // 01
+                    </div>
+
+                    <h2>
+                        CONCLAVE
+                    </h2>
+
+                    <p>
+                        EXECUTIVE COUNCIL
+                    </p>
+
                 </div>
 
-                <div class="symbol-hierarchy">
-                    <div class="command-symbol">
-                        <article class="symbol-card">
-                            <div class="symbol-image"><img src="images/archon-symbol.jpg" alt="ARCHON symbol"></div>
-                            <div class="symbol-content">
-                                <div class="symbol-code">COMMAND // 00</div>
-                                <div class="symbol-name">ARCHON</div>
-                                <div class="symbol-korean">수장</div>
-                            </div>
-                        </article>
+
+                <a
+                    href="conclave.html"
+                    target="_blank"
+                    rel="noopener"
+                    class="conclave-card"
+                >
+
+                    <div class="conclave-content">
+
+                        <div class="conclave-label">
+                            ORGANIZATION // ADMINISTRATION
+                        </div>
+
+                        <h2>
+                            CONCLAVE
+                        </h2>
+
+                        <div class="korean">
+                            조직의 질서와 운영을 관리한다.
+                        </div>
+
+                        <p>
+                            ARCHON 아래에서 THE VEIL의 질서,
+                            규율, 운영을 관리하는 비밀 관리자 집단.
+                            각 부서의 운영을 감독하며 조직 전체의 균형을 유지한다.
+                        </p>
+
+                        <div class="conclave-enter">
+                            ENTER CONCLAVE
+                        </div>
+
                     </div>
 
-                    <div class="hierarchy-line"></div>
+                </a>
 
-                    <div class="command-symbol">
-                        <article class="symbol-card">
-                            <div class="symbol-image"><img src="images/conclave-symbol.jpg" alt="CONCLAVE symbol"></div>
-                            <div class="symbol-content">
-                                <div class="symbol-code">ADMINISTRATION // 01</div>
-                                <div class="symbol-name">CONCLAVE</div>
-                                <div class="symbol-korean">관리자 집단</div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="hierarchy-line"></div>
-
-                    <div class="division-symbol-grid">
-                        <article class="division-symbol-card"><div class="division-symbol-image"><img src="images/field-symbol.jpg" alt="FIELD symbol"></div><div class="division-symbol-content"><div class="division-symbol-code">DIVISION // 01</div><div class="division-symbol-name">FIELD</div><div class="division-symbol-korean">실전부</div></div></article>
-                        <article class="division-symbol-card"><div class="division-symbol-image"><img src="images/intel-symbol.jpg" alt="INTELLIGENCE symbol"></div><div class="division-symbol-content"><div class="division-symbol-code">DIVISION // 02</div><div class="division-symbol-name">INTELLIGENCE</div><div class="division-symbol-korean">정보부</div></div></article>
-                        <article class="division-symbol-card"><div class="division-symbol-image"><img src="images/support-symbol.jpg" alt="SUPPORT symbol"></div><div class="division-symbol-content"><div class="division-symbol-code">DIVISION // 03</div><div class="division-symbol-name">SUPPORT</div><div class="division-symbol-korean">지원부</div></div></article>
-                        <article class="division-symbol-card"><div class="division-symbol-image"><img src="images/process-symbol.jpg" alt="PROCESS symbol"></div><div class="division-symbol-content"><div class="division-symbol-code">DIVISION // 04</div><div class="division-symbol-name">PROCESS</div><div class="division-symbol-korean">처리부</div></div></article>
-                    </div>
-                </div>
             </section>
+
+
+
+            <!-- ==================================================
+                 DIVISIONS
+            =================================================== -->
+
+            <section
+                class="divisions-section"
+                id="divisions"
+            >
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        OPERATIONS // 01—04
+                    </div>
+
+                    <h2>
+                        DIVISIONS
+                    </h2>
+
+                    <p>
+                        EACH HAS ONE PURPOSE.
+                    </p>
+
+                </div>
+
+
+                <div class="divisions-grid">
+
+
+                    <!-- FIELD -->
+
+                    <a
+                        href="field.html"
+                        target="_blank"
+                        rel="noopener"
+                        class="division-card"
+                    >
+
+                        <div class="division-number">
+                            DIVISION // 01
+                        </div>
+
+                        <div class="division-content">
+
+                            <div class="division-code">
+                                FIELD
+                            </div>
+
+                            <div class="division-name">
+                                FIELD
+                            </div>
+
+                            <div class="division-korean">
+                                실전부
+                            </div>
+
+                            <div class="division-slogan">
+                                죽인다.
+                            </div>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- INTELLIGENCE -->
+
+                    <a
+                        href="intel.html"
+                        target="_blank"
+                        rel="noopener"
+                        class="division-card"
+                    >
+
+                        <div class="division-number">
+                            DIVISION // 02
+                        </div>
+
+                        <div class="division-content">
+
+                            <div class="division-code">
+                                INTELLIGENCE
+                            </div>
+
+                            <div class="division-name">
+                                INTELLIGENCE
+                            </div>
+
+                            <div class="division-korean">
+                                정보부
+                            </div>
+
+                            <div class="division-slogan">
+                                찾아낸다.
+                            </div>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- SUPPORT -->
+
+                    <a
+                        href="support.html"
+                        target="_blank"
+                        rel="noopener"
+                        class="division-card"
+                    >
+
+                        <div class="division-number">
+                            DIVISION // 03
+                        </div>
+
+                        <div class="division-content">
+
+                            <div class="division-code">
+                                SUPPORT
+                            </div>
+
+                            <div class="division-name">
+                                SUPPORT
+                            </div>
+
+                            <div class="division-korean">
+                                지원부
+                            </div>
+
+                            <div class="division-slogan">
+                                돕는다.
+                            </div>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- PROCESS -->
+
+                    <a
+                        href="process.html"
+                        target="_blank"
+                        rel="noopener"
+                        class="division-card"
+                    >
+
+                        <div class="division-number">
+                            DIVISION // 04
+                        </div>
+
+                        <div class="division-content">
+
+                            <div class="division-code">
+                                PROCESS
+                            </div>
+
+                            <div class="division-name">
+                                PROCESS
+                            </div>
+
+                            <div class="division-korean">
+                                처리부
+                            </div>
+
+                            <div class="division-slogan">
+                                지운다.
+                            </div>
+
+                        </div>
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 ORGANIZATION
+            =================================================== -->
+
+            <section class="organization-section">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        STRUCTURE // 00
+                    </div>
+
+                    <h2>
+                        ORGANIZATION
+                    </h2>
+
+                    <p>
+                        THE VEIL // INTERNAL STRUCTURE
+                    </p>
+
+                </div>
+
+
+                <div class="organization-chain">
+
+
+                    <div class="org-item">
+
+                        <div class="org-label">
+                            COMMAND
+                        </div>
+
+                        <div class="org-title">
+                            ARCHON
+                        </div>
+
+                        <div class="org-detail">
+                            NOX // COMMANDER
+                        </div>
+
+                    </div>
+
+
+                    <div class="org-line"></div>
+
+
+                    <div class="org-item">
+
+                        <div class="org-label">
+                            ADMINISTRATION
+                        </div>
+
+                        <div class="org-title">
+                            CONCLAVE
+                        </div>
+
+                        <div class="org-detail">
+                            EXECUTIVE COUNCIL
+                        </div>
+
+                    </div>
+
+
+                    <div class="org-line"></div>
+
+
+                    <div class="org-item">
+
+                        <div class="org-label">
+                            OPERATIONS
+                        </div>
+
+                        <div class="org-title">
+                            FIELD // INTELLIGENCE // SUPPORT // PROCESS
+                        </div>
+
+                        <div class="org-detail">
+                            OPERATIONAL DIVISIONS
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
 
 
             <!-- =========================
@@ -1364,7 +2092,7 @@
                 <div class="final-line"></div>
 
                 <h2>
-                    의리는 끝까지, 배신은 죽음까지.
+                    WE DO NOT EXIST.
                 </h2>
 
                 <p>
